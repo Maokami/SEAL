@@ -1,0 +1,119 @@
+\doxysection{seal\+::Shake256\+PRNG Class Reference}
+\hypertarget{classseal_1_1_shake256_p_r_n_g}{}\label{classseal_1_1_shake256_p_r_n_g}\index{seal::Shake256PRNG@{seal::Shake256PRNG}}
+
+
+{\ttfamily \#include $<$randomgen.\+h$>$}
+
+Inheritance diagram for seal\+::Shake256\+PRNG\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_shake256_p_r_n_g}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_aa1e732af01e0b66255732f5e948c53c1}{Shake256\+PRNG}} (prng\+\_\+seed\+\_\+type seed)
+\item 
+\mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_a1210fd5080b84267a104fefc9b87f9eb}{\texorpdfstring{$\sim$}{\string~}\+Shake256\+PRNG}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{seal\+::\+Uniform\+Random\+Generator}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_uniform_random_generator_a9805119090a45dcec3a1f7b01075b742}{Uniform\+Random\+Generator}} (prng\+\_\+seed\+\_\+type seed)
+\item 
+SEAL\+\_\+\+NODISCARD prng\+\_\+seed\+\_\+type {\bfseries seed} () const noexcept
+\item 
+void \mbox{\hyperlink{classseal_1_1_uniform_random_generator_afef3d67f19a8032957c618767e2cd125}{generate}} (std\+::size\+\_\+t byte\+\_\+count, seal\+\_\+byte \texorpdfstring{$\ast$}{*}destination)
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint32\+\_\+t \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a8d7cca5150bd079a28548f94f1de47d9}{generate}} ()
+\item 
+void \mbox{\hyperlink{classseal_1_1_uniform_random_generator_afc279dfa1e890f83000cab298d6d921b}{refresh}} ()
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{Uniform\+Random\+Generator\+Info}} \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a1cd34a34ddf914c1295c0068324bec44}{info}} () const noexcept
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_uniform_random_generator_ad29451201db88b6e14eeb8e04e1fa939}{\texorpdfstring{$\sim$}{\string~}\+Uniform\+Random\+Generator}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+SEAL\+\_\+\+NODISCARD prng\+\_\+type \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_a4507163ce1eaa3d1863052c44758e85e}{type}} () const noexcept override
+\item 
+void \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_aac6f1df1921dcaf236c272def337a17f}{refill\+\_\+buffer}} () override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_a0fbab287f38ef4cc08e303e706aaaac7}\label{classseal_1_1_uniform_random_generator_a0fbab287f38ef4cc08e303e706aaaac7} 
+virtual SEAL\+\_\+\+NODISCARD prng\+\_\+type {\bfseries type} () const noexcept=0
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_afe92dcaa8c961ebdbe7cc4c8eeec11c4}\label{classseal_1_1_uniform_random_generator_afe92dcaa8c961ebdbe7cc4c8eeec11c4} 
+virtual void {\bfseries refill\+\_\+buffer} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{seal\+::\+Uniform\+Random\+Generator}}}
+\begin{DoxyCompactItemize}
+\item 
+const \mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ std\+::uint64\+\_\+t $>$ {\bfseries seed\+\_\+}
+\item 
+const std\+::size\+\_\+t {\bfseries buffer\+\_\+size\+\_\+} = 4096
+\item 
+seal\+\_\+byte \texorpdfstring{$\ast$}{*}const {\bfseries buffer\+\_\+begin\+\_\+}
+\item 
+seal\+\_\+byte \texorpdfstring{$\ast$}{*}const {\bfseries buffer\+\_\+end\+\_\+}
+\item 
+seal\+\_\+byte \texorpdfstring{$\ast$}{*} {\bfseries buffer\+\_\+head\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides an implementation of \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator} for using SHAKE-\/256 for generating randomness with given 128-\/bit seed. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_shake256_p_r_n_g_aa1e732af01e0b66255732f5e948c53c1}\label{classseal_1_1_shake256_p_r_n_g_aa1e732af01e0b66255732f5e948c53c1} 
+\index{seal::Shake256PRNG@{seal::Shake256PRNG}!Shake256PRNG@{Shake256PRNG}}
+\index{Shake256PRNG@{Shake256PRNG}!seal::Shake256PRNG@{seal::Shake256PRNG}}
+\doxysubsubsection{\texorpdfstring{Shake256PRNG()}{Shake256PRNG()}}
+{\footnotesize\ttfamily seal\+::\+Shake256\+PRNG\+::\+Shake256\+PRNG (\begin{DoxyParamCaption}\item[{prng\+\_\+seed\+\_\+type}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_shake256_p_r_n_g}{Shake256\+PRNG} instance initialized with the given seed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em seed} & The seed for the random number generator \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_shake256_p_r_n_g_a1210fd5080b84267a104fefc9b87f9eb}\label{classseal_1_1_shake256_p_r_n_g_a1210fd5080b84267a104fefc9b87f9eb} 
+\index{seal::Shake256PRNG@{seal::Shake256PRNG}!````~Shake256PRNG@{\texorpdfstring{$\sim$}{\string~}Shake256PRNG}}
+\index{````~Shake256PRNG@{\texorpdfstring{$\sim$}{\string~}Shake256PRNG}!seal::Shake256PRNG@{seal::Shake256PRNG}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Shake256PRNG()}{\string~Shake256PRNG()}}
+{\footnotesize\ttfamily seal\+::\+Shake256\+PRNG\+::\texorpdfstring{$\sim$}{\string~}\+Shake256\+PRNG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Destroys the random number generator. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_shake256_p_r_n_g_aac6f1df1921dcaf236c272def337a17f}\label{classseal_1_1_shake256_p_r_n_g_aac6f1df1921dcaf236c272def337a17f} 
+\index{seal::Shake256PRNG@{seal::Shake256PRNG}!refill\_buffer@{refill\_buffer}}
+\index{refill\_buffer@{refill\_buffer}!seal::Shake256PRNG@{seal::Shake256PRNG}}
+\doxysubsubsection{\texorpdfstring{refill\_buffer()}{refill\_buffer()}}
+{\footnotesize\ttfamily void seal\+::\+Shake256\+PRNG\+::refill\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{seal\+::\+Uniform\+Random\+Generator}}.
+
+\Hypertarget{classseal_1_1_shake256_p_r_n_g_a4507163ce1eaa3d1863052c44758e85e}\label{classseal_1_1_shake256_p_r_n_g_a4507163ce1eaa3d1863052c44758e85e} 
+\index{seal::Shake256PRNG@{seal::Shake256PRNG}!type@{type}}
+\index{type@{type}!seal::Shake256PRNG@{seal::Shake256PRNG}}
+\doxysubsubsection{\texorpdfstring{type()}{type()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD prng\+\_\+type seal\+::\+Shake256\+PRNG\+::type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+
+
+Implements \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{seal\+::\+Uniform\+Random\+Generator}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/randomgen.\+h\item 
+seal/randomgen.\+cpp\end{DoxyCompactItemize}

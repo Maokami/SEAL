@@ -1,0 +1,40 @@
+\doxysection{galoiskeys.\+h}
+\hypertarget{galoiskeys_8h_source}{}\label{galoiskeys_8h_source}\index{seal/galoiskeys.h@{seal/galoiskeys.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/ciphertext.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/kswitchkeys.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/util/galois.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitchKeys}}}
+\DoxyCodeLine{00038\ \ \ \ \ \{}
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_galois_keys_a8c031b870e4053398e13817879da1a09}{get\_index}}(std::uint32\_t\ galois\_elt)}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool_a62bbb52f0a42230e2785a805c8de3ebe}{util::GaloisTool::GetIndexFromElt}}(galois\_elt);}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_galois_keys_a95ed317639273e063faa2e0e6a0bbd27}{has\_key}}(std::uint32\_t\ galois\_elt)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00060\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ index\ =\ \mbox{\hyperlink{classseal_1_1_galois_keys_a8c031b870e4053398e13817879da1a09}{get\_index}}(galois\_elt);}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_k_switch_keys_ac6db706a7f9da8e9af220a34977408e5}{data}}().size()\ >\ index\ \&\&\ !\mbox{\hyperlink{classseal_1_1_k_switch_keys_ac6db706a7f9da8e9af220a34977408e5}{data}}()[index].empty();}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classseal_1_1_galois_keys_aa1dc8541d86cfab61da2c63cdd46d723}{key}}(std::uint32\_t\ galois\_elt)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00073\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_k_switch_keys_ac6db706a7f9da8e9af220a34977408e5}{KSwitchKeys::data}}(\mbox{\hyperlink{classseal_1_1_galois_keys_a8c031b870e4053398e13817879da1a09}{get\_index}}(galois\_elt));}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \};}
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

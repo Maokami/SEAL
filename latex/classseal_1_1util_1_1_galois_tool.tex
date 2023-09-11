@@ -1,0 +1,70 @@
+\doxysection{seal\+::util\+::Galois\+Tool Class Reference}
+\hypertarget{classseal_1_1util_1_1_galois_tool}{}\label{classseal_1_1util_1_1_galois_tool}\index{seal::util::GaloisTool@{seal::util::GaloisTool}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_a0fb6ad04d4e7a18b2879967311c37a63}\label{classseal_1_1util_1_1_galois_tool_a0fb6ad04d4e7a18b2879967311c37a63} 
+{\bfseries Galois\+Tool} (int coeff\+\_\+count\+\_\+power, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool)
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_aa51b92f21c97bf9dd9177c32a7b217d0}\label{classseal_1_1util_1_1_galois_tool_aa51b92f21c97bf9dd9177c32a7b217d0} 
+void {\bfseries apply\+\_\+galois} (\mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+Coeff\+Iter}} operand, std\+::uint32\+\_\+t galois\+\_\+elt, const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&modulus, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Coeff\+Iter}} result) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_adfd1878aa56e7f85af16dee6e4061bee}\label{classseal_1_1util_1_1_galois_tool_adfd1878aa56e7f85af16dee6e4061bee} 
+void {\bfseries apply\+\_\+galois} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} operand, std\+::size\+\_\+t coeff\+\_\+modulus\+\_\+size, std\+::uint32\+\_\+t galois\+\_\+elt, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+Modulus\+Iter}} modulus, \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} result) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_ab5d490c9316d8161daf51004f97950bc}\label{classseal_1_1util_1_1_galois_tool_ab5d490c9316d8161daf51004f97950bc} 
+void {\bfseries apply\+\_\+galois} (\mbox{\hyperlink{classseal_1_1util_1_1_const_poly_iter}{Const\+Poly\+Iter}} operand, std\+::size\+\_\+t size, std\+::uint32\+\_\+t galois\+\_\+elt, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+Modulus\+Iter}} modulus, \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter}} result) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_abe4f6a56af1248241a9bf6519d78ce57}\label{classseal_1_1util_1_1_galois_tool_abe4f6a56af1248241a9bf6519d78ce57} 
+void {\bfseries apply\+\_\+galois\+\_\+ntt} (\mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+Coeff\+Iter}} operand, std\+::uint32\+\_\+t galois\+\_\+elt, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Coeff\+Iter}} result) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_a5adc4594d7bde61dc1220cc0d9d68df1}\label{classseal_1_1util_1_1_galois_tool_a5adc4594d7bde61dc1220cc0d9d68df1} 
+void {\bfseries apply\+\_\+galois\+\_\+ntt} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} operand, std\+::size\+\_\+t coeff\+\_\+modulus\+\_\+size, std\+::uint32\+\_\+t galois\+\_\+elt, \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} result) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_galois_tool_a4ccc431addcbdddc61cf37ef28967fe3}\label{classseal_1_1util_1_1_galois_tool_a4ccc431addcbdddc61cf37ef28967fe3} 
+void {\bfseries apply\+\_\+galois\+\_\+ntt} (\mbox{\hyperlink{classseal_1_1util_1_1_const_poly_iter}{Const\+Poly\+Iter}} operand, std\+::size\+\_\+t size, std\+::uint32\+\_\+t galois\+\_\+elt, \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter}} result) const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint32\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool_a06ab12f511d3526b31585fa17cf21466}{get\+\_\+elt\+\_\+from\+\_\+step}} (int step) const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::vector$<$ std\+::uint32\+\_\+t $>$ \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool_aff2b8720e63d4d91375116b1df1224da}{get\+\_\+elts\+\_\+from\+\_\+steps}} (const std\+::vector$<$ int $>$ \&steps) const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::vector$<$ std\+::uint32\+\_\+t $>$ \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool_ab5fb0692efa846f0784476d7ec4b04ad}{get\+\_\+elts\+\_\+all}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool_a62bbb52f0a42230e2785a805c8de3ebe}{Get\+Index\+From\+Elt}} (std\+::uint32\+\_\+t galois\+\_\+elt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1util_1_1_galois_tool_a06ab12f511d3526b31585fa17cf21466}\label{classseal_1_1util_1_1_galois_tool_a06ab12f511d3526b31585fa17cf21466} 
+\index{seal::util::GaloisTool@{seal::util::GaloisTool}!get\_elt\_from\_step@{get\_elt\_from\_step}}
+\index{get\_elt\_from\_step@{get\_elt\_from\_step}!seal::util::GaloisTool@{seal::util::GaloisTool}}
+\doxysubsubsection{\texorpdfstring{get\_elt\_from\_step()}{get\_elt\_from\_step()}}
+{\footnotesize\ttfamily uint32\+\_\+t seal\+::util\+::\+Galois\+Tool\+::get\+\_\+elt\+\_\+from\+\_\+step (\begin{DoxyParamCaption}\item[{int}]{step }\end{DoxyParamCaption}) const}
+
+Compute the Galois element corresponding to a given rotation step. \Hypertarget{classseal_1_1util_1_1_galois_tool_ab5fb0692efa846f0784476d7ec4b04ad}\label{classseal_1_1util_1_1_galois_tool_ab5fb0692efa846f0784476d7ec4b04ad} 
+\index{seal::util::GaloisTool@{seal::util::GaloisTool}!get\_elts\_all@{get\_elts\_all}}
+\index{get\_elts\_all@{get\_elts\_all}!seal::util::GaloisTool@{seal::util::GaloisTool}}
+\doxysubsubsection{\texorpdfstring{get\_elts\_all()}{get\_elts\_all()}}
+{\footnotesize\ttfamily vector$<$ uint32\+\_\+t $>$ seal\+::util\+::\+Galois\+Tool\+::get\+\_\+elts\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+Compute a vector of all necessary galois\+\_\+elts. \Hypertarget{classseal_1_1util_1_1_galois_tool_aff2b8720e63d4d91375116b1df1224da}\label{classseal_1_1util_1_1_galois_tool_aff2b8720e63d4d91375116b1df1224da} 
+\index{seal::util::GaloisTool@{seal::util::GaloisTool}!get\_elts\_from\_steps@{get\_elts\_from\_steps}}
+\index{get\_elts\_from\_steps@{get\_elts\_from\_steps}!seal::util::GaloisTool@{seal::util::GaloisTool}}
+\doxysubsubsection{\texorpdfstring{get\_elts\_from\_steps()}{get\_elts\_from\_steps()}}
+{\footnotesize\ttfamily vector$<$ uint32\+\_\+t $>$ seal\+::util\+::\+Galois\+Tool\+::get\+\_\+elts\+\_\+from\+\_\+steps (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{steps }\end{DoxyParamCaption}) const}
+
+Compute the Galois elements corresponding to a vector of given rotation steps. \Hypertarget{classseal_1_1util_1_1_galois_tool_a62bbb52f0a42230e2785a805c8de3ebe}\label{classseal_1_1util_1_1_galois_tool_a62bbb52f0a42230e2785a805c8de3ebe} 
+\index{seal::util::GaloisTool@{seal::util::GaloisTool}!GetIndexFromElt@{GetIndexFromElt}}
+\index{GetIndexFromElt@{GetIndexFromElt}!seal::util::GaloisTool@{seal::util::GaloisTool}}
+\doxysubsubsection{\texorpdfstring{GetIndexFromElt()}{GetIndexFromElt()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::util\+::\+Galois\+Tool\+::\+Get\+Index\+From\+Elt (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{galois\+\_\+elt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Compute the index in the range of 0 to (coeff\+\_\+count\+\_\+ -\/ 1) of a given Galois element. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/galois.\+h\item 
+seal/util/galois.\+cpp\end{DoxyCompactItemize}

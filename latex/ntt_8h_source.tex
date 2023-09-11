@@ -1,0 +1,342 @@
+\doxysection{ntt.\+h}
+\hypertarget{ntt_8h_source}{}\label{ntt_8h_source}\index{seal/util/ntt.h@{seal/util/ntt.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/modulus.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/util/dwthandler.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/util/iterator.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/util/pointer.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}seal/util/uintarithsmallmod.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/util/uintcore.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00017\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{namespace\ }util}
+\DoxyCodeLine{00019\ \ \ \ \ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <>}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{Arithmetic}}<\mbox{\hyperlink{namespacestd}{std}}::uint64\_t,\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}},\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}>}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{Arithmetic}}()}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{Arithmetic}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&modulus)\ :\ modulus\_(modulus),\ two\_times\_modulus\_(modulus.\mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}}()\ <<\ 1)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::uint64\_t\ add(\textcolor{keyword}{const}\ std::uint64\_t\ \&a,\ \textcolor{keyword}{const}\ std::uint64\_t\ \&b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00031\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a\ +\ b;}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::uint64\_t\ sub(\textcolor{keyword}{const}\ std::uint64\_t\ \&a,\ \textcolor{keyword}{const}\ std::uint64\_t\ \&b)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00036\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ a\ +\ two\_times\_modulus\_\ -\/\ b;}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::uint64\_t\ mul\_root(\textcolor{keyword}{const}\ std::uint64\_t\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ \&r)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00041\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ multiply\_uint\_mod\_lazy(a,\ r,\ modulus\_);}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::uint64\_t\ mul\_scalar(\textcolor{keyword}{const}\ std::uint64\_t\ \&a,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ \&s)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00046\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ multiply\_uint\_mod\_lazy(a,\ s,\ modulus\_);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ mul\_root\_scalar(}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ \&r,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ \&s)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00052\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ result;}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result.set(multiply\_uint\_mod(r.operand,\ s,\ modulus\_),\ modulus\_);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::uint64\_t\ guard(\textcolor{keyword}{const}\ std::uint64\_t\ \&a)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00059\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ SEAL\_COND\_SELECT(a\ >=\ two\_times\_modulus\_,\ a\ -\/\ two\_times\_modulus\_,\ a);}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ modulus\_;}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ two\_times\_modulus\_;}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{ModArithLazy}}\ =\ \mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{Arithmetic<uint64\_t,\ MultiplyUIntModOperand,\ MultiplyUIntModOperand>}};}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }\mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{NTTHandler}}\ =\ \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{DWTHandler<std::uint64\_t,\ MultiplyUIntModOperand,\ MultiplyUIntModOperand>}};}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}(\mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&\&source)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}(\mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&copy)}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ pool\_(copy.pool\_),\ root\_(copy.root\_),\ coeff\_count\_power\_(copy.coeff\_count\_power\_),}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ coeff\_count\_(copy.coeff\_count\_),\ modulus\_(copy.modulus\_),\ inv\_degree\_modulo\_(copy.inv\_degree\_modulo\_)}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ root\_powers\_\ =\ allocate<MultiplyUIntModOperand>(coeff\_count\_,\ pool\_);}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inv\_root\_powers\_\ =\ allocate<MultiplyUIntModOperand>(coeff\_count\_,\ pool\_);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(copy.root\_powers\_.get(),\ coeff\_count\_,\ root\_powers\_.get());}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(copy.inv\_root\_powers\_.get(),\ coeff\_count\_,\ inv\_root\_powers\_.get());}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}(\textcolor{keywordtype}{int}\ coeff\_count\_power,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&modulus,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool());}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::uint64\_t\ get\_root()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ root\_;}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ *get\_from\_root\_powers()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00096\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ root\_powers\_.get();}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ *get\_from\_inv\_root\_powers()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00101\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inv\_root\_powers\_.get();}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ get\_from\_root\_powers(std::size\_t\ index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00106\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00107\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ coeff\_count\_)}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}index"{}});}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ root\_powers\_[index];}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ get\_from\_inv\_root\_powers(std::size\_t\ index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00117\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00118\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ coeff\_count\_)}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}index"{}});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inv\_root\_powers\_[index];}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ \&inv\_degree\_modulo()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00128\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ inv\_degree\_modulo\_;}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&modulus()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00133\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ modulus\_;}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ coeff\_count\_power()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00138\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coeff\_count\_power\_;}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ coeff\_count()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00143\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ coeff\_count\_;}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{NTTHandler}}\ \&ntt\_handler()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00148\ \textcolor{keyword}{\ \ \ \ \ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ntt\_handler\_;}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&operator=(\mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&\&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00156\ }
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initialize(\textcolor{keywordtype}{int}\ coeff\_count\_power,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&modulus);}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\_;}
+\DoxyCodeLine{00160\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ root\_\ =\ 0;}
+\DoxyCodeLine{00162\ }
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ inv\_root\_\ =\ 0;}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ coeff\_count\_power\_\ =\ 0;}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ coeff\_count\_\ =\ 0;}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ modulus\_;}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Inverse\ of\ coeff\_count\_\ modulo\ modulus\_.}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{MultiplyUIntModOperand}}\ inv\_degree\_modulo\_;}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Holds\ 1\string~(n-\/1)-\/th\ powers\ of\ root\_\ in\ bit-\/reversed\ order,\ the\ 0-\/th\ power\ is\ left\ unset.}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer<MultiplyUIntModOperand>}}\ root\_powers\_;}
+\DoxyCodeLine{00176\ }
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Holds\ 1\string~(n-\/1)-\/th\ powers\ of\ inv\_root\_\ in\ scrambled\ order,\ the\ 0-\/th\ power\ is\ left\ unset.}}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer<MultiplyUIntModOperand>}}\ inv\_root\_powers\_;}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{ModArithLazy}}\ mod\_arith\_lazy\_;}
+\DoxyCodeLine{00181\ }
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{NTTHandler}}\ ntt\_handler\_;}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ CreateNTTTables(}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ coeff\_count\_power,\ \textcolor{keyword}{const}\ std::vector<Modulus>\ \&modulus,\ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer<NTTTables>}}\ \&tables,}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool);}
+\DoxyCodeLine{00194\ }
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey\_lazy(\mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{CoeffIter}}\ operand,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}}\ \&tables);}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey\_lazy(}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}\ operand,\ std::size\_t\ coeff\_modulus\_size,\ \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{ConstNTTTablesIter}}\ tables)}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00209\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand,\ tables),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ntt\_negacyclic\_harvey\_lazy(get<0>(I),\ get<1>(I));}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ }
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey\_lazy(PolyIter\ operand,\ std::size\_t\ size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand,\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{\ ntt\_negacyclic\_harvey\_lazy(I,\ operand.coeff\_modulus\_size(),\ tables);\ \});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey(CoeffIter\ operand,\ \textcolor{keyword}{const}\ NTTTables\ \&tables);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey(RNSIter\ operand,\ std::size\_t\ coeff\_modulus\_size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00235\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand,\ tables),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ntt\_negacyclic\_harvey(get<0>(I),\ get<1>(I));}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey(PolyIter\ operand,\ std::size\_t\ size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand,\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{\ ntt\_negacyclic\_harvey(I,\ operand.coeff\_modulus\_size(),\ tables);\ \});}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey\_lazy(CoeffIter\ operand,\ \textcolor{keyword}{const}\ NTTTables\ \&tables);}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey\_lazy(}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ operand,\ std::size\_t\ coeff\_modulus\_size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand,\ tables),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse\_ntt\_negacyclic\_harvey\_lazy(get<0>(I),\ get<1>(I));}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey\_lazy(PolyIter\ operand,\ std::size\_t\ size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00297\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(operand,\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse\_ntt\_negacyclic\_harvey\_lazy(I,\ operand.coeff\_modulus\_size(),\ tables);}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey(CoeffIter\ operand,\ \textcolor{keyword}{const}\ NTTTables\ \&tables);}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey(}
+\DoxyCodeLine{00306\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ operand,\ std::size\_t\ coeff\_modulus\_size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00308\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00309\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand,\ tables),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ inverse\_ntt\_negacyclic\_harvey(get<0>(I),\ get<1>(I));}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey(PolyIter\ operand,\ std::size\_t\ size,\ ConstNTTTablesIter\ tables)}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00325\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand)}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand"{}});}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!tables)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}tables"{}});}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00334\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand,\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{\ inverse\_ntt\_negacyclic\_harvey(I,\ operand.coeff\_modulus\_size(),\ tables);\ \});}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00338\ }
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ntt\_negacyclic\_harvey\_new(CoeffIter\ operand,\ \textcolor{keyword}{const}\ NTTTables\ \&tables);}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ inverse\_ntt\_negacyclic\_harvey\_new(CoeffIter\ operand,\ \textcolor{keyword}{const}\ NTTTables\ \&tables);}
+\DoxyCodeLine{00341\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ util}}
+\DoxyCodeLine{00342\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

@@ -1,0 +1,342 @@
+\doxysection{seal\+::Public\+Key Class Reference}
+\hypertarget{classseal_1_1_public_key}{}\label{classseal_1_1_public_key}\index{seal::PublicKey@{seal::PublicKey}}
+
+
+{\ttfamily \#include $<$publickey.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_public_key_a57b41648f7d0111b2ec322b0390eab4e}{Public\+Key}} ()=default
+\item 
+\mbox{\hyperlink{classseal_1_1_public_key_a43e2b0df34c6805a4dd71042b9195dbd}{Public\+Key}} (const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&copy)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_public_key_a01d630c56cbb23a5bae8c8e980f5cfd8}{Public\+Key}} (\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&\&source)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \& \mbox{\hyperlink{classseal_1_1_public_key_a72364487c4b99332d84c6c5211afe769}{operator=}} (const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \& \mbox{\hyperlink{classseal_1_1_public_key_a56c8b5a29bf66102be39558e72c3a02b}{operator=}} (\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&\&assign)=default
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_public_key_a0a526803da1192d8e5588e6d89bb3386}{data}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_public_key_ae3882adfd43fbe721d0af095a0c837ff}{data}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_a0d172cc30f242fceb83f2836e6ebb529}{save\+\_\+size}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_a789154f0dac262249879a3ac4c99ece5}{save}} (std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_aa72c7ff790d66a519a35cf5b95eb9254}{unsafe\+\_\+load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_a269586a4237730ff245440316fc54336}{load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_a68c5782adacd1a76c62103d18462113c}{save}} (seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t size, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_aa66118457ca9da8aa53d17bb5cfd7502}{unsafe\+\_\+load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_public_key_aeba22914acbd71934a716c5f14a78b5c}{load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size)
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_public_key_a9b875afca4282f2afaf9714c512498f1}{parms\+\_\+id}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_public_key_a5d6c48ecad1540c0499c4194f26b6a05}{parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}{pool}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_public_key_a59c8b53b81129c2853253a96e3d710db}\label{classseal_1_1_public_key_a59c8b53b81129c2853253a96e3d710db} 
+class {\bfseries Key\+Generator}
+\item 
+\Hypertarget{classseal_1_1_public_key_a0d9ff62ec6adaf296b214a7532f03b80}\label{classseal_1_1_public_key_a0d9ff62ec6adaf296b214a7532f03b80} 
+class {\bfseries KSwitch\+Keys}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to store a public key.
+
+\begin{DoxyParagraph}{Thread Safety}
+In general, reading from \doxylink{classseal_1_1_public_key}{Public\+Key} is thread-\/safe as long as no other thread is concurrently mutating it. This is due to the underlying data structure storing the public key not being thread-\/safe.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_key_generator}{Key\+Generator} for the class that generates the public key. 
+
+\doxylink{classseal_1_1_secret_key}{Secret\+Key} for the class that stores the secret key. 
+
+\doxylink{classseal_1_1_relin_keys}{Relin\+Keys} for the class that stores the relinearization keys. 
+
+\doxylink{classseal_1_1_galois_keys}{Galois\+Keys} for the class that stores the Galois keys. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_public_key_a57b41648f7d0111b2ec322b0390eab4e}\label{classseal_1_1_public_key_a57b41648f7d0111b2ec322b0390eab4e} 
+\index{seal::PublicKey@{seal::PublicKey}!PublicKey@{PublicKey}}
+\index{PublicKey@{PublicKey}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{PublicKey()}{PublicKey()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily seal\+::\+Public\+Key\+::\+Public\+Key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates an empty public key. \Hypertarget{classseal_1_1_public_key_a43e2b0df34c6805a4dd71042b9195dbd}\label{classseal_1_1_public_key_a43e2b0df34c6805a4dd71042b9195dbd} 
+\index{seal::PublicKey@{seal::PublicKey}!PublicKey@{PublicKey}}
+\index{PublicKey@{PublicKey}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{PublicKey()}{PublicKey()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily seal\+::\+Public\+Key\+::\+Public\+Key (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_public_key}{Public\+Key} by copying an old one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The \doxylink{classseal_1_1_public_key}{Public\+Key} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_public_key_a01d630c56cbb23a5bae8c8e980f5cfd8}\label{classseal_1_1_public_key_a01d630c56cbb23a5bae8c8e980f5cfd8} 
+\index{seal::PublicKey@{seal::PublicKey}!PublicKey@{PublicKey}}
+\index{PublicKey@{PublicKey}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{PublicKey()}{PublicKey()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily seal\+::\+Public\+Key\+::\+Public\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_public_key}{Public\+Key} by moving an old one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The \doxylink{classseal_1_1_public_key}{Public\+Key} to move from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_public_key_ae3882adfd43fbe721d0af095a0c837ff}\label{classseal_1_1_public_key_ae3882adfd43fbe721d0af095a0c837ff} 
+\index{seal::PublicKey@{seal::PublicKey}!data@{data}}
+\index{data@{data}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto \& seal\+::\+Public\+Key\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to the underlying data. \Hypertarget{classseal_1_1_public_key_a0a526803da1192d8e5588e6d89bb3386}\label{classseal_1_1_public_key_a0a526803da1192d8e5588e6d89bb3386} 
+\index{seal::PublicKey@{seal::PublicKey}!data@{data}}
+\index{data@{data}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto \& seal\+::\+Public\+Key\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a reference to the underlying data. \Hypertarget{classseal_1_1_public_key_aeba22914acbd71934a716c5f14a78b5c}\label{classseal_1_1_public_key_aeba22914acbd71934a716c5f14a78b5c} 
+\index{seal::PublicKey@{seal::PublicKey}!load@{load}}
+\index{load@{load}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Public\+Key\+::load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_public_key}{Public\+Key} from a given memory location overwriting the current \doxylink{classseal_1_1_public_key}{Public\+Key}. The loaded \doxylink{classseal_1_1_public_key}{Public\+Key} is verified to be valid for the given \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{classseal_1_1_public_key}{Public\+Key} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_public_key_a269586a4237730ff245440316fc54336}\label{classseal_1_1_public_key_a269586a4237730ff245440316fc54336} 
+\index{seal::PublicKey@{seal::PublicKey}!load@{load}}
+\index{load@{load}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Public\+Key\+::load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{std\+::istream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_public_key}{Public\+Key} from an input stream overwriting the current \doxylink{classseal_1_1_public_key}{Public\+Key}. The loaded \doxylink{classseal_1_1_public_key}{Public\+Key} is verified to be valid for the given \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the \doxylink{classseal_1_1_public_key}{Public\+Key} from \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_public_key_a72364487c4b99332d84c6c5211afe769}\label{classseal_1_1_public_key_a72364487c4b99332d84c6c5211afe769} 
+\index{seal::PublicKey@{seal::PublicKey}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \& seal\+::\+Public\+Key\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copies an old \doxylink{classseal_1_1_public_key}{Public\+Key} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_public_key}{Public\+Key} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_public_key_a56c8b5a29bf66102be39558e72c3a02b}\label{classseal_1_1_public_key_a56c8b5a29bf66102be39558e72c3a02b} 
+\index{seal::PublicKey@{seal::PublicKey}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \& seal\+::\+Public\+Key\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Moves an old \doxylink{classseal_1_1_public_key}{Public\+Key} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_public_key}{Public\+Key} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_public_key_a5d6c48ecad1540c0499c4194f26b6a05}\label{classseal_1_1_public_key_a5d6c48ecad1540c0499c4194f26b6a05} 
+\index{seal::PublicKey@{seal::PublicKey}!parms\_id@{parms\_id}}
+\index{parms\_id@{parms\_id}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{parms\_id()}{parms\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto \& seal\+::\+Public\+Key\+::parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to parms\+\_\+id. \Hypertarget{classseal_1_1_public_key_a9b875afca4282f2afaf9714c512498f1}\label{classseal_1_1_public_key_a9b875afca4282f2afaf9714c512498f1} 
+\index{seal::PublicKey@{seal::PublicKey}!parms\_id@{parms\_id}}
+\index{parms\_id@{parms\_id}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{parms\_id()}{parms\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto \& seal\+::\+Public\+Key\+::parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a reference to parms\+\_\+id. \Hypertarget{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}\label{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218} 
+\index{seal::PublicKey@{seal::PublicKey}!pool@{pool}}
+\index{pool@{pool}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{pool()}{pool()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+Public\+Key\+::pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the currently used \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_public_key_a68c5782adacd1a76c62103d18462113c}\label{classseal_1_1_public_key_a68c5782adacd1a76c62103d18462113c} 
+\index{seal::PublicKey@{seal::PublicKey}!save@{save}}
+\index{save@{save}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Public\+Key\+::save (\begin{DoxyParamCaption}\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the \doxylink{classseal_1_1_public_key}{Public\+Key} to a given memory location. The output is in binary format and is not human-\/readable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write the \doxylink{classseal_1_1_public_key}{Public\+Key} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if out is null or if size is too small to contain a SEALHeader, or if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_public_key_a789154f0dac262249879a3ac4c99ece5}\label{classseal_1_1_public_key_a789154f0dac262249879a3ac4c99ece5} 
+\index{seal::PublicKey@{seal::PublicKey}!save@{save}}
+\index{save@{save}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Public\+Key\+::save (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the \doxylink{classseal_1_1_public_key}{Public\+Key} to an output stream. The output is in binary format and not human-\/readable. The output stream must have the \"{}binary\"{} flag set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em stream} & The stream to save the \doxylink{classseal_1_1_public_key}{Public\+Key} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_public_key_a0d172cc30f242fceb83f2836e6ebb529}\label{classseal_1_1_public_key_a0d172cc30f242fceb83f2836e6ebb529} 
+\index{seal::PublicKey@{seal::PublicKey}!save\_size@{save\_size}}
+\index{save\_size@{save\_size}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{save\_size()}{save\_size()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::streamoff seal\+::\+Public\+Key\+::save\+\_\+size (\begin{DoxyParamCaption}\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an upper bound on the size of the \doxylink{classseal_1_1_public_key}{Public\+Key}, as if it was written to an output stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the size does not fit in the return type \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_public_key_aa66118457ca9da8aa53d17bb5cfd7502}\label{classseal_1_1_public_key_aa66118457ca9da8aa53d17bb5cfd7502} 
+\index{seal::PublicKey@{seal::PublicKey}!unsafe\_load@{unsafe\_load}}
+\index{unsafe\_load@{unsafe\_load}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{unsafe\_load()}{unsafe\_load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Public\+Key\+::unsafe\+\_\+load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_public_key}{Public\+Key} from a given memory location overwriting the current \doxylink{classseal_1_1_public_key}{Public\+Key}. No checking of the validity of the \doxylink{classseal_1_1_public_key}{Public\+Key} data against encryption parameters is performed. This function should not be used unless the \doxylink{classseal_1_1_public_key}{Public\+Key} comes from a fully trusted source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{classseal_1_1_public_key}{Public\+Key} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_public_key_aa72c7ff790d66a519a35cf5b95eb9254}\label{classseal_1_1_public_key_aa72c7ff790d66a519a35cf5b95eb9254} 
+\index{seal::PublicKey@{seal::PublicKey}!unsafe\_load@{unsafe\_load}}
+\index{unsafe\_load@{unsafe\_load}!seal::PublicKey@{seal::PublicKey}}
+\doxysubsubsection{\texorpdfstring{unsafe\_load()}{unsafe\_load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Public\+Key\+::unsafe\+\_\+load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{std\+::istream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_public_key}{Public\+Key} from an input stream overwriting the current \doxylink{classseal_1_1_public_key}{Public\+Key}. No checking of the validity of the \doxylink{classseal_1_1_public_key}{Public\+Key} data against encryption parameters is performed. This function should not be used unless the \doxylink{classseal_1_1_public_key}{Public\+Key} comes from a fully trusted source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the \doxylink{classseal_1_1_public_key}{Public\+Key} from \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/publickey.\+h\end{DoxyCompactItemize}

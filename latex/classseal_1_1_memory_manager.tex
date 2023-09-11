@@ -1,0 +1,90 @@
+\doxysection{seal\+::Memory\+Manager Class Reference}
+\hypertarget{classseal_1_1_memory_manager}{}\label{classseal_1_1_memory_manager}\index{seal::MemoryManager@{seal::MemoryManager}}
+
+
+{\ttfamily \#include $<$memorymanager.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} $>$ \mbox{\hyperlink{classseal_1_1_memory_manager_aeefec0c1fd87b6e1acfd36ea3f04a013}{Switch\+Profile}} (\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} \texorpdfstring{$\ast$}{*}\&\&mm\+\_\+prof) noexcept
+\item 
+static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} $>$ \mbox{\hyperlink{classseal_1_1_memory_manager_a07186bb8581750ff100cb559af20c9fe}{Switch\+Profile}} (std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} $>$ \&\&mm\+\_\+prof) noexcept
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Get\+Pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t prof\+\_\+opt, Args \&\&... args)
+\item 
+\Hypertarget{classseal_1_1_memory_manager_a26e20207cdc888727fc901bbd05c3b6f}\label{classseal_1_1_memory_manager_a26e20207cdc888727fc901bbd05c3b6f} 
+static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} {\bfseries Get\+Pool} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_memory_manager_ae53f46870ade2e57499fdaefb44424ab}\label{classseal_1_1_memory_manager_ae53f46870ade2e57499fdaefb44424ab} 
+class {\bfseries MMProf\+Guard}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classseal_1_1_memory_manager}{Memory\+Manager} class can be used to create instances of \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} based on a given \"{}profile\"{}. A profile is implemented by inheriting from the \doxylink{classseal_1_1_m_m_prof}{MMProf} class (pure virtual) and encapsulates internal logic for deciding which memory pool to use. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}\label{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5} 
+\index{seal::MemoryManager@{seal::MemoryManager}!GetPool@{GetPool}}
+\index{GetPool@{GetPool}!seal::MemoryManager@{seal::MemoryManager}}
+\doxysubsubsection{\texorpdfstring{GetPool()}{GetPool()}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+Memory\+Manager\+::\+Get\+Pool (\begin{DoxyParamCaption}\item[{mm\+\_\+prof\+\_\+opt\+\_\+t}]{prof\+\_\+opt,  }\item[{Args \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} according to the currently set memory manager profile and prof\+\_\+opt. The following values for prof\+\_\+opt have an effect independent of the current profile\+: \begin{DoxyVerb}mm_prof_opt::force_new: return MemoryPoolHandle::New()
+mm_prof_opt::force_global: return MemoryPoolHandle::Global()
+mm_prof_opt::force_thread_local: return MemoryPoolHandle::ThreadLocal()
+\end{DoxyVerb}
+ Other values for prof\+\_\+opt are forwarded to the current profile and, depending on the profile, may or may not have an effect. The value mm\+\_\+prof\+\_\+opt\+::default will always invoke a default behavior for the current profile.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em prof\+\_\+opt} & A mm\+\_\+prof\+\_\+opt\+\_\+t parameter used to provide additional instructions to the memory manager profile for internal logic. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_memory_manager_aeefec0c1fd87b6e1acfd36ea3f04a013}\label{classseal_1_1_memory_manager_aeefec0c1fd87b6e1acfd36ea3f04a013} 
+\index{seal::MemoryManager@{seal::MemoryManager}!SwitchProfile@{SwitchProfile}}
+\index{SwitchProfile@{SwitchProfile}!seal::MemoryManager@{seal::MemoryManager}}
+\doxysubsubsection{\texorpdfstring{SwitchProfile()}{SwitchProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} $>$ seal\+::\+Memory\+Manager\+::\+Switch\+Profile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} \texorpdfstring{$\ast$}{*}\&\&}]{mm\+\_\+prof }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Sets the current profile to a given one and returns a unique\+\_\+ptr pointing to the previously set profile.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mm\+\_\+prof} & Pointer to a new memory manager profile \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if mm\+\_\+prof is nullptr \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_memory_manager_a07186bb8581750ff100cb559af20c9fe}\label{classseal_1_1_memory_manager_a07186bb8581750ff100cb559af20c9fe} 
+\index{seal::MemoryManager@{seal::MemoryManager}!SwitchProfile@{SwitchProfile}}
+\index{SwitchProfile@{SwitchProfile}!seal::MemoryManager@{seal::MemoryManager}}
+\doxysubsubsection{\texorpdfstring{SwitchProfile()}{SwitchProfile()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} $>$ seal\+::\+Memory\+Manager\+::\+Switch\+Profile (\begin{DoxyParamCaption}\item[{std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}} $>$ \&\&}]{mm\+\_\+prof }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Sets the current profile to a given one and returns a unique\+\_\+ptr pointing to the previously set profile.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em mm\+\_\+prof} & Pointer to a new memory manager profile \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if mm\+\_\+prof is nullptr \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/memorymanager.\+h\item 
+seal/memorymanager.\+cpp\end{DoxyCompactItemize}

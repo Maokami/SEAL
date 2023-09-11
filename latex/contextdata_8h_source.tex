@@ -1,0 +1,44 @@
+\doxysection{contextdata.\+h}
+\hypertarget{contextdata_8h_source}{}\label{contextdata_8h_source}\index{seal/c/contextdata.h@{seal/c/contextdata.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ ContextData\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ ContextData\_TotalCoeffModulus(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count,\ uint64\_t\ *total\_coeff\_modulus);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ ContextData\_TotalCoeffModulusBitCount(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{int}\ *bit\_count);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ ContextData\_Parms(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **parms);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ ContextData\_Qualifiers(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **epq);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ ContextData\_CoeffDivPlainModulus(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count,\ uint64\_t\ *coeff\_div);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ ContextData\_PlainUpperHalfThreshold(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *puht);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ ContextData\_PlainUpperHalfIncrement(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count,\ uint64\_t\ *puhi);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ ContextData\_UpperHalfThreshold(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count,\ uint64\_t\ *uht);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ ContextData\_UpperHalfIncrement(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count,\ uint64\_t\ *uhi);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ SEAL\_C\_FUNC\ ContextData\_PrevContextData(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **prev\_data);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ SEAL\_C\_FUNC\ ContextData\_NextContextData(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **next\_data);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ SEAL\_C\_FUNC\ ContextData\_ChainIndex(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *index);}
+
+\end{DoxyCode}

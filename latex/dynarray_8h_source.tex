@@ -1,0 +1,464 @@
+\doxysection{dynarray.\+h}
+\hypertarget{dynarray_8h_source}{}\label{dynarray_8h_source}\index{seal/dynarray.h@{seal/dynarray.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/serialization.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/version.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/util/common.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/util/pointer.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <type\_traits>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}gsl/span"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{class\ }Ciphertext;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{comment}{//\ Forward-\/declaring\ the\ deflate\_size\_bound\ function}}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{namespace\ }util}
+\DoxyCodeLine{00026\ \ \ \ \ \{}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }ztools}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ SizeT>}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ SizeT\ deflate\_size\_bound(SizeT\ in\_size);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ ztools}}
+\DoxyCodeLine{00032\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ util}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray}}}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ }type\ =\ T;}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a96556491782dd58d70c52b8ac1a50349}{DynArray}}(\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())\ :\ pool\_(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}))}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool\_)}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}pool\ is\ uninitialized"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a790e24c14510af175423542a804be54f}{DynArray}}(std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())\ :\ pool\_(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}))}
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool\_)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}pool\ is\ uninitialized"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reserve\ memory,\ resize,\ and\ set\ to\ zero}}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classseal_1_1_dyn_array_ab8184176f2dabccdc2d58dffde65489b}{DynArray}}(std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}},\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ :\ pool\_(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}))}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool\_)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}pool\ is\ uninitialized"{}});}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}}\ <\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}})}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}capacity\ cannot\ be\ smaller\ than\ size"{}});}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Reserve\ memory,\ resize,\ and\ set\ to\ zero}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_af814a61547813d3734c82c15db3708c0}{reserve}}(\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}});}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}});}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00115\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a6986a196edb3e1da2398483da229ad1b}{DynArray}}(}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util::Pointer<T>}}\ \&\&ptr,\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}},\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \textcolor{keywordtype}{bool}\ fill\_zero,}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ :\ pool\_(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}})),\ capacity\_(\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}})}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!ptr\ \&\&\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}})}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}ptr\ cannot\ be\ null"{}});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool\_)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}pool\ is\ uninitialized"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}}\ <\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}})}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}capacity\ cannot\ be\ smaller\ than\ size"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ }
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Grab\ the\ given\ Pointer}}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ data\_\ =\ std::move(ptr);}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Resize,\ and\ optionally\ set\ to\ zero}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ fill\_zero);}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a5bd10b07a35df13a3f3da9a32434fabf}{DynArray}}(}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util::Pointer<T>}}\ \&\&ptr,\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \textcolor{keywordtype}{bool}\ fill\_zero,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray}}(\mbox{\hyperlink{namespacestd}{std}}::move(ptr),\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ fill\_zero,\ \mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}))}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray}}(}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ gsl::span<const\ T>\ values,\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}},\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray}}(\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}},\ values.\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}(),\ \mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}))}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(values.begin(),\ values.end(),\ data\_.get());}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00196\ }
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ DynArray(gsl::span<const\ T>\ values,\ MemoryPoolHandle\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}\ =\ MemoryManager::GetPool())}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ :\ DynArray(values,\ values.\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}(),\ \mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}))}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_ae31f7f63760a708c8c21da9cdf4ae610}{DynArray}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&copy)}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ :\ pool\_(\mbox{\hyperlink{classseal_1_1_memory_manager}{MemoryManager}}::GetPool()),\ capacity\_(copy.size\_),\ size\_(copy.size\_),}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data\_(util::allocate<T>(copy.size\_,\ pool\_))}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Copy\ over\ value}}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(copy.\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ copy.\mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}}(),\ \mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}());}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00220\ }
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_af6484fb984bd4d244bf4cb36c5a7aaa0}{DynArray}}(\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&\&source)\ noexcept}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ :\ pool\_(std::move(source.pool\_)),\ capacity\_(source.capacity\_),\ size\_(source.size\_),}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data\_(std::move(source.data\_))}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_af8871bb4d14ad06653d483355c0acaa0}{\string~DynArray}}()}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a4d620fcaff7dc7368e09ab90ad0988fe}{release}}();}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ T\ *\mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}()\ noexcept}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_.get();}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00246\ }
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\ *\mbox{\hyperlink{classseal_1_1_dyn_array_a2fcf3ed42d037dd152f1bf0728530d3e}{begin}}()\ const\ noexcept}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}();}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\ *\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}()\ const\ noexcept}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_.get();}
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ T\ *\mbox{\hyperlink{classseal_1_1_dyn_array_afe7a4c43eec9ea5121dd095b9171fea4}{end}}()\ noexcept}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}()\ +\ size\_;}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00270\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\ *\mbox{\hyperlink{classseal_1_1_dyn_array_a7bd88e79be1623df2f792299ba8a08b7}{end}}()\ const\ noexcept}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}}();}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\ *\mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}}()\ const\ noexcept}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}()\ +\ size\_;}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00286\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ gsl::span<T>\ span()}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gsl::span<T>(\mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}(),\ size\_);}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00294\ }
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ gsl::span<const\ T>\ span()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00299\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ gsl::span<const\ T>(\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ size\_);}
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00302\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_a10a6d5c16f475d2f2d620dc27f04162a}{at}}(std::size\_t\ index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00312\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ size\_)}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}index\ must\ be\ within\ [0,\ size)"{}});}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_[index];}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00319\ }
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ T\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_a4c9b85469b05a97fac16ef64c62ba9c3}{at}}(std::size\_t\ index)}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (index\ >=\ size\_)}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}index\ must\ be\ within\ [0,\ size)"{}});}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_[index];}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00336\ }
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ T\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_a4c81dd214d1c6c00a30e4d51c78ce9d9}{operator[]}}(std::size\_t\ index)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00344\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_[index];}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00347\ }
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ T\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_ac9e667d02a8b7a15c3b73003ffb90074}{operator[]}}(std::size\_t\ index)}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data\_[index];}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00358\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_dyn_array_ad8ab55f17cd7c081f7fde46f2567d2d2}{empty}}()\ const\ noexcept}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (size\_\ ==\ 0);}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_a749961e05095219111badffa70cd86f2}{max\_size}}()\ const\ noexcept}
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (std::numeric\_limits<std::size\_t>::max)();}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}()\ const\ noexcept}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ size\_;}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00382\ }
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}}()\ const\ noexcept}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ capacity\_;}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}()\ const\ noexcept}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pool\_;}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00398\ }
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a4d620fcaff7dc7368e09ab90ad0988fe}{release}}()\ noexcept}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ \ \ \ \ capacity\_\ =\ 0;}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ =\ 0;}
+\DoxyCodeLine{00407\ \ \ \ \ \ \ \ \ \ \ \ \ data\_.release();}
+\DoxyCodeLine{00408\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00409\ }
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac22414d1fc1ac1c8c216d29bb97c2f63}{clear}}()\ noexcept}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ =\ 0;}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00417\ }
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_dyn_array_af814a61547813d3734c82c15db3708c0}{reserve}}(std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}})}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ copy\_size\ =\ std::min<>(\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}},\ size\_);}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ new\ allocation\ and\ copy\ over\ value}}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_data(util::allocate<T>(\mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}},\ pool\_));}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ copy\_size,\ new\_data.get());}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(data\_,\ new\_data);}
+\DoxyCodeLine{00433\ }
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ coeff\_count\ and\ capacity}}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \ \ \ \ capacity\_\ =\ \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}};}
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ =\ copy\_size;}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a45e454235ef642b569cfdc4d7d1dbcdb}{shrink\_to\_fit}}()}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_af814a61547813d3734c82c15db3708c0}{reserve}}(size\_);}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \textcolor{keywordtype}{bool}\ fill\_zero\ =\ \textcolor{keyword}{true})}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}\ <=\ capacity\_)}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Are\ we\ changing\ size\ to\ bigger\ within\ current\ capacity?}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ If\ so,\ need\ to\ set\ top\ terms\ to\ zero}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}\ >\ size\_\ \&\&\ fill\_zero)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::fill(\mbox{\hyperlink{classseal_1_1_dyn_array_afe7a4c43eec9ea5121dd095b9171fea4}{end}}(),\ \mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}()\ +\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ T(0));}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00467\ }
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ size}}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ =\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}};}
+\DoxyCodeLine{00470\ }
+\DoxyCodeLine{00471\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00473\ }
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ At\ this\ point\ we\ know\ for\ sure\ that\ size\_\ <=\ capacity\_\ <\ size\ so\ need}}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ to\ reallocate\ to\ bigger}}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ new\_data(util::allocate<T>(\mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ pool\_));}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ \mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}}(),\ new\_data.get());}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (fill\_zero)}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::fill(new\_data.get()\ +\ size\_,\ new\_data.get()\ +\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ T(0));}
+\DoxyCodeLine{00481\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(data\_,\ new\_data);}
+\DoxyCodeLine{00483\ }
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ the\ coeff\_count\ and\ capacity}}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ capacity\_\ =\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}};}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ =\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}};}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00488\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_a126ee8b8c41b109e10b7c8d203a8ac23}{operator=}}(gsl::span<const\ T>\ values)}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ resize\ to\ correct\ size\ ignoring\ any\ existing\ data}}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(0,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00498\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(values.size(),\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ is\ guaranteed\ to\ be\ OK\ now\ so\ copy\ over}}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(values.begin(),\ values.end(),\ \mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}());}
+\DoxyCodeLine{00502\ }
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00505\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_a126ee8b8c41b109e10b7c8d203a8ac23}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&assign)}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ for\ self-\/assignment}}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\textcolor{keyword}{this}\ ==\ \&assign)}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ First\ resize\ to\ correct\ size}}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(assign.size\_);}
+\DoxyCodeLine{00521\ }
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Size\ is\ guaranteed\ to\ be\ OK\ now\ so\ copy\ over}}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(assign.\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ assign.\mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}}(),\ \mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}());}
+\DoxyCodeLine{00524\ }
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&\mbox{\hyperlink{classseal_1_1_dyn_array_ac4b054f04c35fbe387e13dc59e0ecd6c}{operator=}}(\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>}}\ \&\&assign)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ capacity\_\ =\ assign.capacity\_;}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ size\_\ =\ assign.size\_;}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ data\_\ =\ std::move(assign.data\_);}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ pool\_\ =\ std::move(assign.pool\_);}
+\DoxyCodeLine{00539\ }
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_dyn_array_afd7ec385ee2d392d4f96afb13e3ef45b}{save\_size}}(}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00553\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ members\_size\ =\ \mbox{\hyperlink{classseal_1_1_serialization_afb29aea04524cddb78600a977d13688a}{Serialization::ComprSizeEstimate}}(}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ util::add\_safe(}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(std::uint64\_t),\ \textcolor{comment}{//\ size\_}}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ util::mul\_safe(size\_,\ \textcolor{keyword}{sizeof}(T))),\ \textcolor{comment}{//\ data\_}}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode);}
+\DoxyCodeLine{00559\ }
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::safe\_cast<std::streamoff>(util::add\_safe(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{Serialization::SEALHeader}}),\ members\_size));}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00562\ }
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_dyn_array_a93cf83105252e0c51946a382eececc29}{save}}(}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ \&stream,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00576\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Serialization::Save}}(}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>::save\_members}},\ \textcolor{keyword}{this},\ \_1),\ \mbox{\hyperlink{classseal_1_1_dyn_array_afd7ec385ee2d392d4f96afb13e3ef45b}{save\_size}}(compr\_mode\_type::none),\ stream,\ compr\_mode,}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false});}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00582\ }
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_dyn_array_a6b9c386cf11410ddb8ca8820836b77e7}{load}}(std::istream\ \&stream,\ std::size\_t\ in\_size\_bound\ =\ 0)}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Serialization::Load}}(}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>::load\_members}},\ \textcolor{keyword}{this},\ \_1,\ \_2,\ in\_size\_bound),\ stream,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00604\ }
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_dyn_array_af7f66bb35239c47b7d281e5576ba12dc}{save}}(}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ seal\_byte\ *out,\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00620\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Serialization::Save}}(}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>::save\_members}},\ \textcolor{keyword}{this},\ \_1),\ \mbox{\hyperlink{classseal_1_1_dyn_array_afd7ec385ee2d392d4f96afb13e3ef45b}{save\_size}}(compr\_mode\_type::none),\ out,\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00626\ }
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_dyn_array_afa72e6f9cf56a2349377484c0689e494}{load}}(\textcolor{keyword}{const}\ seal\_byte\ *in,\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ std::size\_t\ in\_size\_bound\ =\ 0)}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Serialization::Load}}(}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&\mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<T>::load\_members}},\ \textcolor{keyword}{this},\ \_1,\ \_2,\ in\_size\_bound),\ in,\ \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}},\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00650\ }
+\DoxyCodeLine{00651\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ save\_members(std::ostream\ \&stream)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00653\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ old\_except\_mask\ =\ stream.exceptions();}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Throw\ exceptions\ on\ std::ios\_base::badbit\ and\ std::ios\_base::failbit}}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(std::ios\_base::badbit\ |\ std::ios\_base::failbit);}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ size64\ =\ size\_;}
+\DoxyCodeLine{00661\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.write(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&size64),\ \textcolor{keyword}{sizeof}(std::uint64\_t));}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (size\_)}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.write(}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}()),}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ util::safe\_cast<std::streamsize>(util::mul\_safe(size\_,\ \textcolor{keyword}{sizeof}(T))));}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::ios\_base::failure\ \&)}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(old\_except\_mask);}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}I/O\ error"{}});}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(old\_except\_mask);}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{00678\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(old\_except\_mask);}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00681\ }
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ load\_members(std::istream\ \&stream,\ SEAL\_MAYBE\_UNUSED\ SEALVersion\ version,\ std::size\_t\ in\_size\_bound)}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ old\_except\_mask\ =\ stream.exceptions();}
+\DoxyCodeLine{00685\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{try}}
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Throw\ exceptions\ on\ std::ios\_base::badbit\ and\ std::ios\_base::failbit}}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(std::ios\_base::badbit\ |\ std::ios\_base::failbit);}
+\DoxyCodeLine{00689\ }
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::uint64\_t\ size64\ =\ 0;}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.read(\textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\&size64),\ \textcolor{keyword}{sizeof}(std::uint64\_t));}
+\DoxyCodeLine{00692\ }
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Check\ (optionally)\ that\ the\ size\ in\ the\ metadata\ does\ not\ exceed}}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ in\_size\_bound}}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (in\_size\_bound\ \&\&\ util::unsigned\_gt(size64,\ in\_size\_bound))}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}unexpected\ size"{}});}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Set\ new\ size;\ this\ is\ potentially\ unsafe\ if\ size64\ was\ not\ checked}}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ against\ expected\_size}}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}}(util::safe\_cast<std::size\_t>(size64));}
+\DoxyCodeLine{00703\ }
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Read\ data}}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (size\_)}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.read(}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keywordtype}{char}\ *\textcolor{keyword}{>}(\mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}()),}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ util::safe\_cast<std::streamsize>(util::mul\_safe(size\_,\ \textcolor{keyword}{sizeof}(T))));}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (\textcolor{keyword}{const}\ std::ios\_base::failure\ \&)}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(old\_except\_mask);}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}I/O\ error"{}});}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{catch}\ (...)}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(old\_except\_mask);}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw};}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ stream.exceptions(old\_except\_mask);}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00724\ }
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ MemoryPoolHandle\ pool\_;}
+\DoxyCodeLine{00726\ }
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ std::size\_t\ capacity\_\ =\ 0;}
+\DoxyCodeLine{00728\ }
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ std::size\_t\ size\_\ =\ 0;}
+\DoxyCodeLine{00730\ }
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ util::Pointer<T>\ data\_;}
+\DoxyCodeLine{00732\ \ \ \ \ \};}
+\DoxyCodeLine{00733\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

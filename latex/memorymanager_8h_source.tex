@@ -1,0 +1,448 @@
+\doxysection{memorymanager.\+h}
+\hypertarget{memorymanager_8h_source}{}\label{memorymanager_8h_source}\index{seal/memorymanager.h@{seal/memorymanager.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/util/globals.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/util/mempool.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <unordered\_map>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <utility>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{comment}{/*}}
+\DoxyCodeLine{00015\ \textcolor{comment}{For\ .NET\ Framework\ wrapper\ support\ (C++/CLI)\ we\ need\ to}}
+\DoxyCodeLine{00016\ \textcolor{comment}{\ \ \ \ (1)\ compile\ the\ MemoryManager\ class\ as\ thread-\/unsafe\ because\ C++}}
+\DoxyCodeLine{00017\ \textcolor{comment}{\ \ \ \ \ \ \ \ mutexes\ cannot\ be\ brought\ through\ C++/CLI\ layer;}}
+\DoxyCodeLine{00018\ \textcolor{comment}{\ \ \ \ (2)\ disable\ thread-\/safe\ memory\ pools.}}
+\DoxyCodeLine{00019\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#include\ <thread>}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00026\ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}}
+\DoxyCodeLine{00072\ \ \ \ \ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a6de738b954e80dccf1a81a9104ce75b8}{MemoryPoolHandle}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_ab17c8af90dbd2277bcfc1de2327698fe}{MemoryPoolHandle}}(std::shared\_ptr<util::MemoryPool>\ pool)\ noexcept\ :\ pool\_(std::move(pool))}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a34031c6804e6cc683133f5588b14cd60}{MemoryPoolHandle}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&copy)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a4acd3ad9ff6d05702e4ae2541e942ae7}{operator=}}(copy);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_acd0bc72dc76d0a1da1b7491dca35b6f9}{MemoryPoolHandle}}(\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&\&source)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a4acd3ad9ff6d05702e4ae2541e942ae7}{operator=}}(std::move(source));}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&\mbox{\hyperlink{classseal_1_1_memory_pool_handle_a4acd3ad9ff6d05702e4ae2541e942ae7}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&assign)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ pool\_\ =\ assign.pool\_;}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&\mbox{\hyperlink{classseal_1_1_memory_pool_handle_a67ee4b04845eb877137bbc0db1f2151a}{operator=}}(\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&\&assign)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ pool\_\ =\ std::move(assign.pool\_);}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00136\ }
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366}{Global}}()\ noexcept}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::global\_variables::global\_memory\_pool;}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a52e423c0422d275f0407704fd4d0d8e4}{ThreadLocal}}()\ noexcept}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::global\_variables::tls\_memory\_pool;}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{static}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538}{New}}(\textcolor{keywordtype}{bool}\ clear\_on\_destruction\ =\ \textcolor{keyword}{false})}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a6de738b954e80dccf1a81a9104ce75b8}{MemoryPoolHandle}}(std::make\_shared<util::MemoryPoolMT>(clear\_on\_destruction));}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{operator}\ \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{util::MemoryPool}}\ \&()\ \textcolor{keyword}{const}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool\_)}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}pool\ not\ initialized"{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *pool\_.get();}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ }
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a434dd44b08ccfd8858cd691c3d9f57f8}{pool\_count}}()\ const\ noexcept}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !pool\_\ ?\ std::size\_t(0)\ :\ pool\_-\/>pool\_count();}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ }
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_aaafa57398abe41af221626ce55a69f8f}{alloc\_byte\_count}}()\ const\ noexcept}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !pool\_\ ?\ std::size\_t(0)\ :\ pool\_-\/>alloc\_byte\_count();}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00202\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{long}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_ad87f2f452054ba4374672066a2160a84}{use\_count}}()\ const\ noexcept}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !pool\_\ ?\ 0\ :\ pool\_.use\_count();}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{explicit}\ \textcolor{keyword}{operator}\ bool()\ const\ noexcept}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pool\_.operator\ bool();}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a6f4d589a52ac8aff4b0d869f50a40a12}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&compare)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pool\_\ ==\ compare.pool\_;}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a50ec5f547c260c1da09f4168cb5979af}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \&compare)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pool\_\ !=\ compare.pool\_;}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00237\ }
+\DoxyCodeLine{00238\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ std::shared\_ptr<util::MemoryPool>\ pool\_\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00240\ \ \ \ \ \};}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \ \ \ \ \textcolor{keyword}{using\ }mm\_prof\_opt\_t\ =\ std::uint64\_t;}
+\DoxyCodeLine{00243\ }
+\DoxyCodeLine{00249\ \ \ \ \ \textcolor{keyword}{enum}\ mm\_prof\_opt\ :\ mm\_prof\_opt\_t}
+\DoxyCodeLine{00250\ \ \ \ \ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ mm\_default\ =\ 0x0,}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ mm\_force\_global\ =\ 0x1,}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ mm\_force\_new\ =\ 0x2,}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ mm\_force\_thread\_local\ =\ 0x4}
+\DoxyCodeLine{00255\ \ \ \ \ \};}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00265\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}}
+\DoxyCodeLine{00266\ \ \ \ \ \{}
+\DoxyCodeLine{00267\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8}{MMProf}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00272\ }
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4}{\string~MMProf}}()\ noexcept}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{get\_pool}}(mm\_prof\_opt\_t)\ =\ 0;}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00287\ \ \ \ \ \};}
+\DoxyCodeLine{00288\ }
+\DoxyCodeLine{00293\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof_global}{MMProfGlobal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}}
+\DoxyCodeLine{00294\ \ \ \ \ \{}
+\DoxyCodeLine{00295\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_global_aadd2b4dd8658bb9a46f969036bc107db}{MMProfGlobal}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_global_a777cbff3eb0cfb6d1645f6c4aefefd50}{\string~MMProfGlobal}}()\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00305\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_global_a1fc4fdba8e34e8e00a89111627a24451}{get\_pool}}(mm\_prof\_opt\_t)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00312\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366}{MemoryPoolHandle::Global}}();}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00316\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00317\ \ \ \ \ \};}
+\DoxyCodeLine{00318\ }
+\DoxyCodeLine{00324\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof_new}{MMProfNew}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}}
+\DoxyCodeLine{00325\ \ \ \ \ \{}
+\DoxyCodeLine{00326\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_new_abebfeacc176aeea6db10d71ea61e2b02}{MMProfNew}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00331\ }
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_new_a214ce8481cad62f139ee875176b3e498}{\string~MMProfNew}}()\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00336\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_new_a6440ac25db64bb5827652b641d286c00}{get\_pool}}(mm\_prof\_opt\_t)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00343\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00344\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538}{MemoryPoolHandle::New}}();}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00347\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00348\ \ \ \ \ \};}
+\DoxyCodeLine{00349\ }
+\DoxyCodeLine{00354\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof_fixed}{MMProfFixed}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}}
+\DoxyCodeLine{00355\ \ \ \ \ \{}
+\DoxyCodeLine{00356\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_fixed_a40acc4f0d87f0bacc95d10b3b6555dc5}{MMProfFixed}}(\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ :\ pool\_(\mbox{\hyperlink{namespacestd}{std}}::move(pool))}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool\_)}
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}pool\ is\ uninitialized"{}});}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_fixed_ac95d0d60a1cfff5735364ea57b80e3b4}{\string~MMProfFixed}}()\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00376\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\}}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_fixed_adb07f45b45b08daf691f4307bb903660}{get\_pool}}(mm\_prof\_opt\_t)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00383\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pool\_;}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\_;}
+\DoxyCodeLine{00389\ \ \ \ \ \};}
+\DoxyCodeLine{00390\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00400\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local}{MMProfThreadLocal}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}}
+\DoxyCodeLine{00401\ \ \ \ \ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00406\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_a9a26fae61c7d6658407a0285eb67e4bd}{MMProfThreadLocal}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00407\ }
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_a59ac115fa52a98212767ea9dba9d7f01}{\string~MMProfThreadLocal}}()\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00412\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{\}}
+\DoxyCodeLine{00413\ }
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_afbd738081f247f35c78438bc77afe184}{get\_pool}}(mm\_prof\_opt\_t)\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00419\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a52e423c0422d275f0407704fd4d0d8e4}{MemoryPoolHandle::ThreadLocal}}();}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00422\ }
+\DoxyCodeLine{00423\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00424\ \ \ \ \ \};}
+\DoxyCodeLine{00425\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00432\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_memory_manager}{MemoryManager}}}
+\DoxyCodeLine{00433\ \ \ \ \ \{}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof_guard}{MMProfGuard}};}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_manager}{MemoryManager}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00438\ }
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::unique\_ptr<MMProf>\ \mbox{\hyperlink{classseal_1_1_memory_manager_aeefec0c1fd87b6e1acfd36ea3f04a013}{SwitchProfile}}(\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}\ *\&\&mm\_prof)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00448\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ switching\_lock(switch\_mutex\_);}
+\DoxyCodeLine{00450\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ SwitchProfileThreadUnsafe(std::move(mm\_prof));}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00453\ }
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::unique\_ptr<MMProf>\ \mbox{\hyperlink{classseal_1_1_memory_manager_a07186bb8581750ff100cb559af20c9fe}{SwitchProfile}}(std::unique\_ptr<MMProf>\ \&\&mm\_prof)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00463\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ switch\_lock(switch\_mutex\_);}
+\DoxyCodeLine{00465\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ SwitchProfileThreadUnsafe(std::move(mm\_prof));}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00468\ }
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}...\ Args>}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{GetPool}}(mm\_prof\_opt\_t\ prof\_opt,\ Args\ \&\&...\ args)}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (prof\_opt)}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ mm\_prof\_opt::mm\_force\_global:}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366}{MemoryPoolHandle::Global}}();}
+\DoxyCodeLine{00492\ }
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ mm\_prof\_opt::mm\_force\_new:}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538}{MemoryPoolHandle::New}}(std::forward<Args>(args)...);}
+\DoxyCodeLine{00495\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ mm\_prof\_opt::mm\_force\_thread\_local:}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a52e423c0422d275f0407704fd4d0d8e4}{MemoryPoolHandle::ThreadLocal}}();}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00500\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ pool\ =\ GetMMProf()-\/>get\_pool(prof\_opt);}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!pool)}
+\DoxyCodeLine{00504\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}cannot\ return\ uninitialized\ pool"{}});}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pool;}
+\DoxyCodeLine{00508\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00509\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GetMMProf()-\/>get\_pool(prof\_opt);}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00513\ }
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ GetPool()}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ GetPool(mm\_prof\_opt::mm\_default);}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00518\ }
+\DoxyCodeLine{00519\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::unique\_ptr<MMProf>\ SwitchProfileThreadUnsafe(MMProf\ *\&\&mm\_prof)}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mm\_prof)}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}mm\_prof\ cannot\ be\ null"{}});}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ ret\_mm\_prof\ =\ std::move(GetMMProf());}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ GetMMProf().reset(mm\_prof);}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret\_mm\_prof;}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00530\ }
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::unique\_ptr<MMProf>\ SwitchProfileThreadUnsafe(}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ std::unique\_ptr<MMProf>\ \&\&mm\_prof)}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mm\_prof)}
+\DoxyCodeLine{00535\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}mm\_prof\ cannot\ be\ null"{}});}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(GetMMProf(),\ mm\_prof);}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::move(mm\_prof);}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::unique\_ptr<MMProf>\ \&GetMMProf()}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::unique\_ptr<MMProf>\ mm\_prof\{\ \textcolor{keyword}{new}\ MMProfGlobal\ \};}
+\DoxyCodeLine{00545\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mm\_prof;}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00547\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::mutex\ switch\_mutex\_;}
+\DoxyCodeLine{00549\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00550\ \ \ \ \ \};}
+\DoxyCodeLine{00551\ \textcolor{preprocessor}{\#ifndef\ \_M\_CEE}}
+\DoxyCodeLine{00560\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_m_m_prof_guard}{MMProfGuard}}}
+\DoxyCodeLine{00561\ \ \ \ \ \{}
+\DoxyCodeLine{00562\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a54f489c658042be2dd361f2fa8d5be91}{MMProfGuard}}(std::unique\_ptr<MMProf>\ \&\&mm\_prof,\ \textcolor{keywordtype}{bool}\ start\_locked\ =\ \textcolor{keyword}{true})\ noexcept}
+\DoxyCodeLine{00575\ \ \ \ \ \ \ \ \ \ \ \ \ :\ mm\_switch\_lock\_(\mbox{\hyperlink{classseal_1_1_memory_manager}{MemoryManager}}::switch\_mutex\_,\ \mbox{\hyperlink{namespacestd}{std}}::defer\_lock)}
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start\_locked)}
+\DoxyCodeLine{00578\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a5211c21bfd6e81ff2f505577882a5bce}{lock}}(std::move(mm\_prof));}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ std::move(mm\_prof);}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00586\ }
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a09ffc9fe20308a85d54c0d7842daf6d6}{MMProfGuard}}(\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}\ *\&\&mm\_prof,\ \textcolor{keywordtype}{bool}\ start\_locked\ =\ \textcolor{keyword}{true})\ noexcept}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ :\ mm\_switch\_lock\_(\mbox{\hyperlink{classseal_1_1_memory_manager}{MemoryManager}}::switch\_mutex\_,\ \mbox{\hyperlink{namespacestd}{std}}::defer\_lock)}
+\DoxyCodeLine{00600\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (start\_locked)}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a5211c21bfd6e81ff2f505577882a5bce}{lock}}(std::move(mm\_prof));}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_.reset(std::move(mm\_prof));}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00610\ }
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a6d47820ee3b0633c6b6a8987a8b264b7}{try\_lock}}()}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ already\ owned"{}});}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mm\_switch\_lock\_.try\_lock())}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00627\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(old\_prof\_));}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00632\ }
+\DoxyCodeLine{00641\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \_Acquires\_lock\_(mm\_switch\_lock\_)}
+\DoxyCodeLine{00643\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a5211c21bfd6e81ff2f505577882a5bce}{lock}}()}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ already\ owned"{}});}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ mm\_switch\_lock\_.lock();}
+\DoxyCodeLine{00651\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(old\_prof\_));}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00653\ }
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a1bd7224043ab6dcbd24185fb2d3e8f12}{try\_lock}}(std::unique\_ptr<MMProf>\ \&\&mm\_prof)}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ already\ owned"{}});}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mm\_switch\_lock\_.try\_lock())}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(mm\_prof));}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00677\ }
+\DoxyCodeLine{00687\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \_Acquires\_lock\_(mm\_switch\_lock\_)}
+\DoxyCodeLine{00689\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00690\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a9ca5f1d74ae2a567d35fa391a94477e4}{lock}}(std::unique\_ptr<MMProf>\ \&\&mm\_prof)}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ already\ owned"{}});}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ mm\_switch\_lock\_.lock();}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(mm\_prof));}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00699\ }
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a008f383751a5778cd877ab5d9db8d890}{try\_lock}}(\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}\ *\&\&mm\_prof)}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00714\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ already\ owned"{}});}
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mm\_switch\_lock\_.try\_lock())}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00719\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(mm\_prof));}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00723\ }
+\DoxyCodeLine{00733\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \_Acquires\_lock\_(mm\_switch\_lock\_)}
+\DoxyCodeLine{00735\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a09558e9ee30814f51099df0668d764de}{lock}}(\mbox{\hyperlink{classseal_1_1_m_m_prof}{MMProf}}\ *\&\&mm\_prof)}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00740\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ already\ owned"{}});}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ mm\_switch\_lock\_.lock();}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(mm\_prof));}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00745\ }
+\DoxyCodeLine{00752\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \_Releases\_lock\_(mm\_switch\_lock\_)}
+\DoxyCodeLine{00754\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a940a3f4bf56565129313e7f2921f7266}{unlock}}()}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}lock\ is\ not\ owned"{}});}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(old\_prof\_));}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ mm\_switch\_lock\_.unlock();}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00764\ }
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_a73cbf7f0be45a91e6fd825c49dd56547}{\string~MMProfGuard}}()}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (mm\_switch\_lock\_.owns\_lock())}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ old\_prof\_\ =\ MemoryManager::SwitchProfileThreadUnsafe(std::move(old\_prof\_));}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ mm\_switch\_lock\_.unlock();}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00778\ }
+\DoxyCodeLine{00783\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_m_m_prof_guard_acb7164b4c0d7d469ea17eaa5124024f9}{owns\_lock}}()\ noexcept}
+\DoxyCodeLine{00784\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00785\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mm\_switch\_lock\_.owns\_lock();}
+\DoxyCodeLine{00786\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00787\ }
+\DoxyCodeLine{00788\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ std::unique\_ptr<MMProf>\ old\_prof\_;}
+\DoxyCodeLine{00790\ }
+\DoxyCodeLine{00791\ \ \ \ \ \ \ \ \ std::unique\_lock<std::mutex>\ mm\_switch\_lock\_;}
+\DoxyCodeLine{00792\ \ \ \ \ \};}
+\DoxyCodeLine{00793\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00794\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

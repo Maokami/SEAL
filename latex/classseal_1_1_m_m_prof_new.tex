@@ -1,0 +1,66 @@
+\doxysection{seal\+::MMProf\+New Class Reference}
+\hypertarget{classseal_1_1_m_m_prof_new}{}\label{classseal_1_1_m_m_prof_new}\index{seal::MMProfNew@{seal::MMProfNew}}
+
+
+{\ttfamily \#include $<$memorymanager.\+h$>$}
+
+Inheritance diagram for seal\+::MMProf\+New\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_m_m_prof_new}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_new_abebfeacc176aeea6db10d71ea61e2b02}{MMProf\+New}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_new_a214ce8481cad62f139ee875176b3e498}{\texorpdfstring{$\sim$}{\string~}\+MMProf\+New}} () noexcept override
+\item 
+virtual SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_new_a6440ac25db64bb5827652b641d286c00}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_m_m_prof}{seal\+::\+MMProf}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8}{MMProf}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4}{\texorpdfstring{$\sim$}{\string~}\+MMProf}} () noexcept
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A memory manager profile that always returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the new thread-\/safe memory pool. This profile should not be used except in special circumstances, as it does not result in any reuse of allocated memory. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_new_abebfeacc176aeea6db10d71ea61e2b02}\label{classseal_1_1_m_m_prof_new_abebfeacc176aeea6db10d71ea61e2b02} 
+\index{seal::MMProfNew@{seal::MMProfNew}!MMProfNew@{MMProfNew}}
+\index{MMProfNew@{MMProfNew}!seal::MMProfNew@{seal::MMProfNew}}
+\doxysubsubsection{\texorpdfstring{MMProfNew()}{MMProfNew()}}
+{\footnotesize\ttfamily seal\+::\+MMProf\+New\+::\+MMProf\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_m_m_prof_new}{MMProf\+New}. \Hypertarget{classseal_1_1_m_m_prof_new_a214ce8481cad62f139ee875176b3e498}\label{classseal_1_1_m_m_prof_new_a214ce8481cad62f139ee875176b3e498} 
+\index{seal::MMProfNew@{seal::MMProfNew}!````~MMProfNew@{\texorpdfstring{$\sim$}{\string~}MMProfNew}}
+\index{````~MMProfNew@{\texorpdfstring{$\sim$}{\string~}MMProfNew}!seal::MMProfNew@{seal::MMProfNew}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MMProfNew()}{\string~MMProfNew()}}
+{\footnotesize\ttfamily virtual seal\+::\+MMProf\+New\+::\texorpdfstring{$\sim$}{\string~}\+MMProf\+New (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+Destroys the \doxylink{classseal_1_1_m_m_prof_new}{MMProf\+New}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_new_a6440ac25db64bb5827652b641d286c00}\label{classseal_1_1_m_m_prof_new_a6440ac25db64bb5827652b641d286c00} 
+\index{seal::MMProfNew@{seal::MMProfNew}!get\_pool@{get\_pool}}
+\index{get\_pool@{get\_pool}!seal::MMProfNew@{seal::MMProfNew}}
+\doxysubsubsection{\texorpdfstring{get\_pool()}{get\_pool()}}
+{\footnotesize\ttfamily virtual SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+MMProf\+New\+::get\+\_\+pool (\begin{DoxyParamCaption}\item[{mm\+\_\+prof\+\_\+opt\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a new thread-\/safe memory pool. The mm\+\_\+prof\+\_\+opt\+\_\+t input parameter has no effect. 
+
+Implements \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{seal\+::\+MMProf}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/memorymanager.\+h\end{DoxyCompactItemize}

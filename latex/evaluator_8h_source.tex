@@ -1,0 +1,440 @@
+\doxysection{evaluator.\+h}
+\hypertarget{evaluator_8h_source}{}\label{evaluator_8h_source}\index{seal/evaluator.h@{seal/evaluator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/ciphertext.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/context.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/galoiskeys.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/modulus.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/plaintext.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}seal/relinkeys.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/secretkey.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}seal/valcheck.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}seal/util/iterator.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00074\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}}
+\DoxyCodeLine{00075\ \ \ \ \ \{}
+\DoxyCodeLine{00076\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ac801b5b9ae231a829d3d5f747581ce2f}{negate\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a6e60c347dd053dc470cb63a5183a358d}{negate}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00103\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ac801b5b9ae231a829d3d5f747581ce2f}{negate\_inplace}}(destination);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a8ef951a420330db88ded8d153481289e}{add\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ab1b21bc2d0fadc25225e0fc530d4505a}{add}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00133\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\&encrypted2\ ==\ \&destination)}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a8ef951a420330db88ded8d153481289e}{add\_inplace}}(destination,\ encrypted1);}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted1;}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a8ef951a420330db88ded8d153481289e}{add\_inplace}}(destination,\ encrypted2);}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a48a5863f4fd0d92fa16f503d98a727c7}{add\_many}}(\textcolor{keyword}{const}\ std::vector<Ciphertext>\ \&encrypteds,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ade142d84810da4df0158d52822408b48}{sub\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ac36ac8c3406619ea69a8505747d5fcf6}{sub}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00186\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\&encrypted2\ ==\ \&destination)}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ade142d84810da4df0158d52822408b48}{sub\_inplace}}(destination,\ encrypted1);}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ac801b5b9ae231a829d3d5f747581ce2f}{negate\_inplace}}(destination);}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted1;}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ade142d84810da4df0158d52822408b48}{sub\_inplace}}(destination,\ encrypted2);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a78da6e2be88fac4077e4fa3dd34a23a0}{multiply\_inplace}}(}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ab5847bb2d26378a8aea60159e1980aab}{multiply}}(}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00237\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\&encrypted2\ ==\ \&destination)}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a78da6e2be88fac4077e4fa3dd34a23a0}{multiply\_inplace}}(destination,\ encrypted1,\ std::move(pool));}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted1;}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a78da6e2be88fac4077e4fa3dd34a23a0}{multiply\_inplace}}(destination,\ encrypted2,\ std::move(pool));}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a6bd5b78e6e7b72bd25ed5a35a6f453b9}{square\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00262\ }
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ae985c87acbcea02d6e5a565c36d8a041}{square}}(}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00280\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a6bd5b78e6e7b72bd25ed5a35a6f453b9}{square\_inplace}}(destination,\ std::move(pool));}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a1552cf00ce1b0d3a5a0ac112efb47d6c}{relinearize\_inplace}}(}
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&relin\_keys,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00303\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ relinearize\_internal(encrypted,\ relin\_keys,\ 2,\ std::move(pool));}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ad326c409fe3c8cf7c741de44f6980941}{relinearize}}(}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&relin\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00328\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a1552cf00ce1b0d3a5a0ac112efb47d6c}{relinearize\_inplace}}(destination,\ relin\_keys,\ std::move(pool));}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00332\ }
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a224349f7ec6552de568dc094224dadf7}{mod\_switch\_to\_next}}(}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00351\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a54d6fd7d36c9f46e8079de7abc6fa1c5}{mod\_switch\_to\_next\_inplace}}(}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00367\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a224349f7ec6552de568dc094224dadf7}{mod\_switch\_to\_next}}(encrypted,\ encrypted,\ std::move(pool));}
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286}{mod\_switch\_to\_inplace}}(}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a31b59db93cd9860548245d6fee95b65c}{mod\_switch\_to}}(}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00412\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286}{mod\_switch\_to\_inplace}}(destination,\ parms\_id,\ std::move(pool));}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00416\ }
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a3248bd7a9f17cf54e64a23bd7f52f4e5}{mod\_switch\_to\_next\_inplace}}(\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00427\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verify\ parameters.}}
+\DoxyCodeLine{00429\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_valid\_for(plain,\ context\_))}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}plain\ is\ not\ valid\ for\ encryption\ parameters"{}});}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ mod\_switch\_drop\_to\_next(plain);}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00449\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a8ee177de710a18b79c95267fd8a6c8d5}{mod\_switch\_to\_next}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00450\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ plain;}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a54d6fd7d36c9f46e8079de7abc6fa1c5}{mod\_switch\_to\_next\_inplace}}(destination);}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00454\ }
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286}{mod\_switch\_to\_inplace}}(\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ parms\_id\_type\ parms\_id)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00469\ }
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_aa22aad681100acf0c57da2afbacd4a48}{mod\_switch\_to}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00485\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ plain;}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286}{mod\_switch\_to\_inplace}}(destination,\ parms\_id);}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00489\ }
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a46490dfd5fe1fb0773d77536a6868d47}{rescale\_to\_next}}(}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_acf9a60f802fffc53bac4dd22e008c52c}{rescale\_to\_next\_inplace}}(}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00525\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a46490dfd5fe1fb0773d77536a6868d47}{rescale\_to\_next}}(encrypted,\ encrypted,\ std::move(pool));}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00528\ }
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a660f4e4b238e13f13d3a75ccdef2a91d}{rescale\_to\_inplace}}(}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00548\ }
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ae82018932a17062c99d81d2f749841b3}{rescale\_to}}(}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00571\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00573\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a660f4e4b238e13f13d3a75ccdef2a91d}{rescale\_to\_inplace}}(destination,\ parms\_id,\ std::move(pool));}
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a6b9c2c5c9f2e68c53cbaa7ed639d0326}{mod\_reduce\_to\_next\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00590\ }
+\DoxyCodeLine{00606\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a3e51786300c96ad757bef78364562880}{mod\_reduce\_to\_next}}(}
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00609\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a6b9c2c5c9f2e68c53cbaa7ed639d0326}{mod\_reduce\_to\_next\_inplace}}(destination,\ std::move(pool));}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00613\ }
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a73879933e6e8740f389f89d23846669e}{mod\_reduce\_to\_inplace}}(}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a006fa68c8a2bab8ee6dad39ba4060744}{mod\_reduce\_to}}(}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00655\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00656\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a73879933e6e8740f389f89d23846669e}{mod\_reduce\_to\_inplace}}(destination,\ parms\_id,\ std::move(pool));}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00659\ }
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a69007e518e71d3807da0e88b517fda9f}{multiply\_many}}(}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<Ciphertext>\ \&encrypteds,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&relin\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00684\ }
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a70d8c7628940463628e53eb1cab76db2}{exponentiate\_inplace}}(}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ std::uint64\_t\ exponent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&relin\_keys,}
+\DoxyCodeLine{00707\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00708\ }
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a733553e8d244f578312950e01222ecbf}{exponentiate}}(}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ std::uint64\_t\ exponent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&relin\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00734\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a70d8c7628940463628e53eb1cab76db2}{exponentiate\_inplace}}(destination,\ exponent,\ relin\_keys,\ std::move(pool));}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00738\ }
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ae0214e07d3797965b71c2129eff1d78a}{add\_plain\_inplace}}(}
+\DoxyCodeLine{00752\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00753\ }
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a1006e108ac098885fcb863b25f0aaa8c}{add\_plain}}(}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00772\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00773\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ae0214e07d3797965b71c2129eff1d78a}{add\_plain\_inplace}}(destination,\ plain,\ std::move(pool));}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00776\ }
+\DoxyCodeLine{00789\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a1ad6caa8655376791cd525c15dade6ef}{sub\_plain\_inplace}}(}
+\DoxyCodeLine{00790\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00791\ }
+\DoxyCodeLine{00806\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a897346b584525403d4cbcda91ebf6909}{sub\_plain}}(}
+\DoxyCodeLine{00807\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00808\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00809\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00810\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00811\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a1ad6caa8655376791cd525c15dade6ef}{sub\_plain\_inplace}}(destination,\ plain,\ std::move(pool));}
+\DoxyCodeLine{00812\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00813\ }
+\DoxyCodeLine{00827\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a164d59c4d4e9f6e4bad8908ebc764532}{multiply\_plain\_inplace}}(}
+\DoxyCodeLine{00828\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00829\ }
+\DoxyCodeLine{00845\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a5082f36257e14c8f5ca27d2ec2cf3798}{multiply\_plain}}(}
+\DoxyCodeLine{00846\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{00847\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00848\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00849\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{00850\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a164d59c4d4e9f6e4bad8908ebc764532}{multiply\_plain\_inplace}}(destination,\ plain,\ std::move(pool));}
+\DoxyCodeLine{00851\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00852\ }
+\DoxyCodeLine{00870\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7}{transform\_to\_ntt\_inplace}}(}
+\DoxyCodeLine{00871\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00872\ }
+\DoxyCodeLine{00892\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_afa12924c3168517067e4681c1d7e15eb}{transform\_to\_ntt}}(}
+\DoxyCodeLine{00893\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ parms\_id\_type\ parms\_id,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination\_ntt,}
+\DoxyCodeLine{00894\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00895\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00896\ \ \ \ \ \ \ \ \ \ \ \ \ destination\_ntt\ =\ plain;}
+\DoxyCodeLine{00897\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7}{transform\_to\_ntt\_inplace}}(destination\_ntt,\ parms\_id,\ std::move(pool));}
+\DoxyCodeLine{00898\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00899\ }
+\DoxyCodeLine{00910\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7}{transform\_to\_ntt\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00911\ }
+\DoxyCodeLine{00923\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a0784d6b7dc6207b042aa36e34b6236de}{transform\_to\_ntt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination\_ntt)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00924\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00925\ \ \ \ \ \ \ \ \ \ \ \ \ destination\_ntt\ =\ encrypted;}
+\DoxyCodeLine{00926\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7}{transform\_to\_ntt\_inplace}}(destination\_ntt);}
+\DoxyCodeLine{00927\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00928\ }
+\DoxyCodeLine{00939\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_aad300e3961a6f32078149e7b325323c6}{transform\_from\_ntt\_inplace}}(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted\_ntt)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00940\ }
+\DoxyCodeLine{00953\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a0b9b610e5859c9519d85af6d6126f6d1}{transform\_from\_ntt}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted\_ntt,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00954\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00955\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted\_ntt;}
+\DoxyCodeLine{00956\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_aad300e3961a6f32078149e7b325323c6}{transform\_from\_ntt\_inplace}}(destination);}
+\DoxyCodeLine{00957\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00958\ }
+\DoxyCodeLine{00987\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a54ecb46513bc24257cdf11663e907ace}{apply\_galois\_inplace}}(}
+\DoxyCodeLine{00988\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ std::uint32\_t\ galois\_elt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,}
+\DoxyCodeLine{00989\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00990\ }
+\DoxyCodeLine{01020\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a9099cf7e670952bf33d4d27806624c4b}{apply\_galois}}(}
+\DoxyCodeLine{01021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ std::uint32\_t\ galois\_elt,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,}
+\DoxyCodeLine{01022\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01023\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01024\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{01025\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a54ecb46513bc24257cdf11663e907ace}{apply\_galois\_inplace}}(destination,\ galois\_elt,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01027\ }
+\DoxyCodeLine{01053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_af4bc9a26921006db5a67175587487295}{rotate\_rows\_inplace}}(}
+\DoxyCodeLine{01054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,}
+\DoxyCodeLine{01055\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01056\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scheme\ =\ context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>parms().scheme();}
+\DoxyCodeLine{01058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (scheme\ !=\ scheme\_type::bfv\ \&\&\ scheme\ !=\ scheme\_type::bgv)}
+\DoxyCodeLine{01059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}unsupported\ scheme"{}});}
+\DoxyCodeLine{01061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01062\ \ \ \ \ \ \ \ \ \ \ \ \ rotate\_internal(encrypted,\ steps,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01064\ }
+\DoxyCodeLine{01091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a11f0c341eb75f95c46099b326f51995b}{rotate\_rows}}(}
+\DoxyCodeLine{01092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{01093\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01094\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01095\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{01096\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_af4bc9a26921006db5a67175587487295}{rotate\_rows\_inplace}}(destination,\ steps,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01097\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01098\ }
+\DoxyCodeLine{01122\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_ab4b155dd7a4044572cb72929bf3ecedf}{rotate\_columns\_inplace}}(}
+\DoxyCodeLine{01123\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,}
+\DoxyCodeLine{01124\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01125\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01126\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ scheme\ =\ context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>parms().scheme();}
+\DoxyCodeLine{01127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (scheme\ !=\ scheme\_type::bfv\ \&\&\ scheme\ !=\ scheme\_type::bgv)}
+\DoxyCodeLine{01128\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}unsupported\ scheme"{}});}
+\DoxyCodeLine{01130\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01131\ \ \ \ \ \ \ \ \ \ \ \ \ conjugate\_internal(encrypted,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01133\ }
+\DoxyCodeLine{01158\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_af900155263fd3317318e3dbe60cb811c}{rotate\_columns}}(}
+\DoxyCodeLine{01159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{01160\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01161\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01162\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{01163\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_ab4b155dd7a4044572cb72929bf3ecedf}{rotate\_columns\_inplace}}(destination,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01165\ }
+\DoxyCodeLine{01190\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_aeb62eee586c7641418fe171a0a4c8902}{rotate\_vector\_inplace}}(}
+\DoxyCodeLine{01191\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,}
+\DoxyCodeLine{01192\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01193\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>parms().scheme()\ !=\ scheme\_type::ckks)}
+\DoxyCodeLine{01195\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}unsupported\ scheme"{}});}
+\DoxyCodeLine{01197\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01198\ \ \ \ \ \ \ \ \ \ \ \ \ rotate\_internal(encrypted,\ steps,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01199\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01200\ }
+\DoxyCodeLine{01226\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_af9de714dfedf6e60e294e6c53fe719a6}{rotate\_vector}}(}
+\DoxyCodeLine{01227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{01228\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01229\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01230\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{01231\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_aeb62eee586c7641418fe171a0a4c8902}{rotate\_vector\_inplace}}(destination,\ steps,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01233\ }
+\DoxyCodeLine{01255\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_aad296c0f18a255c64373848f69379937}{complex\_conjugate\_inplace}}(}
+\DoxyCodeLine{01256\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,}
+\DoxyCodeLine{01257\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01258\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01259\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>parms().scheme()\ !=\ scheme\_type::ckks)}
+\DoxyCodeLine{01260\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}unsupported\ scheme"{}});}
+\DoxyCodeLine{01262\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01263\ \ \ \ \ \ \ \ \ \ \ \ \ conjugate\_internal(encrypted,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01265\ }
+\DoxyCodeLine{01287\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_evaluator_a643f32ba44c71a807d0be5e9d47f6ff1}{complex\_conjugate}}(}
+\DoxyCodeLine{01288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,}
+\DoxyCodeLine{01289\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01290\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01291\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ encrypted;}
+\DoxyCodeLine{01292\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_aad296c0f18a255c64373848f69379937}{complex\_conjugate\_inplace}}(destination,\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01293\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01294\ }
+\DoxyCodeLine{01298\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }EvaluatorPrivateHelper;}
+\DoxyCodeLine{01299\ }
+\DoxyCodeLine{01300\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{01301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}\ \&copy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{01302\ }
+\DoxyCodeLine{01303\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}(\mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}\ \&\&source)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{01304\ }
+\DoxyCodeLine{01305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}\ \&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{01306\ }
+\DoxyCodeLine{01307\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}\ \&operator=(\mbox{\hyperlink{classseal_1_1_evaluator}{Evaluator}}\ \&\&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{01308\ }
+\DoxyCodeLine{01309\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bfv\_multiply(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01310\ }
+\DoxyCodeLine{01311\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ckks\_multiply(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01312\ }
+\DoxyCodeLine{01313\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bgv\_multiply(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted2,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01314\ }
+\DoxyCodeLine{01315\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bfv\_square(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01316\ }
+\DoxyCodeLine{01317\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ckks\_square(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01318\ }
+\DoxyCodeLine{01319\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bgv\_square(\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01320\ }
+\DoxyCodeLine{01321\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ relinearize\_internal(}
+\DoxyCodeLine{01322\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&relin\_keys,\ std::size\_t\ destination\_size,}
+\DoxyCodeLine{01323\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01324\ }
+\DoxyCodeLine{01325\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ mod\_switch\_scale\_to\_next(}
+\DoxyCodeLine{01326\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01327\ }
+\DoxyCodeLine{01328\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ mod\_switch\_drop\_to\_next(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01329\ }
+\DoxyCodeLine{01330\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ mod\_switch\_drop\_to\_next(\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01331\ }
+\DoxyCodeLine{01332\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ rotate\_internal(}
+\DoxyCodeLine{01333\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01334\ }
+\DoxyCodeLine{01335\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ conjugate\_internal(}
+\DoxyCodeLine{01336\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&galois\_keys,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{01337\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{01338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Verify\ parameters.}}
+\DoxyCodeLine{01339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ context\_data\_ptr\ =\ context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a177197adcfad21b54c7b11fda845d42c}{get\_context\_data}}(encrypted.\mbox{\hyperlink{classseal_1_1_ciphertext_a988a73d6c998663fa888cb5af0c30184}{parms\_id}}());}
+\DoxyCodeLine{01340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!context\_data\_ptr)}
+\DoxyCodeLine{01341\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}encrypted\ is\ not\ valid\ for\ encryption\ parameters"{}});}
+\DoxyCodeLine{01343\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01344\ }
+\DoxyCodeLine{01345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Extract\ encryption\ parameters.}}
+\DoxyCodeLine{01346\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ \&context\_data\ =\ *context\_data\_ptr;}
+\DoxyCodeLine{01347\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!context\_data.qualifiers().using\_batching)}
+\DoxyCodeLine{01348\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{01349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}encryption\ parameters\ do\ not\ support\ batching"{}});}
+\DoxyCodeLine{01350\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01351\ }
+\DoxyCodeLine{01352\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ galois\_tool\ =\ context\_data.galois\_tool();}
+\DoxyCodeLine{01353\ }
+\DoxyCodeLine{01354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Perform\ rotation\ and\ key\ switching}}
+\DoxyCodeLine{01355\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_evaluator_a54ecb46513bc24257cdf11663e907ace}{apply\_galois\_inplace}}(encrypted,\ galois\_tool-\/>get\_elt\_from\_step(0),\ galois\_keys,\ std::move(pool));}
+\DoxyCodeLine{01356\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{01357\ }
+\DoxyCodeLine{01358\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ switch\_key\_inplace(}
+\DoxyCodeLine{01359\ \ \ \ \ \ \ \ \ \ \ \ \ Ciphertext\ \&encrypted,\ util::ConstRNSIter\ target\_iter,\ \textcolor{keyword}{const}\ KSwitchKeys\ \&kswitch\_keys,}
+\DoxyCodeLine{01360\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ key\_index,\ MemoryPoolHandle\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01361\ }
+\DoxyCodeLine{01362\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ multiply\_plain\_normal(Ciphertext\ \&encrypted,\ \textcolor{keyword}{const}\ Plaintext\ \&plain,\ MemoryPoolHandle\ pool)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01363\ }
+\DoxyCodeLine{01364\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ multiply\_plain\_ntt(Ciphertext\ \&encrypted\_ntt,\ \textcolor{keyword}{const}\ Plaintext\ \&plain\_ntt)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{01365\ }
+\DoxyCodeLine{01366\ \ \ \ \ \ \ \ \ SEALContext\ context\_;}
+\DoxyCodeLine{01367\ \ \ \ \ \};}
+\DoxyCodeLine{01368\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

@@ -1,0 +1,620 @@
+\doxysection{seal\+::Dyn\+Array\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classseal_1_1_dyn_array}{}\label{classseal_1_1_dyn_array}\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+
+
+{\ttfamily \#include $<$dynarray.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_dyn_array_a5693fd2c31266cc6cf444b206107fa13}\label{classseal_1_1_dyn_array_a5693fd2c31266cc6cf444b206107fa13} 
+using {\bfseries type} = T
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_a96556491782dd58d70c52b8ac1a50349}{Dyn\+Array}} (\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_a790e24c14510af175423542a804be54f}{Dyn\+Array}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_ab8184176f2dabccdc2d58dffde65489b}{Dyn\+Array}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}}, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_a6986a196edb3e1da2398483da229ad1b}{Dyn\+Array}} (\mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util\+::\+Pointer}}$<$ T $>$ \&\&ptr, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}}, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, bool fill\+\_\+zero, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_a5bd10b07a35df13a3f3da9a32434fabf}{Dyn\+Array}} (\mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util\+::\+Pointer}}$<$ T $>$ \&\&ptr, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, bool fill\+\_\+zero, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_ae31f7f63760a708c8c21da9cdf4ae610}{Dyn\+Array}} (const \mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&copy)
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_af6484fb984bd4d244bf4cb36c5a7aaa0}{Dyn\+Array}} (\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&\&source) noexcept
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array_af8871bb4d14ad06653d483355c0acaa0}{\texorpdfstring{$\sim$}{\string~}\+Dyn\+Array}} ()
+\item 
+SEAL\+\_\+\+NODISCARD T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array_a2fcf3ed42d037dd152f1bf0728530d3e}{begin}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array_afe7a4c43eec9ea5121dd095b9171fea4}{end}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array_a7bd88e79be1623df2f792299ba8a08b7}{end}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const T \& \mbox{\hyperlink{classseal_1_1_dyn_array_a10a6d5c16f475d2f2d620dc27f04162a}{at}} (std\+::size\+\_\+t index) const
+\item 
+SEAL\+\_\+\+NODISCARD T \& \mbox{\hyperlink{classseal_1_1_dyn_array_a4c9b85469b05a97fac16ef64c62ba9c3}{at}} (std\+::size\+\_\+t index)
+\item 
+SEAL\+\_\+\+NODISCARD const T \& \mbox{\hyperlink{classseal_1_1_dyn_array_a4c81dd214d1c6c00a30e4d51c78ce9d9}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index) const
+\item 
+SEAL\+\_\+\+NODISCARD T \& \mbox{\hyperlink{classseal_1_1_dyn_array_ac9e667d02a8b7a15c3b73003ffb90074}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t index)
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_dyn_array_ad8ab55f17cd7c081f7fde46f2567d2d2}{empty}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_a749961e05095219111badffa70cd86f2}{max\+\_\+size}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}{pool}} () const noexcept
+\item 
+void \mbox{\hyperlink{classseal_1_1_dyn_array_a4d620fcaff7dc7368e09ab90ad0988fe}{release}} () noexcept
+\item 
+void \mbox{\hyperlink{classseal_1_1_dyn_array_ac22414d1fc1ac1c8c216d29bb97c2f63}{clear}} () noexcept
+\item 
+void \mbox{\hyperlink{classseal_1_1_dyn_array_af814a61547813d3734c82c15db3708c0}{reserve}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}{capacity}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_dyn_array_a45e454235ef642b569cfdc4d7d1dbcdb}{shrink\+\_\+to\+\_\+fit}} ()
+\item 
+void \mbox{\hyperlink{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}{resize}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, bool fill\+\_\+zero=true)
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \& \mbox{\hyperlink{classseal_1_1_dyn_array_a126ee8b8c41b109e10b7c8d203a8ac23}{operator=}} (const \mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&assign)
+\item 
+\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \& \mbox{\hyperlink{classseal_1_1_dyn_array_ac4b054f04c35fbe387e13dc59e0ecd6c}{operator=}} (\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&\&assign) noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array_afd7ec385ee2d392d4f96afb13e3ef45b}{save\+\_\+size}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array_a93cf83105252e0c51946a382eececc29}{save}} (std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array_a6b9c386cf11410ddb8ca8820836b77e7}{load}} (std\+::istream \&stream, std\+::size\+\_\+t in\+\_\+size\+\_\+bound=0)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array_af7f66bb35239c47b7d281e5576ba12dc}{save}} (seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array_afa72e6f9cf56a2349377484c0689e494}{load}} (const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}{size}}, std\+::size\+\_\+t in\+\_\+size\+\_\+bound=0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_dyn_array_a460c3b2e4e402f22b7e74d53046c9803}\label{classseal_1_1_dyn_array_a460c3b2e4e402f22b7e74d53046c9803} 
+class {\bfseries Ciphertext}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class seal\+::\+Dyn\+Array$<$ T $>$}
+A dynamic array for storing objects allocated from a Microsoft SEAL memory pool. The \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} class is mainly intended for internal use and provides the underlying data structure for \doxylink{classseal_1_1_plaintext}{Plaintext} and \doxylink{classseal_1_1_ciphertext}{Ciphertext} classes.
+
+\begin{DoxyParagraph}{Size and Capacity}
+\doxylink{classseal_1_1_dyn_array}{Dyn\+Array} allows the user to pre-\/allocate memory (capacity) for the array in cases where the array is known to be resized in the future and memory moves are to be avoided at the time of resizing. The size of the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} can never exceed its capacity. The capacity and size can be changed using the reserve and resize functions, respectively.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Thread Safety}
+In general, reading from \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} is thread-\/safe as long as no other thread is concurrently mutating it. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_dyn_array_a96556491782dd58d70c52b8ac1a50349}\label{classseal_1_1_dyn_array_a96556491782dd58d70c52b8ac1a50349} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array}. No memory is allocated by this constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a790e24c14510af175423542a804be54f}\label{classseal_1_1_dyn_array_a790e24c14510af175423542a804be54f} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} with given size.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em size} & The size of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_ab8184176f2dabccdc2d58dffde65489b}\label{classseal_1_1_dyn_array_ab8184176f2dabccdc2d58dffde65489b} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{capacity,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} with given capacity and size.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em capacity} & The capacity of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The size of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if capacity is less than size \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a6986a196edb3e1da2398483da229ad1b}\label{classseal_1_1_dyn_array_a6986a196edb3e1da2398483da229ad1b} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util\+::\+Pointer}}$<$ T $>$ \&\&}]{ptr,  }\item[{std\+::size\+\_\+t}]{capacity,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{bool}]{fill\+\_\+zero,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} with given size wrapping a given pointer. This constructor allocates no memory. If the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} goes out of scope, the Pointer object given here is destroyed. On resizing the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to larger size, the data will be copied over to a new allocation from the memory pool pointer to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} and the Pointer object given here will subsequently be destroyed. Unlike the other constructors, this one exposes the option of not automatically zero-\/filling the allocated memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ptr} & An initial Pointer object to wrap \\
+\hline
+\mbox{\texttt{ in}}  & {\em capacity} & The capacity of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The size of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em fill\+\_\+zero} & If true, fills ptr with zeros \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if ptr is null and capacity is positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if capacity is less than size \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a5bd10b07a35df13a3f3da9a32434fabf}\label{classseal_1_1_dyn_array_a5bd10b07a35df13a3f3da9a32434fabf} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util\+::\+Pointer}}$<$ T $>$ \&\&}]{ptr,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{bool}]{fill\+\_\+zero,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} with given size wrapping a given pointer. This constructor allocates no memory. If the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} goes out of scope, the Pointer object given here is destroyed. On resizing the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to larger size, the data will be copied over to a new allocation from the memory pool pointer to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} and the Pointer object given here will subsequently be destroyed. Unlike the other constructors, this one exposes the option of not automatically zero-\/filling the allocated memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ptr} & An initial Pointer object to wrap \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The size of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em fill\+\_\+zero} & If true, fills ptr with zeros \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if ptr is null and size is positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_ae31f7f63760a708c8c21da9cdf4ae610}\label{classseal_1_1_dyn_array_ae31f7f63760a708c8c21da9cdf4ae610} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} by copying a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_af6484fb984bd4d244bf4cb36c5a7aaa0}\label{classseal_1_1_dyn_array_af6484fb984bd4d244bf4cb36c5a7aaa0} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!DynArray@{DynArray}}
+\index{DynArray@{DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DynArray()}{DynArray()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\+Dyn\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Creates a new \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} by moving a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_af8871bb4d14ad06653d483355c0acaa0}\label{classseal_1_1_dyn_array_af8871bb4d14ad06653d483355c0acaa0} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!````~DynArray@{\texorpdfstring{$\sim$}{\string~}DynArray}}
+\index{````~DynArray@{\texorpdfstring{$\sim$}{\string~}DynArray}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}DynArray()}{\string~DynArray()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::\texorpdfstring{$\sim$}{\string~}\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Destroys the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_dyn_array_a4c9b85469b05a97fac16ef64c62ba9c3}\label{classseal_1_1_dyn_array_a4c9b85469b05a97fac16ef64c62ba9c3} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!at@{at}}
+\index{at@{at}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD T \& \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the array element at a given index. This function performs bounds checking and will throw an error if the index is out of range.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em index} & The index of the array element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if index is out of range \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a10a6d5c16f475d2f2d620dc27f04162a}\label{classseal_1_1_dyn_array_a10a6d5c16f475d2f2d620dc27f04162a} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!at@{at}}
+\index{at@{at}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{at()}{at()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD const T \& \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::at (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a constant reference to the array element at a given index. This function performs bounds checking and will throw an error if the index is out of range.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em index} & The index of the array element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if index is out of range \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a2fcf3ed42d037dd152f1bf0728530d3e}\label{classseal_1_1_dyn_array_a2fcf3ed42d037dd152f1bf0728530d3e} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the beginning of the array data. \Hypertarget{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}\label{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!begin@{begin}}
+\index{begin@{begin}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a pointer to the beginning of the array data. \Hypertarget{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010}\label{classseal_1_1_dyn_array_a2e78165db877ece7dc8560d40104c010} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!capacity@{capacity}}
+\index{capacity@{capacity}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the capacity of the array. \Hypertarget{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}\label{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!cbegin@{cbegin}}
+\index{cbegin@{cbegin}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cbegin()}{cbegin()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::cbegin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the beginning of the array data. \Hypertarget{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}\label{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!cend@{cend}}
+\index{cend@{cend}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{cend()}{cend()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::cend (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the end of the array data. \Hypertarget{classseal_1_1_dyn_array_ac22414d1fc1ac1c8c216d29bb97c2f63}\label{classseal_1_1_dyn_array_ac22414d1fc1ac1c8c216d29bb97c2f63} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!clear@{clear}}
+\index{clear@{clear}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Sets the size of the array to zero. The capacity is not changed. \Hypertarget{classseal_1_1_dyn_array_ad8ab55f17cd7c081f7fde46f2567d2d2}\label{classseal_1_1_dyn_array_ad8ab55f17cd7c081f7fde46f2567d2d2} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!empty@{empty}}
+\index{empty@{empty}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns whether the array has size zero. \Hypertarget{classseal_1_1_dyn_array_a7bd88e79be1623df2f792299ba8a08b7}\label{classseal_1_1_dyn_array_a7bd88e79be1623df2f792299ba8a08b7} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!end@{end}}
+\index{end@{end}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD const T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the end of the array data. \Hypertarget{classseal_1_1_dyn_array_afe7a4c43eec9ea5121dd095b9171fea4}\label{classseal_1_1_dyn_array_afe7a4c43eec9ea5121dd095b9171fea4} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!end@{end}}
+\index{end@{end}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD T \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a pointer to the end of the array data. \Hypertarget{classseal_1_1_dyn_array_afa72e6f9cf56a2349377484c0689e494}\label{classseal_1_1_dyn_array_afa72e6f9cf56a2349377484c0689e494} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!load@{load}}
+\index{load@{load}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::load (\begin{DoxyParamCaption}\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{std\+::size\+\_\+t}]{in\+\_\+size\+\_\+bound = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} from a given memory location overwriting the current \doxylink{classseal_1_1_dyn_array}{Dyn\+Array}. This function takes optionally a bound on the size for the loaded \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} and throws an exception if the size indicated by the loaded metadata exceeds the provided value. The check is omitted if in\+\_\+size\+\_\+bound is zero.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{classseal_1_1_modulus}{Modulus} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+\_\+size\+\_\+bound} & A bound on the size of the loaded \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, if decompression failed, or if the loaded size exceeds in\+\_\+size\+\_\+bound \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a6b9c386cf11410ddb8ca8820836b77e7}\label{classseal_1_1_dyn_array_a6b9c386cf11410ddb8ca8820836b77e7} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!load@{load}}
+\index{load@{load}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::load (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{stream,  }\item[{std\+::size\+\_\+t}]{in\+\_\+size\+\_\+bound = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} from an input stream overwriting the current \doxylink{classseal_1_1_dyn_array}{Dyn\+Array}. This function takes optionally a bound on the size for the loaded \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} and throws an exception if the size indicated by the loaded metadata exceeds the provided value. The check is omitted if in\+\_\+size\+\_\+bound is zero.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+\_\+size\+\_\+bound} & A bound on the size of the loaded \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, if decompression failed, or if the loaded size exceeds in\+\_\+size\+\_\+bound \\
+\hline
+{\em std\+::logic\+\_\+error} & if the loaded data is invalid, if the loaded size exceeds in\+\_\+size\+\_\+bound, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a749961e05095219111badffa70cd86f2}\label{classseal_1_1_dyn_array_a749961e05095219111badffa70cd86f2} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!max\_size@{max\_size}}
+\index{max\_size@{max\_size}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{max\_size()}{max\_size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::max\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the largest possible array size. \Hypertarget{classseal_1_1_dyn_array_a126ee8b8c41b109e10b7c8d203a8ac23}\label{classseal_1_1_dyn_array_a126ee8b8c41b109e10b7c8d203a8ac23} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \& \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Copies a given \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_ac4b054f04c35fbe387e13dc59e0ecd6c}\label{classseal_1_1_dyn_array_ac4b054f04c35fbe387e13dc59e0ecd6c} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \& \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ T $>$ \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Moves a given \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_ac9e667d02a8b7a15c3b73003ffb90074}\label{classseal_1_1_dyn_array_ac9e667d02a8b7a15c3b73003ffb90074} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD T \& \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the array element at a given index. This function does not perform bounds checking.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em index} & The index of the array element \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_a4c81dd214d1c6c00a30e4d51c78ce9d9}\label{classseal_1_1_dyn_array_a4c81dd214d1c6c00a30e4d51c78ce9d9} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD const T \& \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a constant reference to the array element at a given index. This function does not perform bounds checking.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em index} & The index of the array element \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d}\label{classseal_1_1_dyn_array_acf03d26dba3486c2ef847fe21e45186d} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!pool@{pool}}
+\index{pool@{pool}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pool()}{pool()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the currently used \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_dyn_array_a4d620fcaff7dc7368e09ab90ad0988fe}\label{classseal_1_1_dyn_array_a4d620fcaff7dc7368e09ab90ad0988fe} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!release@{release}}
+\index{release@{release}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Releases any allocated memory to the memory pool and sets the size and capacity of the array to zero. \Hypertarget{classseal_1_1_dyn_array_af814a61547813d3734c82c15db3708c0}\label{classseal_1_1_dyn_array_af814a61547813d3734c82c15db3708c0} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!reserve@{reserve}}
+\index{reserve@{reserve}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::reserve (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Allocates enough memory for storing a given number of elements without changing the size of the array. If the given capacity is smaller than the current size, the size is automatically set to equal the new capacity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em capacity} & The capacity of the array \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c}\label{classseal_1_1_dyn_array_a5ad1dd7b45966997ee4061ea58e5be2c} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!resize@{resize}}
+\index{resize@{resize}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{size,  }\item[{bool}]{fill\+\_\+zero = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Resizes the array to given size. When resizing to larger size the data in the array remains unchanged and any new space is initialized to zero if fill\+\_\+zero is set to true; when resizing to smaller size the last elements of the array are dropped. If the capacity is not already large enough to hold the new size, the array is also reallocated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em size} & The size of the array \\
+\hline
+\mbox{\texttt{ in}}  & {\em fill\+\_\+zero} & If true, fills expanded space with zeros \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_dyn_array_af7f66bb35239c47b7d281e5576ba12dc}\label{classseal_1_1_dyn_array_af7f66bb35239c47b7d281e5576ba12dc} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!save@{save}}
+\index{save@{save}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::save (\begin{DoxyParamCaption}\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to a given memory location. The output is in binary format and not human-\/readable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write the \doxylink{classseal_1_1_modulus}{Modulus} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if out is null or if size is too small to contain a SEALHeader, or if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a93cf83105252e0c51946a382eececc29}\label{classseal_1_1_dyn_array_a93cf83105252e0c51946a382eececc29} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!save@{save}}
+\index{save@{save}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::save (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to an output stream. The output is in binary format and not human-\/readable. The output stream must have the \"{}binary\"{} flag set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em stream} & The stream to save the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_afd7ec385ee2d392d4f96afb13e3ef45b}\label{classseal_1_1_dyn_array_afd7ec385ee2d392d4f96afb13e3ef45b} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!save\_size@{save\_size}}
+\index{save\_size@{save\_size}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{save\_size()}{save\_size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::save\+\_\+size (\begin{DoxyParamCaption}\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an upper bound on the size of the \doxylink{classseal_1_1_dyn_array}{Dyn\+Array}, as if it was written to an output stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the size does not fit in the return type \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_dyn_array_a45e454235ef642b569cfdc4d7d1dbcdb}\label{classseal_1_1_dyn_array_a45e454235ef642b569cfdc4d7d1dbcdb} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!shrink\_to\_fit@{shrink\_to\_fit}}
+\index{shrink\_to\_fit@{shrink\_to\_fit}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{shrink\_to\_fit()}{shrink\_to\_fit()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::shrink\+\_\+to\+\_\+fit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Reallocates the array so that its capacity exactly matches its size. \Hypertarget{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5}\label{classseal_1_1_dyn_array_ac458c4732f4f2ed188939f9ac5811fc5} 
+\index{seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}!size@{size}}
+\index{size@{size}!seal::DynArray$<$ T $>$@{seal::DynArray$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_dyn_array}{seal\+::\+Dyn\+Array}}$<$ T $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the size of the array. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/dynarray.\+h\end{DoxyCompactItemize}

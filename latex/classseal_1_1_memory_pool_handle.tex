@@ -1,0 +1,210 @@
+\doxysection{seal\+::Memory\+Pool\+Handle Class Reference}
+\hypertarget{classseal_1_1_memory_pool_handle}{}\label{classseal_1_1_memory_pool_handle}\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+
+
+{\ttfamily \#include $<$memorymanager.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_memory_pool_handle_a6de738b954e80dccf1a81a9104ce75b8}{Memory\+Pool\+Handle}} ()=default
+\item 
+\mbox{\hyperlink{classseal_1_1_memory_pool_handle_ab17c8af90dbd2277bcfc1de2327698fe}{Memory\+Pool\+Handle}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{util\+::\+Memory\+Pool}} $>$ pool) noexcept
+\item 
+\mbox{\hyperlink{classseal_1_1_memory_pool_handle_a34031c6804e6cc683133f5588b14cd60}{Memory\+Pool\+Handle}} (const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&copy) noexcept
+\item 
+\mbox{\hyperlink{classseal_1_1_memory_pool_handle_acd0bc72dc76d0a1da1b7491dca35b6f9}{Memory\+Pool\+Handle}} (\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&\&source) noexcept
+\item 
+\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \& \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a4acd3ad9ff6d05702e4ae2541e942ae7}{operator=}} (const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&assign) noexcept
+\item 
+\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \& \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a67ee4b04845eb877137bbc0db1f2151a}{operator=}} (\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&\&assign) noexcept
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a0f45928716b715424bc509ba4bb3c0f5}{operator util\+::\+Memory\+Pool \&}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a434dd44b08ccfd8858cd691c3d9f57f8}{pool\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_memory_pool_handle_aaafa57398abe41af221626ce55a69f8f}{alloc\+\_\+byte\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD long \mbox{\hyperlink{classseal_1_1_memory_pool_handle_ad87f2f452054ba4374672066a2160a84}{use\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle_ae11ff8d5ce395de89d4198031fd4be0a}{operator bool}} () const noexcept
+\item 
+bool \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a6f4d589a52ac8aff4b0d869f50a40a12}{operator==}} (const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&compare) noexcept
+\item 
+bool \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a50ec5f547c260c1da09f4168cb5979af}{operator!=}} (const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&compare) noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366}{Global}} () noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a52e423c0422d275f0407704fd4d0d8e4}{Thread\+Local}} () noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538}{New}} (bool clear\+\_\+on\+\_\+destruction=false)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages a shared pointer to a memory pool. Microsoft SEAL uses memory pools for improved performance due to the large number of memory allocations needed by the homomorphic encryption operations, and the underlying polynomial arithmetic. The library automatically creates a shared global memory pool that is used for all dynamic allocations by default, and the user can optionally create any number of custom memory pools to be used instead.
+
+\begin{DoxyParagraph}{Uses in Multi-\/\+Threaded Applications}
+Sometimes the user might want to use specific memory pools for dynamic allocations in certain functions. For example, in heavily multi-\/threaded applications allocating concurrently from a shared memory pool might lead to significant performance issues due to thread contention. For these cases Microsoft SEAL provides overloads of the functions that take a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} as an additional argument, and uses the associated memory pool for all dynamic allocations inside the function. Whenever these functions are called, the user can then simply pass a thread-\/local \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to be used.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Thread-\/\+Unsafe Memory Pools}
+While memory pools are by default thread-\/safe, in some cases it suffices to have a memory pool be thread-\/unsafe. To get a little extra performance, the user can optionally create such thread-\/unsafe memory pools and use them just as they would use thread-\/safe memory pools.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Initialized and Uninitialized Handles}
+A \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} has to be set to point either to the global memory pool, or to a new memory pool. If this is not done, the \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} is said to be uninitialized, and cannot be used. Initialization simply means assigning \doxylink{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366}{Memory\+Pool\+Handle\+::\+Global()} or \doxylink{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538}{Memory\+Pool\+Handle\+::\+New()} to it.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Managing Lifetime}
+Internally, the \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} wraps an std\+::shared\+\_\+ptr pointing to a memory pool class. Thus, as long as a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a particular memory pool exists, the pool stays alive. Classes such as \doxylink{classseal_1_1_evaluator}{Evaluator} and \doxylink{classseal_1_1_ciphertext}{Ciphertext} store their own local copies of a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to guarantee that the pool stays alive as long as the managing object itself stays alive. The global memory pool is implemented as a global std\+::shared\+\_\+ptr to a memory pool class, and is thus expected to stay alive for the entire duration of the program execution. Note that it can be problematic to create other global objects that use the memory pool e.\+g. in their constructor, as one would have to ensure the initialization order of these global variables to be correct (i.\+e. global memory pool first). 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_memory_pool_handle_a6de738b954e80dccf1a81a9104ce75b8}\label{classseal_1_1_memory_pool_handle_a6de738b954e80dccf1a81a9104ce75b8} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!MemoryPoolHandle@{MemoryPoolHandle}}
+\index{MemoryPoolHandle@{MemoryPoolHandle}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{MemoryPoolHandle()}{MemoryPoolHandle()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily seal\+::\+Memory\+Pool\+Handle\+::\+Memory\+Pool\+Handle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new uninitialized \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_memory_pool_handle_ab17c8af90dbd2277bcfc1de2327698fe}\label{classseal_1_1_memory_pool_handle_ab17c8af90dbd2277bcfc1de2327698fe} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!MemoryPoolHandle@{MemoryPoolHandle}}
+\index{MemoryPoolHandle@{MemoryPoolHandle}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{MemoryPoolHandle()}{MemoryPoolHandle()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily seal\+::\+Memory\+Pool\+Handle\+::\+Memory\+Pool\+Handle (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{util\+::\+Memory\+Pool}} $>$}]{pool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Creates a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a given Memory\+Pool object. \Hypertarget{classseal_1_1_memory_pool_handle_a34031c6804e6cc683133f5588b14cd60}\label{classseal_1_1_memory_pool_handle_a34031c6804e6cc683133f5588b14cd60} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!MemoryPoolHandle@{MemoryPoolHandle}}
+\index{MemoryPoolHandle@{MemoryPoolHandle}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{MemoryPoolHandle()}{MemoryPoolHandle()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily seal\+::\+Memory\+Pool\+Handle\+::\+Memory\+Pool\+Handle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Creates a copy of a given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. As a result, the created \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} will point to the same underlying memory pool as the copied instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_memory_pool_handle_acd0bc72dc76d0a1da1b7491dca35b6f9}\label{classseal_1_1_memory_pool_handle_acd0bc72dc76d0a1da1b7491dca35b6f9} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!MemoryPoolHandle@{MemoryPoolHandle}}
+\index{MemoryPoolHandle@{MemoryPoolHandle}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{MemoryPoolHandle()}{MemoryPoolHandle()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily seal\+::\+Memory\+Pool\+Handle\+::\+Memory\+Pool\+Handle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Creates a new \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} by moving a given one. As a result, the moved \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} will become uninitialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to move from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_memory_pool_handle_aaafa57398abe41af221626ce55a69f8f}\label{classseal_1_1_memory_pool_handle_aaafa57398abe41af221626ce55a69f8f} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!alloc\_byte\_count@{alloc\_byte\_count}}
+\index{alloc\_byte\_count@{alloc\_byte\_count}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{alloc\_byte\_count()}{alloc\_byte\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Memory\+Pool\+Handle\+::alloc\+\_\+byte\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the size of allocated memory. This functions returns the total amount of memory (in bytes) allocated by the memory pool pointed to by the current \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366}\label{classseal_1_1_memory_pool_handle_adf5770e785626129e9b1105d80c64366} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!Global@{Global}}
+\index{Global@{Global}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{Global()}{Global()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+Memory\+Pool\+Handle\+::\+Global (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the global memory pool. \Hypertarget{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538}\label{classseal_1_1_memory_pool_handle_a8d65040516822985623246ca4f7dd538} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!New@{New}}
+\index{New@{New}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{New()}{New()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+Memory\+Pool\+Handle\+::\+New (\begin{DoxyParamCaption}\item[{bool}]{clear\+\_\+on\+\_\+destruction = {\ttfamily false} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a new thread-\/safe memory pool.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em clear\+\_\+on\+\_\+destruction} & Indicates whether the memory pool data should be cleared when destroyed. This can be important when memory pools are used to store private data. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_memory_pool_handle_ae11ff8d5ce395de89d4198031fd4be0a}\label{classseal_1_1_memory_pool_handle_ae11ff8d5ce395de89d4198031fd4be0a} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{operator bool()}{operator bool()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD seal\+::\+Memory\+Pool\+Handle\+::operator bool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}, {\ttfamily [noexcept]}}
+
+Returns whether the \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} is initialized. \Hypertarget{classseal_1_1_memory_pool_handle_a0f45928716b715424bc509ba4bb3c0f5}\label{classseal_1_1_memory_pool_handle_a0f45928716b715424bc509ba4bb3c0f5} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!operator util::MemoryPool \&@{operator util::MemoryPool \&}}
+\index{operator util::MemoryPool \&@{operator util::MemoryPool \&}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{operator util::MemoryPool \&()}{operator util::MemoryPool \&()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD seal\+::\+Memory\+Pool\+Handle\+::operator \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{util\+::\+Memory\+Pool}} \& (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to the internal memory pool that the \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} points to. This function is mainly for internal use.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_memory_pool_handle_a50ec5f547c260c1da09f4168cb5979af}\label{classseal_1_1_memory_pool_handle_a50ec5f547c260c1da09f4168cb5979af} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily bool seal\+::\+Memory\+Pool\+Handle\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&}]{compare }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares Memory\+Pool\+Handles. This function returns whether the current \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} points to a different memory pool than a given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_memory_pool_handle_a4acd3ad9ff6d05702e4ae2541e942ae7}\label{classseal_1_1_memory_pool_handle_a4acd3ad9ff6d05702e4ae2541e942ae7} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \& seal\+::\+Memory\+Pool\+Handle\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Overwrites the \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} instance with the specified instance. As a result, the current \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} will point to the same underlying memory pool as the assigned instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} instance to assign to the current instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_memory_pool_handle_a67ee4b04845eb877137bbc0db1f2151a}\label{classseal_1_1_memory_pool_handle_a67ee4b04845eb877137bbc0db1f2151a} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \& seal\+::\+Memory\+Pool\+Handle\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Moves a specified \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} instance to the current instance. As a result, the assigned \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} will become uninitialized.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} instance to assign to the current instance \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_memory_pool_handle_a6f4d589a52ac8aff4b0d869f50a40a12}\label{classseal_1_1_memory_pool_handle_a6f4d589a52ac8aff4b0d869f50a40a12} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!operator==@{operator==}}
+\index{operator==@{operator==}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool seal\+::\+Memory\+Pool\+Handle\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \&}]{compare }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares Memory\+Pool\+Handles. This function returns whether the current \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} points to the same memory pool as a given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_memory_pool_handle_a434dd44b08ccfd8858cd691c3d9f57f8}\label{classseal_1_1_memory_pool_handle_a434dd44b08ccfd8858cd691c3d9f57f8} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!pool\_count@{pool\_count}}
+\index{pool\_count@{pool\_count}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{pool\_count()}{pool\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Memory\+Pool\+Handle\+::pool\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the number of different allocation sizes. This function returns the number of different allocation sizes the memory pool pointed to by the current \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} has made. For example, if the memory pool has only allocated two allocations of sizes 128 KB, this function returns 1. If it has instead allocated one allocation of size 64 KB and one of 128 KB, this function returns 2. \Hypertarget{classseal_1_1_memory_pool_handle_a52e423c0422d275f0407704fd4d0d8e4}\label{classseal_1_1_memory_pool_handle_a52e423c0422d275f0407704fd4d0d8e4} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!ThreadLocal@{ThreadLocal}}
+\index{ThreadLocal@{ThreadLocal}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{ThreadLocal()}{ThreadLocal()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+Memory\+Pool\+Handle\+::\+Thread\+Local (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the thread-\/local memory pool. \Hypertarget{classseal_1_1_memory_pool_handle_ad87f2f452054ba4374672066a2160a84}\label{classseal_1_1_memory_pool_handle_ad87f2f452054ba4374672066a2160a84} 
+\index{seal::MemoryPoolHandle@{seal::MemoryPoolHandle}!use\_count@{use\_count}}
+\index{use\_count@{use\_count}!seal::MemoryPoolHandle@{seal::MemoryPoolHandle}}
+\doxysubsubsection{\texorpdfstring{use\_count()}{use\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD long seal\+::\+Memory\+Pool\+Handle\+::use\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the number of \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} objects sharing this memory pool. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/memorymanager.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,68 @@
+\doxysection{defines.\+h}
+\hypertarget{c_2defines_8h_source}{}\label{c_2defines_8h_source}\index{seal/c/defines.h@{seal/c/defines.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ STD}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ SEALNet}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/c/stdafx.h"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{comment}{//\ Check\ that\ std::size\_t\ is\ 64\ bits}}
+\DoxyCodeLine{00013\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(std::size\_t)\ ==\ 8,\ \textcolor{stringliteral}{"{}Require\ sizeof(std::size\_t)\ ==\ 8"{}});}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#ifdef\ \_MSC\_VER}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{comment}{//\ Check\ that\ architecture\ (platform)\ is\ x64}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#ifndef\ \_WIN64}}
+\DoxyCodeLine{00019\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{false},\ \textcolor{stringliteral}{"{}Require\ architecture\ ==\ x64"{}});}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#if\ defined(SEAL\_C\_EXPORTS)\ ||\ defined(seal\_c\_EXPORTS)\ ||\ defined(sealc\_EXPORTS)}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#define\ SEAL\_C\_DECOR\ extern\ "{}C"{}}\ \_\_declspec(dllexport)}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\#define\ SEAL\_C\_DECOR\ extern\ "{}C"{}}\ \_\_declspec(dllimport)}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{preprocessor}{\#define\ SEAL\_C\_CALL\ \_\_cdecl}}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#else\ }\textcolor{comment}{//\ \_MSC\_VER}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ SEAL\_C\_DECOR\ extern\ "{}C"{}}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ SEAL\_C\_CALL}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#define\ HRESULT\ long}}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ \_HRESULT\_TYPEDEF\_(hr)\ ((HRESULT)hr)}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#define\ E\_POINTER\ \_HRESULT\_TYPEDEF\_(0x80004003L)}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ E\_INVALIDARG\ \_HRESULT\_TYPEDEF\_(0x80070057L)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ E\_OUTOFMEMORY\ \_HRESULT\_TYPEDEF\_(0x8007000EL)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#define\ E\_UNEXPECTED\ \_HRESULT\_TYPEDEF\_(0x8000FFFFL)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#define\ COR\_E\_IO\ \_HRESULT\_TYPEDEF\_(0x80131620L)}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ COR\_E\_INVALIDOPERATION\ \_HRESULT\_TYPEDEF\_(0x80131509L)}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#define\ S\_OK\ \_HRESULT\_TYPEDEF\_(0L)}}
+\DoxyCodeLine{00047\ \textcolor{preprocessor}{\#define\ S\_FALSE\ \_HRESULT\_TYPEDEF\_(1L)}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ FACILITY\_WIN32\ 7}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\#define\ HRESULT\_FROM\_WIN32(x)\ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ ((HRESULT)(x)\ <=\ 0\ ?\ ((HRESULT)(x))\ :\ ((HRESULT)(((x)\&0x0000FFFF)\ |\ (FACILITY\_WIN32\ <<\ 16)\ |\ 0x80000000)))}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ ERROR\_INSUFFICIENT\_BUFFER\ 122L}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\#define\ ERROR\_INVALID\_INDEX\ 1413L}}
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#define\ ERROR\_INVALID\_OPERATION\ 4317L}}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ SUCCEEDED(hr)\ (((HRESULT)(hr))\ >=\ 0)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#define\ FAILED(hr)\ (((HRESULT)(hr))\ <\ 0)}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ \_MSC\_VER}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\#define\ SEAL\_C\_FUNC\ SEAL\_C\_DECOR\ HRESULT\ SEAL\_C\_CALL}}
+
+\end{DoxyCode}

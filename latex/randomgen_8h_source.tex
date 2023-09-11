@@ -1,0 +1,386 @@
+\doxysection{randomgen.\+h}
+\hypertarget{randomgen_8h_source}{}\label{randomgen_8h_source}\index{seal/randomgen.h@{seal/randomgen.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/dynarray.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/version.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/util/common.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <mutex>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keyword}{constexpr}\ std::size\_t\ prng\_seed\_uint64\_count\ =\ 8;}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{constexpr}\ std::size\_t\ prng\_seed\_byte\_count\ =\ prng\_seed\_uint64\_count\ *\ util::bytes\_per\_uint64;}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{using\ }prng\_seed\_type\ =\ std::array<std::uint64\_t,\ prng\_seed\_uint64\_count>;}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{enum\ class}\ prng\_type\ :\ std::uint8\_t}
+\DoxyCodeLine{00030\ \ \ \ \ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ unknown\ =\ 0,}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ blake2xb\ =\ 1,}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ shake256\ =\ 2}
+\DoxyCodeLine{00036\ \ \ \ \ \};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordtype}{void}\ random\_bytes(seal\_byte\ *buf,\ std::size\_t\ count);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00046\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::uint64\_t\ random\_uint64()}
+\DoxyCodeLine{00047\ \ \ \ \ \{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ std::uint64\_t\ result;}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ random\_bytes(\textcolor{keyword}{reinterpret\_cast<}seal\_byte\ *\textcolor{keyword}{>}(\&result),\ \textcolor{keyword}{sizeof}(result));}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00051\ \ \ \ \ \}}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{class\ }UniformRandomGenerator;}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}}
+\DoxyCodeLine{00056\ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_uniform_random_generator}{UniformRandomGenerator}};}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a843583a4a43deccdea162ba1bf1e9d17}{UniformRandomGeneratorInfo}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a70ef497573678b4d6ead463c40d5014b}{UniformRandomGeneratorInfo}}(prng\_type\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_ad441ef75bcf4f3c0b048eebaf89da00c}{type}},\ prng\_seed\_type\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_af440b29933e81c948b81d27e9340cedb}{seed}})\ :\ type\_(\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_ad441ef75bcf4f3c0b048eebaf89da00c}{type}}),\ seed\_(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_af440b29933e81c948b81d27e9340cedb}{seed}}))}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a33f4d2a1f28ba4b9014d54e87a8f5b88}{UniformRandomGeneratorInfo}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ \&copy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ \&\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a719c8e6bee5ca59d1998c0add8d1bca8}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ \&assign)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a895117fbd692ea1bb278f07214e5b243}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (seed\_\ ==\ compare.seed\_)\ \&\&\ (type\_\ ==\ compare.type\_);}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a791f65442575ba44316e70becb4a95d7}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a895117fbd692ea1bb278f07214e5b243}{operator==}}(compare);}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a598fcd07f785783d7549c82b3ebd6926}{clear}}()\ noexcept}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ type\_\ =\ prng\_type::unknown;}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ util::seal\_memzero(seed\_.data(),\ prng\_seed\_byte\_count);}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_ab075e8c24b157359f865c9f65eae5274}{\string~UniformRandomGeneratorInfo}}()}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a598fcd07f785783d7549c82b3ebd6926}{clear}}();}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ std::shared\_ptr<UniformRandomGenerator>\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_adba26cf2f14b0d8bfa37af310720ce59}{make\_prng}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00131\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a61edaea373f30fd7c1b23f6ba6ea64ff}{has\_valid\_prng\_type}}()\ const\ noexcept}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (type\_)}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ prng\_type::blake2xb:}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ fall\ through\ */}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ prng\_type::shake256:}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ fall\ through\ */}}
+\DoxyCodeLine{00144\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ prng\_type::unknown:}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00150\ }
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ prng\_type\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_ad441ef75bcf4f3c0b048eebaf89da00c}{type}}()\ const\ noexcept}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ type\_;}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00158\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ prng\_type\ \&\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a21c053cdb039916edcbb1a6f500ac99a}{type}}()\ noexcept}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ type\_;}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ prng\_seed\_type\ \&\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_af440b29933e81c948b81d27e9340cedb}{seed}}()\ const\ noexcept}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ seed\_;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ prng\_seed\_type\ \&\mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_ac7c3198da8dc6eb22c2f3a86848f0dea}{seed}}()\ noexcept}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ seed\_;}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a597ca44c9c36a75d63cc6502d070c44e}{SaveSize}}(}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ members\_size\ =}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_serialization_afb29aea04524cddb78600a977d13688a}{Serialization::ComprSizeEstimate}}(\textcolor{keyword}{sizeof}(prng\_type)\ +\ prng\_seed\_byte\_count,\ compr\_mode);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{static\_cast<}std::streamoff\textcolor{keyword}{>}(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{Serialization::SEALHeader}})\ +\ members\_size);}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a9bb9106cfa23b38032195414c5dc77ad}{save\_size}}(}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00209\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a597ca44c9c36a75d63cc6502d070c44e}{UniformRandomGeneratorInfo::SaveSize}}(compr\_mode);}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00212\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_abab8e783da119d8c32917a438df9a7ae}{save}}(}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ \&stream,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00227\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Serialization::Save}}(}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&UniformRandomGeneratorInfo::save\_members,\ \textcolor{keyword}{this},\ \_1),\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a9bb9106cfa23b38032195414c5dc77ad}{save\_size}}(compr\_mode\_type::none),}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ stream,\ compr\_mode,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a4a82ac3cb96059cca8cc7af6d40f99fa}{load}}(std::istream\ \&stream)}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ new\_info;}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\_size\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Serialization::Load}}(}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&UniformRandomGeneratorInfo::load\_members,\ \&new\_info,\ \_1,\ \_2),\ stream,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(*\textcolor{keyword}{this},\ new\_info);}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in\_size;}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a0236a925fd8a7413dde3463df29719bc}{save}}(}
+\DoxyCodeLine{00267\ \ \ \ \ \ \ \ \ \ \ \ \ seal\_byte\ *out,\ std::size\_t\ size,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00268\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Serialization::Save}}(}
+\DoxyCodeLine{00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&UniformRandomGeneratorInfo::save\_members,\ \textcolor{keyword}{this},\ \_1),\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a9bb9106cfa23b38032195414c5dc77ad}{save\_size}}(compr\_mode\_type::none),\ out,}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ size,\ compr\_mode,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00274\ }
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info_a9b4eb7dc310e3a6f2d804b932145b467}{load}}(\textcolor{keyword}{const}\ seal\_byte\ *in,\ std::size\_t\ size)}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ new\_info;}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\_size\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Serialization::Load}}(}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&UniformRandomGeneratorInfo::load\_members,\ \&new\_info,\ \_1,\ \_2),\ in,\ size,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(*\textcolor{keyword}{this},\ new\_info);}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in\_size;}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00296\ }
+\DoxyCodeLine{00297\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ save\_members(std::ostream\ \&stream)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ load\_members(std::istream\ \&stream,\ \mbox{\hyperlink{structseal_1_1_s_e_a_l_version}{SEALVersion}}\ version);}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00302\ \ \ \ \ \ \ \ \ prng\_type\ type\_\ =\ prng\_type::unknown;}
+\DoxyCodeLine{00303\ }
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ prng\_seed\_type\ seed\_\ =\ \{\};}
+\DoxyCodeLine{00305\ \ \ \ \ \};}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00313\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_uniform_random_generator}{UniformRandomGenerator}}}
+\DoxyCodeLine{00314\ \ \ \ \ \{}
+\DoxyCodeLine{00315\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a9805119090a45dcec3a1f7b01075b742}{UniformRandomGenerator}}(prng\_seed\_type\ seed)}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ :\ seed\_([\&seed]()\ \{}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Create\ a\ new\ seed\ allocation}}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray<std::uint64\_t>}}\ new\_seed(}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ seed.size(),\ MemoryManager::GetPool(mm\_prof\_opt::mm\_force\_new,\ \textcolor{keyword}{true}));}
+\DoxyCodeLine{00326\ }
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Assign\ the\ given\ seed\ and\ return}}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(seed.cbegin(),\ seed.cend(),\ new\_seed.\mbox{\hyperlink{classseal_1_1_dyn_array_aae36122e91c1b98e587ee267cdbe4247}{begin}}());}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ new\_seed;}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}()),}
+\DoxyCodeLine{00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer\_(buffer\_size\_,\ MemoryManager::GetPool(mm\_prof\_opt::mm\_force\_new,\ \textcolor{keyword}{true})),}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ buffer\_begin\_(buffer\_.begin()),\ buffer\_end\_(buffer\_.end()),\ buffer\_head\_(buffer\_.end())}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ prng\_seed\_type\ seed()\ const\ noexcept}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00337\ \ \ \ \ \ \ \ \ \ \ \ \ prng\_seed\_type\ ret\{\};}
+\DoxyCodeLine{00338\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy(seed\_.\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ seed\_.\mbox{\hyperlink{classseal_1_1_dyn_array_a78708e046c2d3a3f6dc3593b2b85a024}{cend}}(),\ ret.begin());}
+\DoxyCodeLine{00339\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{00340\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00341\ }
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_afef3d67f19a8032957c618767e2cd125}{generate}}(std::size\_t\ byte\_count,\ seal\_byte\ *destination);}
+\DoxyCodeLine{00346\ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::uint32\_t\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a8d7cca5150bd079a28548f94f1de47d9}{generate}}()}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ std::uint32\_t\ result;}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a8d7cca5150bd079a28548f94f1de47d9}{generate}}(\textcolor{keyword}{sizeof}(result),\ \textcolor{keyword}{reinterpret\_cast<}seal\_byte\ *\textcolor{keyword}{>}(\&result));}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00356\ }
+\DoxyCodeLine{00361\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_afc279dfa1e890f83000cab298d6d921b}{refresh}}()}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ std::lock\_guard<std::mutex>\ lock(mutex\_);}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ refill\_buffer();}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ buffer\_head\_\ =\ buffer\_begin\_;}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a1cd34a34ddf914c1295c0068324bec44}{info}}()\ const\ noexcept}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{UniformRandomGeneratorInfo}}\ result;}
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \ \ \ \ std::copy\_n(seed\_.\mbox{\hyperlink{classseal_1_1_dyn_array_a6614fb84d8a226863b9f72ab39afd552}{cbegin}}(),\ prng\_seed\_uint64\_count,\ result.seed\_.begin());}
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ \ \ \ \ result.type\_\ =\ type();}
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00382\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_ad29451201db88b6e14eeb8e04e1fa939}{\string~UniformRandomGenerator}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00383\ }
+\DoxyCodeLine{00384\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{virtual}\ prng\_type\ type()\ const\ noexcept\ =\ 0;}
+\DoxyCodeLine{00386\ }
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ virtual\ \textcolor{keywordtype}{void}\ refill\_buffer()\ =\ 0;}
+\DoxyCodeLine{00388\ }
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ const\ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray}}<\mbox{\hyperlink{namespacestd}{std}}::uint64\_t>\ seed\_;}
+\DoxyCodeLine{00390\ }
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ const\ \mbox{\hyperlink{namespacestd}{std}}::\textcolor{keywordtype}{size\_t}\ buffer\_size\_\ =\ 4096;}
+\DoxyCodeLine{00392\ }
+\DoxyCodeLine{00393\ \ \ \ \ private:}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_dyn_array}{DynArray}}<seal\_byte>\ buffer\_;}
+\DoxyCodeLine{00395\ }
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespacestd}{std}}::mutex\ mutex\_;}
+\DoxyCodeLine{00397\ }
+\DoxyCodeLine{00398\ \ \ \ \ protected:}
+\DoxyCodeLine{00399\ \ \ \ \ \ \ \ \ seal\_byte\ *const\ buffer\_begin\_;}
+\DoxyCodeLine{00400\ }
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ seal\_byte\ *const\ buffer\_end\_;}
+\DoxyCodeLine{00402\ }
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ seal\_byte\ *buffer\_head\_;}
+\DoxyCodeLine{00404\ \ \ \ \ \};}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00411\ \ \ \ \ class\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}}
+\DoxyCodeLine{00412\ \ \ \ \ \{}
+\DoxyCodeLine{00413\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_a3c7231cca78113f0b2be50b127a3104a}{UniformRandomGeneratorFactory}}()\ :\ use\_random\_seed\_(true)}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00421\ }
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_aba0ca0b36bdca098bae748f76696220d}{UniformRandomGeneratorFactory}}(prng\_seed\_type\ default\_seed)}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \ \ \ \ :\ default\_seed\_(default\_seed),\ use\_random\_seed\_(false)}
+\DoxyCodeLine{00435\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00436\ }
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ae6427b1ae16b1109d05851cf0d481238}{create}}()\ -\/>\ std::shared\_ptr<UniformRandomGenerator>}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ use\_random\_seed\_\ ?\ create\_impl([]()\ \{}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prng\_seed\_type\ seed;}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ random\_bytes(\textcolor{keyword}{reinterpret\_cast<}seal\_byte\ *\textcolor{keyword}{>}(seed.data()),\ prng\_seed\_byte\_count);}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ seed;}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ \}())}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ :\ create\_impl(default\_seed\_);}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_afaf3c900c5e5acde3a5147b913f631df}{create}}(prng\_seed\_type\ seed)\ -\/>\ std::shared\_ptr<UniformRandomGenerator>}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ create\_impl(seed);}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_a7fd6190d3c1b123813a7618c94c00a47}{\string~UniformRandomGeneratorFactory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00465\ }
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keyword}{auto}\ DefaultFactory()\ -\/>\ std::shared\_ptr<UniformRandomGeneratorFactory>;}
+\DoxyCodeLine{00471\ }
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_af2570eae10f612a85f91aa97c2aab18d}{use\_random\_seed}}()\ noexcept}
+\DoxyCodeLine{00477\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ use\_random\_seed\_;}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ prng\_seed\_type\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ad9b5cb77b7bb9bfea8d73f9a61b87745}{default\_seed}}()\ noexcept}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ default\_seed\_;}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00490\ }
+\DoxyCodeLine{00491\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{virtual}\ \textcolor{keyword}{auto}\ create\_impl(prng\_seed\_type\ seed)\ -\/>\ std::shared\_ptr<UniformRandomGenerator>\ =\ 0;}
+\DoxyCodeLine{00493\ }
+\DoxyCodeLine{00494\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ prng\_seed\_type\ default\_seed\_\ =\ \{\};}
+\DoxyCodeLine{00496\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ use\_random\_seed\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00498\ \ \ \ \ \};}
+\DoxyCodeLine{00499\ }
+\DoxyCodeLine{00504\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g}{Blake2xbPRNG}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{UniformRandomGenerator}}}
+\DoxyCodeLine{00505\ \ \ \ \ \{}
+\DoxyCodeLine{00506\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_a046f949bc6efdd95b439f00f96eeba5f}{Blake2xbPRNG}}(prng\_seed\_type\ seed)\ :\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{UniformRandomGenerator}}(seed)}
+\DoxyCodeLine{00513\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00514\ }
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_a483b9b0148c3c72b21b281f59dfee361}{\string~Blake2xbPRNG}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00520\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ prng\_type\ type()\ const\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00522\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ prng\_type::blake2xb;}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00525\ }
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ refill\_buffer()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00528\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ std::uint64\_t\ counter\_\ =\ 0;}
+\DoxyCodeLine{00530\ \ \ \ \ \};}
+\DoxyCodeLine{00531\ }
+\DoxyCodeLine{00532\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory}{Blake2xbPRNGFactory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}}
+\DoxyCodeLine{00533\ \ \ \ \ \{}
+\DoxyCodeLine{00534\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_abb7996a0223fffdd9ea427ffab7786ff}{Blake2xbPRNGFactory}}()\ :\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}()}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00542\ }
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_a1d093fbfe216821c180ca425c444afad}{Blake2xbPRNGFactory}}(prng\_seed\_type\ default\_seed)\ :\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}(default\_seed)}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00555\ }
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_ab41c73a40697ee128b7d034150ca4757}{\string~Blake2xbPRNGFactory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00560\ }
+\DoxyCodeLine{00561\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{auto}\ create\_impl(prng\_seed\_type\ seed)\ -\/>\ std::shared\_ptr<UniformRandomGenerator>\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<Blake2xbPRNG>(seed);}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00566\ }
+\DoxyCodeLine{00567\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00568\ \ \ \ \ \};}
+\DoxyCodeLine{00569\ }
+\DoxyCodeLine{00574\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g}{Shake256PRNG}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{UniformRandomGenerator}}}
+\DoxyCodeLine{00575\ \ \ \ \ \{}
+\DoxyCodeLine{00576\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_aa1e732af01e0b66255732f5e948c53c1}{Shake256PRNG}}(prng\_seed\_type\ seed)\ :\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{UniformRandomGenerator}}(seed)}
+\DoxyCodeLine{00583\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00584\ }
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_a1210fd5080b84267a104fefc9b87f9eb}{\string~Shake256PRNG}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00589\ }
+\DoxyCodeLine{00590\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ prng\_type\ type()\ const\ noexcept\textcolor{keyword}{\ override}}
+\DoxyCodeLine{00592\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ prng\_type::shake256;}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00595\ }
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ refill\_buffer()\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00597\ }
+\DoxyCodeLine{00598\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ std::uint64\_t\ counter\_\ =\ 0;}
+\DoxyCodeLine{00600\ \ \ \ \ \};}
+\DoxyCodeLine{00601\ }
+\DoxyCodeLine{00602\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_factory}{Shake256PRNGFactory}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}}
+\DoxyCodeLine{00603\ \ \ \ \ \{}
+\DoxyCodeLine{00604\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00610\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_factory_a310fb0ce76854a85971b68863adcb02f}{Shake256PRNGFactory}}()\ :\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}()}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00612\ }
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_factory_a12a8f16962851b18eec8d5463390b0bb}{Shake256PRNGFactory}}(prng\_seed\_type\ default\_seed)\ :\ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{UniformRandomGeneratorFactory}}(default\_seed)}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00625\ }
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_shake256_p_r_n_g_factory_ad52345de5ce8dbcd48128b7999f17db2}{\string~Shake256PRNGFactory}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00630\ }
+\DoxyCodeLine{00631\ \ \ \ \ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{auto}\ create\_impl(prng\_seed\_type\ seed)\ -\/>\ std::shared\_ptr<UniformRandomGenerator>\ \textcolor{keyword}{override}}
+\DoxyCodeLine{00633\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::make\_shared<Shake256PRNG>(seed);}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00636\ }
+\DoxyCodeLine{00637\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00638\ \ \ \ \ \};}
+\DoxyCodeLine{00639\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

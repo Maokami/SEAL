@@ -1,0 +1,81 @@
+\doxysection{seal\+::util\+::Memory\+Pool Class Reference}
+\hypertarget{classseal_1_1util_1_1_memory_pool}{}\label{classseal_1_1util_1_1_memory_pool}\index{seal::util::MemoryPool@{seal::util::MemoryPool}}
+Inheritance diagram for seal\+::util\+::Memory\+Pool\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1util_1_1_memory_pool}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a66376bf88c60b92e4d9957d17072454f}\label{classseal_1_1util_1_1_memory_pool_a66376bf88c60b92e4d9957d17072454f} 
+virtual \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer}}$<$ seal\+\_\+byte $>$ {\bfseries get\+\_\+for\+\_\+byte\+\_\+count} (std\+::size\+\_\+t byte\+\_\+count)=0
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a04b85b16077cacd20d56c0c25c6f0beb}\label{classseal_1_1util_1_1_memory_pool_a04b85b16077cacd20d56c0c25c6f0beb} 
+virtual std\+::size\+\_\+t {\bfseries pool\+\_\+count} () const =0
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a76a4524e9525d34d8a74b54c90bbfcc4}\label{classseal_1_1util_1_1_memory_pool_a76a4524e9525d34d8a74b54c90bbfcc4} 
+virtual std\+::size\+\_\+t {\bfseries alloc\+\_\+byte\+\_\+count} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a8336d3436e7c7d9ab2f4fa79e661637a}\label{classseal_1_1util_1_1_memory_pool_a8336d3436e7c7d9ab2f4fa79e661637a} 
+static constexpr double {\bfseries alloc\+\_\+size\+\_\+multiplier} = 1.\+05
+\item 
+static const std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_aea2443e88003a5e7af2f7f00f6c7485e}{max\+\_\+single\+\_\+alloc\+\_\+byte\+\_\+count}}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_ae4e5e62f7350b26dbea7d1b9d3fe1127}\label{classseal_1_1util_1_1_memory_pool_ae4e5e62f7350b26dbea7d1b9d3fe1127} 
+static constexpr std\+::size\+\_\+t {\bfseries max\+\_\+pool\+\_\+head\+\_\+count} = (std\+::numeric\+\_\+limits$<$std\+::size\+\_\+t$>$\+::max)()
+\item 
+static const std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_af860ae4f7d92e269e3f1b9f27914af80}{max\+\_\+batch\+\_\+alloc\+\_\+byte\+\_\+count}}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_aced16e74c6c5a3829a803bc55ce52bd7}\label{classseal_1_1util_1_1_memory_pool_aced16e74c6c5a3829a803bc55ce52bd7} 
+static constexpr std\+::size\+\_\+t {\bfseries first\+\_\+alloc\+\_\+count} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classseal_1_1util_1_1_memory_pool_af860ae4f7d92e269e3f1b9f27914af80}\label{classseal_1_1util_1_1_memory_pool_af860ae4f7d92e269e3f1b9f27914af80} 
+\index{seal::util::MemoryPool@{seal::util::MemoryPool}!max\_batch\_alloc\_byte\_count@{max\_batch\_alloc\_byte\_count}}
+\index{max\_batch\_alloc\_byte\_count@{max\_batch\_alloc\_byte\_count}!seal::util::MemoryPool@{seal::util::MemoryPool}}
+\doxysubsubsection{\texorpdfstring{max\_batch\_alloc\_byte\_count}{max\_batch\_alloc\_byte\_count}}
+{\footnotesize\ttfamily const size\+\_\+t seal\+::util\+::\+Memory\+Pool\+::max\+\_\+batch\+\_\+alloc\+\_\+byte\+\_\+count\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []()\ -\/>\ \textcolor{keywordtype}{size\_t}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_shift\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ceil(log2(MemoryPool::alloc\_size\_multiplier)));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_shift\ <\ 0\ ||\ unsigned\_geq(bit\_shift,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{size\_t})\ *\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(bits\_per\_byte)))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ logic\_error(\textcolor{stringliteral}{"{}alloc\_size\_multiplier\ too\ large"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ numeric\_limits<size\_t>::max()\ >>\ bit\_shift;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}()}
+
+\end{DoxyCode}
+\Hypertarget{classseal_1_1util_1_1_memory_pool_aea2443e88003a5e7af2f7f00f6c7485e}\label{classseal_1_1util_1_1_memory_pool_aea2443e88003a5e7af2f7f00f6c7485e} 
+\index{seal::util::MemoryPool@{seal::util::MemoryPool}!max\_single\_alloc\_byte\_count@{max\_single\_alloc\_byte\_count}}
+\index{max\_single\_alloc\_byte\_count@{max\_single\_alloc\_byte\_count}!seal::util::MemoryPool@{seal::util::MemoryPool}}
+\doxysubsubsection{\texorpdfstring{max\_single\_alloc\_byte\_count}{max\_single\_alloc\_byte\_count}}
+{\footnotesize\ttfamily const size\+\_\+t seal\+::util\+::\+Memory\+Pool\+::max\+\_\+single\+\_\+alloc\+\_\+byte\+\_\+count\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ []()\ -\/>\ \textcolor{keywordtype}{size\_t}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_shift\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(ceil(log2(MemoryPool::alloc\_size\_multiplier)));}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bit\_shift\ <\ 0\ ||\ unsigned\_geq(bit\_shift,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{size\_t})\ *\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(bits\_per\_byte)))}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ logic\_error(\textcolor{stringliteral}{"{}alloc\_size\_multiplier\ too\ large"{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ numeric\_limits<size\_t>::max()\ >>\ bit\_shift;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}()}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/mempool.\+h\item 
+seal/util/mempool.\+cpp\end{DoxyCompactItemize}

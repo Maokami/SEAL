@@ -1,0 +1,50 @@
+\doxysection{seal\+::util\+::NTTTables Class Reference}
+\hypertarget{classseal_1_1util_1_1_n_t_t_tables}{}\label{classseal_1_1util_1_1_n_t_t_tables}\index{seal::util::NTTTables@{seal::util::NTTTables}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a08a1def5714019a1a922ac579e7a8189}\label{classseal_1_1util_1_1_n_t_t_tables_a08a1def5714019a1a922ac579e7a8189} 
+{\bfseries NTTTables} (\mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}} \&\&source)=default
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_afe14c3f33bbeef31406bdf80d6757866}\label{classseal_1_1util_1_1_n_t_t_tables_afe14c3f33bbeef31406bdf80d6757866} 
+{\bfseries NTTTables} (\mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables}} \&copy)
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a7e7f764d48838e095c8b4b214243abe5}\label{classseal_1_1util_1_1_n_t_t_tables_a7e7f764d48838e095c8b4b214243abe5} 
+{\bfseries NTTTables} (int coeff\+\_\+count\+\_\+power, const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&modulus, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_af17480cd9eaf9421547f22fae2275d18}\label{classseal_1_1util_1_1_n_t_t_tables_af17480cd9eaf9421547f22fae2275d18} 
+SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t {\bfseries get\+\_\+root} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a64d5888525c7c1450af656c2af179a07}\label{classseal_1_1util_1_1_n_t_t_tables_a64d5888525c7c1450af656c2af179a07} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{Multiply\+UInt\+Mod\+Operand}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+from\+\_\+root\+\_\+powers} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a42ad5d569b2062c6a0aa537918c7f9cd}\label{classseal_1_1util_1_1_n_t_t_tables_a42ad5d569b2062c6a0aa537918c7f9cd} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{Multiply\+UInt\+Mod\+Operand}} \texorpdfstring{$\ast$}{*} {\bfseries get\+\_\+from\+\_\+inv\+\_\+root\+\_\+powers} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a07eefc43d848484448d9fa564f556a75}\label{classseal_1_1util_1_1_n_t_t_tables_a07eefc43d848484448d9fa564f556a75} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{Multiply\+UInt\+Mod\+Operand}} {\bfseries get\+\_\+from\+\_\+root\+\_\+powers} (std\+::size\+\_\+t index) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_af373fde3eff1339d385880c5bea620e7}\label{classseal_1_1util_1_1_n_t_t_tables_af373fde3eff1339d385880c5bea620e7} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{Multiply\+UInt\+Mod\+Operand}} {\bfseries get\+\_\+from\+\_\+inv\+\_\+root\+\_\+powers} (std\+::size\+\_\+t index) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_ae03896cd1976c32a7fa6f6c4526b3417}\label{classseal_1_1util_1_1_n_t_t_tables_ae03896cd1976c32a7fa6f6c4526b3417} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{Multiply\+UInt\+Mod\+Operand}} \& {\bfseries inv\+\_\+degree\+\_\+modulo} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a1e7f899df435f9eaff2393a20d35950e}\label{classseal_1_1util_1_1_n_t_t_tables_a1e7f899df435f9eaff2393a20d35950e} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& {\bfseries modulus} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_afb025a78403d411e826c5ab0c6ad78e5}\label{classseal_1_1util_1_1_n_t_t_tables_afb025a78403d411e826c5ab0c6ad78e5} 
+SEAL\+\_\+\+NODISCARD int {\bfseries coeff\+\_\+count\+\_\+power} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_aa2ae9e9498b22c5bc776f9fb9652041d}\label{classseal_1_1util_1_1_n_t_t_tables_aa2ae9e9498b22c5bc776f9fb9652041d} 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t {\bfseries coeff\+\_\+count} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_n_t_t_tables_a3b52f8c6b5af028252461c62ec781472}\label{classseal_1_1util_1_1_n_t_t_tables_a3b52f8c6b5af028252461c62ec781472} 
+const \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{NTTHandler}} \& {\bfseries ntt\+\_\+handler} () const
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/ntt.\+h\item 
+seal/util/ntt.\+cpp\end{DoxyCompactItemize}

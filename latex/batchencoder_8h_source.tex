@@ -1,0 +1,81 @@
+\doxysection{batchencoder.\+h}
+\hypertarget{batchencoder_8h_source}{}\label{batchencoder_8h_source}\index{seal/batchencoder.h@{seal/batchencoder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/context.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/plaintext.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}gsl/span"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_a541e7c0d2f3d79d9cb49dc989e4aa85f}{encode}}(\textcolor{keyword}{const}\ std::vector<std::uint64\_t>\ \&values,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_a560d178d06530f154263308155bdc574}{encode}}(\textcolor{keyword}{const}\ std::vector<std::int64\_t>\ \&values,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_a541e7c0d2f3d79d9cb49dc989e4aa85f}{encode}}(gsl::span<const\ std::uint64\_t>\ values,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_a541e7c0d2f3d79d9cb49dc989e4aa85f}{encode}}(gsl::span<const\ std::int64\_t>\ values,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_aa152fb878d0f5e465f57a0658040898a}{decode}}(}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ std::vector<std::uint64\_t>\ \&destination,}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00154\ }
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_aa66e76ecca6cf32c48ace3d38df4189c}{decode}}(}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ std::vector<std::int64\_t>\ \&destination,}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00173\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MSGSL}}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_aa152fb878d0f5e465f57a0658040898a}{decode}}(}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ gsl::span<std::uint64\_t>\ destination,}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_aa152fb878d0f5e465f57a0658040898a}{decode}}(}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&plain,\ gsl::span<std::int64\_t>\ destination,}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\ =\ MemoryManager::GetPool())\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00213\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \mbox{\hyperlink{classseal_1_1_batch_encoder_aa94607373c39f0d3f6dccec9b8c31d02}{slot\_count}}()\ const\ noexcept}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ slots\_;}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}\ \&copy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00224\ }
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}(\mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}\ \&\&source)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}\ \&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00228\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}\ \&operator=(\mbox{\hyperlink{classseal_1_1_batch_encoder}{BatchEncoder}}\ \&\&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ populate\_roots\_of\_unity\_vector(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{SEALContext::ContextData}}\ \&context\_data);}
+\DoxyCodeLine{00232\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ populate\_matrix\_reps\_index\_map();}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ reverse\_bits(std::uint64\_t\ *input);}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\_\ =\ MemoryManager::GetPool();}
+\DoxyCodeLine{00238\ }
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ context\_;}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ std::size\_t\ slots\_;}
+\DoxyCodeLine{00242\ }
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util::Pointer<std::uint64\_t>}}\ roots\_of\_unity\_;}
+\DoxyCodeLine{00244\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util::Pointer<std::size\_t>}}\ matrix\_reps\_index\_map\_;}
+\DoxyCodeLine{00246\ \ \ \ \ \};}
+\DoxyCodeLine{00247\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

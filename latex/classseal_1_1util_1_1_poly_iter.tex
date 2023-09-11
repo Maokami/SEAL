@@ -1,0 +1,116 @@
+\doxysection{seal\+::util\+::Poly\+Iter Class Reference}
+\hypertarget{classseal_1_1util_1_1_poly_iter}{}\label{classseal_1_1util_1_1_poly_iter}\index{seal::util::PolyIter@{seal::util::PolyIter}}
+Inheritance diagram for seal\+::util\+::Poly\+Iter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1util_1_1_poly_iter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a8b088a1e1ecc0ff0c36d6c009d765da8}\label{classseal_1_1util_1_1_poly_iter_a8b088a1e1ecc0ff0c36d6c009d765da8} 
+using {\bfseries self\+\_\+type} = \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter}}
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a874a8bd1ff74c74404c8c81698116f4a}\label{classseal_1_1util_1_1_poly_iter_a874a8bd1ff74c74404c8c81698116f4a} 
+using {\bfseries value\+\_\+type} = \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a3cf23a22c8396250350d5e16ace51ccf}\label{classseal_1_1util_1_1_poly_iter_a3cf23a22c8396250350d5e16ace51ccf} 
+using {\bfseries pointer} = void
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_af38653bd1fcb373da9d483c3e08677d3}\label{classseal_1_1util_1_1_poly_iter_af38653bd1fcb373da9d483c3e08677d3} 
+using {\bfseries reference} = const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{value\+\_\+type}} \&
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_adab0ff27f52e202b77da61ecb194ac81}\label{classseal_1_1util_1_1_poly_iter_adab0ff27f52e202b77da61ecb194ac81} 
+using {\bfseries iterator\+\_\+category} = std\+::random\+\_\+access\+\_\+iterator\+\_\+tag
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a9c374524b192ac2e0462d6a4869cef7f}\label{classseal_1_1util_1_1_poly_iter_a9c374524b192ac2e0462d6a4869cef7f} 
+using {\bfseries difference\+\_\+type} = std\+::ptrdiff\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a4a74f778603bb71aafaf863fec768af5}\label{classseal_1_1util_1_1_poly_iter_a4a74f778603bb71aafaf863fec768af5} 
+{\bfseries Poly\+Iter} (std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}ptr, std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, std\+::size\+\_\+t coeff\+\_\+modulus\+\_\+size)
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a4c0edd969dad9fb26e8619b6e74405a1}\label{classseal_1_1util_1_1_poly_iter_a4c0edd969dad9fb26e8619b6e74405a1} 
+{\bfseries Poly\+Iter} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&ct)
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_aa02eb22a6eb2af168fd420f5b9b39dd8}\label{classseal_1_1util_1_1_poly_iter_aa02eb22a6eb2af168fd420f5b9b39dd8} 
+{\bfseries Poly\+Iter} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&copy)=default
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a76d17a5cb3484073fdaafa181054dffc}\label{classseal_1_1util_1_1_poly_iter_a76d17a5cb3484073fdaafa181054dffc} 
+\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \& {\bfseries operator=} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&assign)=default
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_ab1fc353e56f8195a62366bcf8479b4fc}\label{classseal_1_1util_1_1_poly_iter_ab1fc353e56f8195a62366bcf8479b4fc} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{reference}} {\bfseries operator\texorpdfstring{$\ast$}{*}} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a1125cc3578a47dc10e2cb07c9087b522}\label{classseal_1_1util_1_1_poly_iter_a1125cc3578a47dc10e2cb07c9087b522} 
+{\footnotesize template$<$typename SizeT $>$ }\\SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{value\+\_\+type}} {\bfseries operator\mbox{[}$\,$\mbox{]}} (SizeT n) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a8f596747e11cdeab0cbdcdcecc9925be}\label{classseal_1_1util_1_1_poly_iter_a8f596747e11cdeab0cbdcdcecc9925be} 
+\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \& {\bfseries operator++} () noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a614dbcd997074bf4ea60ac3f7c84ad4b}\label{classseal_1_1util_1_1_poly_iter_a614dbcd997074bf4ea60ac3f7c84ad4b} 
+\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} {\bfseries operator++} (int) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a727500a5fd8e95cb286e1cfc1c43ddc3}\label{classseal_1_1util_1_1_poly_iter_a727500a5fd8e95cb286e1cfc1c43ddc3} 
+\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \& {\bfseries operator-\/-\/} () noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a960c81f7a99c0c73644a67b9c14502bf}\label{classseal_1_1util_1_1_poly_iter_a960c81f7a99c0c73644a67b9c14502bf} 
+\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} {\bfseries operator-\/-\/} (int) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a634b6aabb28b2fd44a4e2136097983f9}\label{classseal_1_1util_1_1_poly_iter_a634b6aabb28b2fd44a4e2136097983f9} 
+{\footnotesize template$<$typename SizeT $>$ }\\\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \& {\bfseries operator+=} (SizeT n) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_ab64f10552e93a1590e7ef8c9938893f3}\label{classseal_1_1util_1_1_poly_iter_ab64f10552e93a1590e7ef8c9938893f3} 
+{\footnotesize template$<$typename SizeT $>$ }\\SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} {\bfseries operator+} (SizeT n) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a37e02cc50edd9b647b3a3c016e289fc5}\label{classseal_1_1util_1_1_poly_iter_a37e02cc50edd9b647b3a3c016e289fc5} 
+{\footnotesize template$<$typename SizeT $>$ }\\\mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \& {\bfseries operator-\/=} (SizeT n) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a2533728f006b9ef5043a01062a02d46b}\label{classseal_1_1util_1_1_poly_iter_a2533728f006b9ef5043a01062a02d46b} 
+{\footnotesize template$<$typename SizeT $>$ }\\SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} {\bfseries operator-\/} (SizeT n) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a3badd5d3ae78fc9a6bbb68e2fc0a8b24}\label{classseal_1_1util_1_1_poly_iter_a3badd5d3ae78fc9a6bbb68e2fc0a8b24} 
+SEAL\+\_\+\+NODISCARD difference\+\_\+type {\bfseries operator-\/} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&b) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_ac4d2a1b1e07302018c77264e5272e7c8}\label{classseal_1_1util_1_1_poly_iter_ac4d2a1b1e07302018c77264e5272e7c8} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries operator==} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a31d868cce5c41976f34089f08304a3f2}\label{classseal_1_1util_1_1_poly_iter_a31d868cce5c41976f34089f08304a3f2} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries operator!=} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a6dc2d1b863c82eb45876abd2e56cb84f}\label{classseal_1_1util_1_1_poly_iter_a6dc2d1b863c82eb45876abd2e56cb84f} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries operator$<$} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a6094165e00f572f7d77e92f9cf0da790}\label{classseal_1_1util_1_1_poly_iter_a6094165e00f572f7d77e92f9cf0da790} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries operator$>$} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_aaa92c3799064ff77607f5ef1aba65083}\label{classseal_1_1util_1_1_poly_iter_aaa92c3799064ff77607f5ef1aba65083} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a8aae2572e2cd63a8dd2d15f579a5f5cf}\label{classseal_1_1util_1_1_poly_iter_a8aae2572e2cd63a8dd2d15f579a5f5cf} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classseal_1_1util_1_1_poly_iter}{self\+\_\+type}} \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a34a923075e4b5ca45b5a631bc5bc6b4f}\label{classseal_1_1util_1_1_poly_iter_a34a923075e4b5ca45b5a631bc5bc6b4f} 
+SEAL\+\_\+\+NODISCARD {\bfseries operator std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a901c815b29640adb0f58ae6c539f1d91}\label{classseal_1_1util_1_1_poly_iter_a901c815b29640adb0f58ae6c539f1d91} 
+SEAL\+\_\+\+NODISCARD {\bfseries operator bool} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a0b291805d8402941c2181012ce988b7d}\label{classseal_1_1util_1_1_poly_iter_a0b291805d8402941c2181012ce988b7d} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{reference}} {\bfseries operator-\/$>$} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a240f8c3800c84e75891693098389e0ff}\label{classseal_1_1util_1_1_poly_iter_a240f8c3800c84e75891693098389e0ff} 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t {\bfseries poly\+\_\+modulus\+\_\+degree} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_poly_iter_a5b1c459df7749d4159c97efb40f6b260}\label{classseal_1_1util_1_1_poly_iter_a5b1c459df7749d4159c97efb40f6b260} 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t {\bfseries coeff\+\_\+modulus\+\_\+size} () const noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/iterator.\+h\item 
+seal/util/iterator.\+cpp\end{DoxyCompactItemize}

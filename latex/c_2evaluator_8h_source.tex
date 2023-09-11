@@ -1,0 +1,87 @@
+\doxysection{evaluator.\+h}
+\hypertarget{c_2evaluator_8h_source}{}\label{c_2evaluator_8h_source}\index{seal/c/evaluator.h@{seal/c/evaluator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ Evaluator\_Create(\textcolor{keywordtype}{void}\ *context,\ \textcolor{keywordtype}{void}\ **evaluator);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ Evaluator\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ Evaluator\_Negate(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ Evaluator\_Add(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted1,\ \textcolor{keywordtype}{void}\ *encrypted2,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ Evaluator\_AddMany(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ count,\ \textcolor{keywordtype}{void}\ **encrypteds,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ Evaluator\_AddPlain(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *plain,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ Evaluator\_Sub(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted1,\ \textcolor{keywordtype}{void}\ *encrypted2,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ Evaluator\_SubPlain(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *plain,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ Evaluator\_Multiply(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted1,\ \textcolor{keywordtype}{void}\ *encrypted2,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ Evaluator\_MultiplyMany(}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ count,\ \textcolor{keywordtype}{void}\ **encrypteds,\ \textcolor{keywordtype}{void}\ *relin\_keys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ SEAL\_C\_FUNC\ Evaluator\_MultiplyPlain(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *plain,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ SEAL\_C\_FUNC\ Evaluator\_Square(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ SEAL\_C\_FUNC\ Evaluator\_Relinearize(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *relinKeys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ SEAL\_C\_FUNC\ Evaluator\_ModSwitchToNext1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ SEAL\_C\_FUNC\ Evaluator\_ModSwitchTo1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ SEAL\_C\_FUNC\ Evaluator\_ModSwitchToNext2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ SEAL\_C\_FUNC\ Evaluator\_ModSwitchTo2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ SEAL\_C\_FUNC\ Evaluator\_RescaleToNext(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00053\ SEAL\_C\_FUNC\ Evaluator\_RescaleTo(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ SEAL\_C\_FUNC\ Evaluator\_ModReduceToNext(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ SEAL\_C\_FUNC\ Evaluator\_ModReduceTo(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ SEAL\_C\_FUNC\ Evaluator\_Exponentiate(}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ uint64\_t\ exponent,\ \textcolor{keywordtype}{void}\ *relin\_keys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ SEAL\_C\_FUNC\ Evaluator\_TransformToNTT1(}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *destination\_ntt,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ SEAL\_C\_FUNC\ Evaluator\_TransformToNTT2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *destination\_ntt);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ SEAL\_C\_FUNC\ Evaluator\_TransformFromNTT(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted\_ntt,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ SEAL\_C\_FUNC\ Evaluator\_ApplyGalois(}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ uint32\_t\ galois\_elt,\ \textcolor{keywordtype}{void}\ *galois\_keys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ SEAL\_C\_FUNC\ Evaluator\_RotateRows(}
+\DoxyCodeLine{00073\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keywordtype}{void}\ *galoisKeys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ SEAL\_C\_FUNC\ Evaluator\_RotateColumns(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *galois\_keys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ SEAL\_C\_FUNC\ Evaluator\_RotateVector(}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{int}\ steps,\ \textcolor{keywordtype}{void}\ *galois\_keys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ SEAL\_C\_FUNC\ Evaluator\_ComplexConjugate(}
+\DoxyCodeLine{00081\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *encrypted,\ \textcolor{keywordtype}{void}\ *galois\_keys,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ SEAL\_C\_FUNC\ Evaluator\_ContextUsingKeyswitching(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *using\_keyswitching);}
+
+\end{DoxyCode}

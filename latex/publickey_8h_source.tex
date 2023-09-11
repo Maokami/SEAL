@@ -1,0 +1,126 @@
+\doxysection{publickey.\+h}
+\hypertarget{publickey_8h_source}{}\label{publickey_8h_source}\index{seal/publickey.h@{seal/publickey.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/ciphertext.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/context.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/valcheck.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}}
+\DoxyCodeLine{00027\ \ \ \ \ \{}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitchKeys}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key_a57b41648f7d0111b2ec322b0390eab4e}{PublicKey}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key_a43e2b0df34c6805a4dd71042b9195dbd}{PublicKey}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&copy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key_a01d630c56cbb23a5bae8c8e980f5cfd8}{PublicKey}}(\mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&\&source)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&\mbox{\hyperlink{classseal_1_1_public_key_a72364487c4b99332d84c6c5211afe769}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&assign)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&\mbox{\hyperlink{classseal_1_1_public_key_a56c8b5a29bf66102be39558e72c3a02b}{operator=}}(\mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&\&assign)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classseal_1_1_public_key_a0a526803da1192d8e5588e6d89bb3386}{data}}()\ noexcept}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_;}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classseal_1_1_public_key_ae3882adfd43fbe721d0af095a0c837ff}{data}}()\ const\ noexcept}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_;}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00080\ }
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_a0d172cc30f242fceb83f2836e6ebb529}{save\_size}}(}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00091\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_a82469a60fb4805d9f28358c3b5e980d2}{save\_size}}(compr\_mode);}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00094\ }
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_a789154f0dac262249879a3ac4c99ece5}{save}}(}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ \&stream,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00108\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_aebc1c076290039e6de34764d7f722bba}{save}}(stream,\ compr\_mode);}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_aa72c7ff790d66a519a35cf5b95eb9254}{unsafe\_load}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context,\ std::istream\ \&stream)}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ new\_pk(pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_a151a5b5d88fb0be12d6542efecdd8cac}{pool}}());}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\_size\ =\ new\_pk.\mbox{\hyperlink{classseal_1_1_ciphertext_a584429fcc0b3a2e6b80a8d94476ac03d}{unsafe\_load}}(context,\ stream);}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(pk\_,\ new\_pk);}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in\_size;}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_a269586a4237730ff245440316fc54336}{load}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context,\ std::istream\ \&stream)}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ new\_pk(\mbox{\hyperlink{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}{pool}}());}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\_size\ =\ new\_pk.\mbox{\hyperlink{classseal_1_1_public_key_aa72c7ff790d66a519a35cf5b95eb9254}{unsafe\_load}}(context,\ stream);}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_valid\_for(new\_pk,\ context))}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}PublicKey\ data\ is\ invalid"{}});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(*\textcolor{keyword}{this},\ new\_pk);}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in\_size;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_a68c5782adacd1a76c62103d18462113c}{save}}(}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \ \ \ \ seal\_byte\ *out,\ std::size\_t\ size,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00171\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_aebc1c076290039e6de34764d7f722bba}{save}}(out,\ size,\ compr\_mode);}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_aa66118457ca9da8aa53d17bb5cfd7502}{unsafe\_load}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context,\ \textcolor{keyword}{const}\ seal\_byte\ *in,\ std::size\_t\ size)}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ new\_pk(pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_a151a5b5d88fb0be12d6542efecdd8cac}{pool}}());}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\_size\ =\ new\_pk.\mbox{\hyperlink{classseal_1_1_ciphertext_a584429fcc0b3a2e6b80a8d94476ac03d}{unsafe\_load}}(context,\ in,\ size);}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(pk\_,\ new\_pk);}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in\_size;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_public_key_aeba22914acbd71934a716c5f14a78b5c}{load}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context,\ \textcolor{keyword}{const}\ seal\_byte\ *in,\ std::size\_t\ size)}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ new\_pk(\mbox{\hyperlink{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}{pool}}());}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ in\_size\ =\ new\_pk.\mbox{\hyperlink{classseal_1_1_public_key_aa72c7ff790d66a519a35cf5b95eb9254}{unsafe\_load}}(context,\ in,\ size);}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!is\_valid\_for(new\_pk,\ context))}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}PublicKey\ data\ is\ invalid"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ std::swap(*\textcolor{keyword}{this},\ new\_pk);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ in\_size;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classseal_1_1_public_key_a9b875afca4282f2afaf9714c512498f1}{parms\_id}}()\ noexcept}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_a988a73d6c998663fa888cb5af0c30184}{parms\_id}}();}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classseal_1_1_public_key_a5d6c48ecad1540c0499c4194f26b6a05}{parms\_id}}()\ const\ noexcept}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_a988a73d6c998663fa888cb5af0c30184}{parms\_id}}();}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}{pool}}()\ const\ noexcept}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ pk\_.\mbox{\hyperlink{classseal_1_1_ciphertext_a151a5b5d88fb0be12d6542efecdd8cac}{pool}}();}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00249\ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }PublicKeyPrivateHelper;}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key_a57b41648f7d0111b2ec322b0390eab4e}{PublicKey}}(\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ \mbox{\hyperlink{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}{pool}})\ :\ pk\_(\mbox{\hyperlink{namespacestd}{std}}::move(\mbox{\hyperlink{classseal_1_1_public_key_ac549a304d7abb4e0dfb1c175b072b218}{pool}}))}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ Ciphertext\ pk\_;}
+\DoxyCodeLine{00267\ \ \ \ \ \};}
+\DoxyCodeLine{00268\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

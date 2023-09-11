@@ -1,0 +1,308 @@
+\doxysection{seal\+::Key\+Generator Class Reference}
+\hypertarget{classseal_1_1_key_generator}{}\label{classseal_1_1_key_generator}\index{seal::KeyGenerator@{seal::KeyGenerator}}
+
+
+{\ttfamily \#include $<$keygenerator.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_key_generator_a5ec9f1662d39c64fef283087e8fd6f4b}{Key\+Generator}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context)
+\item 
+\mbox{\hyperlink{classseal_1_1_key_generator_a5dbde4fe8c1a6418445ce99b1cdd4844}{Key\+Generator}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&\mbox{\hyperlink{classseal_1_1_key_generator_abe5959387396b30eac12f840a00167c9}{secret\+\_\+key}})
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \& \mbox{\hyperlink{classseal_1_1_key_generator_abe5959387396b30eac12f840a00167c9}{secret\+\_\+key}} () const
+\item 
+void \mbox{\hyperlink{classseal_1_1_key_generator_adb648691b1525d6ae8672fe4fd995d97}{create\+\_\+public\+\_\+key}} (\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&destination) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} $>$ \mbox{\hyperlink{classseal_1_1_key_generator_a18af85a29809e4bc6aceb9b8f5ef6eee}{create\+\_\+public\+\_\+key}} () const
+\item 
+void \mbox{\hyperlink{classseal_1_1_key_generator_a290b17b3c57cf38b0b9b4b88e9de9be9}{create\+\_\+relin\+\_\+keys}} (\mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&destination)
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} $>$ \mbox{\hyperlink{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8}{create\+\_\+relin\+\_\+keys}} ()
+\item 
+void \mbox{\hyperlink{classseal_1_1_key_generator_a18a07675f41a896ebe06b887ad0a8ddb}{create\+\_\+galois\+\_\+keys}} (const std\+::vector$<$ std\+::uint32\+\_\+t $>$ \&galois\+\_\+elts, \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&destination)
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} $>$ \mbox{\hyperlink{classseal_1_1_key_generator_a0378537547083a95b53c7822911cfd89}{create\+\_\+galois\+\_\+keys}} (const std\+::vector$<$ std\+::uint32\+\_\+t $>$ \&galois\+\_\+elts)
+\item 
+void \mbox{\hyperlink{classseal_1_1_key_generator_ad38c9850fc70741799c945deca773499}{create\+\_\+galois\+\_\+keys}} (const std\+::vector$<$ int $>$ \&steps, \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&destination)
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} $>$ \mbox{\hyperlink{classseal_1_1_key_generator_afeac514be5087ee9a3d936e6de6f5773}{create\+\_\+galois\+\_\+keys}} (const std\+::vector$<$ int $>$ \&steps)
+\item 
+void \mbox{\hyperlink{classseal_1_1_key_generator_aa156a9f6bfb8ebf9490428ca5c0de81c}{create\+\_\+galois\+\_\+keys}} (\mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&destination)
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} $>$ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\+\_\+galois\+\_\+keys}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generates matching secret key and public key. An existing \doxylink{classseal_1_1_key_generator}{Key\+Generator} can also at any time be used to generate relinearization keys and Galois keys. Constructing a \doxylink{classseal_1_1_key_generator}{Key\+Generator} requires only a \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for more details on encryption parameters. 
+
+\doxylink{classseal_1_1_secret_key}{Secret\+Key} for more details on secret key. 
+
+\doxylink{classseal_1_1_public_key}{Public\+Key} for more details on public key. 
+
+\doxylink{classseal_1_1_relin_keys}{Relin\+Keys} for more details on relinearization keys. 
+
+\doxylink{classseal_1_1_galois_keys}{Galois\+Keys} for more details on Galois keys. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_key_generator_a5ec9f1662d39c64fef283087e8fd6f4b}\label{classseal_1_1_key_generator_a5ec9f1662d39c64fef283087e8fd6f4b} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!KeyGenerator@{KeyGenerator}}
+\index{KeyGenerator@{KeyGenerator}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{KeyGenerator()}{KeyGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily seal\+::\+Key\+Generator\+::\+Key\+Generator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context }\end{DoxyParamCaption})}
+
+Creates a \doxylink{classseal_1_1_key_generator}{Key\+Generator} initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_a5dbde4fe8c1a6418445ce99b1cdd4844}\label{classseal_1_1_key_generator_a5dbde4fe8c1a6418445ce99b1cdd4844} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!KeyGenerator@{KeyGenerator}}
+\index{KeyGenerator@{KeyGenerator}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{KeyGenerator()}{KeyGenerator()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily seal\+::\+Key\+Generator\+::\+Key\+Generator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&}]{secret\+\_\+key }\end{DoxyParamCaption})}
+
+Creates an \doxylink{classseal_1_1_key_generator}{Key\+Generator} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} and specified previously secret key. This can e.\+g. be used to increase the number of relinearization keys from what had earlier been generated, or to generate Galois keys in case they had not been generated earlier.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em secret\+\_\+key} & A previously generated secret key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if secret\+\_\+key is not valid for encryption parameters \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}\label{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_galois\_keys@{create\_galois\_keys}}
+\index{create\_galois\_keys@{create\_galois\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_galois\_keys()}{create\_galois\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [1/6]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} $>$ seal\+::\+Key\+Generator\+::create\+\_\+galois\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates and returns Galois keys as a serializable object. Every time this function is called, new Galois keys will be generated.
+
+Half of the key data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+This function creates logarithmically many (in degree of the polynomial modulus) Galois keys that is sufficient to apply any Galois automorphism (e.\+g., rotations) on encrypted data. Most users will want to use this overload of the function.
+
+Precisely it generates 2\texorpdfstring{$\ast$}{*}log(n)-\/1 number of Galois keys where n is the degree of the polynomial modulus. When used with batching, these keys support direct left and right rotations of power-\/of-\/2 steps of rows in BFV or vectors in CKKS and rotation of columns in BFV or conjugation in CKKS.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_afeac514be5087ee9a3d936e6de6f5773}\label{classseal_1_1_key_generator_afeac514be5087ee9a3d936e6de6f5773} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_galois\_keys@{create\_galois\_keys}}
+\index{create\_galois\_keys@{create\_galois\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_galois\_keys()}{create\_galois\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [2/6]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} $>$ seal\+::\+Key\+Generator\+::create\+\_\+galois\+\_\+keys (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{steps }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates and returns Galois keys as a serializable object. Every time this function is called, new Galois keys will be generated.
+
+Half of the key data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+The user needs to give as input a vector of desired Galois rotation step counts, where negative step counts correspond to rotations to the right and positive step counts correspond to rotations to the left. A step count of zero can be used to indicate a column rotation in the BFV scheme and complex conjugation in the CKKS scheme.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em steps} & The rotation step counts for which to generate keys \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support batching and scheme is scheme\+\_\+type\+::\+BFV \\
+\hline
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the step counts are not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_ad38c9850fc70741799c945deca773499}\label{classseal_1_1_key_generator_ad38c9850fc70741799c945deca773499} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_galois\_keys@{create\_galois\_keys}}
+\index{create\_galois\_keys@{create\_galois\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_galois\_keys()}{create\_galois\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [3/6]}}
+{\footnotesize\ttfamily void seal\+::\+Key\+Generator\+::create\+\_\+galois\+\_\+keys (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ int $>$ \&}]{steps,  }\item[{\mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates Galois keys and stores the result in destination. Every time this function is called, new Galois keys will be generated.
+
+The user needs to give as input a vector of desired Galois rotation step counts, where negative step counts correspond to rotations to the right and positive step counts correspond to rotations to the left. A step count of zero can be used to indicate a column rotation in the BFV scheme and complex conjugation in the CKKS scheme.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em steps} & The rotation step counts for which to generate keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The Galois keys to overwrite with the generated Galois keys \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support batching and scheme is scheme\+\_\+type\+::\+BFV \\
+\hline
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the step counts are not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_a0378537547083a95b53c7822911cfd89}\label{classseal_1_1_key_generator_a0378537547083a95b53c7822911cfd89} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_galois\_keys@{create\_galois\_keys}}
+\index{create\_galois\_keys@{create\_galois\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_galois\_keys()}{create\_galois\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [4/6]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} $>$ seal\+::\+Key\+Generator\+::create\+\_\+galois\+\_\+keys (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::uint32\+\_\+t $>$ \&}]{galois\+\_\+elts }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates and returns Galois keys as a serializable object. Every time this function is called, new Galois keys will be generated.
+
+Half of the key data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+This function creates specific Galois keys that can be used to apply specific Galois automorphisms on encrypted data. The user needs to give as input a vector of Galois elements corresponding to the keys that are to be created.
+
+The Galois elements are odd integers in the interval \mbox{[}1, M-\/1\mbox{]}, where M = 2\texorpdfstring{$\ast$}{*}N, and N = poly\+\_\+modulus\+\_\+degree. Used with batching, a Galois element 3\texorpdfstring{$^\wedge$}{\string^}i \% M corresponds to a cyclic row rotation i steps to the left, and a Galois element 3\texorpdfstring{$^\wedge$}{\string^}(N/2-\/i) \% M corresponds to a cyclic row rotation i steps to the right. The Galois element M-\/1 corresponds to a column rotation (row swap) in BFV, and complex conjugation in CKKS. In the polynomial view (not batching), a Galois automorphism by a Galois element p changes Enc(plain(x)) to Enc(plain(x\texorpdfstring{$^\wedge$}{\string^}p)).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elts} & The Galois elements for which to generate keys \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the Galois elements are not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_a18a07675f41a896ebe06b887ad0a8ddb}\label{classseal_1_1_key_generator_a18a07675f41a896ebe06b887ad0a8ddb} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_galois\_keys@{create\_galois\_keys}}
+\index{create\_galois\_keys@{create\_galois\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_galois\_keys()}{create\_galois\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [5/6]}}
+{\footnotesize\ttfamily void seal\+::\+Key\+Generator\+::create\+\_\+galois\+\_\+keys (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::uint32\+\_\+t $>$ \&}]{galois\+\_\+elts,  }\item[{\mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates Galois keys and stores the result in destination. Every time this function is called, new Galois keys will be generated.
+
+This function creates specific Galois keys that can be used to apply specific Galois automorphisms on encrypted data. The user needs to give as input a vector of Galois elements corresponding to the keys that are to be created.
+
+The Galois elements are odd integers in the interval \mbox{[}1, M-\/1\mbox{]}, where M = 2\texorpdfstring{$\ast$}{*}N, and N = poly\+\_\+modulus\+\_\+degree. Used with batching, a Galois element 3\texorpdfstring{$^\wedge$}{\string^}i \% M corresponds to a cyclic row rotation i steps to the left, and a Galois element 3\texorpdfstring{$^\wedge$}{\string^}(N/2-\/i) \% M corresponds to a cyclic row rotation i steps to the right. The Galois element M-\/1 corresponds to a column rotation (row swap) in BFV, and complex conjugation in CKKS. In the polynomial view (not batching), a Galois automorphism by a Galois element p changes Enc(plain(x)) to Enc(plain(x\texorpdfstring{$^\wedge$}{\string^}p)).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elts} & The Galois elements for which to generate keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The Galois keys to overwrite with the generated Galois keys \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the Galois elements are not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_aa156a9f6bfb8ebf9490428ca5c0de81c}\label{classseal_1_1_key_generator_aa156a9f6bfb8ebf9490428ca5c0de81c} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_galois\_keys@{create\_galois\_keys}}
+\index{create\_galois\_keys@{create\_galois\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_galois\_keys()}{create\_galois\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [6/6]}}
+{\footnotesize\ttfamily void seal\+::\+Key\+Generator\+::create\+\_\+galois\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates Galois keys and stores the result in destination. Every time this function is called, new Galois keys will be generated.
+
+This function creates logarithmically many (in degree of the polynomial modulus) Galois keys that is sufficient to apply any Galois automorphism (e.\+g., rotations) on encrypted data. Most users will want to use this overload of the function.
+
+Precisely it generates 2\texorpdfstring{$\ast$}{*}log(n)-\/1 number of Galois keys where n is the degree of the polynomial modulus. When used with batching, these keys support direct left and right rotations of power-\/of-\/2 steps of rows in BFV or vectors in CKKS and rotation of columns in BFV or conjugation in CKKS.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em destination} & The Galois keys to overwrite with the generated Galois keys \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_a18af85a29809e4bc6aceb9b8f5ef6eee}\label{classseal_1_1_key_generator_a18af85a29809e4bc6aceb9b8f5ef6eee} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_public\_key@{create\_public\_key}}
+\index{create\_public\_key@{create\_public\_key}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_public\_key()}{create\_public\_key()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} $>$ seal\+::\+Key\+Generator\+::create\+\_\+public\+\_\+key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates and returns a public key as a serializable object. Every time this function is called, a new public key will be generated.
+
+Half of the key data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact. \Hypertarget{classseal_1_1_key_generator_adb648691b1525d6ae8672fe4fd995d97}\label{classseal_1_1_key_generator_adb648691b1525d6ae8672fe4fd995d97} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_public\_key@{create\_public\_key}}
+\index{create\_public\_key@{create\_public\_key}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_public\_key()}{create\_public\_key()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Key\+Generator\+::create\+\_\+public\+\_\+key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a public key and stores the result in destination. Every time this function is called, a new public key will be generated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em destination} & The public key to overwrite with the generated public key \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8}\label{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_relin\_keys@{create\_relin\_keys}}
+\index{create\_relin\_keys@{create\_relin\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_relin\_keys()}{create\_relin\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} $>$ seal\+::\+Key\+Generator\+::create\+\_\+relin\+\_\+keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates and returns relinearization keys as a serializable object. Every time this function is called, new relinearization keys will be generated.
+
+Half of the key data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_a290b17b3c57cf38b0b9b4b88e9de9be9}\label{classseal_1_1_key_generator_a290b17b3c57cf38b0b9b4b88e9de9be9} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!create\_relin\_keys@{create\_relin\_keys}}
+\index{create\_relin\_keys@{create\_relin\_keys}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{create\_relin\_keys()}{create\_relin\_keys()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Key\+Generator\+::create\+\_\+relin\+\_\+keys (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&}]{destination }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates relinearization keys and stores the result in destination. Every time this function is called, new relinearization keys will be generated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em destination} & The relinearization keys to overwrite with the generated relinearization keys \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support keyswitching \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_key_generator_abe5959387396b30eac12f840a00167c9}\label{classseal_1_1_key_generator_abe5959387396b30eac12f840a00167c9} 
+\index{seal::KeyGenerator@{seal::KeyGenerator}!secret\_key@{secret\_key}}
+\index{secret\_key@{secret\_key}!seal::KeyGenerator@{seal::KeyGenerator}}
+\doxysubsubsection{\texorpdfstring{secret\_key()}{secret\_key()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \& seal\+::\+Key\+Generator\+::secret\+\_\+key (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+Returns a const reference to the secret key. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/keygenerator.\+h\item 
+seal/keygenerator.\+cpp\end{DoxyCompactItemize}

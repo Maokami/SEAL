@@ -1,0 +1,59 @@
+\doxysection{serializable.\+h}
+\hypertarget{serializable_8h_source}{}\label{serializable_8h_source}\index{seal/serializable.h@{seal/serializable.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/serialization.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/util/streambuf.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <ios>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00013\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}}
+\DoxyCodeLine{00054\ \ \ \ \ \{}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}};}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \textcolor{keyword}{friend}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_encryptor}{Encryptor}};}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_serializable_a1a2e3096c95d8518794ef19c3a8da5db}{Serializable}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<T>}}\ \&copy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_serializable_a171a6a89d446c6041aab37d69ce39496}{Serializable}}(\mbox{\hyperlink{classseal_1_1_serializable}{Serializable<T>}}\ \&\&source)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}\ \&\mbox{\hyperlink{classseal_1_1_serializable_abd61188fa2acfcf70ce4768329f8508b}{operator=}}(\mbox{\hyperlink{classseal_1_1_serializable}{Serializable<T>}}\ \&\&assign)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}\ \&\mbox{\hyperlink{classseal_1_1_serializable_a23efd269697252c04eb1d2b3bc00a04e}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<T>}}\ \&copy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_serializable_ae16c6bd68741537c9616bac9047018dd}{save\_size}}(}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00097\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obj\_.save\_size(compr\_mode);}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_serializable_ad58a9933b98f7ec71900a8a363aa5a42}{save}}(}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ \&stream,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00115\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obj\_.save(stream,\ compr\_mode);}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_serializable_ad05c7040cbcd88a3293f1d3ba5702504}{save}}(}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \ \ \ \ seal\_byte\ *out,\ std::size\_t\ size,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00134\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ obj\_.save(out,\ size,\ compr\_mode);}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}(T\ \&\&obj)\ :\ obj\_(\mbox{\hyperlink{namespacestd}{std}}::move(obj))}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \{\}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ T\ obj\_;}
+\DoxyCodeLine{00143\ \ \ \ \ \};}
+\DoxyCodeLine{00144\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

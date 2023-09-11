@@ -1,0 +1,59 @@
+\doxysection{ztools.\+h}
+\hypertarget{ztools_8h_source}{}\label{ztools_8h_source}\index{seal/util/ztools.h@{seal/util/ztools.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#if\ defined(SEAL\_USE\_ZLIB)\ ||\ defined(SEAL\_USE\_ZSTD)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/dynarray.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <ios>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{namespace\ }util}
+\DoxyCodeLine{00017\ \ \ \ \ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{namespace\ }ztools}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ zlib\_write\_header\_deflate\_buffer(}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DynArray<seal\_byte>\ \&in,\ \textcolor{keywordtype}{void}\ *header\_ptr,\ std::ostream\ \&out\_stream,\ MemoryPoolHandle\ pool);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ zlib\_deflate\_array\_inplace(DynArray<seal\_byte>\ \&in,\ MemoryPoolHandle\ pool);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ zlib\_inflate\_stream(}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::istream\ \&in\_stream,\ std::streamoff\ in\_size,\ std::ostream\ \&out\_stream,\ MemoryPoolHandle\ pool);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ zstd\_write\_header\_deflate\_buffer(}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ DynArray<seal\_byte>\ \&in,\ \textcolor{keywordtype}{void}\ *header\_ptr,\ std::ostream\ \&out\_stream,\ MemoryPoolHandle\ pool);}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ zstd\_deflate\_array\_inplace(DynArray<seal\_byte>\ \&in,\ MemoryPoolHandle\ pool);}
+\DoxyCodeLine{00058\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{unsigned}\ zstd\_inflate\_stream(}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::istream\ \&in\_stream,\ std::streamoff\ in\_size,\ std::ostream\ \&out\_stream,\ MemoryPoolHandle\ pool);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ SizeT>}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ SizeT\ zlib\_deflate\_size\_bound(SizeT\ in\_size)}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::add\_safe<SizeT>(in\_size,\ in\_size\ >>\ 12,\ in\_size\ >>\ 14,\ in\_size\ >>\ 25,\ SizeT(17));}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ SizeT>}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ SizeT\ zstd\_deflate\_size\_bound(SizeT\ in\_size)}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::add\_safe<SizeT>(}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in\_size,\ in\_size\ >>\ 8,}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (in\_size\ <\ (SizeT(128)\ <<\ 10))\ ?\ (((SizeT(128)\ <<\ 10)\ -\/\ in\_size)\ >>\ 11)\ :\ SizeT(0));}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ ztools}}
+\DoxyCodeLine{00076\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ util}}
+\DoxyCodeLine{00077\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

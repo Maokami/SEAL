@@ -1,0 +1,59 @@
+\doxysection{seal\+::Decryptor Class Reference}
+\hypertarget{classseal_1_1_decryptor}{}\label{classseal_1_1_decryptor}\index{seal::Decryptor@{seal::Decryptor}}
+
+
+{\ttfamily \#include $<$decryptor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_decryptor_afab1057bdddeb8c238ed29e8e5cf52cb}{Decryptor}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&secret\+\_\+key)
+\item 
+\Hypertarget{classseal_1_1_decryptor_a41c0c3f0640c62b98d6ae97403805425}\label{classseal_1_1_decryptor_a41c0c3f0640c62b98d6ae97403805425} 
+void {\bfseries decrypt} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination)
+\item 
+\Hypertarget{classseal_1_1_decryptor_a88da81d539b38e60a39d1fbe627e8c96}\label{classseal_1_1_decryptor_a88da81d539b38e60a39d1fbe627e8c96} 
+SEAL\+\_\+\+NODISCARD int {\bfseries invariant\+\_\+noise\+\_\+budget} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Decrypts \doxylink{classseal_1_1_ciphertext}{Ciphertext} objects into \doxylink{classseal_1_1_plaintext}{Plaintext} objects. Constructing a \doxylink{classseal_1_1_decryptor}{Decryptor} requires a \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} with valid encryption parameters, and the secret key. The \doxylink{classseal_1_1_decryptor}{Decryptor} is also used to compute the invariant noise budget in a given ciphertext.
+
+\begin{DoxyParagraph}{Overloads}
+For the decrypt function we provide two overloads concerning the memory pool used in allocations needed during the operation. In one overload the global memory pool is used for this purpose, and in another overload the user can supply a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to be used instead. This is to allow one single \doxylink{classseal_1_1_decryptor}{Decryptor} to be used concurrently by several threads without running into thread contention in allocations taking place during operations. For example, one can share one single \doxylink{classseal_1_1_decryptor}{Decryptor} across any number of threads, but in each thread call the decrypt function by giving it a thread-\/local \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to use. It is important for a developer to understand how this works to avoid unnecessary performance bottlenecks.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{NTT form}
+When using the BFV scheme (scheme\+\_\+type\+::bfv), all plaintext and ciphertexts should remain by default in the usual coefficient representation, i.\+e. not in NTT form. When using the CKKS scheme (scheme\+\_\+type\+::ckks), all plaintexts and ciphertexts should remain by default in NTT form. We call these scheme-\/specific NTT states the \"{}default NTT form\"{}. Decryption requires the input ciphertexts to be in the default NTT form, and will throw an exception if this is not the case. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_decryptor_afab1057bdddeb8c238ed29e8e5cf52cb}\label{classseal_1_1_decryptor_afab1057bdddeb8c238ed29e8e5cf52cb} 
+\index{seal::Decryptor@{seal::Decryptor}!Decryptor@{Decryptor}}
+\index{Decryptor@{Decryptor}!seal::Decryptor@{seal::Decryptor}}
+\doxysubsubsection{\texorpdfstring{Decryptor()}{Decryptor()}}
+{\footnotesize\ttfamily seal\+::\+Decryptor\+::\+Decryptor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&}]{secret\+\_\+key }\end{DoxyParamCaption})}
+
+Creates a \doxylink{classseal_1_1_decryptor}{Decryptor} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} and secret key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em secret\+\_\+key} & The secret key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if secret\+\_\+key is not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/decryptor.\+h\item 
+seal/decryptor.\+cpp\end{DoxyCompactItemize}

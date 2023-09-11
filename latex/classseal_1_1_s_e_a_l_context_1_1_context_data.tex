@@ -1,0 +1,179 @@
+\doxysection{seal\+::SEALContext\+::Context\+Data Class Reference}
+\hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data}{}\label{classseal_1_1_s_e_a_l_context_1_1_context_data}\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+
+
+{\ttfamily \#include $<$context.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a82a7ba171e9415f75594e3fc804ad53e}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a82a7ba171e9415f75594e3fc804ad53e} 
+{\bfseries Context\+Data} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} \&copy)=delete
+\item 
+\Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a8584b98a08bb8357843a86c31c4aacba}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a8584b98a08bb8357843a86c31c4aacba} 
+{\bfseries Context\+Data} (\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} \&\&move)=default
+\item 
+\Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a36b39fca3c875eba19d7d3a97bab1596}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a36b39fca3c875eba19d7d3a97bab1596} 
+\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} \& {\bfseries operator=} (\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} \&\&move)=default
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a31f3c71481a8e9b7c0777ccfd7a630f9}{parms}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a3b656b42ac81390cec407b135a53fa3a}{parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers}} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a87a50bb7935105727c9ac4661359fad1}{qualifiers}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a0f5e216c5d4f2286a797a9f28680636b}{total\+\_\+coeff\+\_\+modulus}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD int \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a495cd8c896c57c2fd5a207966e82fc34}{total\+\_\+coeff\+\_\+modulus\+\_\+bit\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool}{util\+::\+RNSTool}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_ac5df9acf7a231169e4578e385f182b3b}{rns\+\_\+tool}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{util\+::\+NTTTables}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a3a9a24e944b51dfe4621caa31caff2ca}{small\+\_\+ntt\+\_\+tables}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{util\+::\+NTTTables}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a513043bae6b38549ed65ce6f3726b21b}{plain\+\_\+ntt\+\_\+tables}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool}{util\+::\+Galois\+Tool}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a941816f6403abe508899a174e9160961}{galois\+\_\+tool}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{util\+::\+Multiply\+UInt\+Mod\+Operand}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a574a90c9d7633ca5a347625cd1a3340e}{coeff\+\_\+div\+\_\+plain\+\_\+modulus}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a6d742583799f98ddd355079c65fbf99c}{plain\+\_\+upper\+\_\+half\+\_\+threshold}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_af89218f4adbd3aa245624de81abc0f06}{plain\+\_\+upper\+\_\+half\+\_\+increment}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a4f8da05e3a955553d191bebd9750053a}{upper\+\_\+half\+\_\+threshold}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_abb4541c44f000030445df8b9a3244a0c}{upper\+\_\+half\+\_\+increment}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a4b13b8706dcf10226f2686b3bd1a0c19}{coeff\+\_\+modulus\+\_\+mod\+\_\+plain\+\_\+modulus}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a516bd188a02488baa082122b3ecd2319}{prev\+\_\+context\+\_\+data}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_a518d4f472d5b274a3d36a34e1a87f612}{next\+\_\+context\+\_\+data}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data_aeb49253c485f90cf35a3c8339e16599d}{chain\+\_\+index}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_acb18aa350e9254d8b13013a4a9c88a7b}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_acb18aa350e9254d8b13013a4a9c88a7b} 
+class {\bfseries SEALContext}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to hold pre-\/computation data for a given set of encryption parameters. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_aeb49253c485f90cf35a3c8339e16599d}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_aeb49253c485f90cf35a3c8339e16599d} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!chain\_index@{chain\_index}}
+\index{chain\_index@{chain\_index}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{chain\_index()}{chain\_index()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+SEALContext\+::\+Context\+Data\+::chain\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the index of the parameter set in a chain. The initial parameters have index 0 and the index increases sequentially in the parameter chain. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a574a90c9d7633ca5a347625cd1a3340e}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a574a90c9d7633ca5a347625cd1a3340e} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!coeff\_div\_plain\_modulus@{coeff\_div\_plain\_modulus}}
+\index{coeff\_div\_plain\_modulus@{coeff\_div\_plain\_modulus}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{coeff\_div\_plain\_modulus()}{coeff\_div\_plain\_modulus()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{util\+::\+Multiply\+UInt\+Mod\+Operand}} \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::coeff\+\_\+div\+\_\+plain\+\_\+modulus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a pointer to BFV \"{}\+Delta\"{}, i.\+e. coefficient modulus divided by plaintext modulus. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a4b13b8706dcf10226f2686b3bd1a0c19}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a4b13b8706dcf10226f2686b3bd1a0c19} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!coeff\_modulus\_mod\_plain\_modulus@{coeff\_modulus\_mod\_plain\_modulus}}
+\index{coeff\_modulus\_mod\_plain\_modulus@{coeff\_modulus\_mod\_plain\_modulus}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{coeff\_modulus\_mod\_plain\_modulus()}{coeff\_modulus\_mod\_plain\_modulus()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t seal\+::\+SEALContext\+::\+Context\+Data\+::coeff\+\_\+modulus\+\_\+mod\+\_\+plain\+\_\+modulus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return the non-\/\+RNS form of upper\+\_\+half\+\_\+increment which is q mod t. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a941816f6403abe508899a174e9160961}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a941816f6403abe508899a174e9160961} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!galois\_tool@{galois\_tool}}
+\index{galois\_tool@{galois\_tool}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{galois\_tool()}{galois\_tool()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_galois_tool}{util\+::\+Galois\+Tool}} \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::galois\+\_\+tool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the Galois\+Tool. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a518d4f472d5b274a3d36a34e1a87f612}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a518d4f472d5b274a3d36a34e1a87f612} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!next\_context\_data@{next\_context\_data}}
+\index{next\_context\_data@{next\_context\_data}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{next\_context\_data()}{next\_context\_data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ seal\+::\+SEALContext\+::\+Context\+Data\+::next\+\_\+context\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a shared\+\_\+ptr to the context data corresponding to the next parameters in the modulus switching chain. If the current data is the last one in the chain, then the result is nullptr. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a31f3c71481a8e9b7c0777ccfd7a630f9}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a31f3c71481a8e9b7c0777ccfd7a630f9} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!parms@{parms}}
+\index{parms@{parms}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{parms()}{parms()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \& seal\+::\+SEALContext\+::\+Context\+Data\+::parms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to the underlying encryption parameters. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a3b656b42ac81390cec407b135a53fa3a}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a3b656b42ac81390cec407b135a53fa3a} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!parms\_id@{parms\_id}}
+\index{parms\_id@{parms\_id}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{parms\_id()}{parms\_id()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& seal\+::\+SEALContext\+::\+Context\+Data\+::parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the parms\+\_\+id of the current parameters. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a513043bae6b38549ed65ce6f3726b21b}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a513043bae6b38549ed65ce6f3726b21b} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!plain\_ntt\_tables@{plain\_ntt\_tables}}
+\index{plain\_ntt\_tables@{plain\_ntt\_tables}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{plain\_ntt\_tables()}{plain\_ntt\_tables()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{util\+::\+NTTTables}} \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::plain\+\_\+ntt\+\_\+tables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the NTT tables. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_af89218f4adbd3aa245624de81abc0f06}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_af89218f4adbd3aa245624de81abc0f06} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!plain\_upper\_half\_increment@{plain\_upper\_half\_increment}}
+\index{plain\_upper\_half\_increment@{plain\_upper\_half\_increment}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{plain\_upper\_half\_increment()}{plain\_upper\_half\_increment()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::plain\+\_\+upper\+\_\+half\+\_\+increment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a pointer to the plaintext upper half increment, i.\+e. coeff\+\_\+modulus minus plain\+\_\+modulus. The upper half increment is represented as an integer for the full product coeff\+\_\+modulus if using\+\_\+fast\+\_\+plain\+\_\+lift is false and is otherwise represented modulo each of the coeff\+\_\+modulus primes in order. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a6d742583799f98ddd355079c65fbf99c}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a6d742583799f98ddd355079c65fbf99c} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!plain\_upper\_half\_threshold@{plain\_upper\_half\_threshold}}
+\index{plain\_upper\_half\_threshold@{plain\_upper\_half\_threshold}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{plain\_upper\_half\_threshold()}{plain\_upper\_half\_threshold()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t seal\+::\+SEALContext\+::\+Context\+Data\+::plain\+\_\+upper\+\_\+half\+\_\+threshold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return the threshold for the upper half of integers modulo plain\+\_\+modulus. This is simply (plain\+\_\+modulus + 1) / 2. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a516bd188a02488baa082122b3ecd2319}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a516bd188a02488baa082122b3ecd2319} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!prev\_context\_data@{prev\_context\_data}}
+\index{prev\_context\_data@{prev\_context\_data}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{prev\_context\_data()}{prev\_context\_data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ seal\+::\+SEALContext\+::\+Context\+Data\+::prev\+\_\+context\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a shared\+\_\+ptr to the context data corresponding to the previous parameters in the modulus switching chain. If the current data is the first one in the chain, then the result is nullptr. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a87a50bb7935105727c9ac4661359fad1}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a87a50bb7935105727c9ac4661359fad1} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!qualifiers@{qualifiers}}
+\index{qualifiers@{qualifiers}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{qualifiers()}{qualifiers()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers}} seal\+::\+SEALContext\+::\+Context\+Data\+::qualifiers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a copy of \doxylink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers} corresponding to the current encryption parameters. Note that to change the qualifiers it is necessary to create a new instance of \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} once appropriate changes to the encryption parameters have been made. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_ac5df9acf7a231169e4578e385f182b3b}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_ac5df9acf7a231169e4578e385f182b3b} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!rns\_tool@{rns\_tool}}
+\index{rns\_tool@{rns\_tool}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{rns\_tool()}{rns\_tool()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool}{util\+::\+RNSTool}} \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::rns\+\_\+tool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the RNSTool. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a3a9a24e944b51dfe4621caa31caff2ca}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a3a9a24e944b51dfe4621caa31caff2ca} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!small\_ntt\_tables@{small\_ntt\_tables}}
+\index{small\_ntt\_tables@{small\_ntt\_tables}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{small\_ntt\_tables()}{small\_ntt\_tables()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1util_1_1_n_t_t_tables}{util\+::\+NTTTables}} \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::small\+\_\+ntt\+\_\+tables (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant pointer to the NTT tables. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a0f5e216c5d4f2286a797a9f28680636b}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a0f5e216c5d4f2286a797a9f28680636b} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!total\_coeff\_modulus@{total\_coeff\_modulus}}
+\index{total\_coeff\_modulus@{total\_coeff\_modulus}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{total\_coeff\_modulus()}{total\_coeff\_modulus()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::total\+\_\+coeff\+\_\+modulus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a pointer to a pre-\/computed product of all primes in the coefficient modulus. The security of the encryption parameters largely depends on the bit-\/length of this product, and on the degree of the polynomial modulus. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a495cd8c896c57c2fd5a207966e82fc34}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a495cd8c896c57c2fd5a207966e82fc34} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!total\_coeff\_modulus\_bit\_count@{total\_coeff\_modulus\_bit\_count}}
+\index{total\_coeff\_modulus\_bit\_count@{total\_coeff\_modulus\_bit\_count}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{total\_coeff\_modulus\_bit\_count()}{total\_coeff\_modulus\_bit\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD int seal\+::\+SEALContext\+::\+Context\+Data\+::total\+\_\+coeff\+\_\+modulus\+\_\+bit\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the significant bit count of the total coefficient modulus. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_abb4541c44f000030445df8b9a3244a0c}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_abb4541c44f000030445df8b9a3244a0c} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!upper\_half\_increment@{upper\_half\_increment}}
+\index{upper\_half\_increment@{upper\_half\_increment}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{upper\_half\_increment()}{upper\_half\_increment()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::upper\+\_\+half\+\_\+increment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a pointer to the upper half increment used for computing Delta\texorpdfstring{$\ast$}{*}m and converting the coefficients to modulo coeff\+\_\+modulus. For example, t-\/1 in plaintext should change into q -\/ Delta = Delta\texorpdfstring{$\ast$}{*}t + r\+\_\+t(q) -\/ Delta = Delta\texorpdfstring{$\ast$}{*}(t-\/1) + r\+\_\+t(q) so multiplying the message by Delta is not enough and requires also an addition of r\+\_\+t(q). This is precisely the upper\+\_\+half\+\_\+increment. Note that this operation is only done for negative message coefficients, i.\+e. those that exceed plain\+\_\+upper\+\_\+half\+\_\+threshold. \Hypertarget{classseal_1_1_s_e_a_l_context_1_1_context_data_a4f8da05e3a955553d191bebd9750053a}\label{classseal_1_1_s_e_a_l_context_1_1_context_data_a4f8da05e3a955553d191bebd9750053a} 
+\index{seal::SEALContext::ContextData@{seal::SEALContext::ContextData}!upper\_half\_threshold@{upper\_half\_threshold}}
+\index{upper\_half\_threshold@{upper\_half\_threshold}!seal::SEALContext::ContextData@{seal::SEALContext::ContextData}}
+\doxysubsubsection{\texorpdfstring{upper\_half\_threshold()}{upper\_half\_threshold()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::\+Context\+Data\+::upper\+\_\+half\+\_\+threshold (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Return a pointer to the upper half threshold with respect to the total coefficient modulus. This is needed in CKKS decryption. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/context.\+h\end{DoxyCompactItemize}

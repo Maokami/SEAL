@@ -1,0 +1,105 @@
+\doxysection{seal\+::util\+::Memory\+Pool\+MT Class Reference}
+\hypertarget{classseal_1_1util_1_1_memory_pool_m_t}{}\label{classseal_1_1util_1_1_memory_pool_m_t}\index{seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}}
+Inheritance diagram for seal\+::util\+::Memory\+Pool\+MT\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1util_1_1_memory_pool_m_t}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a0936c87dc759e6cad049a12825ee5848}\label{classseal_1_1util_1_1_memory_pool_m_t_a0936c87dc759e6cad049a12825ee5848} 
+{\bfseries Memory\+Pool\+MT} (bool clear\+\_\+on\+\_\+destruction=false)
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer}}$<$ seal\+\_\+byte $>$ \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_m_t_a676c7f6a0891181877cd7b201537ce4e}{get\+\_\+for\+\_\+byte\+\_\+count}} (std\+::size\+\_\+t byte\+\_\+count) override
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_m_t_af91e247f01a72861de86e11ddaf7882c}{pool\+\_\+count}} () const override
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_m_t_a5694071789b3f5e9cc40a6abf62ecbf5}{alloc\+\_\+byte\+\_\+count}} () const override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a66376bf88c60b92e4d9957d17072454f}\label{classseal_1_1util_1_1_memory_pool_a66376bf88c60b92e4d9957d17072454f} 
+virtual \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer}}$<$ seal\+\_\+byte $>$ {\bfseries get\+\_\+for\+\_\+byte\+\_\+count} (std\+::size\+\_\+t byte\+\_\+count)=0
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a04b85b16077cacd20d56c0c25c6f0beb}\label{classseal_1_1util_1_1_memory_pool_a04b85b16077cacd20d56c0c25c6f0beb} 
+virtual std\+::size\+\_\+t {\bfseries pool\+\_\+count} () const =0
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_a76a4524e9525d34d8a74b54c90bbfcc4}\label{classseal_1_1util_1_1_memory_pool_a76a4524e9525d34d8a74b54c90bbfcc4} 
+virtual std\+::size\+\_\+t {\bfseries alloc\+\_\+byte\+\_\+count} () const =0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a6b17631f4a34d28188c0bc676d0d8b6d}\label{classseal_1_1util_1_1_memory_pool_m_t_a6b17631f4a34d28188c0bc676d0d8b6d} 
+{\bfseries Memory\+Pool\+MT} (const \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_m_t}{Memory\+Pool\+MT}} \&copy)=delete
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a2f747438eb2aaa863812a35031656687}\label{classseal_1_1util_1_1_memory_pool_m_t_a2f747438eb2aaa863812a35031656687} 
+\mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_m_t}{Memory\+Pool\+MT}} \& {\bfseries operator=} (const \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_m_t}{Memory\+Pool\+MT}} \&assign)=delete
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_adaf27319ade866d2376dd84642d765a8}\label{classseal_1_1util_1_1_memory_pool_m_t_adaf27319ade866d2376dd84642d765a8} 
+const bool {\bfseries clear\+\_\+on\+\_\+destruction\+\_\+}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a0359871b05d15c38a3000e021d435f8c}\label{classseal_1_1util_1_1_memory_pool_m_t_a0359871b05d15c38a3000e021d435f8c} 
+\mbox{\hyperlink{classseal_1_1util_1_1_reader_writer_locker}{Reader\+Writer\+Locker}} {\bfseries pools\+\_\+locker\+\_\+}
+\item 
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a9caa7b45d438cc190ae01232ad7e1fef}\label{classseal_1_1util_1_1_memory_pool_m_t_a9caa7b45d438cc190ae01232ad7e1fef} 
+std\+::vector$<$ \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_head}{Memory\+Pool\+Head}} \texorpdfstring{$\ast$}{*} $>$ {\bfseries pools\+\_\+}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Attributes inherited from \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{seal\+::util\+::\+Memory\+Pool}}}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr double {\bfseries alloc\+\_\+size\+\_\+multiplier} = 1.\+05
+\item 
+static const std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_aea2443e88003a5e7af2f7f00f6c7485e}{max\+\_\+single\+\_\+alloc\+\_\+byte\+\_\+count}}
+\item 
+static constexpr std\+::size\+\_\+t {\bfseries max\+\_\+pool\+\_\+head\+\_\+count} = (std\+::numeric\+\_\+limits$<$std\+::size\+\_\+t$>$\+::max)()
+\item 
+static const std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool_af860ae4f7d92e269e3f1b9f27914af80}{max\+\_\+batch\+\_\+alloc\+\_\+byte\+\_\+count}}
+\item 
+static constexpr std\+::size\+\_\+t {\bfseries first\+\_\+alloc\+\_\+count} = 1
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a5694071789b3f5e9cc40a6abf62ecbf5}\label{classseal_1_1util_1_1_memory_pool_m_t_a5694071789b3f5e9cc40a6abf62ecbf5} 
+\index{seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}!alloc\_byte\_count@{alloc\_byte\_count}}
+\index{alloc\_byte\_count@{alloc\_byte\_count}!seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}}
+\doxysubsubsection{\texorpdfstring{alloc\_byte\_count()}{alloc\_byte\_count()}}
+{\footnotesize\ttfamily size\+\_\+t seal\+::util\+::\+Memory\+Pool\+MT\+::alloc\+\_\+byte\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{seal\+::util\+::\+Memory\+Pool}}.
+
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_a676c7f6a0891181877cd7b201537ce4e}\label{classseal_1_1util_1_1_memory_pool_m_t_a676c7f6a0891181877cd7b201537ce4e} 
+\index{seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}!get\_for\_byte\_count@{get\_for\_byte\_count}}
+\index{get\_for\_byte\_count@{get\_for\_byte\_count}!seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}}
+\doxysubsubsection{\texorpdfstring{get\_for\_byte\_count()}{get\_for\_byte\_count()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer}}$<$ seal\+\_\+byte $>$ seal\+::util\+::\+Memory\+Pool\+MT\+::get\+\_\+for\+\_\+byte\+\_\+count (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{byte\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{seal\+::util\+::\+Memory\+Pool}}.
+
+\Hypertarget{classseal_1_1util_1_1_memory_pool_m_t_af91e247f01a72861de86e11ddaf7882c}\label{classseal_1_1util_1_1_memory_pool_m_t_af91e247f01a72861de86e11ddaf7882c} 
+\index{seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}!pool\_count@{pool\_count}}
+\index{pool\_count@{pool\_count}!seal::util::MemoryPoolMT@{seal::util::MemoryPoolMT}}
+\doxysubsubsection{\texorpdfstring{pool\_count()}{pool\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::util\+::\+Memory\+Pool\+MT\+::pool\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classseal_1_1util_1_1_memory_pool}{seal\+::util\+::\+Memory\+Pool}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/mempool.\+h\item 
+seal/util/mempool.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\doxysection{seal\+::util\+::DWTHandler\texorpdfstring{$<$}{<} Value\+Type, Root\+Type, Scalar\+Type \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classseal_1_1util_1_1_d_w_t_handler}{}\label{classseal_1_1util_1_1_d_w_t_handler}\index{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$@{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$}}
+
+
+{\ttfamily \#include $<$dwthandler.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_d_w_t_handler_a108e165a084f02f79f5b4967de271f45}\label{classseal_1_1util_1_1_d_w_t_handler_a108e165a084f02f79f5b4967de271f45} 
+{\bfseries DWTHandler} (const \mbox{\hyperlink{classseal_1_1util_1_1_arithmetic}{Arithmetic}}$<$ Value\+Type, Root\+Type, Scalar\+Type $>$ \&num\+\_\+struct)
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler_a0ff0f528d011ff99c1c0c1ba241d50db}{transform\+\_\+to\+\_\+rev}} (Value\+Type \texorpdfstring{$\ast$}{*}values, int log\+\_\+n, const Root\+Type \texorpdfstring{$\ast$}{*}roots, const Scalar\+Type \texorpdfstring{$\ast$}{*}scalar=nullptr) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler_a5313d7bdfce1fc0b8750951a877a9a7e}{transform\+\_\+from\+\_\+rev}} (Value\+Type \texorpdfstring{$\ast$}{*}values, int log\+\_\+n, const Root\+Type \texorpdfstring{$\ast$}{*}roots, const Scalar\+Type \texorpdfstring{$\ast$}{*}scalar=nullptr) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Value\+Type, typename Root\+Type, typename Scalar\+Type$>$\newline
+class seal\+::util\+::\+DWTHandler$<$ Value\+Type, Root\+Type, Scalar\+Type $>$}
+Provides an interface that performs the fast discrete weighted transform (DWT) and its inverse that are used to accelerate polynomial multiplications, batch multiple messages into a single plaintext polynomial. This class template is specialized with integer modular arithmetic for DWT over integer quotient rings, and is used in polynomial multiplications and \doxylink{classseal_1_1_batch_encoder}{Batch\+Encoder}. It is also specialized with double-\/precision complex arithmetic for DWT over the complex field, which is used in \doxylink{classseal_1_1_c_k_k_s_encoder}{CKKSEncoder}.
+
+\begin{DoxyParagraph}{The discrete weighted transform (DWT) is a variantion on the discrete Fourier transform (DFT) over}
+arbitrary rings involving weighing the input before transforming it by multiplying element-\/wise by a weight vector, then weighing the output by another vector. The DWT can be used to perform negacyclic convolution on vectors just like how the DFT can be used to perform cyclic convolution. The DFT of size n requires a primitive n-\/th root of unity, while the DWT for negacyclic convolution requires a primitive 2n-\/th root of unity, \textbackslash{}psi. In the forward DWT, the input is multiplied element-\/wise with an incrementing power of \textbackslash{}psi, the forward DFT transform uses the 2n-\/th primitve root of unity \textbackslash{}psi\texorpdfstring{$^\wedge$}{\string^}2, and the output is not weighed. In the backward DWT, the input is not weighed, the backward DFT transform uses the 2n-\/th primitve root of unity \textbackslash{}psi\texorpdfstring{$^\wedge$}{\string^}\{-\/2\}, and the output is multiplied element-\/wise with an incrementing power of \textbackslash{}psi\texorpdfstring{$^\wedge$}{\string^}\{-\/1\}.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{A fast Fourier transform is an algorithm that computes the DFT or its inverse. The Cooley-\/\+Tukey FFT reduces}
+the complexity of the DFT from O(n\texorpdfstring{$^\wedge$}{\string^}2) to O(n\textbackslash{}log\{n\}). The DFT can be interpretted as evaluating an (n-\/1)-\/degree polynomial at incrementing powers of a primitive n-\/th root of unity, which can be accelerated by FFT algorithms. The DWT evaluates incrementing odd powers of a primitive 2n-\/th root of unity, and can also be accelerated by FFT-\/like algorithms implemented in this class.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Algorithms implemented in this class are based on algorithms 1 and 2 in the paper by Patrick Longa and}
+Michael Naehrig (\href{https://eprint.iacr.org/2016/504.pdf}{\texttt{ https\+://eprint.\+iacr.\+org/2016/504.\+pdf}}) with three modifications. First, we generalize in this class the algorithms to DWT over arbitrary rings. Second, the powers of \textbackslash{}psi\texorpdfstring{$^\wedge$}{\string^}\{-\/1\} used by the IDWT are stored in a scrambled order (in contrast to bit-\/reversed order in paper) to create coalesced memory accesses. Third, the multiplication with 1/n in the IDWT is merged to the last iteration, saving n/2 multiplications. Last, we unroll the loops to create coalesced memory accesses to input and output vectors. In earlier versions of SEAL, the mutiplication with 1/n is done by merging a multiplication of 1/2 in all interations, which is slower than the current method on CPUs but more efficient on some hardware architectures.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{The order in which the powers of \textbackslash{}psi\texorpdfstring{$^\wedge$}{\string^}\{-\/1\} used by the IDWT are stored is unnatural but efficient\+:}
+the i-\/th slot stores the (reverse\+\_\+bits(i -\/ 1, log\+\_\+n) + 1)-\/th power of \textbackslash{}psi\texorpdfstring{$^\wedge$}{\string^}\{-\/1\}. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1util_1_1_d_w_t_handler_a5313d7bdfce1fc0b8750951a877a9a7e}\label{classseal_1_1util_1_1_d_w_t_handler_a5313d7bdfce1fc0b8750951a877a9a7e} 
+\index{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$@{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$}!transform\_from\_rev@{transform\_from\_rev}}
+\index{transform\_from\_rev@{transform\_from\_rev}!seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$@{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$}}
+\doxysubsubsection{\texorpdfstring{transform\_from\_rev()}{transform\_from\_rev()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Root\+Type , typename Scalar\+Type $>$ \\
+void \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{seal\+::util\+::\+DWTHandler}}$<$ Value\+Type, Root\+Type, Scalar\+Type $>$\+::transform\+\_\+from\+\_\+rev (\begin{DoxyParamCaption}\item[{Value\+Type \texorpdfstring{$\ast$}{*}}]{values,  }\item[{int}]{log\+\_\+n,  }\item[{const Root\+Type \texorpdfstring{$\ast$}{*}}]{roots,  }\item[{const Scalar\+Type \texorpdfstring{$\ast$}{*}}]{scalar = {\ttfamily nullptr} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Performs in place a fast multiplication with the DWT matrix. Accesses to powers of root is coalesced. Accesses to values is not coalesced without loop unrolling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}values\mbox{]}} & inputs in bit-\/reversed order, outputs in normal order \\
+\hline
+{\em \mbox{[}roots\mbox{]}} & powers of a root in scrambled order \\
+\hline
+{\em \mbox{[}scalar\mbox{]}} & an optional scalar that is multiplied to all output values \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1util_1_1_d_w_t_handler_a0ff0f528d011ff99c1c0c1ba241d50db}\label{classseal_1_1util_1_1_d_w_t_handler_a0ff0f528d011ff99c1c0c1ba241d50db} 
+\index{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$@{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$}!transform\_to\_rev@{transform\_to\_rev}}
+\index{transform\_to\_rev@{transform\_to\_rev}!seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$@{seal::util::DWTHandler$<$ ValueType, RootType, ScalarType $>$}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_rev()}{transform\_to\_rev()}}
+{\footnotesize\ttfamily template$<$typename Value\+Type , typename Root\+Type , typename Scalar\+Type $>$ \\
+void \mbox{\hyperlink{classseal_1_1util_1_1_d_w_t_handler}{seal\+::util\+::\+DWTHandler}}$<$ Value\+Type, Root\+Type, Scalar\+Type $>$\+::transform\+\_\+to\+\_\+rev (\begin{DoxyParamCaption}\item[{Value\+Type \texorpdfstring{$\ast$}{*}}]{values,  }\item[{int}]{log\+\_\+n,  }\item[{const Root\+Type \texorpdfstring{$\ast$}{*}}]{roots,  }\item[{const Scalar\+Type \texorpdfstring{$\ast$}{*}}]{scalar = {\ttfamily nullptr} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Performs in place a fast multiplication with the DWT matrix. Accesses to powers of root is coalesced. Accesses to values is not coalesced without loop unrolling.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}values\mbox{]}} & inputs in normal order, outputs in bit-\/reversed order \\
+\hline
+{\em \mbox{[}log\+\_\+n\mbox{]}} & log 2 of the DWT size \\
+\hline
+{\em \mbox{[}roots\mbox{]}} & powers of a root in bit-\/reversed order \\
+\hline
+{\em \mbox{[}scalar\mbox{]}} & an optional scalar that is multiplied to all output values \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/dwthandler.\+h\end{DoxyCompactItemize}

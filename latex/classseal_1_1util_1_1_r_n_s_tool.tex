@@ -1,0 +1,143 @@
+\doxysection{seal\+::util\+::RNSTool Class Reference}
+\hypertarget{classseal_1_1util_1_1_r_n_s_tool}{}\label{classseal_1_1util_1_1_r_n_s_tool}\index{seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_ab47dbbe5f7654e5841624adf270f34c3}{RNSTool}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&coeff\+\_\+modulus, const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&plain\+\_\+modulus, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool)
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_a6846b56fc0c38bec0a499ede38786780}{divide\+\_\+and\+\_\+round\+\_\+q\+\_\+last\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} input, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a306c035b463ba83a7345080db9191825}\label{classseal_1_1util_1_1_r_n_s_tool_a306c035b463ba83a7345080db9191825} 
+void {\bfseries divide\+\_\+and\+\_\+round\+\_\+q\+\_\+last\+\_\+ntt\+\_\+inplace} (\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} input, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+NTTTables\+Iter}} rns\+\_\+ntt\+\_\+tables, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_aa16a84c682421e6068be235e6ee7d924}{fastbconv\+\_\+sk}} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} input, \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_a6bf74cf39bf40285fedeb68b20e16eeb}{sm\+\_\+mrq}} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} input, \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_a6b85e124fde036538fc3a8ecc89753c1}{fast\+\_\+floor}} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} input, \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_a8511ff9491f6c94454696b7bb9d05c8a}{fastbconv\+\_\+m\+\_\+tilde}} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} input, \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_abcb0f61c5544e92e64ae299354162241}{decrypt\+\_\+scale\+\_\+and\+\_\+round}} (\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}} phase, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Coeff\+Iter}} destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_a1ca03d4e88aecba3c3be94ed66cb7a99}{mod\+\_\+t\+\_\+and\+\_\+divide\+\_\+q\+\_\+last\+\_\+ntt\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} input, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+NTTTables\+Iter}} rns\+\_\+ntt\+\_\+tables, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+void \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_tool_a5fb3c080b5a9da2110f8b0ece2e707a8}{decrypt\+\_\+modt}} (\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}} phase, \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Coeff\+Iter}} destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a9548f9c909e7f4d8e2b4715d067f0611}\label{classseal_1_1util_1_1_r_n_s_tool_a9548f9c909e7f4d8e2b4715d067f0611} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries inv\+\_\+q\+\_\+last\+\_\+mod\+\_\+q} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a3a1c748d33875bbb070607db14059373}\label{classseal_1_1util_1_1_r_n_s_tool_a3a1c748d33875bbb070607db14059373} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries base\+\_\+\+Bsk\+\_\+ntt\+\_\+tables} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a863cb4cf3a262ba3e5a86ff51ad3a298}\label{classseal_1_1util_1_1_r_n_s_tool_a863cb4cf3a262ba3e5a86ff51ad3a298} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries base\+\_\+q} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_ae0349e6dd3c1867dfa24f35dcb736fdc}\label{classseal_1_1util_1_1_r_n_s_tool_ae0349e6dd3c1867dfa24f35dcb736fdc} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries base\+\_\+B} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_ab21921c4d33445db2763fab9098d77eb}\label{classseal_1_1util_1_1_r_n_s_tool_ab21921c4d33445db2763fab9098d77eb} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries base\+\_\+\+Bsk} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_aca4ec4be304d015d2806bf177ddd898a}\label{classseal_1_1util_1_1_r_n_s_tool_aca4ec4be304d015d2806bf177ddd898a} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries base\+\_\+\+Bsk\+\_\+m\+\_\+tilde} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_ae1b2d5d22e47d1258d83208951b0fbf0}\label{classseal_1_1util_1_1_r_n_s_tool_ae1b2d5d22e47d1258d83208951b0fbf0} 
+SEAL\+\_\+\+NODISCARD auto {\bfseries base\+\_\+t\+\_\+gamma} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_ac5cfcff3de0671de7a9f3cec00cb02da}\label{classseal_1_1util_1_1_r_n_s_tool_ac5cfcff3de0671de7a9f3cec00cb02da} 
+SEAL\+\_\+\+NODISCARD auto \& {\bfseries m\+\_\+tilde} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a2320936b0930849640beece27c5751ae}\label{classseal_1_1util_1_1_r_n_s_tool_a2320936b0930849640beece27c5751ae} 
+SEAL\+\_\+\+NODISCARD auto \& {\bfseries m\+\_\+sk} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a53c499470f1e7f3d84f6d108f46da06d}\label{classseal_1_1util_1_1_r_n_s_tool_a53c499470f1e7f3d84f6d108f46da06d} 
+SEAL\+\_\+\+NODISCARD auto \& {\bfseries t} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_aa8468bf2a4542b770c5f1edb9461b867}\label{classseal_1_1util_1_1_r_n_s_tool_aa8468bf2a4542b770c5f1edb9461b867} 
+SEAL\+\_\+\+NODISCARD auto \& {\bfseries gamma} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_aaa9cd0cf3bc03fb618a0b3820cc68807}\label{classseal_1_1util_1_1_r_n_s_tool_aaa9cd0cf3bc03fb618a0b3820cc68807} 
+SEAL\+\_\+\+NODISCARD auto \& {\bfseries inv\+\_\+q\+\_\+last\+\_\+mod\+\_\+t} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a206a9d8f93d3c47395de3eb84f812093}\label{classseal_1_1util_1_1_r_n_s_tool_a206a9d8f93d3c47395de3eb84f812093} 
+SEAL\+\_\+\+NODISCARD const uint64\+\_\+t \& {\bfseries q\+\_\+last\+\_\+mod\+\_\+t} () const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_ab47dbbe5f7654e5841624adf270f34c3}\label{classseal_1_1util_1_1_r_n_s_tool_ab47dbbe5f7654e5841624adf270f34c3} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!RNSTool@{RNSTool}}
+\index{RNSTool@{RNSTool}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{RNSTool()}{RNSTool()}}
+{\footnotesize\ttfamily seal\+::util\+::\+RNSTool\+::\+RNSTool (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&}]{coeff\+\_\+modulus,  }\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{plain\+\_\+modulus,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption})}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if poly\+\_\+modulus\+\_\+degree is out of range, coeff\+\_\+modulus is not valid, or pool is invalid. \\
+\hline
+{\em std\+::logic\+\_\+error} & if coeff\+\_\+modulus and extended bases do not support NTT or are not coprime. \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a5fb3c080b5a9da2110f8b0ece2e707a8}\label{classseal_1_1util_1_1_r_n_s_tool_a5fb3c080b5a9da2110f8b0ece2e707a8} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!decrypt\_modt@{decrypt\_modt}}
+\index{decrypt\_modt@{decrypt\_modt}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{decrypt\_modt()}{decrypt\_modt()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::decrypt\+\_\+modt (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{phase,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Coeff\+Iter}}}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Compute mod t \Hypertarget{classseal_1_1util_1_1_r_n_s_tool_abcb0f61c5544e92e64ae299354162241}\label{classseal_1_1util_1_1_r_n_s_tool_abcb0f61c5544e92e64ae299354162241} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!decrypt\_scale\_and\_round@{decrypt\_scale\_and\_round}}
+\index{decrypt\_scale\_and\_round@{decrypt\_scale\_and\_round}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{decrypt\_scale\_and\_round()}{decrypt\_scale\_and\_round()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::decrypt\+\_\+scale\+\_\+and\+\_\+round (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}}}]{phase,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Coeff\+Iter}}}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Compute round(t/q \texorpdfstring{$\ast$}{*} \texorpdfstring{$\vert$}{|}input\texorpdfstring{$\vert$}{|}\+\_\+q) mod t exactly \Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a6846b56fc0c38bec0a499ede38786780}\label{classseal_1_1util_1_1_r_n_s_tool_a6846b56fc0c38bec0a499ede38786780} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!divide\_and\_round\_q\_last\_inplace@{divide\_and\_round\_q\_last\_inplace}}
+\index{divide\_and\_round\_q\_last\_inplace@{divide\_and\_round\_q\_last\_inplace}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{divide\_and\_round\_q\_last\_inplace()}{divide\_and\_round\_q\_last\_inplace()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::divide\+\_\+and\+\_\+round\+\_\+q\+\_\+last\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{input,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em input} & Must be in RNS form, i.\+e. coefficient must be less than the associated modulus. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a6b85e124fde036538fc3a8ecc89753c1}\label{classseal_1_1util_1_1_r_n_s_tool_a6b85e124fde036538fc3a8ecc89753c1} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!fast\_floor@{fast\_floor}}
+\index{fast\_floor@{fast\_floor}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{fast\_floor()}{fast\_floor()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::fast\+\_\+floor (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}}}]{input,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Divide by q and fast floor from q U Bsk to Bsk \Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a8511ff9491f6c94454696b7bb9d05c8a}\label{classseal_1_1util_1_1_r_n_s_tool_a8511ff9491f6c94454696b7bb9d05c8a} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!fastbconv\_m\_tilde@{fastbconv\_m\_tilde}}
+\index{fastbconv\_m\_tilde@{fastbconv\_m\_tilde}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{fastbconv\_m\_tilde()}{fastbconv\_m\_tilde()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::fastbconv\+\_\+m\+\_\+tilde (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}}}]{input,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Fast base conversion from q to Bsk U \{m\+\_\+tilde\} \Hypertarget{classseal_1_1util_1_1_r_n_s_tool_aa16a84c682421e6068be235e6ee7d924}\label{classseal_1_1util_1_1_r_n_s_tool_aa16a84c682421e6068be235e6ee7d924} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!fastbconv\_sk@{fastbconv\_sk}}
+\index{fastbconv\_sk@{fastbconv\_sk}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{fastbconv\_sk()}{fastbconv\_sk()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::fastbconv\+\_\+sk (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}}}]{input,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Shenoy-\/\+Kumaresan conversion from Bsk to q \Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a1ca03d4e88aecba3c3be94ed66cb7a99}\label{classseal_1_1util_1_1_r_n_s_tool_a1ca03d4e88aecba3c3be94ed66cb7a99} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!mod\_t\_and\_divide\_q\_last\_ntt\_inplace@{mod\_t\_and\_divide\_q\_last\_ntt\_inplace}}
+\index{mod\_t\_and\_divide\_q\_last\_ntt\_inplace@{mod\_t\_and\_divide\_q\_last\_ntt\_inplace}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{mod\_t\_and\_divide\_q\_last\_ntt\_inplace()}{mod\_t\_and\_divide\_q\_last\_ntt\_inplace()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::mod\+\_\+t\+\_\+and\+\_\+divide\+\_\+q\+\_\+last\+\_\+ntt\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{input,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Const\+NTTTables\+Iter}}}]{rns\+\_\+ntt\+\_\+tables,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Remove the last q for bgv ciphertext \Hypertarget{classseal_1_1util_1_1_r_n_s_tool_a6bf74cf39bf40285fedeb68b20e16eeb}\label{classseal_1_1util_1_1_r_n_s_tool_a6bf74cf39bf40285fedeb68b20e16eeb} 
+\index{seal::util::RNSTool@{seal::util::RNSTool}!sm\_mrq@{sm\_mrq}}
+\index{sm\_mrq@{sm\_mrq}!seal::util::RNSTool@{seal::util::RNSTool}}
+\doxysubsubsection{\texorpdfstring{sm\_mrq()}{sm\_mrq()}}
+{\footnotesize\ttfamily void seal\+::util\+::\+RNSTool\+::sm\+\_\+mrq (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{Const\+RNSIter}}}]{input,  }\item[{\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}}}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption}) const}
+
+Montgomery reduction mod q; changes base from Bsk U \{m\+\_\+tilde\} to Bsk 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/rns.\+h\item 
+seal/util/rns.\+cpp\end{DoxyCompactItemize}

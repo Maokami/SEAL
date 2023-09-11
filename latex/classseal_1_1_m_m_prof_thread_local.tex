@@ -1,0 +1,66 @@
+\doxysection{seal\+::MMProf\+Thread\+Local Class Reference}
+\hypertarget{classseal_1_1_m_m_prof_thread_local}{}\label{classseal_1_1_m_m_prof_thread_local}\index{seal::MMProfThreadLocal@{seal::MMProfThreadLocal}}
+
+
+{\ttfamily \#include $<$memorymanager.\+h$>$}
+
+Inheritance diagram for seal\+::MMProf\+Thread\+Local\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_m_m_prof_thread_local}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_a9a26fae61c7d6658407a0285eb67e4bd}{MMProf\+Thread\+Local}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_a59ac115fa52a98212767ea9dba9d7f01}{\texorpdfstring{$\sim$}{\string~}\+MMProf\+Thread\+Local}} () noexcept override
+\item 
+virtual SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_afbd738081f247f35c78438bc77afe184}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_m_m_prof}{seal\+::\+MMProf}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8}{MMProf}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4}{\texorpdfstring{$\sim$}{\string~}\+MMProf}} () noexcept
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A memory manager profile that always returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the thread-\/local memory pool. This profile should be used with care, as any memory allocated by it will be released once the thread exits. In other words, the thread-\/local memory pool cannot be used to share memory across different threads. On the other hand, this profile can be useful when a very high number of threads doing simultaneous allocations would cause contention in the global memory pool. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_thread_local_a9a26fae61c7d6658407a0285eb67e4bd}\label{classseal_1_1_m_m_prof_thread_local_a9a26fae61c7d6658407a0285eb67e4bd} 
+\index{seal::MMProfThreadLocal@{seal::MMProfThreadLocal}!MMProfThreadLocal@{MMProfThreadLocal}}
+\index{MMProfThreadLocal@{MMProfThreadLocal}!seal::MMProfThreadLocal@{seal::MMProfThreadLocal}}
+\doxysubsubsection{\texorpdfstring{MMProfThreadLocal()}{MMProfThreadLocal()}}
+{\footnotesize\ttfamily seal\+::\+MMProf\+Thread\+Local\+::\+MMProf\+Thread\+Local (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_m_m_prof_thread_local}{MMProf\+Thread\+Local}. \Hypertarget{classseal_1_1_m_m_prof_thread_local_a59ac115fa52a98212767ea9dba9d7f01}\label{classseal_1_1_m_m_prof_thread_local_a59ac115fa52a98212767ea9dba9d7f01} 
+\index{seal::MMProfThreadLocal@{seal::MMProfThreadLocal}!````~MMProfThreadLocal@{\texorpdfstring{$\sim$}{\string~}MMProfThreadLocal}}
+\index{````~MMProfThreadLocal@{\texorpdfstring{$\sim$}{\string~}MMProfThreadLocal}!seal::MMProfThreadLocal@{seal::MMProfThreadLocal}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MMProfThreadLocal()}{\string~MMProfThreadLocal()}}
+{\footnotesize\ttfamily virtual seal\+::\+MMProf\+Thread\+Local\+::\texorpdfstring{$\sim$}{\string~}\+MMProf\+Thread\+Local (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+Destroys the \doxylink{classseal_1_1_m_m_prof_thread_local}{MMProf\+Thread\+Local}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_thread_local_afbd738081f247f35c78438bc77afe184}\label{classseal_1_1_m_m_prof_thread_local_afbd738081f247f35c78438bc77afe184} 
+\index{seal::MMProfThreadLocal@{seal::MMProfThreadLocal}!get\_pool@{get\_pool}}
+\index{get\_pool@{get\_pool}!seal::MMProfThreadLocal@{seal::MMProfThreadLocal}}
+\doxysubsubsection{\texorpdfstring{get\_pool()}{get\_pool()}}
+{\footnotesize\ttfamily virtual SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+MMProf\+Thread\+Local\+::get\+\_\+pool (\begin{DoxyParamCaption}\item[{mm\+\_\+prof\+\_\+opt\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the thread-\/local memory pool. The mm\+\_\+prof\+\_\+opt\+\_\+t input parameter has no effect. 
+
+Implements \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{seal\+::\+MMProf}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/memorymanager.\+h\end{DoxyCompactItemize}

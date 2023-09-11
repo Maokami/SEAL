@@ -1,0 +1,51 @@
+\doxysection{ckksencoder.\+h}
+\hypertarget{ckksencoder_8h_source}{}\label{ckksencoder_8h_source}\index{seal/c/ckksencoder.h@{seal/c/ckksencoder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ CKKSEncoder\_Create(\textcolor{keywordtype}{void}\ *context,\ \textcolor{keywordtype}{void}\ **ckks\_encoder);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ CKKSEncoder\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ Array\ of\ doubles}}
+\DoxyCodeLine{00021\ SEAL\_C\_FUNC\ CKKSEncoder\_Encode1(}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ value\_count,\ \textcolor{keywordtype}{double}\ *values,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{double}\ scale,\ \textcolor{keywordtype}{void}\ *destination,}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Array\ of\ complex\ numbers\ (two\ doubles\ per\ value)}}
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ CKKSEncoder\_Encode2(}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ value\_count,\ \textcolor{keywordtype}{double}\ *complex\_values,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{double}\ scale,\ \textcolor{keywordtype}{void}\ *destination,}
+\DoxyCodeLine{00028\ \ \ \ \ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \textcolor{comment}{//\ Single\ double\ value}}
+\DoxyCodeLine{00031\ SEAL\_C\_FUNC\ CKKSEncoder\_Encode3(}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{double}\ value,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{double}\ scale,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{comment}{//\ Single\ complex\ value}}
+\DoxyCodeLine{00035\ SEAL\_C\_FUNC\ CKKSEncoder\_Encode4(}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{double}\ value\_re,\ \textcolor{keywordtype}{double}\ value\_im,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{double}\ scale,\ \textcolor{keywordtype}{void}\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \textcolor{comment}{//\ Single\ Int64\ value}}
+\DoxyCodeLine{00039\ SEAL\_C\_FUNC\ CKKSEncoder\_Encode5(\textcolor{keywordtype}{void}\ *thisptr,\ int64\_t\ value,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \textcolor{comment}{//\ Array\ of\ doubles}}
+\DoxyCodeLine{00042\ SEAL\_C\_FUNC\ CKKSEncoder\_Decode1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ uint64\_t\ *value\_count,\ \textcolor{keywordtype}{double}\ *values,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{comment}{//\ Array\ of\ complex\ numbers}}
+\DoxyCodeLine{00045\ SEAL\_C\_FUNC\ CKKSEncoder\_Decode2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ uint64\_t\ *value\_count,\ \textcolor{keywordtype}{double}\ *values,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ SEAL\_C\_FUNC\ CKKSEncoder\_SlotCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *slot\_count);}
+
+\end{DoxyCode}

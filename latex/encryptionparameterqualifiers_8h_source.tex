@@ -1,0 +1,40 @@
+\doxysection{encryptionparameterqualifiers.\+h}
+\hypertarget{encryptionparameterqualifiers_8h_source}{}\label{encryptionparameterqualifiers_8h_source}\index{seal/c/encryptionparameterqualifiers.h@{seal/c/encryptionparameterqualifiers.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ EPQ\_Create(\textcolor{keywordtype}{void}\ *copy,\ \textcolor{keywordtype}{void}\ **epq);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ EPQ\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ EPQ\_ParametersSet(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *parameters\_set);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ EPQ\_UsingFFT(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *using\_fft);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ EPQ\_UsingNTT(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *using\_ntt);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ EPQ\_UsingBatching(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *using\_batching);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ EPQ\_UsingFastPlainLift(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *using\_fast\_plain\_lift);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ EPQ\_UsingDescendingModulusChain(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *using\_descending\_modulus\_chain);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ EPQ\_SecLevel(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{int}\ *sec\_level);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ EPQ\_ParameterErrorName(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{char}\ *outstr,\ uint64\_t\ *length);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ SEAL\_C\_FUNC\ EPQ\_ParameterErrorMessage(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{char}\ *outstr,\ uint64\_t\ *length);}
+
+\end{DoxyCode}

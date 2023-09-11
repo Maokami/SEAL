@@ -1,0 +1,114 @@
+\doxysection{seal\+::Uniform\+Random\+Generator Class Reference}
+\hypertarget{classseal_1_1_uniform_random_generator}{}\label{classseal_1_1_uniform_random_generator}\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+
+
+{\ttfamily \#include $<$randomgen.\+h$>$}
+
+Inheritance diagram for seal\+::Uniform\+Random\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_uniform_random_generator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_uniform_random_generator_a9805119090a45dcec3a1f7b01075b742}{Uniform\+Random\+Generator}} (prng\+\_\+seed\+\_\+type seed)
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_a4d7c4911633e117874f66d494691186b}\label{classseal_1_1_uniform_random_generator_a4d7c4911633e117874f66d494691186b} 
+SEAL\+\_\+\+NODISCARD prng\+\_\+seed\+\_\+type {\bfseries seed} () const noexcept
+\item 
+void \mbox{\hyperlink{classseal_1_1_uniform_random_generator_afef3d67f19a8032957c618767e2cd125}{generate}} (std\+::size\+\_\+t byte\+\_\+count, seal\+\_\+byte \texorpdfstring{$\ast$}{*}destination)
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint32\+\_\+t \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a8d7cca5150bd079a28548f94f1de47d9}{generate}} ()
+\item 
+void \mbox{\hyperlink{classseal_1_1_uniform_random_generator_afc279dfa1e890f83000cab298d6d921b}{refresh}} ()
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{Uniform\+Random\+Generator\+Info}} \mbox{\hyperlink{classseal_1_1_uniform_random_generator_a1cd34a34ddf914c1295c0068324bec44}{info}} () const noexcept
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_uniform_random_generator_ad29451201db88b6e14eeb8e04e1fa939}{\texorpdfstring{$\sim$}{\string~}\+Uniform\+Random\+Generator}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_a0fbab287f38ef4cc08e303e706aaaac7}\label{classseal_1_1_uniform_random_generator_a0fbab287f38ef4cc08e303e706aaaac7} 
+virtual SEAL\+\_\+\+NODISCARD prng\+\_\+type {\bfseries type} () const noexcept=0
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_afe92dcaa8c961ebdbe7cc4c8eeec11c4}\label{classseal_1_1_uniform_random_generator_afe92dcaa8c961ebdbe7cc4c8eeec11c4} 
+virtual void {\bfseries refill\+\_\+buffer} ()=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_ab262fddd643c33b5f2817f283a9ba8b5}\label{classseal_1_1_uniform_random_generator_ab262fddd643c33b5f2817f283a9ba8b5} 
+const \mbox{\hyperlink{classseal_1_1_dyn_array}{Dyn\+Array}}$<$ std\+::uint64\+\_\+t $>$ {\bfseries seed\+\_\+}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_aa7a96d43a715c751ee43130dcbf20f36}\label{classseal_1_1_uniform_random_generator_aa7a96d43a715c751ee43130dcbf20f36} 
+const std\+::size\+\_\+t {\bfseries buffer\+\_\+size\+\_\+} = 4096
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_aee86daaea33bf409bfd48e4c1243b48e}\label{classseal_1_1_uniform_random_generator_aee86daaea33bf409bfd48e4c1243b48e} 
+seal\+\_\+byte \texorpdfstring{$\ast$}{*}const {\bfseries buffer\+\_\+begin\+\_\+}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_a6eef951479537552d1668740325084cc}\label{classseal_1_1_uniform_random_generator_a6eef951479537552d1668740325084cc} 
+seal\+\_\+byte \texorpdfstring{$\ast$}{*}const {\bfseries buffer\+\_\+end\+\_\+}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_a0ebc7660cda32845946a0266df70f2f7}\label{classseal_1_1_uniform_random_generator_a0ebc7660cda32845946a0266df70f2f7} 
+seal\+\_\+byte \texorpdfstring{$\ast$}{*} {\bfseries buffer\+\_\+head\+\_\+}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides the base class for a seeded uniform random number generator. Instances of this class are meant to be created by an instance of the factory class \doxylink{classseal_1_1_uniform_random_generator_factory}{Uniform\+Random\+Generator\+Factory}. This class is meant for users to sub-\/class to implement their own random number generators. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_uniform_random_generator_a9805119090a45dcec3a1f7b01075b742}\label{classseal_1_1_uniform_random_generator_a9805119090a45dcec3a1f7b01075b742} 
+\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}!UniformRandomGenerator@{UniformRandomGenerator}}
+\index{UniformRandomGenerator@{UniformRandomGenerator}!seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+\doxysubsubsection{\texorpdfstring{UniformRandomGenerator()}{UniformRandomGenerator()}}
+{\footnotesize\ttfamily seal\+::\+Uniform\+Random\+Generator\+::\+Uniform\+Random\+Generator (\begin{DoxyParamCaption}\item[{prng\+\_\+seed\+\_\+type}]{seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator} instance initialized with the given seed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em seed} & The seed for the random number generator \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_uniform_random_generator_ad29451201db88b6e14eeb8e04e1fa939}\label{classseal_1_1_uniform_random_generator_ad29451201db88b6e14eeb8e04e1fa939} 
+\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}!````~UniformRandomGenerator@{\texorpdfstring{$\sim$}{\string~}UniformRandomGenerator}}
+\index{````~UniformRandomGenerator@{\texorpdfstring{$\sim$}{\string~}UniformRandomGenerator}!seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}UniformRandomGenerator()}{\string~UniformRandomGenerator()}}
+{\footnotesize\ttfamily virtual seal\+::\+Uniform\+Random\+Generator\+::\texorpdfstring{$\sim$}{\string~}\+Uniform\+Random\+Generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+Destroys the random number generator. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_uniform_random_generator_a8d7cca5150bd079a28548f94f1de47d9}\label{classseal_1_1_uniform_random_generator_a8d7cca5150bd079a28548f94f1de47d9} 
+\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}!generate@{generate}}
+\index{generate@{generate}!seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::uint32\+\_\+t seal\+::\+Uniform\+Random\+Generator\+::generate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Generates a new unsigned 32-\/bit random number. \Hypertarget{classseal_1_1_uniform_random_generator_afef3d67f19a8032957c618767e2cd125}\label{classseal_1_1_uniform_random_generator_afef3d67f19a8032957c618767e2cd125} 
+\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}!generate@{generate}}
+\index{generate@{generate}!seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+\doxysubsubsection{\texorpdfstring{generate()}{generate()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Uniform\+Random\+Generator\+::generate (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{byte\+\_\+count,  }\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{destination }\end{DoxyParamCaption})}
+
+Fills a given buffer with a given number of bytes of randomness. \Hypertarget{classseal_1_1_uniform_random_generator_a1cd34a34ddf914c1295c0068324bec44}\label{classseal_1_1_uniform_random_generator_a1cd34a34ddf914c1295c0068324bec44} 
+\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}!info@{info}}
+\index{info@{info}!seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+\doxysubsubsection{\texorpdfstring{info()}{info()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_uniform_random_generator_info}{Uniform\+Random\+Generator\+Info}} seal\+::\+Uniform\+Random\+Generator\+::info (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a \doxylink{classseal_1_1_uniform_random_generator_info}{Uniform\+Random\+Generator\+Info} object representing this PRNG. \Hypertarget{classseal_1_1_uniform_random_generator_afc279dfa1e890f83000cab298d6d921b}\label{classseal_1_1_uniform_random_generator_afc279dfa1e890f83000cab298d6d921b} 
+\index{seal::UniformRandomGenerator@{seal::UniformRandomGenerator}!refresh@{refresh}}
+\index{refresh@{refresh}!seal::UniformRandomGenerator@{seal::UniformRandomGenerator}}
+\doxysubsubsection{\texorpdfstring{refresh()}{refresh()}}
+{\footnotesize\ttfamily void seal\+::\+Uniform\+Random\+Generator\+::refresh (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Discards the contents of the current randomness buffer and refills it with fresh randomness. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/randomgen.\+h\end{DoxyCompactItemize}

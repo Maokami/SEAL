@@ -1,0 +1,430 @@
+\doxysection{seal\+::Encryption\+Parameters Class Reference}
+\hypertarget{classseal_1_1_encryption_parameters}{}\label{classseal_1_1_encryption_parameters}\index{seal::EncryptionParameters@{seal::EncryptionParameters}}
+
+
+{\ttfamily \#include $<$encryptionparams.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_encryption_parameters_a6e98d416c35af9d47d5aedeab94af89a}{Encryption\+Parameters}} (scheme\+\_\+type \mbox{\hyperlink{classseal_1_1_encryption_parameters_a3aab4706c23d11a4af850172592bef43}{scheme}}=scheme\+\_\+type\+::none)
+\item 
+\mbox{\hyperlink{classseal_1_1_encryption_parameters_ad66ea7bbcc0bdcddb3137721292bde50}{Encryption\+Parameters}} (std\+::uint8\+\_\+t \mbox{\hyperlink{classseal_1_1_encryption_parameters_a3aab4706c23d11a4af850172592bef43}{scheme}})
+\item 
+\mbox{\hyperlink{classseal_1_1_encryption_parameters_a15f4a1ba17696db87a9d5f4be40ec712}{Encryption\+Parameters}} (const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&copy)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \& \mbox{\hyperlink{classseal_1_1_encryption_parameters_a9aec721e38fb27a033534fb7f1dbe0bd}{operator=}} (const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_encryption_parameters_af1617ea6358da43f801fe0d93792f9b9}{Encryption\+Parameters}} (\mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&\&source)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \& \mbox{\hyperlink{classseal_1_1_encryption_parameters_a8a3c6c9767e22c5347ffadb458cbdb44}{operator=}} (\mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&\&assign)=default
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryption_parameters_a2fa15817fceb1fd9c88fe7d862cb6676}{set\+\_\+poly\+\_\+modulus\+\_\+degree}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_encryption_parameters_abe8516f87bd1b5388472c89d773b8f5d}{poly\+\_\+modulus\+\_\+degree}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryption_parameters_a54b8e87a121593fbe39f2e9d834c3134}{set\+\_\+coeff\+\_\+modulus}} (const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \&\mbox{\hyperlink{classseal_1_1_encryption_parameters_a2d51952ae95b9ba0c09f205d346a022f}{coeff\+\_\+modulus}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryption_parameters_ad3779624789efc28bdd99c10476579dd}{set\+\_\+plain\+\_\+modulus}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&\mbox{\hyperlink{classseal_1_1_encryption_parameters_a207a242241713f7e5c012a667e8e6721}{plain\+\_\+modulus}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryption_parameters_a4110b25f9299d92abe0a8cc963769782}{set\+\_\+plain\+\_\+modulus}} (std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_encryption_parameters_a207a242241713f7e5c012a667e8e6721}{plain\+\_\+modulus}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryption_parameters_a658944e9c0d862a7943fa32d7bfe823d}{set\+\_\+random\+\_\+generator}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{Uniform\+Random\+Generator\+Factory}} $>$ \mbox{\hyperlink{classseal_1_1_encryption_parameters_aa10f0b61aa239866540e14439a7f521b}{random\+\_\+generator}}) noexcept
+\item 
+SEAL\+\_\+\+NODISCARD scheme\+\_\+type \mbox{\hyperlink{classseal_1_1_encryption_parameters_a3aab4706c23d11a4af850172592bef43}{scheme}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_encryption_parameters_abe8516f87bd1b5388472c89d773b8f5d}{poly\+\_\+modulus\+\_\+degree}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \& \mbox{\hyperlink{classseal_1_1_encryption_parameters_a2d51952ae95b9ba0c09f205d346a022f}{coeff\+\_\+modulus}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& \mbox{\hyperlink{classseal_1_1_encryption_parameters_a207a242241713f7e5c012a667e8e6721}{plain\+\_\+modulus}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{Uniform\+Random\+Generator\+Factory}} $>$ \mbox{\hyperlink{classseal_1_1_encryption_parameters_aa10f0b61aa239866540e14439a7f521b}{random\+\_\+generator}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_encryption_parameters_a9d9bc540fa428a25647b98f9bb84acdc}{parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_encryption_parameters_ab238bbf6666d42c97adf8eabae94ad16}{operator==}} (const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&other) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_encryption_parameters_a51e29d951df7e1cc8146f35f1247ba41}{operator!=}} (const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&other) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_encryption_parameters_a48bdd4eb6eefc084f38e006f3bebf587}{save\+\_\+size}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_encryption_parameters_a065dac9689e37c2fa82acceae43298ff}{save}} (std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_encryption_parameters_a9f0590ee38be397da47fa51fb0624100}{load}} (std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_encryption_parameters_a5d27d824c1b1ce9f182d7c67a0d47949}{save}} (seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t size, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_encryption_parameters_aaa07fd6ba157cf61df25dd7f42936911}{load}} (const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_encryption_parameters_a450f5ba2c5e09e048b0bf5e472c2699c}\label{classseal_1_1_encryption_parameters_a450f5ba2c5e09e048b0bf5e472c2699c} 
+struct {\bfseries std\+::hash$<$ Encryption\+Parameters $>$}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents user-\/customizable encryption scheme settings. The parameters (most importantly poly\+\_\+modulus, coeff\+\_\+modulus, plain\+\_\+modulus) significantly affect the performance, capabilities, and security of the encryption scheme. Once an instance of \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} is populated with appropriate parameters, it can be used to create an instance of the \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} class, which verifies the validity of the parameters, and performs necessary pre-\/computations.
+
+Picking appropriate encryption parameters is essential to enable a particular application while balancing performance and security. Some encryption settings will not allow some inputs (e.\+g. attempting to encrypt a polynomial with more coefficients than poly\+\_\+modulus or larger coefficients than plain\+\_\+modulus) or, support the desired computations (with noise growing too fast due to too large plain\+\_\+modulus and too small coeff\+\_\+modulus).
+
+\begin{DoxyParagraph}{parms\+\_\+id}
+The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} class maintains at all times a 256-\/bit hash of the currently set encryption parameters called the parms\+\_\+id. This hash acts as a unique identifier of the encryption parameters and is used by all further objects created for these encryption parameters. The parms\+\_\+id is not intended to be directly modified by the user but is used internally for pre-\/computation data lookup and input validity checks. In modulus switching the user can use the parms\+\_\+id to keep track of the chain of encryption parameters. The parms\+\_\+id is not exposed in the public API of \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}, but can be accessed through the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{SEALContext\+::\+Context\+Data} class once the \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} has been created.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Thread Safety}
+In general, reading from \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} is thread-\/safe, while mutating is not.
+\end{DoxyParagraph}
+\begin{DoxyWarning}{Warning}
+Choosing inappropriate encryption parameters may lead to an encryption scheme that is not secure, does not perform well, and/or does not support the input and computation of the desired application. We highly recommend consulting an expert in RLWE-\/based encryption when selecting parameters, as this is where inexperienced users seem to most often make critical mistakes. 
+\end{DoxyWarning}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_encryption_parameters_a6e98d416c35af9d47d5aedeab94af89a}\label{classseal_1_1_encryption_parameters_a6e98d416c35af9d47d5aedeab94af89a} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!EncryptionParameters@{EncryptionParameters}}
+\index{EncryptionParameters@{EncryptionParameters}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{EncryptionParameters()}{EncryptionParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily seal\+::\+Encryption\+Parameters\+::\+Encryption\+Parameters (\begin{DoxyParamCaption}\item[{scheme\+\_\+type}]{scheme = {\ttfamily scheme\+\_\+type\+:\+:none} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates an empty set of encryption parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em scheme} & The encryption scheme to be used \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+scheme\+\_\+type for the supported schemes 
+\end{DoxySeeAlso}
+\Hypertarget{classseal_1_1_encryption_parameters_ad66ea7bbcc0bdcddb3137721292bde50}\label{classseal_1_1_encryption_parameters_ad66ea7bbcc0bdcddb3137721292bde50} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!EncryptionParameters@{EncryptionParameters}}
+\index{EncryptionParameters@{EncryptionParameters}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{EncryptionParameters()}{EncryptionParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily seal\+::\+Encryption\+Parameters\+::\+Encryption\+Parameters (\begin{DoxyParamCaption}\item[{std\+::uint8\+\_\+t}]{scheme }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates an empty set of encryption parameters.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em scheme} & The encryption scheme to be used \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if scheme is not supported \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a15f4a1ba17696db87a9d5f4be40ec712}\label{classseal_1_1_encryption_parameters_a15f4a1ba17696db87a9d5f4be40ec712} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!EncryptionParameters@{EncryptionParameters}}
+\index{EncryptionParameters@{EncryptionParameters}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{EncryptionParameters()}{EncryptionParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily seal\+::\+Encryption\+Parameters\+::\+Encryption\+Parameters (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a copy of a given instance of \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_encryption_parameters_af1617ea6358da43f801fe0d93792f9b9}\label{classseal_1_1_encryption_parameters_af1617ea6358da43f801fe0d93792f9b9} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!EncryptionParameters@{EncryptionParameters}}
+\index{EncryptionParameters@{EncryptionParameters}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{EncryptionParameters()}{EncryptionParameters()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily seal\+::\+Encryption\+Parameters\+::\+Encryption\+Parameters (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} instance by moving a given instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to move from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_encryption_parameters_a2d51952ae95b9ba0c09f205d346a022f}\label{classseal_1_1_encryption_parameters_a2d51952ae95b9ba0c09f205d346a022f} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!coeff\_modulus@{coeff\_modulus}}
+\index{coeff\_modulus@{coeff\_modulus}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{coeff\_modulus()}{coeff\_modulus()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \& seal\+::\+Encryption\+Parameters\+::coeff\+\_\+modulus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to the currently set coefficient modulus parameter. \Hypertarget{classseal_1_1_encryption_parameters_aaa07fd6ba157cf61df25dd7f42936911}\label{classseal_1_1_encryption_parameters_aaa07fd6ba157cf61df25dd7f42936911} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!load@{load}}
+\index{load@{load}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Encryption\+Parameters\+::load (\begin{DoxyParamCaption}\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} from a given memory location overwriting the current \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a9f0590ee38be397da47fa51fb0624100}\label{classseal_1_1_encryption_parameters_a9f0590ee38be397da47fa51fb0624100} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!load@{load}}
+\index{load@{load}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Encryption\+Parameters\+::load (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} from an input stream overwriting the current \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} from \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a51e29d951df7e1cc8146f35f1247ba41}\label{classseal_1_1_encryption_parameters_a51e29d951df7e1cc8146f35f1247ba41} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Encryption\+Parameters\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a given set of encryption parameters to the current set of encryption parameters. The comparison is performed by comparing parms\+\_\+ids of the parameter sets rather than comparing the parameters individually.
+
+@parms\mbox{[}in\mbox{]} other The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to compare against \Hypertarget{classseal_1_1_encryption_parameters_a9aec721e38fb27a033534fb7f1dbe0bd}\label{classseal_1_1_encryption_parameters_a9aec721e38fb27a033534fb7f1dbe0bd} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \& seal\+::\+Encryption\+Parameters\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Overwrites the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} instance with a copy of a given instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_encryption_parameters_a8a3c6c9767e22c5347ffadb458cbdb44}\label{classseal_1_1_encryption_parameters_a8a3c6c9767e22c5347ffadb458cbdb44} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \& seal\+::\+Encryption\+Parameters\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Overwrites the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} instance by moving a given instance.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_encryption_parameters_ab238bbf6666d42c97adf8eabae94ad16}\label{classseal_1_1_encryption_parameters_ab238bbf6666d42c97adf8eabae94ad16} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!operator==@{operator==}}
+\index{operator==@{operator==}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Encryption\+Parameters\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&}]{other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a given set of encryption parameters to the current set of encryption parameters. The comparison is performed by comparing the parms\+\_\+ids of the parameter sets rather than comparing the parameters individually.
+
+@parms\mbox{[}in\mbox{]} other The \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to compare against \Hypertarget{classseal_1_1_encryption_parameters_a9d9bc540fa428a25647b98f9bb84acdc}\label{classseal_1_1_encryption_parameters_a9d9bc540fa428a25647b98f9bb84acdc} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!parms\_id@{parms\_id}}
+\index{parms\_id@{parms\_id}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{parms\_id()}{parms\_id()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& seal\+::\+Encryption\+Parameters\+::parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to the parms\+\_\+id of the current parameters. \Hypertarget{classseal_1_1_encryption_parameters_a207a242241713f7e5c012a667e8e6721}\label{classseal_1_1_encryption_parameters_a207a242241713f7e5c012a667e8e6721} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!plain\_modulus@{plain\_modulus}}
+\index{plain\_modulus@{plain\_modulus}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{plain\_modulus()}{plain\_modulus()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& seal\+::\+Encryption\+Parameters\+::plain\+\_\+modulus (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to the currently set plaintext modulus parameter. \Hypertarget{classseal_1_1_encryption_parameters_abe8516f87bd1b5388472c89d773b8f5d}\label{classseal_1_1_encryption_parameters_abe8516f87bd1b5388472c89d773b8f5d} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!poly\_modulus\_degree@{poly\_modulus\_degree}}
+\index{poly\_modulus\_degree@{poly\_modulus\_degree}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{poly\_modulus\_degree()}{poly\_modulus\_degree()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Encryption\+Parameters\+::poly\+\_\+modulus\+\_\+degree (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the degree of the polynomial modulus parameter. \Hypertarget{classseal_1_1_encryption_parameters_aa10f0b61aa239866540e14439a7f521b}\label{classseal_1_1_encryption_parameters_aa10f0b61aa239866540e14439a7f521b} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!random\_generator@{random\_generator}}
+\index{random\_generator@{random\_generator}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{random\_generator()}{random\_generator()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{Uniform\+Random\+Generator\+Factory}} $>$ seal\+::\+Encryption\+Parameters\+::random\+\_\+generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a pointer to the random number generator factory to use for encryption. \Hypertarget{classseal_1_1_encryption_parameters_a5d27d824c1b1ce9f182d7c67a0d47949}\label{classseal_1_1_encryption_parameters_a5d27d824c1b1ce9f182d7c67a0d47949} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!save@{save}}
+\index{save@{save}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Encryption\+Parameters\+::save (\begin{DoxyParamCaption}\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to a given memory location. The output is in binary format and is not human-\/readable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if out is null or if size is too small to contain a SEALHeader, or if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a065dac9689e37c2fa82acceae43298ff}\label{classseal_1_1_encryption_parameters_a065dac9689e37c2fa82acceae43298ff} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!save@{save}}
+\index{save@{save}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Encryption\+Parameters\+::save (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to an output stream. The output is in binary format and is not human-\/readable. The output stream must have the \"{}binary\"{} flag set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em stream} & The stream to save the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a48bdd4eb6eefc084f38e006f3bebf587}\label{classseal_1_1_encryption_parameters_a48bdd4eb6eefc084f38e006f3bebf587} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!save\_size@{save\_size}}
+\index{save\_size@{save\_size}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{save\_size()}{save\_size()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::streamoff seal\+::\+Encryption\+Parameters\+::save\+\_\+size (\begin{DoxyParamCaption}\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an upper bound on the size of the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}, as if it was written to an output stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the size does not fit in the return type \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a3aab4706c23d11a4af850172592bef43}\label{classseal_1_1_encryption_parameters_a3aab4706c23d11a4af850172592bef43} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!scheme@{scheme}}
+\index{scheme@{scheme}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{scheme()}{scheme()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD scheme\+\_\+type seal\+::\+Encryption\+Parameters\+::scheme (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the encryption scheme type. \Hypertarget{classseal_1_1_encryption_parameters_a54b8e87a121593fbe39f2e9d834c3134}\label{classseal_1_1_encryption_parameters_a54b8e87a121593fbe39f2e9d834c3134} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!set\_coeff\_modulus@{set\_coeff\_modulus}}
+\index{set\_coeff\_modulus@{set\_coeff\_modulus}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{set\_coeff\_modulus()}{set\_coeff\_modulus()}}
+{\footnotesize\ttfamily void seal\+::\+Encryption\+Parameters\+::set\+\_\+coeff\+\_\+modulus (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \&}]{coeff\+\_\+modulus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the coefficient modulus parameter. The coefficient modulus consists of a list of distinct prime numbers, and is represented by a vector of \doxylink{classseal_1_1_modulus}{Modulus} objects. The coefficient modulus directly affects the size of ciphertext elements, the amount of computation that the scheme can perform (bigger is better), and the security level (bigger is worse). In Microsoft SEAL each of the prime numbers in the coefficient modulus must be at most 60 bits, and must be congruent to 1 modulo 2\texorpdfstring{$\ast$}{*}poly\+\_\+modulus\+\_\+degree.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+modulus} & The new coefficient modulus \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a valid scheme is not set and coeff\+\_\+modulus is is non-\/empty \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if size of coeff\+\_\+modulus is invalid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_ad3779624789efc28bdd99c10476579dd}\label{classseal_1_1_encryption_parameters_ad3779624789efc28bdd99c10476579dd} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!set\_plain\_modulus@{set\_plain\_modulus}}
+\index{set\_plain\_modulus@{set\_plain\_modulus}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{set\_plain\_modulus()}{set\_plain\_modulus()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Encryption\+Parameters\+::set\+\_\+plain\+\_\+modulus (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{plain\+\_\+modulus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the plaintext modulus parameter. The plaintext modulus is an integer modulus represented by the \doxylink{classseal_1_1_modulus}{Modulus} class. The plaintext modulus determines the largest coefficient that plaintext polynomials can represent. It also affects the amount of computation that the scheme can perform (bigger is worse). In Microsoft SEAL the plaintext modulus can be at most 60 bits long, but can otherwise be any integer. Note, however, that some features (e.\+g. batching) require the plaintext modulus to be of a particular form.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain\+\_\+modulus} & The new plaintext modulus \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::\+BFV and plain\+\_\+modulus is non-\/zero \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a4110b25f9299d92abe0a8cc963769782}\label{classseal_1_1_encryption_parameters_a4110b25f9299d92abe0a8cc963769782} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!set\_plain\_modulus@{set\_plain\_modulus}}
+\index{set\_plain\_modulus@{set\_plain\_modulus}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{set\_plain\_modulus()}{set\_plain\_modulus()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Encryption\+Parameters\+::set\+\_\+plain\+\_\+modulus (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{plain\+\_\+modulus }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the plaintext modulus parameter. The plaintext modulus is an integer modulus represented by the \doxylink{classseal_1_1_modulus}{Modulus} class. This constructor instead takes a std\+::uint64\+\_\+t and automatically creates the \doxylink{classseal_1_1_modulus}{Modulus} object. The plaintext modulus determines the largest coefficient that plaintext polynomials can represent. It also affects the amount of computation that the scheme can perform (bigger is worse). In Microsoft SEAL the plaintext modulus can be at most 60 bits long, but can otherwise be any integer. Note, however, that some features (e.\+g. batching) require the plaintext modulus to be of a particular form.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain\+\_\+modulus} & The new plaintext modulus \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain\+\_\+modulus is invalid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a2fa15817fceb1fd9c88fe7d862cb6676}\label{classseal_1_1_encryption_parameters_a2fa15817fceb1fd9c88fe7d862cb6676} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!set\_poly\_modulus\_degree@{set\_poly\_modulus\_degree}}
+\index{set\_poly\_modulus\_degree@{set\_poly\_modulus\_degree}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{set\_poly\_modulus\_degree()}{set\_poly\_modulus\_degree()}}
+{\footnotesize\ttfamily void seal\+::\+Encryption\+Parameters\+::set\+\_\+poly\+\_\+modulus\+\_\+degree (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the degree of the polynomial modulus parameter to the specified value. The polynomial modulus directly affects the number of coefficients in plaintext polynomials, the size of ciphertext elements, the computational performance of the scheme (bigger is worse), and the security level (bigger is better). In Microsoft SEAL the degree of the polynomial modulus must be a power of 2 (e.\+g. 1024, 2048, 4096, 8192, 16384, or 32768).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The new polynomial modulus degree \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a valid scheme is not set and poly\+\_\+modulus\+\_\+degree is non-\/zero \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryption_parameters_a658944e9c0d862a7943fa32d7bfe823d}\label{classseal_1_1_encryption_parameters_a658944e9c0d862a7943fa32d7bfe823d} 
+\index{seal::EncryptionParameters@{seal::EncryptionParameters}!set\_random\_generator@{set\_random\_generator}}
+\index{set\_random\_generator@{set\_random\_generator}!seal::EncryptionParameters@{seal::EncryptionParameters}}
+\doxysubsubsection{\texorpdfstring{set\_random\_generator()}{set\_random\_generator()}}
+{\footnotesize\ttfamily void seal\+::\+Encryption\+Parameters\+::set\+\_\+random\+\_\+generator (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{Uniform\+Random\+Generator\+Factory}} $>$}]{random\+\_\+generator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Sets the random number generator factory to use for encryption. By default, the random generator is set to Uniform\+Random\+Generator\+Factory\+::default\+\_\+factory(). Setting this value allows a user to specify a custom random number generator source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em random\+\_\+generator} & Pointer to the random generator factory \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/encryptionparams.\+h\item 
+seal/encryptionparams.\+cpp\end{DoxyCompactItemize}

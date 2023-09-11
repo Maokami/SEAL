@@ -1,0 +1,1938 @@
+\doxysection{seal\+::Evaluator Class Reference}
+\hypertarget{classseal_1_1_evaluator}{}\label{classseal_1_1_evaluator}\index{seal::Evaluator@{seal::Evaluator}}
+
+
+{\ttfamily \#include $<$evaluator.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_evaluator_a67e8c8d522abe7ab701253cc1e373f79}{Evaluator}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context)
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ac801b5b9ae231a829d3d5f747581ce2f}{negate\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a6e60c347dd053dc470cb63a5183a358d}{negate}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a8ef951a420330db88ded8d153481289e}{add\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted1, const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted2) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ab1b21bc2d0fadc25225e0fc530d4505a}{add}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted1, const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted2, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a48a5863f4fd0d92fa16f503d98a727c7}{add\+\_\+many}} (const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \&encrypteds, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ade142d84810da4df0158d52822408b48}{sub\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted1, const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted2) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ac36ac8c3406619ea69a8505747d5fcf6}{sub}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted1, const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted2, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a78da6e2be88fac4077e4fa3dd34a23a0}{multiply\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted1, const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted2, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ab5847bb2d26378a8aea60159e1980aab}{multiply}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted1, const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted2, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a6bd5b78e6e7b72bd25ed5a35a6f453b9}{square\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ae985c87acbcea02d6e5a565c36d8a041}{square}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a1552cf00ce1b0d3a5a0ac112efb47d6c}{relinearize\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&relin\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ad326c409fe3c8cf7c741de44f6980941}{relinearize}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&relin\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a224349f7ec6552de568dc094224dadf7}{mod\+\_\+switch\+\_\+to\+\_\+next}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a54d6fd7d36c9f46e8079de7abc6fa1c5}{mod\+\_\+switch\+\_\+to\+\_\+next\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286}{mod\+\_\+switch\+\_\+to\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a31b59db93cd9860548245d6fee95b65c}{mod\+\_\+switch\+\_\+to}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a3248bd7a9f17cf54e64a23bd7f52f4e5}{mod\+\_\+switch\+\_\+to\+\_\+next\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a8ee177de710a18b79c95267fd8a6c8d5}{mod\+\_\+switch\+\_\+to\+\_\+next}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a4c046ae1241ae150430c2c6362489d23}{mod\+\_\+switch\+\_\+to\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, parms\+\_\+id\+\_\+type parms\+\_\+id) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_aa22aad681100acf0c57da2afbacd4a48}{mod\+\_\+switch\+\_\+to}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a46490dfd5fe1fb0773d77536a6868d47}{rescale\+\_\+to\+\_\+next}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_acf9a60f802fffc53bac4dd22e008c52c}{rescale\+\_\+to\+\_\+next\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a660f4e4b238e13f13d3a75ccdef2a91d}{rescale\+\_\+to\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ae82018932a17062c99d81d2f749841b3}{rescale\+\_\+to}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a6b9c2c5c9f2e68c53cbaa7ed639d0326}{mod\+\_\+reduce\+\_\+to\+\_\+next\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a3e51786300c96ad757bef78364562880}{mod\+\_\+reduce\+\_\+to\+\_\+next}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a73879933e6e8740f389f89d23846669e}{mod\+\_\+reduce\+\_\+to\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a006fa68c8a2bab8ee6dad39ba4060744}{mod\+\_\+reduce\+\_\+to}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a69007e518e71d3807da0e88b517fda9f}{multiply\+\_\+many}} (const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \&encrypteds, const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&relin\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a70d8c7628940463628e53eb1cab76db2}{exponentiate\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, std\+::uint64\+\_\+t exponent, const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&relin\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a733553e8d244f578312950e01222ecbf}{exponentiate}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, std\+::uint64\+\_\+t exponent, const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&relin\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ae0214e07d3797965b71c2129eff1d78a}{add\+\_\+plain\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a1006e108ac098885fcb863b25f0aaa8c}{add\+\_\+plain}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a1ad6caa8655376791cd525c15dade6ef}{sub\+\_\+plain\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a897346b584525403d4cbcda91ebf6909}{sub\+\_\+plain}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a164d59c4d4e9f6e4bad8908ebc764532}{multiply\+\_\+plain\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a5082f36257e14c8f5ca27d2ec2cf3798}{multiply\+\_\+plain}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7}{transform\+\_\+to\+\_\+ntt\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_afa12924c3168517067e4681c1d7e15eb}{transform\+\_\+to\+\_\+ntt}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination\+\_\+ntt, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_af07c8e802bf28c1c4d1b374eb40f5e2f}{transform\+\_\+to\+\_\+ntt\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a0784d6b7dc6207b042aa36e34b6236de}{transform\+\_\+to\+\_\+ntt}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination\+\_\+ntt) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_aad300e3961a6f32078149e7b325323c6}{transform\+\_\+from\+\_\+ntt\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted\+\_\+ntt) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a0b9b610e5859c9519d85af6d6126f6d1}{transform\+\_\+from\+\_\+ntt}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted\+\_\+ntt, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a54ecb46513bc24257cdf11663e907ace}{apply\+\_\+galois\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, std\+::uint32\+\_\+t galois\+\_\+elt, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a9099cf7e670952bf33d4d27806624c4b}{apply\+\_\+galois}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, std\+::uint32\+\_\+t galois\+\_\+elt, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_af4bc9a26921006db5a67175587487295}{rotate\+\_\+rows\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, int steps, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a11f0c341eb75f95c46099b326f51995b}{rotate\+\_\+rows}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, int steps, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_ab4b155dd7a4044572cb72929bf3ecedf}{rotate\+\_\+columns\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_af900155263fd3317318e3dbe60cb811c}{rotate\+\_\+columns}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_aeb62eee586c7641418fe171a0a4c8902}{rotate\+\_\+vector\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, int steps, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_af9de714dfedf6e60e294e6c53fe719a6}{rotate\+\_\+vector}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, int steps, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_aad296c0f18a255c64373848f69379937}{complex\+\_\+conjugate\+\_\+inplace}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_evaluator_a643f32ba44c71a807d0be5e9d47f6ff1}{complex\+\_\+conjugate}} (const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&encrypted, const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&galois\+\_\+keys, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides operations on ciphertexts. Due to the properties of the encryption scheme, the arithmetic operations pass through the encryption layer to the underlying plaintext, changing it according to the type of the operation. Since the plaintext elements are fundamentally polynomials in the polynomial quotient ring Z\+\_\+T\mbox{[}x\mbox{]}/(X\texorpdfstring{$^\wedge$}{\string^}\+N+1), where T is the plaintext modulus and X\texorpdfstring{$^\wedge$}{\string^}\+N+1 is the polynomial modulus, this is the ring where the arithmetic operations will take place. \doxylink{classseal_1_1_batch_encoder}{Batch\+Encoder} (batching) provider an alternative possibly more convenient view of the plaintext elements as 2-\/by-\/(N/2) matrices of integers modulo the plaintext modulus. In the batching view the arithmetic operations act on the matrices element-\/wise. Some of the operations only apply in the batching view, such as matrix row and column rotations. Other operations such as relinearization have no semantic meaning but are necessary for performance reasons.
+
+\begin{DoxyParagraph}{Arithmetic Operations}
+The core operations are arithmetic operations, in particular multiplication and addition of ciphertexts. In addition to these, we also provide negation, subtraction, squaring, exponentiation, and multiplication and addition of several ciphertexts for convenience. in many cases some of the inputs to a computation are plaintext elements rather than ciphertexts. For this we provide fast \"{}plain\"{} operations\+: plain addition, plain subtraction, and plain multiplication.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Relinearization}
+One of the most important non-\/arithmetic operations is relinearization, which takes as input a ciphertext of size K+1 and relinearization keys (at least K-\/1 keys are needed), and changes the size of the ciphertext down to 2 (minimum size). For most use-\/cases only one relinearization key suffices, in which case relinearization should be performed after every multiplication. Homomorphic multiplication of ciphertexts of size K+1 and L+1 outputs a ciphertext of size K+\+L+1, and the computational cost of multiplication is proportional to K\texorpdfstring{$\ast$}{*}L. Plain multiplication and addition operations of any type do not change the size. Relinearization requires relinearization keys to have been generated.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Rotations}
+When batching is enabled, we provide operations for rotating the plaintext matrix rows cyclically left or right, and for rotating the columns (swapping the rows). Rotations require Galois keys to have been generated.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Other Operations}
+We also provide operations for transforming ciphertexts to NTT form and back, and for transforming plaintext polynomials to NTT form. These can be used in a very fast plain multiplication variant, that assumes the inputs to be in NTT form. Since the NTT has to be done in any case in plain multiplication, this function can be used when e.\+g. one plaintext input is used in several plain multiplication, and transforming it several times would not make sense.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{NTT form}
+When using the BFV/\+BGV scheme (scheme\+\_\+type\+::bfv/bgv), all plaintexts and ciphertexts should remain by default in the usual coefficient representation, i.\+e., not in NTT form. When using the CKKS scheme (scheme\+\_\+type\+::ckks), all plaintexts and ciphertexts should remain by default in NTT form. We call these scheme-\/specific NTT states the \"{}default NTT form\"{}. Some functions, such as add, work even if the inputs are not in the default state, but others, such as multiply, will throw an exception. The output of all evaluation functions will be in the same state as the input(s), with the exception of the transform\+\_\+to\+\_\+ntt and transform\+\_\+from\+\_\+ntt functions, which change the state. Ideally, unless these two functions are called, all other functions should \"{}just work\"{}.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for more details on encryption parameters. 
+
+\doxylink{classseal_1_1_batch_encoder}{Batch\+Encoder} for more details on batching 
+
+\doxylink{classseal_1_1_relin_keys}{Relin\+Keys} for more details on relinearization keys. 
+
+\doxylink{classseal_1_1_galois_keys}{Galois\+Keys} for more details on Galois keys. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_evaluator_a67e8c8d522abe7ab701253cc1e373f79}\label{classseal_1_1_evaluator_a67e8c8d522abe7ab701253cc1e373f79} 
+\index{seal::Evaluator@{seal::Evaluator}!Evaluator@{Evaluator}}
+\index{Evaluator@{Evaluator}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{Evaluator()}{Evaluator()}}
+{\footnotesize\ttfamily seal\+::\+Evaluator\+::\+Evaluator (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context }\end{DoxyParamCaption})}
+
+Creates an \doxylink{classseal_1_1_evaluator}{Evaluator} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_evaluator_ab1b21bc2d0fadc25225e0fc530d4505a}\label{classseal_1_1_evaluator_ab1b21bc2d0fadc25225e0fc530d4505a} 
+\index{seal::Evaluator@{seal::Evaluator}!add@{add}}
+\index{add@{add}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{add()}{add()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted1,  }\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted2,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds two ciphertexts. This function adds together encrypted1 and encrypted2 and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted1} & The first ciphertext to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em encrypted2} & The second ciphertext to add \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the addition result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are at different level or scale \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a8ef951a420330db88ded8d153481289e}\label{classseal_1_1_evaluator_a8ef951a420330db88ded8d153481289e} 
+\index{seal::Evaluator@{seal::Evaluator}!add\_inplace@{add\_inplace}}
+\index{add\_inplace@{add\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{add\_inplace()}{add\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::add\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted1,  }\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted2 }\end{DoxyParamCaption}) const}
+
+Adds two ciphertexts. This function adds together encrypted1 and encrypted2 and stores the result in encrypted1.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted1} & The first ciphertext to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em encrypted2} & The second ciphertext to add \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are at different level or scale \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a48a5863f4fd0d92fa16f503d98a727c7}\label{classseal_1_1_evaluator_a48a5863f4fd0d92fa16f503d98a727c7} 
+\index{seal::Evaluator@{seal::Evaluator}!add\_many@{add\_many}}
+\index{add\_many@{add\_many}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{add\_many()}{add\_many()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::add\+\_\+many (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \&}]{encrypteds,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination }\end{DoxyParamCaption}) const}
+
+Adds together a vector of ciphertexts and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypteds} & The ciphertexts to add \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the addition result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypteds is empty \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypteds are not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypteds are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypteds are at different level or scale \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if destination is one of encrypteds \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a1006e108ac098885fcb863b25f0aaa8c}\label{classseal_1_1_evaluator_a1006e108ac098885fcb863b25f0aaa8c} 
+\index{seal::Evaluator@{seal::Evaluator}!add\_plain@{add\_plain}}
+\index{add\_plain@{add\_plain}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{add\_plain()}{add\_plain()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::add\+\_\+plain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Adds a ciphertext and a plaintext. This function adds a ciphertext and a plaintext and stores the result in the destination parameter. Note that in many cases it can be much more efficient to perform any computations on raw unencrypted data before encoding it, rather than using this function to compute on the plaintext objects.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to add \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the addition result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted and plain are at different level or scale \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ae0214e07d3797965b71c2129eff1d78a}\label{classseal_1_1_evaluator_ae0214e07d3797965b71c2129eff1d78a} 
+\index{seal::Evaluator@{seal::Evaluator}!add\_plain\_inplace@{add\_plain\_inplace}}
+\index{add\_plain\_inplace@{add\_plain\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{add\_plain\_inplace()}{add\_plain\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::add\+\_\+plain\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Adds a ciphertext and a plaintext.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to add \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted and plain are at different level or scale \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a9099cf7e670952bf33d4d27806624c4b}\label{classseal_1_1_evaluator_a9099cf7e670952bf33d4d27806624c4b} 
+\index{seal::Evaluator@{seal::Evaluator}!apply\_galois@{apply\_galois}}
+\index{apply\_galois@{apply\_galois}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{apply\_galois()}{apply\_galois()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::apply\+\_\+galois (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{std\+::uint32\+\_\+t}]{galois\+\_\+elt,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Applies a Galois automorphism to a ciphertext and writes the result to the destination parameter. To evaluate the Galois automorphism, an appropriate set of Galois keys must also be provided. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+The desired Galois automorphism is given as a Galois element, and must be an odd integer in the interval \mbox{[}1, M-\/1\mbox{]}, where M = 2\texorpdfstring{$\ast$}{*}N, and N = poly\+\_\+modulus\+\_\+degree. Used with batching, a Galois element 3\texorpdfstring{$^\wedge$}{\string^}i \% M corresponds to a cyclic row rotation i steps to the left, and a Galois element 3\texorpdfstring{$^\wedge$}{\string^}(N/2-\/i) \% M corresponds to a cyclic row rotation i steps to the right. The Galois element M-\/1 corresponds to a column rotation (row swap) in BFV/\+BGV, and complex conjugation in CKKS. In the polynomial view (not batching), a Galois automorphism by a Galois element p changes Enc(plain(x)) to Enc(plain(x\texorpdfstring{$^\wedge$}{\string^}p)).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to apply the Galois automorphism to \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elt} & The Galois element \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the Galois element is not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a54ecb46513bc24257cdf11663e907ace}\label{classseal_1_1_evaluator_a54ecb46513bc24257cdf11663e907ace} 
+\index{seal::Evaluator@{seal::Evaluator}!apply\_galois\_inplace@{apply\_galois\_inplace}}
+\index{apply\_galois\_inplace@{apply\_galois\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{apply\_galois\_inplace()}{apply\_galois\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::apply\+\_\+galois\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{std\+::uint32\+\_\+t}]{galois\+\_\+elt,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Applies a Galois automorphism to a ciphertext. To evaluate the Galois automorphism, an appropriate set of Galois keys must also be provided. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+The desired Galois automorphism is given as a Galois element, and must be an odd integer in the interval \mbox{[}1, M-\/1\mbox{]}, where M = 2\texorpdfstring{$\ast$}{*}N, and N = poly\+\_\+modulus\+\_\+degree. Used with batching, a Galois element 3\texorpdfstring{$^\wedge$}{\string^}i \% M corresponds to a cyclic row rotation i steps to the left, and a Galois element 3\texorpdfstring{$^\wedge$}{\string^}(N/2-\/i) \% M corresponds to a cyclic row rotation i steps to the right. The Galois element M-\/1 corresponds to a column rotation (row swap) in BFV/\+BGV, and complex conjugation in CKKS. In the polynomial view (not batching), a Galois automorphism by a Galois element p changes Enc(plain(x)) to Enc(plain(x\texorpdfstring{$^\wedge$}{\string^}p)).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to apply the Galois automorphism to \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elt} & The Galois element \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the Galois element is not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a643f32ba44c71a807d0be5e9d47f6ff1}\label{classseal_1_1_evaluator_a643f32ba44c71a807d0be5e9d47f6ff1} 
+\index{seal::Evaluator@{seal::Evaluator}!complex\_conjugate@{complex\_conjugate}}
+\index{complex\_conjugate@{complex\_conjugate}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{complex\_conjugate()}{complex\_conjugate()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::complex\+\_\+conjugate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Complex conjugates plaintext slot values. When using the CKKS scheme, this function complex conjugates all values in the underlying plaintext, and writes the result to the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the rotated result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::ckks \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_aad296c0f18a255c64373848f69379937}\label{classseal_1_1_evaluator_aad296c0f18a255c64373848f69379937} 
+\index{seal::Evaluator@{seal::Evaluator}!complex\_conjugate\_inplace@{complex\_conjugate\_inplace}}
+\index{complex\_conjugate\_inplace@{complex\_conjugate\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{complex\_conjugate\_inplace()}{complex\_conjugate\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::complex\+\_\+conjugate\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Complex conjugates plaintext slot values. When using the CKKS scheme, this function complex conjugates all values in the underlying plaintext. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the rotated result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::ckks \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a733553e8d244f578312950e01222ecbf}\label{classseal_1_1_evaluator_a733553e8d244f578312950e01222ecbf} 
+\index{seal::Evaluator@{seal::Evaluator}!exponentiate@{exponentiate}}
+\index{exponentiate@{exponentiate}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{exponentiate()}{exponentiate()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::exponentiate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{std\+::uint64\+\_\+t}]{exponent,  }\item[{const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&}]{relin\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Exponentiates a ciphertext. This functions raises encrypted to a power and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. The exponentiation is done in a depth-\/optimal order, and relinearization is performed automatically after every multiplication in the process. In relinearization the given relinearization keys are used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to exponentiate \\
+\hline
+\mbox{\texttt{ in}}  & {\em exponent} & The power to raise the ciphertext to \\
+\hline
+\mbox{\texttt{ in}}  & {\em relin\+\_\+keys} & The relinearization keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the power \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or relin\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if exponent is zero \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the size of relin\+\_\+keys is too small \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a70d8c7628940463628e53eb1cab76db2}\label{classseal_1_1_evaluator_a70d8c7628940463628e53eb1cab76db2} 
+\index{seal::Evaluator@{seal::Evaluator}!exponentiate\_inplace@{exponentiate\_inplace}}
+\index{exponentiate\_inplace@{exponentiate\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{exponentiate\_inplace()}{exponentiate\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::exponentiate\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{std\+::uint64\+\_\+t}]{exponent,  }\item[{const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&}]{relin\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Exponentiates a ciphertext. This functions raises encrypted to a power. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. The exponentiation is done in a depth-\/optimal order, and relinearization is performed automatically after every multiplication in the process. In relinearization the given relinearization keys are used.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to exponentiate \\
+\hline
+\mbox{\texttt{ in}}  & {\em exponent} & The power to raise the ciphertext to \\
+\hline
+\mbox{\texttt{ in}}  & {\em relin\+\_\+keys} & The relinearization keys \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or relin\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if exponent is zero \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the size of relin\+\_\+keys is too small \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a006fa68c8a2bab8ee6dad39ba4060744}\label{classseal_1_1_evaluator_a006fa68c8a2bab8ee6dad39ba4060744} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_reduce\_to@{mod\_reduce\_to}}
+\index{mod\_reduce\_to@{mod\_reduce\_to}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_reduce\_to()}{mod\_reduce\_to()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+reduce\+\_\+to (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function reduces the modulus down until the parameters reach the given parms\+\_\+id and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be reduced to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the modulus reduced result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a73879933e6e8740f389f89d23846669e}\label{classseal_1_1_evaluator_a73879933e6e8740f389f89d23846669e} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_reduce\_to\_inplace@{mod\_reduce\_to\_inplace}}
+\index{mod\_reduce\_to\_inplace@{mod\_reduce\_to\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_reduce\_to\_inplace()}{mod\_reduce\_to\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+reduce\+\_\+to\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function reduces the modulus down until the parameters reach the given parms\+\_\+id. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be reduced to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a3e51786300c96ad757bef78364562880}\label{classseal_1_1_evaluator_a3e51786300c96ad757bef78364562880} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_reduce\_to\_next@{mod\_reduce\_to\_next}}
+\index{mod\_reduce\_to\_next@{mod\_reduce\_to\_next}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_reduce\_to\_next()}{mod\_reduce\_to\_next()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+reduce\+\_\+to\+\_\+next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function reduces the modulus down to q\+\_\+1...q\+\_\+\{k-\/1\} and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be reduced to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the modular reduced result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a6b9c2c5c9f2e68c53cbaa7ed639d0326}\label{classseal_1_1_evaluator_a6b9c2c5c9f2e68c53cbaa7ed639d0326} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_reduce\_to\_next\_inplace@{mod\_reduce\_to\_next\_inplace}}
+\index{mod\_reduce\_to\_next\_inplace@{mod\_reduce\_to\_next\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_reduce\_to\_next\_inplace()}{mod\_reduce\_to\_next\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+reduce\+\_\+to\+\_\+next\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function reduces the modulus down to q\+\_\+1...q\+\_\+\{k-\/1\}. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be reduced to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a31b59db93cd9860548245d6fee95b65c}\label{classseal_1_1_evaluator_a31b59db93cd9860548245d6fee95b65c} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to@{mod\_switch\_to}}
+\index{mod\_switch\_to@{mod\_switch\_to}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to()}{mod\_switch\_to()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down until the parameters reach the given parms\+\_\+id and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the modulus switched result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_aa22aad681100acf0c57da2afbacd4a48}\label{classseal_1_1_evaluator_aa22aad681100acf0c57da2afbacd4a48} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to@{mod\_switch\_to}}
+\index{mod\_switch\_to@{mod\_switch\_to}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to()}{mod\_switch\_to()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given an NTT transformed plaintext modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down until the parameters reach the given parms\+\_\+id and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext to overwrite with the modulus switched result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286}\label{classseal_1_1_evaluator_ae59fdd6bfff492e89a8872f32ceae286} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to\_inplace@{mod\_switch\_to\_inplace}}
+\index{mod\_switch\_to\_inplace@{mod\_switch\_to\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to\_inplace()}{mod\_switch\_to\_inplace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down until the parameters reach the given parms\+\_\+id. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a4c046ae1241ae150430c2c6362489d23}\label{classseal_1_1_evaluator_a4c046ae1241ae150430c2c6362489d23} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to\_inplace@{mod\_switch\_to\_inplace}}
+\index{mod\_switch\_to\_inplace@{mod\_switch\_to\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to\_inplace()}{mod\_switch\_to\_inplace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id }\end{DoxyParamCaption}) const}
+
+Given an NTT transformed plaintext modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down until the parameters reach the given parms\+\_\+id.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a224349f7ec6552de568dc094224dadf7}\label{classseal_1_1_evaluator_a224349f7ec6552de568dc094224dadf7} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to\_next@{mod\_switch\_to\_next}}
+\index{mod\_switch\_to\_next@{mod\_switch\_to\_next}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to\_next()}{mod\_switch\_to\_next()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to\+\_\+next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down to q\+\_\+1...q\+\_\+\{k-\/1\} and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the modulus switched result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a8ee177de710a18b79c95267fd8a6c8d5}\label{classseal_1_1_evaluator_a8ee177de710a18b79c95267fd8a6c8d5} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to\_next@{mod\_switch\_to\_next}}
+\index{mod\_switch\_to\_next@{mod\_switch\_to\_next}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to\_next()}{mod\_switch\_to\_next()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to\+\_\+next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classseal_1_1_modulus}{Modulus} switches an NTT transformed plaintext from modulo q\+\_\+1...q\+\_\+k down to modulo q\+\_\+1...q\+\_\+\{k-\/1\} and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext to overwrite with the modulus switched result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a54d6fd7d36c9f46e8079de7abc6fa1c5}\label{classseal_1_1_evaluator_a54d6fd7d36c9f46e8079de7abc6fa1c5} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to\_next\_inplace@{mod\_switch\_to\_next\_inplace}}
+\index{mod\_switch\_to\_next\_inplace@{mod\_switch\_to\_next\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to\_next\_inplace()}{mod\_switch\_to\_next\_inplace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to\+\_\+next\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down to q\+\_\+1...q\+\_\+\{k-\/1\}. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a3248bd7a9f17cf54e64a23bd7f52f4e5}\label{classseal_1_1_evaluator_a3248bd7a9f17cf54e64a23bd7f52f4e5} 
+\index{seal::Evaluator@{seal::Evaluator}!mod\_switch\_to\_next\_inplace@{mod\_switch\_to\_next\_inplace}}
+\index{mod\_switch\_to\_next\_inplace@{mod\_switch\_to\_next\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{mod\_switch\_to\_next\_inplace()}{mod\_switch\_to\_next\_inplace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::mod\+\_\+switch\+\_\+to\+\_\+next\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classseal_1_1_modulus}{Modulus} switches an NTT transformed plaintext from modulo q\+\_\+1...q\+\_\+k down to modulo q\+\_\+1...q\+\_\+\{k-\/1\}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to be switched to a smaller modulus \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the scale is too large for the new encryption parameters \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ab5847bb2d26378a8aea60159e1980aab}\label{classseal_1_1_evaluator_ab5847bb2d26378a8aea60159e1980aab} 
+\index{seal::Evaluator@{seal::Evaluator}!multiply@{multiply}}
+\index{multiply@{multiply}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{multiply()}{multiply()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted1,  }\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted2,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplies two ciphertexts. This functions computes the product of encrypted1 and encrypted2 and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted1} & The first ciphertext to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em encrypted2} & The second ciphertext to multiply \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the multiplication result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are at different level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a78da6e2be88fac4077e4fa3dd34a23a0}\label{classseal_1_1_evaluator_a78da6e2be88fac4077e4fa3dd34a23a0} 
+\index{seal::Evaluator@{seal::Evaluator}!multiply\_inplace@{multiply\_inplace}}
+\index{multiply\_inplace@{multiply\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{multiply\_inplace()}{multiply\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::multiply\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted1,  }\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted2,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Multiplies two ciphertexts. This functions computes the product of encrypted1 and encrypted2 and stores the result in encrypted1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted1} & The first ciphertext to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em encrypted2} & The second ciphertext to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are at different level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a69007e518e71d3807da0e88b517fda9f}\label{classseal_1_1_evaluator_a69007e518e71d3807da0e88b517fda9f} 
+\index{seal::Evaluator@{seal::Evaluator}!multiply\_many@{multiply\_many}}
+\index{multiply\_many@{multiply\_many}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{multiply\_many()}{multiply\_many()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::multiply\+\_\+many (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \&}]{encrypteds,  }\item[{const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&}]{relin\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Multiplies several ciphertexts together. This function computes the product of several ciphertext given as an std\+::vector and stores the result in the destination parameter. The multiplication is done in a depth-\/optimal order, and relinearization is performed automatically after every multiplication in the process. In relinearization the given relinearization keys are used. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypteds} & The ciphertexts to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em relin\+\_\+keys} & The relinearization keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the multiplication result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypteds is empty \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if ciphertexts or relin\+\_\+keys are not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypteds are not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the size of relin\+\_\+keys is too small \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a5082f36257e14c8f5ca27d2ec2cf3798}\label{classseal_1_1_evaluator_a5082f36257e14c8f5ca27d2ec2cf3798} 
+\index{seal::Evaluator@{seal::Evaluator}!multiply\_plain@{multiply\_plain}}
+\index{multiply\_plain@{multiply\_plain}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{multiply\_plain()}{multiply\_plain()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::multiply\+\_\+plain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Multiplies a ciphertext with a plaintext. This function multiplies a ciphertext with a plaintext and stores the result in the destination parameter. The plaintext cannot be identically 0. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to multiply \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the multiplication result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted and plain are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a164d59c4d4e9f6e4bad8908ebc764532}\label{classseal_1_1_evaluator_a164d59c4d4e9f6e4bad8908ebc764532} 
+\index{seal::Evaluator@{seal::Evaluator}!multiply\_plain\_inplace@{multiply\_plain\_inplace}}
+\index{multiply\_plain\_inplace@{multiply\_plain\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{multiply\_plain\_inplace()}{multiply\_plain\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::multiply\+\_\+plain\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Multiplies a ciphertext with a plaintext. The plaintext cannot be identically 0. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to multiply \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted and plain are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a6e60c347dd053dc470cb63a5183a358d}\label{classseal_1_1_evaluator_a6e60c347dd053dc470cb63a5183a358d} 
+\index{seal::Evaluator@{seal::Evaluator}!negate@{negate}}
+\index{negate@{negate}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{negate()}{negate()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::negate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Negates a ciphertext and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to negate \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the negated result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ac801b5b9ae231a829d3d5f747581ce2f}\label{classseal_1_1_evaluator_ac801b5b9ae231a829d3d5f747581ce2f} 
+\index{seal::Evaluator@{seal::Evaluator}!negate\_inplace@{negate\_inplace}}
+\index{negate\_inplace@{negate\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{negate\_inplace()}{negate\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::negate\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted }\end{DoxyParamCaption}) const}
+
+Negates a ciphertext.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to negate \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ad326c409fe3c8cf7c741de44f6980941}\label{classseal_1_1_evaluator_ad326c409fe3c8cf7c741de44f6980941} 
+\index{seal::Evaluator@{seal::Evaluator}!relinearize@{relinearize}}
+\index{relinearize@{relinearize}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{relinearize()}{relinearize()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::relinearize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&}]{relin\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Relinearizes a ciphertext. This functions relinearizes encrypted, reducing its size down to 2, and stores the result in the destination parameter. If the size of encrypted is K+1, the given relinearization keys need to have size at least K-\/1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to relinearize \\
+\hline
+\mbox{\texttt{ in}}  & {\em relin\+\_\+keys} & The relinearization keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the relinearized result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or relin\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if relin\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the size of relin\+\_\+keys is too small \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a1552cf00ce1b0d3a5a0ac112efb47d6c}\label{classseal_1_1_evaluator_a1552cf00ce1b0d3a5a0ac112efb47d6c} 
+\index{seal::Evaluator@{seal::Evaluator}!relinearize\_inplace@{relinearize\_inplace}}
+\index{relinearize\_inplace@{relinearize\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{relinearize\_inplace()}{relinearize\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::relinearize\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_relin_keys}{Relin\+Keys}} \&}]{relin\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Relinearizes a ciphertext. This functions relinearizes encrypted, reducing its size down to 2. If the size of encrypted is K+1, the given relinearization keys need to have size at least K-\/1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to relinearize \\
+\hline
+\mbox{\texttt{ in}}  & {\em relin\+\_\+keys} & The relinearization keys \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or relin\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if relin\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the size of relin\+\_\+keys is too small \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ae82018932a17062c99d81d2f749841b3}\label{classseal_1_1_evaluator_ae82018932a17062c99d81d2f749841b3} 
+\index{seal::Evaluator@{seal::Evaluator}!rescale\_to@{rescale\_to}}
+\index{rescale\_to@{rescale\_to}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rescale\_to()}{rescale\_to()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rescale\+\_\+to (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down until the parameters reach the given parms\+\_\+id, scales the message down accordingly, and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the modulus switched result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the scheme is invalid for rescaling \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a660f4e4b238e13f13d3a75ccdef2a91d}\label{classseal_1_1_evaluator_a660f4e4b238e13f13d3a75ccdef2a91d} 
+\index{seal::Evaluator@{seal::Evaluator}!rescale\_to\_inplace@{rescale\_to\_inplace}}
+\index{rescale\_to\_inplace@{rescale\_to\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rescale\_to\_inplace()}{rescale\_to\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rescale\+\_\+to\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down until the parameters reach the given parms\+\_\+id and scales the message down accordingly. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The target parms\+\_\+id \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the scheme is invalid for rescaling \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lower level in modulus chain than the parameters corresponding to parms\+\_\+id \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a46490dfd5fe1fb0773d77536a6868d47}\label{classseal_1_1_evaluator_a46490dfd5fe1fb0773d77536a6868d47} 
+\index{seal::Evaluator@{seal::Evaluator}!rescale\_to\_next@{rescale\_to\_next}}
+\index{rescale\_to\_next@{rescale\_to\_next}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rescale\_to\_next()}{rescale\_to\_next()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rescale\+\_\+to\+\_\+next (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down to q\+\_\+1...q\+\_\+\{k-\/1\}, scales the message down accordingly, and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the modulus switched result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the scheme is invalid for rescaling \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_acf9a60f802fffc53bac4dd22e008c52c}\label{classseal_1_1_evaluator_acf9a60f802fffc53bac4dd22e008c52c} 
+\index{seal::Evaluator@{seal::Evaluator}!rescale\_to\_next\_inplace@{rescale\_to\_next\_inplace}}
+\index{rescale\_to\_next\_inplace@{rescale\_to\_next\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rescale\_to\_next\_inplace()}{rescale\_to\_next\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rescale\+\_\+to\+\_\+next\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Given a ciphertext encrypted modulo q\+\_\+1...q\+\_\+k, this function switches the modulus down to q\+\_\+1...q\+\_\+\{k-\/1\} and scales the message down accordingly. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to be switched to a smaller modulus \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the scheme is invalid for rescaling \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already at lowest level \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_af900155263fd3317318e3dbe60cb811c}\label{classseal_1_1_evaluator_af900155263fd3317318e3dbe60cb811c} 
+\index{seal::Evaluator@{seal::Evaluator}!rotate\_columns@{rotate\_columns}}
+\index{rotate\_columns@{rotate\_columns}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rotate\_columns()}{rotate\_columns()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rotate\+\_\+columns (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates plaintext matrix columns cyclically. When batching is used with the BFV/\+BGV scheme, this function rotates the encrypted plaintext matrix columns cyclically, and writes the result to the destination parameter. Since the size of the batched matrix is 2-\/by-\/(N/2), where N is the degree of the polynomial modulus, this means simply swapping the two rows. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the rotated result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support batching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ab4b155dd7a4044572cb72929bf3ecedf}\label{classseal_1_1_evaluator_ab4b155dd7a4044572cb72929bf3ecedf} 
+\index{seal::Evaluator@{seal::Evaluator}!rotate\_columns\_inplace@{rotate\_columns\_inplace}}
+\index{rotate\_columns\_inplace@{rotate\_columns\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rotate\_columns\_inplace()}{rotate\_columns\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rotate\+\_\+columns\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates plaintext matrix columns cyclically. When batching is used with the BFV scheme, this function rotates the encrypted plaintext matrix columns cyclically. Since the size of the batched matrix is 2-\/by-\/(N/2), where N is the degree of the polynomial modulus, this means simply swapping the two rows. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the rotated result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support batching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a11f0c341eb75f95c46099b326f51995b}\label{classseal_1_1_evaluator_a11f0c341eb75f95c46099b326f51995b} 
+\index{seal::Evaluator@{seal::Evaluator}!rotate\_rows@{rotate\_rows}}
+\index{rotate\_rows@{rotate\_rows}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rotate\_rows()}{rotate\_rows()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rotate\+\_\+rows (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{int}]{steps,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates plaintext matrix rows cyclically. When batching is used with the BFV/\+BGV scheme, this function rotates the encrypted plaintext matrix rows cyclically to the left (steps \texorpdfstring{$>$}{>} 0) or to the right (steps \texorpdfstring{$<$}{<} 0) and writes the result to the destination parameter. Since the size of the batched matrix is 2-\/by-\/(N/2), where N is the degree of the polynomial modulus, the number of steps to rotate must have absolute value at most N/2-\/1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em steps} & The number of steps to rotate (positive left, negative right) \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the rotated result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support batching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if steps has too big absolute value \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_af4bc9a26921006db5a67175587487295}\label{classseal_1_1_evaluator_af4bc9a26921006db5a67175587487295} 
+\index{seal::Evaluator@{seal::Evaluator}!rotate\_rows\_inplace@{rotate\_rows\_inplace}}
+\index{rotate\_rows\_inplace@{rotate\_rows\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rotate\_rows\_inplace()}{rotate\_rows\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rotate\+\_\+rows\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{int}]{steps,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates plaintext matrix rows cyclically. When batching is used with the BFV/\+BGV scheme, this function rotates the encrypted plaintext matrix rows cyclically to the left (steps \texorpdfstring{$>$}{>} 0) or to the right (steps \texorpdfstring{$<$}{<} 0). Since the size of the batched matrix is 2-\/by-\/(N/2), where N is the degree of the polynomial modulus, the number of steps to rotate must have absolute value at most N/2-\/1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em steps} & The number of steps to rotate (positive left, negative right) \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::bfv or scheme\+\_\+type\+::bgv \\
+\hline
+{\em std\+::logic\+\_\+error} & if the encryption parameters do not support batching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if steps has too big absolute value \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_af9de714dfedf6e60e294e6c53fe719a6}\label{classseal_1_1_evaluator_af9de714dfedf6e60e294e6c53fe719a6} 
+\index{seal::Evaluator@{seal::Evaluator}!rotate\_vector@{rotate\_vector}}
+\index{rotate\_vector@{rotate\_vector}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rotate\_vector()}{rotate\_vector()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rotate\+\_\+vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{int}]{steps,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates plaintext vector cyclically. When using the CKKS scheme, this function rotates the encrypted plaintext vector cyclically to the left (steps \texorpdfstring{$>$}{>} 0) or to the right (steps \texorpdfstring{$<$}{<} 0) and writes the result to the destination parameter. Since the size of the batched matrix is 2-\/by-\/(N/2), where N is the degree of the polynomial modulus, the number of steps to rotate must have absolute value at most N/2-\/1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em steps} & The number of steps to rotate (positive left, negative right) \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the rotated result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::ckks \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if steps has too big absolute value \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_aeb62eee586c7641418fe171a0a4c8902}\label{classseal_1_1_evaluator_aeb62eee586c7641418fe171a0a4c8902} 
+\index{seal::Evaluator@{seal::Evaluator}!rotate\_vector\_inplace@{rotate\_vector\_inplace}}
+\index{rotate\_vector\_inplace@{rotate\_vector\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{rotate\_vector\_inplace()}{rotate\_vector\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::rotate\+\_\+vector\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{int}]{steps,  }\item[{const \mbox{\hyperlink{classseal_1_1_galois_keys}{Galois\+Keys}} \&}]{galois\+\_\+keys,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Rotates plaintext vector cyclically. When using the CKKS scheme, this function rotates the encrypted plaintext vector cyclically to the left (steps \texorpdfstring{$>$}{>} 0) or to the right (steps \texorpdfstring{$<$}{<} 0). Since the size of the batched matrix is 2-\/by-\/(N/2), where N is the degree of the polynomial modulus, the number of steps to rotate must have absolute value at most N/2-\/1. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to rotate \\
+\hline
+\mbox{\texttt{ in}}  & {\em steps} & The number of steps to rotate (positive left, negative right) \\
+\hline
+\mbox{\texttt{ in}}  & {\em galois\+\_\+keys} & The Galois keys \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if scheme is not scheme\+\_\+type\+::ckks \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or galois\+\_\+keys is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+keys do not correspond to the top level parameters in the current context \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted has size larger than 2 \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if steps has too big absolute value \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if necessary Galois keys are not present \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if keyswitching is not supported by the context \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ae985c87acbcea02d6e5a565c36d8a041}\label{classseal_1_1_evaluator_ae985c87acbcea02d6e5a565c36d8a041} 
+\index{seal::Evaluator@{seal::Evaluator}!square@{square}}
+\index{square@{square}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{square()}{square()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::square (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Squares a ciphertext. This functions computes the square of encrypted and stores the result in the destination parameter. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to square \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the square \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a6bd5b78e6e7b72bd25ed5a35a6f453b9}\label{classseal_1_1_evaluator_a6bd5b78e6e7b72bd25ed5a35a6f453b9} 
+\index{seal::Evaluator@{seal::Evaluator}!square\_inplace@{square\_inplace}}
+\index{square\_inplace@{square\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{square\_inplace()}{square\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::square\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Squares a ciphertext. This functions computes the square of encrypted. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to square \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the output scale is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ac36ac8c3406619ea69a8505747d5fcf6}\label{classseal_1_1_evaluator_ac36ac8c3406619ea69a8505747d5fcf6} 
+\index{seal::Evaluator@{seal::Evaluator}!sub@{sub}}
+\index{sub@{sub}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{sub()}{sub()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::sub (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted1,  }\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted2,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtracts two ciphertexts. This function computes the difference of encrypted1 and encrypted2 and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted1} & The ciphertext to subtract from \\
+\hline
+\mbox{\texttt{ in}}  & {\em encrypted2} & The ciphertext to subtract \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the subtraction result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are at different level or scale \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_ade142d84810da4df0158d52822408b48}\label{classseal_1_1_evaluator_ade142d84810da4df0158d52822408b48} 
+\index{seal::Evaluator@{seal::Evaluator}!sub\_inplace@{sub\_inplace}}
+\index{sub\_inplace@{sub\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{sub\_inplace()}{sub\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::sub\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted1,  }\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted2 }\end{DoxyParamCaption}) const}
+
+Subtracts two ciphertexts. This function computes the difference of encrypted1 and encrypted2, and stores the result in encrypted1.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted1} & The ciphertext to subtract from \\
+\hline
+\mbox{\texttt{ in}}  & {\em encrypted2} & The ciphertext to subtract \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted1 or encrypted2 is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are in different NTT forms \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted1 and encrypted2 are at different level or scale \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a897346b584525403d4cbcda91ebf6909}\label{classseal_1_1_evaluator_a897346b584525403d4cbcda91ebf6909} 
+\index{seal::Evaluator@{seal::Evaluator}!sub\_plain@{sub\_plain}}
+\index{sub\_plain@{sub\_plain}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{sub\_plain()}{sub\_plain()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::sub\+\_\+plain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Subtracts a plaintext from a ciphertext. This function subtracts a plaintext from a ciphertext and stores the result in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to subtract from \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to subtract \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the subtraction result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted and plain are at different level or scale \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a1ad6caa8655376791cd525c15dade6ef}\label{classseal_1_1_evaluator_a1ad6caa8655376791cd525c15dade6ef} 
+\index{seal::Evaluator@{seal::Evaluator}!sub\_plain\_inplace@{sub\_plain\_inplace}}
+\index{sub\_plain\_inplace@{sub\_plain\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{sub\_plain\_inplace()}{sub\_plain\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::sub\+\_\+plain\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Subtracts a plaintext from a ciphertext.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to subtract from \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to subtract \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted or plain is not in the default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted and plain are at different level or scale \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a0b9b610e5859c9519d85af6d6126f6d1}\label{classseal_1_1_evaluator_a0b9b610e5859c9519d85af6d6126f6d1} 
+\index{seal::Evaluator@{seal::Evaluator}!transform\_from\_ntt@{transform\_from\_ntt}}
+\index{transform\_from\_ntt@{transform\_from\_ntt}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{transform\_from\_ntt()}{transform\_from\_ntt()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::transform\+\_\+from\+\_\+ntt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted\+\_\+ntt,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Transforms a ciphertext back from NTT domain. This functions applies the inverse of David Harvey\textquotesingle{}s Number Theoretic Transform separately to each polynomial of a ciphertext. The result is stored in the destination parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted\+\_\+ntt} & The ciphertext to transform \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the transformed result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted\+\_\+ntt is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted\+\_\+ntt is not in NTT form \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_aad300e3961a6f32078149e7b325323c6}\label{classseal_1_1_evaluator_aad300e3961a6f32078149e7b325323c6} 
+\index{seal::Evaluator@{seal::Evaluator}!transform\_from\_ntt\_inplace@{transform\_from\_ntt\_inplace}}
+\index{transform\_from\_ntt\_inplace@{transform\_from\_ntt\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{transform\_from\_ntt\_inplace()}{transform\_from\_ntt\_inplace()}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::transform\+\_\+from\+\_\+ntt\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted\+\_\+ntt }\end{DoxyParamCaption}) const}
+
+Transforms a ciphertext back from NTT domain. This functions applies the inverse of David Harvey\textquotesingle{}s Number Theoretic Transform separately to each polynomial of a ciphertext.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted\+\_\+ntt} & The ciphertext to transform \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted\+\_\+ntt is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted\+\_\+ntt is not in NTT form \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a0784d6b7dc6207b042aa36e34b6236de}\label{classseal_1_1_evaluator_a0784d6b7dc6207b042aa36e34b6236de} 
+\index{seal::Evaluator@{seal::Evaluator}!transform\_to\_ntt@{transform\_to\_ntt}}
+\index{transform\_to\_ntt@{transform\_to\_ntt}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_ntt()}{transform\_to\_ntt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::transform\+\_\+to\+\_\+ntt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination\+\_\+ntt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Transforms a ciphertext to NTT domain. This functions applies David Harvey\textquotesingle{}s Number Theoretic Transform separately to each polynomial of a ciphertext. The result is stored in the destination\+\_\+ntt parameter.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to transform \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination\+\_\+ntt} & The ciphertext to overwrite with the transformed result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already in NTT form \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_afa12924c3168517067e4681c1d7e15eb}\label{classseal_1_1_evaluator_afa12924c3168517067e4681c1d7e15eb} 
+\index{seal::Evaluator@{seal::Evaluator}!transform\_to\_ntt@{transform\_to\_ntt}}
+\index{transform\_to\_ntt@{transform\_to\_ntt}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_ntt()}{transform\_to\_ntt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::transform\+\_\+to\+\_\+ntt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination\+\_\+ntt,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Transforms a plaintext to NTT domain. This functions applies the Number Theoretic Transform to a plaintext by first embedding integers modulo the plaintext modulus to integers modulo the coefficient modulus and then performing David Harvey\textquotesingle{}s NTT on the resulting polynomial. The transformation is done with respect to encryption parameters corresponding to a given parms\+\_\+id. The result is stored in the destination\+\_\+ntt parameter. For the operation to be valid, the plaintext must have degree less than poly\+\_\+modulus\+\_\+degree and each coefficient must be less than the plaintext modulus, i.\+e., the plaintext must be a valid plaintext under the current encryption parameters. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to transform \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id with respect to which the NTT is done \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination\+NTT} & The plaintext to overwrite with the transformed result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is already in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain or parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_af07c8e802bf28c1c4d1b374eb40f5e2f}\label{classseal_1_1_evaluator_af07c8e802bf28c1c4d1b374eb40f5e2f} 
+\index{seal::Evaluator@{seal::Evaluator}!transform\_to\_ntt\_inplace@{transform\_to\_ntt\_inplace}}
+\index{transform\_to\_ntt\_inplace@{transform\_to\_ntt\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_ntt\_inplace()}{transform\_to\_ntt\_inplace()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::transform\+\_\+to\+\_\+ntt\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{encrypted }\end{DoxyParamCaption}) const}
+
+Transforms a ciphertext to NTT domain. This functions applies David Harvey\textquotesingle{}s Number Theoretic Transform separately to each polynomial of a ciphertext.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em encrypted} & The ciphertext to transform \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if encrypted is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encrypted is already in NTT form \\
+\hline
+{\em std\+::logic\+\_\+error} & if result ciphertext is transparent \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7}\label{classseal_1_1_evaluator_a2281ee3d919f44c1c7d3611035ad32a7} 
+\index{seal::Evaluator@{seal::Evaluator}!transform\_to\_ntt\_inplace@{transform\_to\_ntt\_inplace}}
+\index{transform\_to\_ntt\_inplace@{transform\_to\_ntt\_inplace}!seal::Evaluator@{seal::Evaluator}}
+\doxysubsubsection{\texorpdfstring{transform\_to\_ntt\_inplace()}{transform\_to\_ntt\_inplace()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Evaluator\+::transform\+\_\+to\+\_\+ntt\+\_\+inplace (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Transforms a plaintext to NTT domain. This functions applies the Number Theoretic Transform to a plaintext by first embedding integers modulo the plaintext modulus to integers modulo the coefficient modulus and then performing David Harvey\textquotesingle{}s NTT on the resulting polynomial. The transformation is done with respect to encryption parameters corresponding to a given parms\+\_\+id. For the operation to be valid, the plaintext must have degree less than poly\+\_\+modulus\+\_\+degree and each coefficient must be less than the plaintext modulus, i.\+e., the plaintext must be a valid plaintext under the current encryption parameters. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to transform \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id with respect to which the NTT is done \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is already in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain or parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/evaluator.\+h\item 
+seal/evaluator.\+cpp\end{DoxyCompactItemize}

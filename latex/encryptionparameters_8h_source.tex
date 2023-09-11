@@ -1,0 +1,52 @@
+\doxysection{encryptionparameters.\+h}
+\hypertarget{encryptionparameters_8h_source}{}\label{encryptionparameters_8h_source}\index{seal/c/encryptionparameters.h@{seal/c/encryptionparameters.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ EncParams\_Create1(uint8\_t\ scheme,\ \textcolor{keywordtype}{void}\ **enc\_params);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ EncParams\_Create2(\textcolor{keywordtype}{void}\ *copy,\ \textcolor{keywordtype}{void}\ **enc\_params);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ EncParams\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ EncParams\_Set(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *assign);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ EncParams\_GetPolyModulusDegree(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *degree);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ EncParams\_SetPolyModulusDegree(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ degree);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ EncParams\_GetCoeffModulus(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *length,\ \textcolor{keywordtype}{void}\ **coeffs);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ EncParams\_SetCoeffModulus(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ length,\ \textcolor{keywordtype}{void}\ **coeffs);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ EncParams\_GetScheme(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ *scheme);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ EncParams\_GetParmsId(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *parms\_id);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ SEAL\_C\_FUNC\ EncParams\_GetPlainModulus(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **plain\_modulus);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ SEAL\_C\_FUNC\ EncParams\_SetPlainModulus1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *modulus);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ SEAL\_C\_FUNC\ EncParams\_SetPlainModulus2(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ plain\_modulus);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ SEAL\_C\_FUNC\ EncParams\_Equals(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *otherptr,\ \textcolor{keywordtype}{bool}\ *result);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ SEAL\_C\_FUNC\ EncParams\_SaveSize(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ compr\_mode,\ int64\_t\ *result);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ SEAL\_C\_FUNC\ EncParams\_Save(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ *outptr,\ uint64\_t\ size,\ uint8\_t\ compr\_mode,\ int64\_t\ *out\_bytes);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ SEAL\_C\_FUNC\ EncParams\_Load(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ *inptr,\ uint64\_t\ size,\ int64\_t\ *in\_bytes);}
+
+\end{DoxyCode}

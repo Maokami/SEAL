@@ -1,0 +1,42 @@
+\doxysection{memorypoolhandle.\+h}
+\hypertarget{memorypoolhandle_8h_source}{}\label{memorypoolhandle_8h_source}\index{seal/c/memorypoolhandle.h@{seal/c/memorypoolhandle.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ MemoryPoolHandle\_Create1(\textcolor{keywordtype}{void}\ **handle);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ MemoryPoolHandle\_Create2(\textcolor{keywordtype}{void}\ *otherptr,\ \textcolor{keywordtype}{void}\ **handle);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ MemoryPoolHandle\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ MemoryPoolHandle\_Set(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *assignptr);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ MemoryPoolHandle\_Global(\textcolor{keywordtype}{void}\ **handle);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ MemoryPoolHandle\_ThreadLocal(\textcolor{keywordtype}{void}\ **handle);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ MemoryPoolHandle\_New(\textcolor{keywordtype}{bool}\ clear\_on\_destruction,\ \textcolor{keywordtype}{void}\ **handle);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ MemoryPoolHandle\_PoolCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ MemoryPoolHandle\_AllocByteCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *count);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ MemoryPoolHandle\_UseCount(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{long}\ *count);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ SEAL\_C\_FUNC\ MemoryPoolHandle\_IsInitialized(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *result);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ SEAL\_C\_FUNC\ MemoryPoolHandle\_Equals(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *otherptr,\ \textcolor{keywordtype}{bool}\ *result);}
+
+\end{DoxyCode}

@@ -1,0 +1,96 @@
+\doxysection{seal\+::Blake2xb\+PRNGFactory Class Reference}
+\hypertarget{classseal_1_1_blake2xb_p_r_n_g_factory}{}\label{classseal_1_1_blake2xb_p_r_n_g_factory}\index{seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}}
+Inheritance diagram for seal\+::Blake2xb\+PRNGFactory\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_blake2xb_p_r_n_g_factory}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_abb7996a0223fffdd9ea427ffab7786ff}{Blake2xb\+PRNGFactory}} ()
+\item 
+\mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_a1d093fbfe216821c180ca425c444afad}{Blake2xb\+PRNGFactory}} (prng\+\_\+seed\+\_\+type \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ad9b5cb77b7bb9bfea8d73f9a61b87745}{default\+\_\+seed}})
+\item 
+\mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_ab41c73a40697ee128b7d034150ca4757}{\texorpdfstring{$\sim$}{\string~}\+Blake2xb\+PRNGFactory}} ()=default
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{seal\+::\+Uniform\+Random\+Generator\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_a3c7231cca78113f0b2be50b127a3104a}{Uniform\+Random\+Generator\+Factory}} ()
+\item 
+\mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_aba0ca0b36bdca098bae748f76696220d}{Uniform\+Random\+Generator\+Factory}} (prng\+\_\+seed\+\_\+type \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ad9b5cb77b7bb9bfea8d73f9a61b87745}{default\+\_\+seed}})
+\item 
+SEAL\+\_\+\+NODISCARD auto \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ae6427b1ae16b1109d05851cf0d481238}{create}} () -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}} $>$
+\item 
+SEAL\+\_\+\+NODISCARD auto \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_afaf3c900c5e5acde3a5147b913f631df}{create}} (prng\+\_\+seed\+\_\+type seed) -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}} $>$
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_a7fd6190d3c1b123813a7618c94c00a47}{\texorpdfstring{$\sim$}{\string~}\+Uniform\+Random\+Generator\+Factory}} ()=default
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_af2570eae10f612a85f91aa97c2aab18d}{use\+\_\+random\+\_\+seed}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD prng\+\_\+seed\+\_\+type \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ad9b5cb77b7bb9bfea8d73f9a61b87745}{default\+\_\+seed}} () noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+SEAL\+\_\+\+NODISCARD auto \mbox{\hyperlink{classseal_1_1_blake2xb_p_r_n_g_factory_ae5a01b8c62699f3f9d7c8ff087cf8f40}{create\+\_\+impl}} (prng\+\_\+seed\+\_\+type seed) -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}} $>$ override
+\end{DoxyCompactItemize}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_uniform_random_generator_factory_adadc80b34c3cc49e06759ec6dccca782}\label{classseal_1_1_uniform_random_generator_factory_adadc80b34c3cc49e06759ec6dccca782} 
+virtual SEAL\+\_\+\+NODISCARD auto {\bfseries create\+\_\+impl} (prng\+\_\+seed\+\_\+type seed) -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}} $>$=0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Static Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{seal\+::\+Uniform\+Random\+Generator\+Factory}}}
+\begin{DoxyCompactItemize}
+\item 
+static auto \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory_ab1e9851c9b3afcb5ba08d35c908e325d}{Default\+Factory}} () -\/$>$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{Uniform\+Random\+Generator\+Factory}} $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_blake2xb_p_r_n_g_factory_abb7996a0223fffdd9ea427ffab7786ff}\label{classseal_1_1_blake2xb_p_r_n_g_factory_abb7996a0223fffdd9ea427ffab7786ff} 
+\index{seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}!Blake2xbPRNGFactory@{Blake2xbPRNGFactory}}
+\index{Blake2xbPRNGFactory@{Blake2xbPRNGFactory}!seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}}
+\doxysubsubsection{\texorpdfstring{Blake2xbPRNGFactory()}{Blake2xbPRNGFactory()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily seal\+::\+Blake2xb\+PRNGFactory\+::\+Blake2xb\+PRNGFactory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_blake2xb_p_r_n_g_factory}{Blake2xb\+PRNGFactory}. The seed will be sampled randomly for each \doxylink{classseal_1_1_blake2xb_p_r_n_g}{Blake2xb\+PRNG} instance created by the factory instance, which is desirable in most normal use-\/cases. \Hypertarget{classseal_1_1_blake2xb_p_r_n_g_factory_a1d093fbfe216821c180ca425c444afad}\label{classseal_1_1_blake2xb_p_r_n_g_factory_a1d093fbfe216821c180ca425c444afad} 
+\index{seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}!Blake2xbPRNGFactory@{Blake2xbPRNGFactory}}
+\index{Blake2xbPRNGFactory@{Blake2xbPRNGFactory}!seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}}
+\doxysubsubsection{\texorpdfstring{Blake2xbPRNGFactory()}{Blake2xbPRNGFactory()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily seal\+::\+Blake2xb\+PRNGFactory\+::\+Blake2xb\+PRNGFactory (\begin{DoxyParamCaption}\item[{prng\+\_\+seed\+\_\+type}]{default\+\_\+seed }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_blake2xb_p_r_n_g_factory}{Blake2xb\+PRNGFactory} and sets the default seed to the given value. For debugging purposes it may sometimes be convenient to have the same randomness be used deterministically and repeatedly. Such randomness sampling is naturally insecure and must be strictly restricted to debugging situations. Thus, most users should never use this constructor.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em default\+\_\+seed} & The default value for a seed to be used by all created instances of \doxylink{classseal_1_1_blake2xb_p_r_n_g}{Blake2xb\+PRNG} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_blake2xb_p_r_n_g_factory_ab41c73a40697ee128b7d034150ca4757}\label{classseal_1_1_blake2xb_p_r_n_g_factory_ab41c73a40697ee128b7d034150ca4757} 
+\index{seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}!````~Blake2xbPRNGFactory@{\texorpdfstring{$\sim$}{\string~}Blake2xbPRNGFactory}}
+\index{````~Blake2xbPRNGFactory@{\texorpdfstring{$\sim$}{\string~}Blake2xbPRNGFactory}!seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Blake2xbPRNGFactory()}{\string~Blake2xbPRNGFactory()}}
+{\footnotesize\ttfamily seal\+::\+Blake2xb\+PRNGFactory\+::\texorpdfstring{$\sim$}{\string~}\+Blake2xb\+PRNGFactory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Destroys the random number generator factory. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_blake2xb_p_r_n_g_factory_ae5a01b8c62699f3f9d7c8ff087cf8f40}\label{classseal_1_1_blake2xb_p_r_n_g_factory_ae5a01b8c62699f3f9d7c8ff087cf8f40} 
+\index{seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}!create\_impl@{create\_impl}}
+\index{create\_impl@{create\_impl}!seal::Blake2xbPRNGFactory@{seal::Blake2xbPRNGFactory}}
+\doxysubsubsection{\texorpdfstring{create\_impl()}{create\_impl()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto seal\+::\+Blake2xb\+PRNGFactory\+::create\+\_\+impl (\begin{DoxyParamCaption}\item[{prng\+\_\+seed\+\_\+type}]{seed }\end{DoxyParamCaption}) -\/$>$ std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}}$>$\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [protected]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classseal_1_1_uniform_random_generator_factory}{seal\+::\+Uniform\+Random\+Generator\+Factory}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/randomgen.\+h\end{DoxyCompactItemize}

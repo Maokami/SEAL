@@ -1,0 +1,299 @@
+\doxysection{defines.\+h}
+\hypertarget{util_2defines_8h_source}{}\label{util_2defines_8h_source}\index{seal/util/defines.h@{seal/util/defines.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ Debugging\ help}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ SEAL\_ASSERT(condition)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ if\ (!(condition))\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ std::cerr\ <<\ "{}ASSERT\ FAILED:\ "{}}\ <<\ \#condition\ <<\ "{}\ @\ "{}\ <<\ \_\_FILE\_\_\ <<\ "{}\ ("{}\ <<\ \_\_LINE\_\_\ <<\ "{})"{}\ <<\ std::endl;\ \(\backslash\)}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ \}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00013\ \ \ \ \ \}}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{comment}{//\ String\ expansion}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#define\ \_SEAL\_STRINGIZE(x)\ \#x}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#define\ SEAL\_STRINGIZE(x)\ \_SEAL\_STRINGIZE(x)}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ Join}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ \_SEAL\_JOIN(M,\ N)\ M\#\#N}}
+\DoxyCodeLine{00021\ \textcolor{preprocessor}{\#define\ SEAL\_JOIN(M,\ N)\ \_SEAL\_JOIN(M,\ N)}}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \textcolor{comment}{//\ Check\ that\ double\ is\ 64\ bits}}
+\DoxyCodeLine{00024\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(double)\ ==\ 8,\ \textcolor{stringliteral}{"{}Require\ sizeof(double)\ ==\ 8"{}});}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \textcolor{comment}{//\ Check\ that\ int\ is\ 32\ bits}}
+\DoxyCodeLine{00027\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(int)\ ==\ 4,\ \textcolor{stringliteral}{"{}Require\ sizeof(int)\ ==\ 4"{}});}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Check\ that\ unsigned\ long\ long\ is\ 64\ bits}}
+\DoxyCodeLine{00030\ \textcolor{keyword}{static\_assert}(\textcolor{keyword}{sizeof}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{long}\ long)\ ==\ 8,\ \textcolor{stringliteral}{"{}Require\ sizeof(unsigned\ long\ long)\ ==\ 8"{}});}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{comment}{//\ Bounds\ for\ bit-\/length\ of\ all\ coefficient\ moduli}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#define\ SEAL\_MOD\_BIT\_COUNT\_MAX\ 61}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#define\ SEAL\_MOD\_BIT\_COUNT\_MIN\ 2}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{comment}{//\ Bit-\/length\ of\ internally\ used\ coefficient\ moduli,\ e.g.,\ auxiliary\ base\ in\ BFV}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#define\ SEAL\_INTERNAL\_MOD\_BIT\_COUNT\ 61}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{comment}{//\ Bounds\ for\ bit-\/length\ of\ user-\/defined\ coefficient\ moduli}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ SEAL\_USER\_MOD\_BIT\_COUNT\_MAX\ 60}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\#define\ SEAL\_USER\_MOD\_BIT\_COUNT\_MIN\ 2}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \textcolor{comment}{//\ Bounds\ for\ bit-\/length\ of\ the\ plaintext\ modulus}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#define\ SEAL\_PLAIN\_MOD\_BIT\_COUNT\_MAX\ SEAL\_USER\_MOD\_BIT\_COUNT\_MAX}}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#define\ SEAL\_PLAIN\_MOD\_BIT\_COUNT\_MIN\ SEAL\_USER\_MOD\_BIT\_COUNT\_MIN}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \textcolor{comment}{//\ Bounds\ for\ number\ of\ coefficient\ moduli\ (no\ hard\ requirement)}}
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#define\ SEAL\_COEFF\_MOD\_COUNT\_MAX\ 256}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ SEAL\_COEFF\_MOD\_COUNT\_MIN\ 1}}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \textcolor{comment}{//\ Bounds\ for\ polynomial\ modulus\ degree\ (no\ hard\ requirement)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#define\ SEAL\_POLY\_MOD\_DEGREE\_MAX\ 131072}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#define\ SEAL\_POLY\_MOD\_DEGREE\_MIN\ 2}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{comment}{//\ Upper\ bound\ on\ the\ size\ of\ a\ ciphertext\ (cannot\ exceed\ 2\string^32\ /\ poly\_modulus\_degree)}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ SEAL\_CIPHERTEXT\_SIZE\_MAX\ 16}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#if\ SEAL\_CIPHERTEXT\_SIZE\_MAX\ >\ 0x100000000ULL\ /\ SEAL\_POLY\_MOD\_DEGREE\_MAX}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#error\ "{}SEAL\_CIPHERTEXT\_SIZE\_MAX\ is\ too\ large"{}}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\#define\ SEAL\_CIPHERTEXT\_SIZE\_MIN\ 2}}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \textcolor{comment}{//\ How\ many\ pairs\ of\ modular\ integers\ can\ we\ multiply\ and\ accumulate\ in\ a\ 128-\/bit\ data\ type}}
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#if\ SEAL\_MOD\_BIT\_COUNT\_MAX\ >\ 32}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_ACCUMULATE\_MOD\_MAX\ (1\ <<\ (128\ -\/\ (SEAL\_MOD\_BIT\_COUNT\_MAX\ <<\ 1)))}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_ACCUMULATE\_INTERNAL\_MOD\_MAX\ (1\ <<\ (128\ -\/\ (SEAL\_INTERNAL\_MOD\_BIT\_COUNT\_MAX\ <<\ 1)))}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_ACCUMULATE\_USER\_MOD\_MAX\ (1\ <<\ (128\ -\/\ (SEAL\_USER\_MOD\_BIT\_COUNT\_MAX\ <<\ 1)))}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_ACCUMULATE\_MOD\_MAX\ SIZE\_MAX}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_ACCUMULATE\_INTERNAL\_MOD\_MAX\ SIZE\_MAX}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_ACCUMULATE\_USER\_MOD\_MAX\ SIZE\_MAX}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{comment}{//\ Detect\ system}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#define\ SEAL\_SYSTEM\_OTHER\ 1}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ SEAL\_SYSTEM\_WINDOWS\ 2}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#define\ SEAL\_SYSTEM\_UNIX\_LIKE\ 3}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#if\ defined(\_WIN32)}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#define\ SEAL\_SYSTEM\ SEAL\_SYSTEM\_WINDOWS}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#elif\ defined(\_\_linux\_\_)\ ||\ defined(\_\_FreeBSD\_\_)\ ||\ defined(EMSCRIPTEN)\ ||\ (defined(\_\_APPLE\_\_)\ \&\&\ defined(\_\_MACH\_\_))}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#define\ SEAL\_SYSTEM\ SEAL\_SYSTEM\_UNIX\_LIKE}}
+\DoxyCodeLine{00082\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#define\ SEAL\_SYSTEM\ SEAL\_SYSTEM\_OTHER}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#error\ "{}Unsupported\ system"{}}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00087\ \textcolor{comment}{//\ Detect\ compiler}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#define\ SEAL\_COMPILER\_MSVC\ 1}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#define\ SEAL\_COMPILER\_CLANG\ 2}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ SEAL\_COMPILER\_GCC\ 3}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#if\ defined(\_MSC\_VER)}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#define\ SEAL\_COMPILER\ SEAL\_COMPILER\_MSVC}}
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#elif\ defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ SEAL\_COMPILER\ SEAL\_COMPILER\_CLANG}}
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#elif\ defined(\_\_GNUC\_\_)\ \&\&\ !defined(\_\_clang\_\_)}}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#define\ SEAL\_COMPILER\ SEAL\_COMPILER\_GCC}}
+\DoxyCodeLine{00098\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00099\ \textcolor{preprocessor}{\#error\ "{}Unsupported\ compiler"{}}}
+\DoxyCodeLine{00100\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \textcolor{comment}{//\ MSVC\ support}}
+\DoxyCodeLine{00103\ \textcolor{preprocessor}{\#include\ "{}seal/util/msvc.h"{}}}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \textcolor{comment}{//\ clang\ support}}
+\DoxyCodeLine{00106\ \textcolor{preprocessor}{\#include\ "{}seal/util/clang.h"{}}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \textcolor{comment}{//\ gcc\ support}}
+\DoxyCodeLine{00109\ \textcolor{preprocessor}{\#include\ "{}seal/util/gcc.h"{}}}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \textcolor{comment}{//\ Create\ a\ true/false\ value\ for\ indicating\ debug\ mode}}
+\DoxyCodeLine{00112\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#define\ SEAL\_DEBUG\_V\ true}}
+\DoxyCodeLine{00114\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00115\ \textcolor{preprocessor}{\#define\ SEAL\_DEBUG\_V\ false}}
+\DoxyCodeLine{00116\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00117\ }
+\DoxyCodeLine{00118\ \textcolor{comment}{//\ Use\ std::byte\ as\ byte\ type}}
+\DoxyCodeLine{00119\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_STD\_BYTE}}
+\DoxyCodeLine{00120\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00121\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00122\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \textcolor{keyword}{using\ }seal\_byte\ =\ std::byte;}
+\DoxyCodeLine{00124\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+\DoxyCodeLine{00125\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00126\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00127\ \{}
+\DoxyCodeLine{00128\ \ \ \ \ \textcolor{keyword}{enum\ class}\ seal\_byte\ :\ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{char}}
+\DoxyCodeLine{00129\ \ \ \ \ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \};}
+\DoxyCodeLine{00131\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+\DoxyCodeLine{00132\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00133\ }
+\DoxyCodeLine{00134\ \textcolor{comment}{//\ Force\ inline}}
+\DoxyCodeLine{00135\ \textcolor{preprocessor}{\#ifndef\ SEAL\_FORCE\_INLINE}}
+\DoxyCodeLine{00136\ \textcolor{preprocessor}{\#define\ SEAL\_FORCE\_INLINE\ inline}}
+\DoxyCodeLine{00137\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00138\ }
+\DoxyCodeLine{00139\ \textcolor{comment}{//\ Use\ \`{}if\ constexpr'\ from\ C++17}}
+\DoxyCodeLine{00140\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_IF\_CONSTEXPR}}
+\DoxyCodeLine{00141\ \textcolor{preprocessor}{\#define\ SEAL\_IF\_CONSTEXPR\ if\ constexpr}}
+\DoxyCodeLine{00142\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00143\ \textcolor{preprocessor}{\#define\ SEAL\_IF\_CONSTEXPR\ if}}
+\DoxyCodeLine{00144\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{comment}{//\ Use\ [[maybe\_unused]]\ from\ C++17}}
+\DoxyCodeLine{00147\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MAYBE\_UNUSED}}
+\DoxyCodeLine{00148\ \textcolor{preprocessor}{\#define\ SEAL\_MAYBE\_UNUSED\ [[maybe\_unused]]}}
+\DoxyCodeLine{00149\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00150\ \textcolor{preprocessor}{\#define\ SEAL\_MAYBE\_UNUSED}}
+\DoxyCodeLine{00151\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{comment}{//\ Use\ [[nodiscard]]\ from\ C++17}}
+\DoxyCodeLine{00154\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_NODISCARD}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#define\ SEAL\_NODISCARD\ [[nodiscard]]}}
+\DoxyCodeLine{00156\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00157\ \textcolor{preprocessor}{\#define\ SEAL\_NODISCARD}}
+\DoxyCodeLine{00158\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{comment}{//\ C++14\ does\ not\ have\ std::for\_each\_n\ so\ we\ use\ a\ custom\ implementation}}
+\DoxyCodeLine{00161\ \textcolor{preprocessor}{\#ifndef\ SEAL\_USE\_STD\_FOR\_EACH\_N}}
+\DoxyCodeLine{00162\ \textcolor{preprocessor}{\#define\ SEAL\_ITERATE\ seal::util::seal\_for\_each\_n}}
+\DoxyCodeLine{00163\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00164\ \textcolor{preprocessor}{\#define\ SEAL\_ITERATE\ std::for\_each\_n}}
+\DoxyCodeLine{00165\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \textcolor{comment}{//\ Allocate\ "{}size"{}\ bytes\ in\ memory\ and\ returns\ a\ seal\_byte\ pointer}}
+\DoxyCodeLine{00168\ \textcolor{comment}{//\ If\ SEAL\_USE\_ALIGNED\_ALLOC\ is\ defined,\ use\ \_aligned\_malloc\ and\ ::aligned\_alloc\ (or\ std::malloc)}}
+\DoxyCodeLine{00169\ \textcolor{comment}{//\ Use\ \`{}new\ seal\_byte[size]`\ as\ fallback}}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#ifndef\ SEAL\_MALLOC}}
+\DoxyCodeLine{00171\ \textcolor{preprocessor}{\#define\ SEAL\_MALLOC(size)\ (new\ seal\_byte[size])}}
+\DoxyCodeLine{00172\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \textcolor{comment}{//\ Deallocate\ a\ pointer\ in\ memory}}
+\DoxyCodeLine{00175\ \textcolor{comment}{//\ If\ SEAL\_USE\_ALIGNED\_ALLOC\ is\ defined,\ use\ \_aligned\_free\ or\ std::free}}
+\DoxyCodeLine{00176\ \textcolor{comment}{//\ Use\ \`{}delete\ []\ ptr`\ as\ fallback}}
+\DoxyCodeLine{00177\ \textcolor{preprocessor}{\#ifndef\ SEAL\_FREE}}
+\DoxyCodeLine{00178\ \textcolor{preprocessor}{\#define\ SEAL\_FREE(ptr)\ (delete[]\ ptr)}}
+\DoxyCodeLine{00179\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \textcolor{comment}{//\ Which\ random\ number\ generator\ to\ use\ by\ default}}
+\DoxyCodeLine{00182\ \textcolor{preprocessor}{\#define\ SEAL\_DEFAULT\_PRNG\_FACTORY\ SEAL\_JOIN(SEAL\_DEFAULT\_PRNG,\ PRNGFactory)}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \textcolor{comment}{//\ Which\ distribution\ to\ use\ for\ noise\ sampling:\ rounded\ Gaussian\ or\ Centered\ Binomial\ Distribution}}
+\DoxyCodeLine{00185\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_GAUSSIAN\_NOISE}}
+\DoxyCodeLine{00186\ \textcolor{preprocessor}{\#define\ SEAL\_NOISE\_SAMPLER\ sample\_poly\_normal}}
+\DoxyCodeLine{00187\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00188\ \textcolor{preprocessor}{\#define\ SEAL\_NOISE\_SAMPLER\ sample\_poly\_cbd}}
+\DoxyCodeLine{00189\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \textcolor{comment}{//\ Use\ generic\ functions\ as\ (slower)\ fallback}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#ifndef\ SEAL\_ADD\_CARRY\_UINT64}}
+\DoxyCodeLine{00193\ \textcolor{preprocessor}{\#define\ SEAL\_ADD\_CARRY\_UINT64(operand1,\ operand2,\ carry,\ result)\ add\_uint64\_generic(operand1,\ operand2,\ carry,\ result)}}
+\DoxyCodeLine{00194\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00196\ \textcolor{preprocessor}{\#ifndef\ SEAL\_SUB\_BORROW\_UINT64}}
+\DoxyCodeLine{00197\ \textcolor{preprocessor}{\#define\ SEAL\_SUB\_BORROW\_UINT64(operand1,\ operand2,\ borrow,\ result)\ \(\backslash\)}}
+\DoxyCodeLine{00198\ \textcolor{preprocessor}{\ \ \ \ sub\_uint64\_generic(operand1,\ operand2,\ borrow,\ result)}}
+\DoxyCodeLine{00199\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00200\ }
+\DoxyCodeLine{00201\ \textcolor{preprocessor}{\#ifndef\ SEAL\_MULTIPLY\_UINT64}}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_UINT64(operand1,\ operand2,\ result128)\ multiply\_uint64\_generic(operand1,\ operand2,\ result128)}}
+\DoxyCodeLine{00203\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00204\ }
+\DoxyCodeLine{00205\ \textcolor{preprocessor}{\#ifndef\ SEAL\_DIVIDE\_UINT128\_UINT64}}
+\DoxyCodeLine{00206\ \textcolor{preprocessor}{\#define\ SEAL\_DIVIDE\_UINT128\_UINT64(numerator,\ denominator,\ result)\ \(\backslash\)}}
+\DoxyCodeLine{00207\ \textcolor{preprocessor}{\ \ \ \ divide\_uint128\_uint64\_inplace\_generic(numerator,\ denominator,\ result);}}
+\DoxyCodeLine{00208\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00210\ \textcolor{preprocessor}{\#ifndef\ SEAL\_MULTIPLY\_UINT64\_HW64}}
+\DoxyCodeLine{00211\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_UINT64\_HW64(operand1,\ operand2,\ hw64)\ multiply\_uint64\_hw64\_generic(operand1,\ operand2,\ hw64)}}
+\DoxyCodeLine{00212\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \textcolor{preprocessor}{\#ifndef\ SEAL\_MSB\_INDEX\_UINT64}}
+\DoxyCodeLine{00215\ \textcolor{preprocessor}{\#define\ SEAL\_MSB\_INDEX\_UINT64(result,\ value)\ get\_msb\_index\_generic(result,\ value)}}
+\DoxyCodeLine{00216\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00217\ }
+\DoxyCodeLine{00218\ \textcolor{comment}{//\ Check\ whether\ an\ object\ is\ of\ expected\ type;\ this\ requires\ the\ type\_traits\ header\ to\ be\ included}}
+\DoxyCodeLine{00219\ \textcolor{preprocessor}{\#define\ SEAL\_ASSERT\_TYPE(obj,\ expected,\ message)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00220\ \textcolor{preprocessor}{\ \ \ \ do\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00221\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00222\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ static\_assert(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00223\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ std::is\_same<decltype(obj),\ expected>::value,\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ "{}In\ "{}}\ \_\_FILE\_\_\ "{}:"{}\ SEAL\_STRINGIZE(\_\_LINE\_\_)\ "{}\ expected\ "{}\ SEAL\_STRINGIZE(expected)\ "{}\ (message:\ "{}\ message\ \(\backslash\)}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{})"{});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{00226\ \ \ \ \ \}\ while\ (false)}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ and\ create\ a\ PtrIter<T\ *>\ object\ pointing\ to\ it.\ This\ is}}
+\DoxyCodeLine{00229\ \textcolor{comment}{//\ convenient\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through\ the}}
+\DoxyCodeLine{00230\ \textcolor{comment}{//\ iterator.}}
+\DoxyCodeLine{00231\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_GET\_PTR\_ITER(name,\ type,\ size,\ pool)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00232\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(seal::util::allocate<type>(size,\ pool));\ \(\backslash\)}}
+\DoxyCodeLine{00233\ \textcolor{preprocessor}{\ \ \ \ seal::util::PtrIter<type\ *>\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get());}}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ and\ create\ a\ StrideIter<T\ *>\ object\ pointing\ to\ it.\ This\ is}}
+\DoxyCodeLine{00236\ \textcolor{comment}{//\ convenient\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through\ the}}
+\DoxyCodeLine{00237\ \textcolor{comment}{//\ iterator.}}
+\DoxyCodeLine{00238\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_GET\_STRIDE\_ITER(name,\ type,\ size,\ stride,\ pool)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(seal::util::allocate<type>(seal::util::mul\_safe(size,\ stride),\ pool));\ \(\backslash\)}}
+\DoxyCodeLine{00240\ \textcolor{preprocessor}{\ \ \ \ seal::util::StrideIter<type\ *>\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get(),\ stride);}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00242\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ and\ create\ a\ PolyIter\ object\ pointing\ to\ it.\ This\ is\ convenient}}
+\DoxyCodeLine{00243\ \textcolor{comment}{//\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through\ the\ iterator.}}
+\DoxyCodeLine{00244\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_GET\_POLY\_ITER(name,\ poly\_count,\ poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool)\ \(\backslash\)}}
+\DoxyCodeLine{00245\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00246\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ seal::util::allocate\_poly\_array(poly\_count,\ poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool));\ \(\backslash\)}}
+\DoxyCodeLine{00247\ \textcolor{preprocessor}{\ \ \ \ seal::util::PolyIter\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get(),\ poly\_modulus\_degree,\ coeff\_modulus\_size);}}
+\DoxyCodeLine{00248\ }
+\DoxyCodeLine{00249\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ (set\ to\ zero)\ and\ create\ a\ PolyIter\ object\ pointing\ to\ it.\ This}}
+\DoxyCodeLine{00250\ \textcolor{comment}{//\ is\ convenient\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through}}
+\DoxyCodeLine{00251\ \textcolor{comment}{//\ the\ iterator.}}
+\DoxyCodeLine{00252\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_ZERO\_GET\_POLY\_ITER(name,\ poly\_count,\ poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool)\ \(\backslash\)}}
+\DoxyCodeLine{00253\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00254\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ seal::util::allocate\_zero\_poly\_array(poly\_count,\ poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool));\ \(\backslash\)}}
+\DoxyCodeLine{00255\ \textcolor{preprocessor}{\ \ \ \ seal::util::PolyIter\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get(),\ poly\_modulus\_degree,\ coeff\_modulus\_size);}}
+\DoxyCodeLine{00256\ }
+\DoxyCodeLine{00257\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ and\ create\ a\ RNSIter\ object\ pointing\ to\ it.\ This\ is\ convenient}}
+\DoxyCodeLine{00258\ \textcolor{comment}{//\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through\ the\ iterator.}}
+\DoxyCodeLine{00259\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_GET\_RNS\_ITER(name,\ poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool)\ \(\backslash\)}}
+\DoxyCodeLine{00260\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ seal::util::allocate\_poly(poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool));\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00262\ \textcolor{preprocessor}{\ \ \ \ seal::util::RNSIter\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get(),\ poly\_modulus\_degree);}}
+\DoxyCodeLine{00263\ }
+\DoxyCodeLine{00264\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ (set\ to\ zero)\ and\ create\ a\ RNSIter\ object\ pointing\ to\ it.\ This}}
+\DoxyCodeLine{00265\ \textcolor{comment}{//\ is\ convenient\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through}}
+\DoxyCodeLine{00266\ \textcolor{comment}{//\ the\ iterator.}}
+\DoxyCodeLine{00267\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_ZERO\_GET\_RNS\_ITER(name,\ poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool)\ \(\backslash\)}}
+\DoxyCodeLine{00268\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00269\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ seal::util::allocate\_zero\_poly(poly\_modulus\_degree,\ coeff\_modulus\_size,\ pool));\ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00270\ \textcolor{preprocessor}{\ \ \ \ seal::util::RNSIter\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get(),\ poly\_modulus\_degree);}}
+\DoxyCodeLine{00271\ }
+\DoxyCodeLine{00272\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ and\ create\ a\ CoeffIter\ object\ pointing\ to\ it.\ This\ is}}
+\DoxyCodeLine{00273\ \textcolor{comment}{//\ convenient\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed\ through\ the}}
+\DoxyCodeLine{00274\ \textcolor{comment}{//\ iterator.}}
+\DoxyCodeLine{00275\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_GET\_COEFF\_ITER(name,\ poly\_modulus\_degree,\ pool)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00276\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(seal::util::allocate\_uint(poly\_modulus\_degree,\ pool));\ \(\backslash\)}}
+\DoxyCodeLine{00277\ \textcolor{preprocessor}{\ \ \ \ seal::util::CoeffIter\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get());}}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \textcolor{comment}{//\ This\ macro\ can\ be\ used\ to\ allocate\ a\ temporary\ buffer\ (set\ to\ zero)\ and\ create\ a\ CoeffIter\ object\ pointing\ to\ it.}}
+\DoxyCodeLine{00280\ \textcolor{comment}{//\ This\ is\ convenient\ when\ the\ Pointer\ holding\ the\ buffer\ is\ not\ explicitly\ needed\ and\ the\ memory\ is\ only\ accessed}}
+\DoxyCodeLine{00281\ \textcolor{comment}{//\ through\ the\ iterator.}}
+\DoxyCodeLine{00282\ \textcolor{preprocessor}{\#define\ SEAL\_ALLOCATE\_ZERO\_GET\_COEFF\_ITER(name,\ poly\_modulus\_degree,\ pool)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00283\ \textcolor{preprocessor}{\ \ \ \ auto\ SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_)(seal::util::allocate\_zero\_uint(poly\_modulus\_degree,\ pool));\ \(\backslash\)}}
+\DoxyCodeLine{00284\ \textcolor{preprocessor}{\ \ \ \ seal::util::CoeffIter\ name(SEAL\_JOIN(\_seal\_temp\_alloc\_,\ \_\_LINE\_\_).get());}}
+\DoxyCodeLine{00285\ }
+\DoxyCodeLine{00286\ \textcolor{comment}{//\ Conditionally\ select\ the\ former\ if\ true\ and\ the\ latter\ if\ false}}
+\DoxyCodeLine{00287\ \textcolor{comment}{//\ This\ is\ a\ temporary\ solution\ that\ generates\ constant-\/time\ code\ with\ all\ compilers\ on\ all\ platforms.}}
+\DoxyCodeLine{00288\ \textcolor{preprocessor}{\#ifndef\ SEAL\_AVOID\_BRANCHING}}
+\DoxyCodeLine{00289\ \textcolor{preprocessor}{\#define\ SEAL\_COND\_SELECT(cond,\ if\_true,\ if\_false)\ (cond\ ?\ if\_true\ :\ if\_false)}}
+\DoxyCodeLine{00290\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00291\ \textcolor{preprocessor}{\#define\ SEAL\_COND\_SELECT(cond,\ if\_true,\ if\_false)\ \(\backslash\)}}
+\DoxyCodeLine{00292\ \textcolor{preprocessor}{\ \ \ \ ((if\_false)\ \string^\ ((\string~static\_cast<uint64\_t>(cond)\ +\ 1)\ \&\ ((if\_true)\ \string^\ (if\_false))))}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

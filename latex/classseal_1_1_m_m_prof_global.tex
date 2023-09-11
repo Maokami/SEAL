@@ -1,0 +1,66 @@
+\doxysection{seal\+::MMProf\+Global Class Reference}
+\hypertarget{classseal_1_1_m_m_prof_global}{}\label{classseal_1_1_m_m_prof_global}\index{seal::MMProfGlobal@{seal::MMProfGlobal}}
+
+
+{\ttfamily \#include $<$memorymanager.\+h$>$}
+
+Inheritance diagram for seal\+::MMProf\+Global\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_m_m_prof_global}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_global_aadd2b4dd8658bb9a46f969036bc107db}{MMProf\+Global}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_global_a777cbff3eb0cfb6d1645f6c4aefefd50}{\texorpdfstring{$\sim$}{\string~}\+MMProf\+Global}} () noexcept override
+\item 
+virtual SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_global_a1fc4fdba8e34e8e00a89111627a24451}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_m_m_prof}{seal\+::\+MMProf}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8}{MMProf}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4}{\texorpdfstring{$\sim$}{\string~}\+MMProf}} () noexcept
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A memory manager profile that always returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the global memory pool. Microsoft SEAL uses this memory manager profile by default. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_global_aadd2b4dd8658bb9a46f969036bc107db}\label{classseal_1_1_m_m_prof_global_aadd2b4dd8658bb9a46f969036bc107db} 
+\index{seal::MMProfGlobal@{seal::MMProfGlobal}!MMProfGlobal@{MMProfGlobal}}
+\index{MMProfGlobal@{MMProfGlobal}!seal::MMProfGlobal@{seal::MMProfGlobal}}
+\doxysubsubsection{\texorpdfstring{MMProfGlobal()}{MMProfGlobal()}}
+{\footnotesize\ttfamily seal\+::\+MMProf\+Global\+::\+MMProf\+Global (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_m_m_prof_global}{MMProf\+Global}. \Hypertarget{classseal_1_1_m_m_prof_global_a777cbff3eb0cfb6d1645f6c4aefefd50}\label{classseal_1_1_m_m_prof_global_a777cbff3eb0cfb6d1645f6c4aefefd50} 
+\index{seal::MMProfGlobal@{seal::MMProfGlobal}!````~MMProfGlobal@{\texorpdfstring{$\sim$}{\string~}MMProfGlobal}}
+\index{````~MMProfGlobal@{\texorpdfstring{$\sim$}{\string~}MMProfGlobal}!seal::MMProfGlobal@{seal::MMProfGlobal}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MMProfGlobal()}{\string~MMProfGlobal()}}
+{\footnotesize\ttfamily virtual seal\+::\+MMProf\+Global\+::\texorpdfstring{$\sim$}{\string~}\+MMProf\+Global (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+Destroys the \doxylink{classseal_1_1_m_m_prof_global}{MMProf\+Global}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_global_a1fc4fdba8e34e8e00a89111627a24451}\label{classseal_1_1_m_m_prof_global_a1fc4fdba8e34e8e00a89111627a24451} 
+\index{seal::MMProfGlobal@{seal::MMProfGlobal}!get\_pool@{get\_pool}}
+\index{get\_pool@{get\_pool}!seal::MMProfGlobal@{seal::MMProfGlobal}}
+\doxysubsubsection{\texorpdfstring{get\_pool()}{get\_pool()}}
+{\footnotesize\ttfamily virtual SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+MMProf\+Global\+::get\+\_\+pool (\begin{DoxyParamCaption}\item[{mm\+\_\+prof\+\_\+opt\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to the global memory pool. The mm\+\_\+prof\+\_\+opt\+\_\+t input parameter has no effect. 
+
+Implements \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{seal\+::\+MMProf}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/memorymanager.\+h\end{DoxyCompactItemize}

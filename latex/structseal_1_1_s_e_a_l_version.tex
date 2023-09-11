@@ -1,0 +1,52 @@
+\doxysection{seal\+::SEALVersion Struct Reference}
+\hypertarget{structseal_1_1_s_e_a_l_version}{}\label{structseal_1_1_s_e_a_l_version}\index{seal::SEALVersion@{seal::SEALVersion}}
+
+
+{\ttfamily \#include $<$version.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::uint8\+\_\+t \mbox{\hyperlink{structseal_1_1_s_e_a_l_version_aeba93a763464a0d38a2bd9891c45d94a}{major}} = SEAL\+\_\+\+VERSION\+\_\+\+MAJOR
+\item 
+std\+::uint8\+\_\+t \mbox{\hyperlink{structseal_1_1_s_e_a_l_version_ad86bab0ad96230b79bacafac955ed63d}{minor}} = SEAL\+\_\+\+VERSION\+\_\+\+MINOR
+\item 
+std\+::uint8\+\_\+t \mbox{\hyperlink{structseal_1_1_s_e_a_l_version_a085dcda315e722dc3ff140f5936f8141}{patch}} = SEAL\+\_\+\+VERSION\+\_\+\+PATCH
+\item 
+\Hypertarget{structseal_1_1_s_e_a_l_version_a1cd1c4ca58c6261c6bfeb67d920c4695}\label{structseal_1_1_s_e_a_l_version_a1cd1c4ca58c6261c6bfeb67d920c4695} 
+std\+::uint8\+\_\+t {\bfseries tweak} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds Microsoft SEAL version information. A \doxylink{structseal_1_1_s_e_a_l_version}{SEALVersion} contains four values\+: \begin{DoxyVerb}1. The major version number;
+2. The minor version number;
+3. The patch version number;
+4. The tweak version number.
+\end{DoxyVerb}
+ Two versions of the library with the same major and minor versions are fully compatible with each other. They are guaranteed to have the same public API. Changes in the patch version number indicate totally internal changes, such as bug fixes that require no changes to the public API. The tweak version number is currently not used, and is expected to be 0. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structseal_1_1_s_e_a_l_version_aeba93a763464a0d38a2bd9891c45d94a}\label{structseal_1_1_s_e_a_l_version_aeba93a763464a0d38a2bd9891c45d94a} 
+\index{seal::SEALVersion@{seal::SEALVersion}!major@{major}}
+\index{major@{major}!seal::SEALVersion@{seal::SEALVersion}}
+\doxysubsubsection{\texorpdfstring{major}{major}}
+{\footnotesize\ttfamily std\+::uint8\+\_\+t seal\+::\+SEALVersion\+::major = SEAL\+\_\+\+VERSION\+\_\+\+MAJOR}
+
+Holds the major version number. \Hypertarget{structseal_1_1_s_e_a_l_version_ad86bab0ad96230b79bacafac955ed63d}\label{structseal_1_1_s_e_a_l_version_ad86bab0ad96230b79bacafac955ed63d} 
+\index{seal::SEALVersion@{seal::SEALVersion}!minor@{minor}}
+\index{minor@{minor}!seal::SEALVersion@{seal::SEALVersion}}
+\doxysubsubsection{\texorpdfstring{minor}{minor}}
+{\footnotesize\ttfamily std\+::uint8\+\_\+t seal\+::\+SEALVersion\+::minor = SEAL\+\_\+\+VERSION\+\_\+\+MINOR}
+
+Holds the minor version number. \Hypertarget{structseal_1_1_s_e_a_l_version_a085dcda315e722dc3ff140f5936f8141}\label{structseal_1_1_s_e_a_l_version_a085dcda315e722dc3ff140f5936f8141} 
+\index{seal::SEALVersion@{seal::SEALVersion}!patch@{patch}}
+\index{patch@{patch}!seal::SEALVersion@{seal::SEALVersion}}
+\doxysubsubsection{\texorpdfstring{patch}{patch}}
+{\footnotesize\ttfamily std\+::uint8\+\_\+t seal\+::\+SEALVersion\+::patch = SEAL\+\_\+\+VERSION\+\_\+\+PATCH}
+
+Holds the patch version number. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/version.\+h\end{DoxyCompactItemize}

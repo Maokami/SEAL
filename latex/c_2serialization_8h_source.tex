@@ -1,0 +1,30 @@
+\doxysection{serialization.\+h}
+\hypertarget{c_2serialization_8h_source}{}\label{c_2serialization_8h_source}\index{seal/c/serialization.h@{seal/c/serialization.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ Serialization\_SEALMagic(uint16\_t\ *result);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ Serialization\_SEALHeaderSize(uint8\_t\ *result);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ Serialization\_IsSupportedComprMode(uint8\_t\ compr\_mode,\ \textcolor{keywordtype}{bool}\ *result);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ Serialization\_ComprModeDefault(uint8\_t\ *result);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ Serialization\_IsCompatibleVersion(uint8\_t\ *headerptr,\ uint64\_t\ size,\ \textcolor{keywordtype}{bool}\ *result);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ Serialization\_IsValidHeader(uint8\_t\ *headerptr,\ uint64\_t\ size,\ \textcolor{keywordtype}{bool}\ *result);}
+
+\end{DoxyCode}

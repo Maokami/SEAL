@@ -1,0 +1,102 @@
+\doxysection{gcc.\+h}
+\hypertarget{gcc_8h_source}{}\label{gcc_8h_source}\index{seal/util/gcc.h@{seal/util/gcc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#if\ SEAL\_COMPILER\ ==\ SEAL\_COMPILER\_GCC}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ We\ require\ GCC\ >=\ 6}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#if\ (\_\_GNUC\_\_\ <\ 6)\ ||\ not\ defined(\_\_cplusplus)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#pragma\ GCC\ error\ "{}SEAL\ requires\ \_\_GNUC\_\_\ >=\ 6"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Read\ in\ config.h}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}seal/util/config.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#if\ (\_\_GNUC\_\_\ ==\ 6)\ \&\&\ defined(SEAL\_USE\_IF\_CONSTEXPR)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#pragma\ GCC\ error\ "{}g++-\/6\ cannot\ compile\ Microsoft\ SEAL\ as\ C++17;\ set\ CMake\ build\ option\ \`{}SEAL\_USE\_CXX17'\ to\ OFF"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#define\ SEAL\_FORCE\_INLINE\ inline\ \_\_attribute\_\_((always\_inline))}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_ALIGNED\_ALLOC}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#include\ <cstdlib>}}
+\DoxyCodeLine{00024\ \textcolor{preprocessor}{\#define\ SEAL\_MALLOC(size)\ \(\backslash\)}}
+\DoxyCodeLine{00025\ \textcolor{preprocessor}{\ \ \ \ static\_cast<seal\_byte\ *>((((size)\&63)\ ==\ 0)\ ?\ ::aligned\_alloc(64,\ (size))\ :\ std::malloc((size)))}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ SEAL\_FREE(ptr)\ std::free(ptr)}}
+\DoxyCodeLine{00027\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \textcolor{comment}{//\ Are\ intrinsics\ enabled?}}
+\DoxyCodeLine{00030\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_INTRIN}}
+\DoxyCodeLine{00031\ \textcolor{preprocessor}{\#if\ defined(\_\_aarch64\_\_)}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#include\ <arm\_neon.h>}}
+\DoxyCodeLine{00033\ \textcolor{preprocessor}{\#elif\ defined(EMSCRIPTEN)}}
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#include\ <wasm\_simd128.h>}}
+\DoxyCodeLine{00035\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#include\ <x86intrin.h>}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_\_BUILTIN\_CLZLL}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#define\ SEAL\_MSB\_INDEX\_UINT64(result,\ value)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00041\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ *result\ =\ 63UL\ -\/\ static\_cast<unsigned\ long>(\_\_builtin\_clzll(value));\ \(\backslash\)}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\ \ \ \ \}}}
+\DoxyCodeLine{00044\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_\_INT128}}
+\DoxyCodeLine{00047\ \_\_extension\_\_\ \textcolor{keyword}{typedef}\ \_\_int128\ int128\_t;}
+\DoxyCodeLine{00048\ \_\_extension\_\_\ \textcolor{keyword}{typedef}\ \textcolor{keywordtype}{unsigned}\ \_\_int128\ uint128\_t;}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_UINT64\_HW64(operand1,\ operand2,\ hw64)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00050\ \textcolor{preprocessor}{\ \ \ \ do\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ *hw64\ =\ static\_cast<unsigned\ long\ long>(\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \ \ \ \ ((static\_cast<uint128\_t>(operand1)\ *\ static\_cast<uint128\_t>(operand2))\ >>\ 64));\ \(\backslash\)}}
+\DoxyCodeLine{00054\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (false);}}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_UINT64(operand1,\ operand2,\ result128)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\ \ \ \ do\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00059\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ uint128\_t\ product\ =\ static\_cast<uint128\_t>(operand1)\ *\ operand2;\ \(\backslash\)}}
+\DoxyCodeLine{00060\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ result128[0]\ =\ static\_cast<unsigned\ long\ long>(product);\ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ result128[1]\ =\ static\_cast<unsigned\ long\ long>(product\ >>\ 64);\ \ \ \(\backslash\)}}
+\DoxyCodeLine{00062\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (false)}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#define\ SEAL\_DIVIDE\_UINT128\_UINT64(numerator,\ denominator,\ result)\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00065\ \textcolor{preprocessor}{\ \ \ \ do\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ uint128\_t\ n,\ q;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ n\ =\ (static\_cast<uint128\_t>(numerator[1])\ <<\ 64)\ |\ (static\_cast<uint128\_t>(numerator[0]));\ \(\backslash\)}}
+\DoxyCodeLine{00069\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ q\ =\ n\ /\ denominator;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ n\ -\/=\ q\ *\ denominator;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ numerator[0]\ =\ static\_cast<std::uint64\_t>(n);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00072\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ numerator[1]\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ result[0]\ =\ static\_cast<std::uint64\_t>(q);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ result[1]\ =\ static\_cast<std::uint64\_t>(q\ >>\ 64);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\ \ \ \ \}\ while\ (false)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{comment}{//\ GCC\ intrinsics\ for\ \_addcarry\_u64\ is\ disabled,\ for\ it\ compiles\ to\ slower\ code\ than\ add\_uint64\_generic.}}
+\DoxyCodeLine{00079\ \textcolor{comment}{//\#ifdef\ SEAL\_USE\_\_ADDCARRY\_U64}}
+\DoxyCodeLine{00080\ \textcolor{comment}{//\#define\ SEAL\_ADD\_CARRY\_UINT64(operand1,\ operand2,\ carry,\ result)\ \_addcarry\_u64(carry,\ operand1,\ operand2,\ result)}}
+\DoxyCodeLine{00081\ \textcolor{comment}{//\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_SUBBORROW\_U64}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#if\ ((\_\_GNUC\_\_\ ==\ 7)\ \&\&\ (\_\_GNUC\_MINOR\_\_\ >=\ 2))\ ||\ (\_\_GNUC\_\_\ >=\ 8)}}
+\DoxyCodeLine{00085\ \textcolor{comment}{//\ The\ inverted\ arguments\ problem\ was\ fixed\ in\ GCC-\/7.2}}
+\DoxyCodeLine{00086\ \textcolor{comment}{//\ (https://patchwork.ozlabs.org/patch/784309/)}}
+\DoxyCodeLine{00087\ \textcolor{preprocessor}{\#define\ SEAL\_SUB\_BORROW\_UINT64(operand1,\ operand2,\ borrow,\ result)\ \_subborrow\_u64(borrow,\ operand1,\ operand2,\ result)}}
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00089\ \textcolor{comment}{//\ Warning:\ Note\ the\ inverted\ order\ of\ operand1\ and\ operand2}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#define\ SEAL\_SUB\_BORROW\_UINT64(operand1,\ operand2,\ borrow,\ result)\ \_subborrow\_u64(borrow,\ operand2,\ operand1,\ result)}}
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//(\_\_GNUC\_\_\ ==\ 7)\ \&\&\ (\_\_GNUC\_MINOR\_\_\ >=\ 2)}}
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SEAL\_USE\_INTRIN}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

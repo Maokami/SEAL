@@ -1,0 +1,145 @@
+\doxysection{seal\+::Galois\+Keys Class Reference}
+\hypertarget{classseal_1_1_galois_keys}{}\label{classseal_1_1_galois_keys}\index{seal::GaloisKeys@{seal::GaloisKeys}}
+
+
+{\ttfamily \#include $<$galoiskeys.\+h$>$}
+
+Inheritance diagram for seal\+::Galois\+Keys\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1_galois_keys}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_galois_keys_a95ed317639273e063faa2e0e6a0bbd27}{has\+\_\+key}} (std\+::uint32\+\_\+t galois\+\_\+elt) const
+\item 
+SEAL\+\_\+\+NODISCARD const auto \& \mbox{\hyperlink{classseal_1_1_galois_keys_aa1dc8541d86cfab61da2c63cdd46d723}{key}} (std\+::uint32\+\_\+t galois\+\_\+elt) const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classseal_1_1_k_switch_keys}{seal\+::\+KSwitch\+Keys}}}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_k_switch_keys_aa9e65fe18fa0856e1e448d68bb8200e0}{KSwitch\+Keys}} ()=default
+\item 
+\mbox{\hyperlink{classseal_1_1_k_switch_keys_a94d8f23903d03a9ad62eb0f531b05649}{KSwitch\+Keys}} (const \mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}} \&copy)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_k_switch_keys_a1ad7de4ea2e2584aa063a4cc33a00e94}{KSwitch\+Keys}} (\mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}} \&\&source)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}} \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_a5faef041e8526b8a559be1c75bd313be}{operator=}} (const \mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}} \&assign)
+\item 
+\mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}} \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_a59ca46974bb242ff6d20455f41daace6}{operator=}} (\mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}} \&\&assign)=default
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_k_switch_keys_a1bc9b8bcdbc8e5da2ee563e03b20ed11}{size}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_ac6db706a7f9da8e9af220a34977408e5}{data}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_af419240fe05a0c4072db27b4c35fd6b0}{data}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_a584d2190f421682ce3377824ae788bc6}{data}} (std\+::size\+\_\+t index)
+\item 
+SEAL\+\_\+\+NODISCARD const auto \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_a524f043df582100e28b0c29f452add86}{data}} (std\+::size\+\_\+t index) const
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_a0d49441b041cdc251ed823c7e055b3f9}{parms\+\_\+id}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_k_switch_keys_a721316f6fe42d52ff809faf8f8bdd140}{parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_a124a3db441100522f93a5047aa93e0c7}{save\+\_\+size}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_a581c566da49271f0c992acbc87e35f0e}{save}} (std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_a6f5354b0b40b4fda74baf481500421da}{unsafe\+\_\+load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_a830fc201a00487a112a7b6e952f13d5d}{load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_ad8fee90380d79876a0c95b7fcb0b2e80}{save}} (seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_k_switch_keys_a1bc9b8bcdbc8e5da2ee563e03b20ed11}{size}}, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_a904d2708295fe2ba25e4bc1558acfa69}{unsafe\+\_\+load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_k_switch_keys_a1bc9b8bcdbc8e5da2ee563e03b20ed11}{size}})
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_k_switch_keys_aaaf25d2ae47da8969afef5793139ee83}{load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_k_switch_keys_a1bc9b8bcdbc8e5da2ee563e03b20ed11}{size}})
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_k_switch_keys_a9ae666ec83b5c470d5af8285556f0a8a}{pool}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_galois_keys_a8c031b870e4053398e13817879da1a09}{get\+\_\+index}} (std\+::uint32\+\_\+t galois\+\_\+elt)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to store Galois keys.
+
+\begin{DoxyParagraph}{Slot Rotations}
+Galois keys are certain types of public keys that are needed to perform encrypted vector rotation operations on batched ciphertexts. Batched ciphertexts encrypt a 2-\/by-\/(N/2) matrix of modular integers in the BFV scheme, or an N/2-\/dimensional vector of complex numbers in the CKKS scheme, where N denotes the degree of the polynomial modulus. In the BFV scheme Galois keys can enable both cyclic rotations of the encrypted matrix rows, as well as row swaps (column rotations). In the CKKS scheme Galois keys can enable cyclic vector rotations, as well as a complex conjugation operation.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Thread Safety}
+In general, reading from \doxylink{classseal_1_1_galois_keys}{Galois\+Keys} is thread-\/safe as long as no other thread is concurrently mutating it. This is due to the underlying data structure storing the Galois keys not being thread-\/safe.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_relin_keys}{Relin\+Keys} for the class that stores the relinearization keys. 
+
+\doxylink{classseal_1_1_key_generator}{Key\+Generator} for the class that generates the Galois keys. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_galois_keys_a8c031b870e4053398e13817879da1a09}\label{classseal_1_1_galois_keys_a8c031b870e4053398e13817879da1a09} 
+\index{seal::GaloisKeys@{seal::GaloisKeys}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!seal::GaloisKeys@{seal::GaloisKeys}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Galois\+Keys\+::get\+\_\+index (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{galois\+\_\+elt }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Returns the index of a Galois key in the backing \doxylink{classseal_1_1_k_switch_keys}{KSwitch\+Keys} instance that corresponds to the given Galois element, assuming that it exists in the backing \doxylink{classseal_1_1_k_switch_keys}{KSwitch\+Keys}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elt} & The Galois element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+elt is not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_galois_keys_a95ed317639273e063faa2e0e6a0bbd27}\label{classseal_1_1_galois_keys_a95ed317639273e063faa2e0e6a0bbd27} 
+\index{seal::GaloisKeys@{seal::GaloisKeys}!has\_key@{has\_key}}
+\index{has\_key@{has\_key}!seal::GaloisKeys@{seal::GaloisKeys}}
+\doxysubsubsection{\texorpdfstring{has\_key()}{has\_key()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Galois\+Keys\+::has\+\_\+key (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{galois\+\_\+elt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether a Galois key corresponding to a given Galois element exists.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elt} & The Galois element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if galois\+\_\+elt is not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_galois_keys_aa1dc8541d86cfab61da2c63cdd46d723}\label{classseal_1_1_galois_keys_aa1dc8541d86cfab61da2c63cdd46d723} 
+\index{seal::GaloisKeys@{seal::GaloisKeys}!key@{key}}
+\index{key@{key}!seal::GaloisKeys@{seal::GaloisKeys}}
+\doxysubsubsection{\texorpdfstring{key()}{key()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const auto \& seal\+::\+Galois\+Keys\+::key (\begin{DoxyParamCaption}\item[{std\+::uint32\+\_\+t}]{galois\+\_\+elt }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a const reference to a Galois key. The returned Galois key corresponds to the given Galois element.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em galois\+\_\+elt} & The Galois element \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the key corresponding to galois\+\_\+elt does not exist \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/galoiskeys.\+h\end{DoxyCompactItemize}

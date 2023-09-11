@@ -1,0 +1,84 @@
+\doxysection{seal\+::Random\+To\+Standard\+Adapter Class Reference}
+\hypertarget{classseal_1_1_random_to_standard_adapter}{}\label{classseal_1_1_random_to_standard_adapter}\index{seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}}
+
+
+{\ttfamily \#include $<$randomtostd.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_random_to_standard_adapter_a9e0723ba6727f84a8ae735fddf6019cb}\label{classseal_1_1_random_to_standard_adapter_a9e0723ba6727f84a8ae735fddf6019cb} 
+using {\bfseries result\+\_\+type} = std\+::uint32\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_random_to_standard_adapter_aabeaf2ecafaed729b07c0bfdeb266f96}{Random\+To\+Standard\+Adapter}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}} $>$ \mbox{\hyperlink{classseal_1_1_random_to_standard_adapter_a3f51295c0d64914354a98bbd6d3bcf1b}{generator}})
+\item 
+SEAL\+\_\+\+NODISCARD result\+\_\+type \mbox{\hyperlink{classseal_1_1_random_to_standard_adapter_a0cccc3eeb777ce6f329464559bc2625b}{operator()}} ()
+\item 
+SEAL\+\_\+\+NODISCARD auto \mbox{\hyperlink{classseal_1_1_random_to_standard_adapter_a3f51295c0d64914354a98bbd6d3bcf1b}{generator}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD constexpr result\+\_\+type \mbox{\hyperlink{classseal_1_1_random_to_standard_adapter_a61e0eb54830c45234d9b813ba8332945}{min}} () noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD constexpr result\+\_\+type \mbox{\hyperlink{classseal_1_1_random_to_standard_adapter_ab70ad3941393734e4234e7a5cb2a02b6}{max}} () noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+A simple wrapper class to implement C++ Uniform\+Random\+Bit\+Generator type properties for a given polymorphic \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator} instance. The resulting object can be used as a randomness source in C++ standard random number distribution classes, such as std\+::uniform\+\_\+int\+\_\+distribution, std\+::normal\+\_\+distribution, or any of the standard Random\+Number\+Engine classes. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_random_to_standard_adapter_aabeaf2ecafaed729b07c0bfdeb266f96}\label{classseal_1_1_random_to_standard_adapter_aabeaf2ecafaed729b07c0bfdeb266f96} 
+\index{seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}!RandomToStandardAdapter@{RandomToStandardAdapter}}
+\index{RandomToStandardAdapter@{RandomToStandardAdapter}!seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}}
+\doxysubsubsection{\texorpdfstring{RandomToStandardAdapter()}{RandomToStandardAdapter()}}
+{\footnotesize\ttfamily seal\+::\+Random\+To\+Standard\+Adapter\+::\+Random\+To\+Standard\+Adapter (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}} $>$}]{generator }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new \doxylink{classseal_1_1_random_to_standard_adapter}{Random\+To\+Standard\+Adapter} backed by a given \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em generator} & A backing \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator} instance \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if generator is null \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_random_to_standard_adapter_a3f51295c0d64914354a98bbd6d3bcf1b}\label{classseal_1_1_random_to_standard_adapter_a3f51295c0d64914354a98bbd6d3bcf1b} 
+\index{seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}!generator@{generator}}
+\index{generator@{generator}!seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}}
+\doxysubsubsection{\texorpdfstring{generator()}{generator()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto seal\+::\+Random\+To\+Standard\+Adapter\+::generator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the backing \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}. \Hypertarget{classseal_1_1_random_to_standard_adapter_ab70ad3941393734e4234e7a5cb2a02b6}\label{classseal_1_1_random_to_standard_adapter_ab70ad3941393734e4234e7a5cb2a02b6} 
+\index{seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}!max@{max}}
+\index{max@{max}!seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}}
+\doxysubsubsection{\texorpdfstring{max()}{max()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD constexpr result\+\_\+type seal\+::\+Random\+To\+Standard\+Adapter\+::max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Returns the largest possible output value. \Hypertarget{classseal_1_1_random_to_standard_adapter_a61e0eb54830c45234d9b813ba8332945}\label{classseal_1_1_random_to_standard_adapter_a61e0eb54830c45234d9b813ba8332945} 
+\index{seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}!min@{min}}
+\index{min@{min}!seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}}
+\doxysubsubsection{\texorpdfstring{min()}{min()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD constexpr result\+\_\+type seal\+::\+Random\+To\+Standard\+Adapter\+::min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Returns the smallest possible output value. \Hypertarget{classseal_1_1_random_to_standard_adapter_a0cccc3eeb777ce6f329464559bc2625b}\label{classseal_1_1_random_to_standard_adapter_a0cccc3eeb777ce6f329464559bc2625b} 
+\index{seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}!operator()@{operator()}}
+\index{operator()@{operator()}!seal::RandomToStandardAdapter@{seal::RandomToStandardAdapter}}
+\doxysubsubsection{\texorpdfstring{operator()()}{operator()()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD result\+\_\+type seal\+::\+Random\+To\+Standard\+Adapter\+::operator() (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a new random number from the backing \doxylink{classseal_1_1_uniform_random_generator}{Uniform\+Random\+Generator}. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/randomtostd.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,32 @@
+\doxysection{batchencoder.\+h}
+\hypertarget{c_2batchencoder_8h_source}{}\label{c_2batchencoder_8h_source}\index{seal/c/batchencoder.h@{seal/c/batchencoder.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ BatchEncoder\_Create(\textcolor{keywordtype}{void}\ *context,\ \textcolor{keywordtype}{void}\ **batch\_encoder);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ BatchEncoder\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ BatchEncoder\_Encode1(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ count,\ uint64\_t\ *values,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ BatchEncoder\_Encode2(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ count,\ int64\_t\ *values,\ \textcolor{keywordtype}{void}\ *destination);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ BatchEncoder\_Decode1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ uint64\_t\ *count,\ uint64\_t\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ BatchEncoder\_Decode2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *plain,\ uint64\_t\ *count,\ int64\_t\ *destination,\ \textcolor{keywordtype}{void}\ *pool);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ BatchEncoder\_GetSlotCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *slot\_count);}
+
+\end{DoxyCode}

@@ -1,0 +1,364 @@
+\doxysection{seal\+::Serialization Class Reference}
+\hypertarget{classseal_1_1_serialization}{}\label{classseal_1_1_serialization}\index{seal::Serialization@{seal::Serialization}}
+
+
+{\ttfamily \#include $<$serialization.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_serialization_a3d1f3a93480c42b2767f109e3d83bdf9}{Is\+Supported\+Compr\+Mode}} (std\+::uint8\+\_\+t compr\+\_\+mode) noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_serialization_a10943bacacb1e285d4f0612b506b6393}{Is\+Supported\+Compr\+Mode}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode) noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_serialization_afb29aea04524cddb78600a977d13688a}{Compr\+Size\+Estimate}} (std\+::size\+\_\+t in\+\_\+size, compr\+\_\+mode\+\_\+type compr\+\_\+mode)
+\item 
+static SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_serialization_abccdabbaccaedc618b7c3b34852dddb3}{Is\+Compatible\+Version}} (const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&header) noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_serialization_a736da2ea1aa6ada368b720d6bd2dc496}{Is\+Valid\+Header}} (const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&header) noexcept
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a23d51cd989e20bb0d09c617df7a96ce3}{Save\+Header}} (const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&header, std\+::ostream \&stream)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a646f884889e84aa4ced53b9ca6159d24}{Load\+Header}} (std\+::istream \&stream, \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&header, bool try\+\_\+upgrade\+\_\+if\+\_\+invalid=true)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a21ad58749c7c3d35adbebd706dbf563a}{Save\+Header}} (const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&header, seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t size)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a3859e75980d25e07078fcab42d01777a}{Load\+Header}} (const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size, \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&header, bool try\+\_\+upgrade\+\_\+if\+\_\+invalid=true)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Save}} (std\+::function$<$ void(std\+::ostream \&)$>$ save\+\_\+members, std\+::streamoff raw\+\_\+size, std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode, bool clear\+\_\+buffers)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Load}} (std\+::function$<$ void(std\+::istream \&, \mbox{\hyperlink{structseal_1_1_s_e_a_l_version}{SEALVersion}})$>$ load\+\_\+members, std\+::istream \&stream, bool clear\+\_\+buffers)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a58b470b62ce452ea6bc115664b0f6d47}{Save}} (std\+::function$<$ void(std\+::ostream \&)$>$ save\+\_\+members, std\+::streamoff raw\+\_\+size, seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t size, compr\+\_\+mode\+\_\+type compr\+\_\+mode, bool clear\+\_\+buffers)
+\item 
+static std\+::streamoff \mbox{\hyperlink{classseal_1_1_serialization_a25e4342f858e327104ad5f429048b65e}{Load}} (std\+::function$<$ void(std\+::istream \&, \mbox{\hyperlink{structseal_1_1_s_e_a_l_version}{SEALVersion}})$>$ load\+\_\+members, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size, bool clear\+\_\+buffers)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr compr\+\_\+mode\+\_\+type \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{compr\+\_\+mode\+\_\+default}} = compr\+\_\+mode\+\_\+type\+::none
+\item 
+static constexpr std\+::uint16\+\_\+t \mbox{\hyperlink{classseal_1_1_serialization_a83434c77002c5e0370051b72ded03a05}{seal\+\_\+magic}} = 0x\+A15E
+\item 
+static constexpr std\+::uint8\+\_\+t \mbox{\hyperlink{classseal_1_1_serialization_a75e597ca41d4edb5f3755e2563d18987}{seal\+\_\+header\+\_\+size}} = 0x10
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to provide functionality for serialization. Most users of the library should never have to call these functions explicitly, as they are called internally by functions such as \doxylink{classseal_1_1_ciphertext_aebc1c076290039e6de34764d7f722bba}{Ciphertext\+::save} and \doxylink{classseal_1_1_ciphertext_a94a59d80fd7aa3fefc65dd0881e14b9e}{Ciphertext\+::load}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_serialization_afb29aea04524cddb78600a977d13688a}\label{classseal_1_1_serialization_afb29aea04524cddb78600a977d13688a} 
+\index{seal::Serialization@{seal::Serialization}!ComprSizeEstimate@{ComprSizeEstimate}}
+\index{ComprSizeEstimate@{ComprSizeEstimate}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{ComprSizeEstimate()}{ComprSizeEstimate()}}
+{\footnotesize\ttfamily size\+\_\+t seal\+::\+Serialization\+::\+Compr\+Size\+Estimate (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{in\+\_\+size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns an upper bound on the output size of data compressed according to a given compression mode with given input size. If compr\+\_\+mode is compr\+\_\+mode\+\_\+type\+::none, the return value is exactly in\+\_\+size.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+\_\+size} & The input size to a compression algorithm \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+\_\+size} & The compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_abccdabbaccaedc618b7c3b34852dddb3}\label{classseal_1_1_serialization_abccdabbaccaedc618b7c3b34852dddb3} 
+\index{seal::Serialization@{seal::Serialization}!IsCompatibleVersion@{IsCompatibleVersion}}
+\index{IsCompatibleVersion@{IsCompatibleVersion}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{IsCompatibleVersion()}{IsCompatibleVersion()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD bool seal\+::\+Serialization\+::\+Is\+Compatible\+Version (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&}]{header }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Returns true if the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} has a version number compatible with this version of Microsoft SEAL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & The \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_serialization_a10943bacacb1e285d4f0612b506b6393}\label{classseal_1_1_serialization_a10943bacacb1e285d4f0612b506b6393} 
+\index{seal::Serialization@{seal::Serialization}!IsSupportedComprMode@{IsSupportedComprMode}}
+\index{IsSupportedComprMode@{IsSupportedComprMode}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{IsSupportedComprMode()}{IsSupportedComprMode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD bool seal\+::\+Serialization\+::\+Is\+Supported\+Compr\+Mode (\begin{DoxyParamCaption}\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Returns true if the given value corresponds to a supported compression mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode to validate \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_serialization_a3d1f3a93480c42b2767f109e3d83bdf9}\label{classseal_1_1_serialization_a3d1f3a93480c42b2767f109e3d83bdf9} 
+\index{seal::Serialization@{seal::Serialization}!IsSupportedComprMode@{IsSupportedComprMode}}
+\index{IsSupportedComprMode@{IsSupportedComprMode}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{IsSupportedComprMode()}{IsSupportedComprMode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD bool seal\+::\+Serialization\+::\+Is\+Supported\+Compr\+Mode (\begin{DoxyParamCaption}\item[{std\+::uint8\+\_\+t}]{compr\+\_\+mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Returns true if the given byte corresponds to a supported compression mode.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode to validate \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_serialization_a736da2ea1aa6ada368b720d6bd2dc496}\label{classseal_1_1_serialization_a736da2ea1aa6ada368b720d6bd2dc496} 
+\index{seal::Serialization@{seal::Serialization}!IsValidHeader@{IsValidHeader}}
+\index{IsValidHeader@{IsValidHeader}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{IsValidHeader()}{IsValidHeader()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD bool seal\+::\+Serialization\+::\+Is\+Valid\+Header (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&}]{header }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [noexcept]}}
+
+Returns true if the given \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} is valid for this version of Microsoft SEAL.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & The \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_serialization_a25e4342f858e327104ad5f429048b65e}\label{classseal_1_1_serialization_a25e4342f858e327104ad5f429048b65e} 
+\index{seal::Serialization@{seal::Serialization}!Load@{Load}}
+\index{Load@{Load}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Load (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(std\+::istream \&, \mbox{\hyperlink{structseal_1_1_s_e_a_l_version}{SEALVersion}})$>$}]{load\+\_\+members,  }\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{bool}]{clear\+\_\+buffers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Deserializes data from a memory location that was serialized by Save. Once the data has been decompressed (depending on compression mode), load\+\_\+members is applied to the decompressed stream. In typical use-\/cases load\+\_\+members would be a function that deserializes the member variables of an object from the given stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em load\+\_\+members} & A function that takes an std\+::istream reference as a \doxylink{structseal_1_1_s_e_a_l_version}{SEALVersion} struct as arguments, possibly reading some number of bytes from the std\+::istream, possibly depending on the \doxylink{structseal_1_1_s_e_a_l_version}{SEALVersion} object \\
+\hline
+\mbox{\texttt{ in}}  & {\em in} & The memory location to read from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em clear\+\_\+buffers} & Whether internal buffers should be cleared \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if load\+\_\+members is invalid, if in is null, or if size is too small to contain a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}\label{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f} 
+\index{seal::Serialization@{seal::Serialization}!Load@{Load}}
+\index{Load@{Load}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Load (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(std\+::istream \&, \mbox{\hyperlink{structseal_1_1_s_e_a_l_version}{SEALVersion}})$>$}]{load\+\_\+members,  }\item[{std\+::istream \&}]{stream,  }\item[{bool}]{clear\+\_\+buffers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Deserializes data from stream that was serialized by Save. Once stream has been decompressed (depending on compression mode), load\+\_\+members is applied to the decompressed stream. In typical use-\/cases load\+\_\+members would be a function that deserializes the member variables of an object from the given stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em load\+\_\+members} & A function taking an std\+::istream reference and a \doxylink{structseal_1_1_s_e_a_l_version}{SEALVersion} struct as arguments, possibly reading some number of bytes from the std\+::istream, possibly depending on the \doxylink{structseal_1_1_s_e_a_l_version}{SEALVersion} object \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & The stream to read from \\
+\hline
+\mbox{\texttt{ in}}  & {\em clear\+\_\+buffers} & Whether internal buffers should be cleared \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if load\+\_\+members is invalid \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_a3859e75980d25e07078fcab42d01777a}\label{classseal_1_1_serialization_a3859e75980d25e07078fcab42d01777a} 
+\index{seal::Serialization@{seal::Serialization}!LoadHeader@{LoadHeader}}
+\index{LoadHeader@{LoadHeader}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{LoadHeader()}{LoadHeader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Load\+Header (\begin{DoxyParamCaption}\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{\mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&}]{header,  }\item[{bool}]{try\+\_\+upgrade\+\_\+if\+\_\+invalid = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} from a given memory location.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em try\+\_\+upgrade\+\_\+if\+\_\+invalid} & If the loaded \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} is invalid, attempt to identify its format and upgrade to the current \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} version \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_a646f884889e84aa4ced53b9ca6159d24}\label{classseal_1_1_serialization_a646f884889e84aa4ced53b9ca6159d24} 
+\index{seal::Serialization@{seal::Serialization}!LoadHeader@{LoadHeader}}
+\index{LoadHeader@{LoadHeader}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{LoadHeader()}{LoadHeader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Load\+Header (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{stream,  }\item[{\mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&}]{header,  }\item[{bool}]{try\+\_\+upgrade\+\_\+if\+\_\+invalid = {\ttfamily true} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Loads a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} from a given stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em header} & The \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} to populate with the loaded data \\
+\hline
+\mbox{\texttt{ in}}  & {\em try\+\_\+upgrade\+\_\+if\+\_\+invalid} & If the loaded \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} is invalid, attempt to identify its format and upgrade to the current \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} version \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_a58b470b62ce452ea6bc115664b0f6d47}\label{classseal_1_1_serialization_a58b470b62ce452ea6bc115664b0f6d47} 
+\index{seal::Serialization@{seal::Serialization}!Save@{Save}}
+\index{Save@{Save}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Save (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(std\+::ostream \&)$>$}]{save\+\_\+members,  }\item[{std\+::streamoff}]{raw\+\_\+size,  }\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode,  }\item[{bool}]{clear\+\_\+buffers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Evaluates save\+\_\+members and compresses the output according to the given compr\+\_\+mode\+\_\+type. The resulting data is written to a given memory location and is prepended by the given compr\+\_\+mode\+\_\+type and the total size of the data to facilitate deserialization. In typical use-\/cases save\+\_\+members would be a function that serializes the member variables of an object to the given stream.
+
+For any given compression mode, raw\+\_\+size must be the exact right size (in bytes) of what save\+\_\+members writes to a stream in the uncompressed mode plus the size of \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}. Otherwise the behavior of Save is unspecified.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em save\+\_\+members} & A function that takes an std\+::ostream reference as an argument and writes some number of bytes into it \\
+\hline
+\mbox{\texttt{ in}}  & {\em raw\+\_\+size} & The exact uncompressed output size of save\+\_\+members plus the size of \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\mbox{\texttt{ in}}  & {\em clear\+\_\+buffers} & Whether internal buffers should be cleared \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if save\+\_\+members is invalid, if raw\+\_\+size or size is smaller than \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} size, or if out is null \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, if compression mode is not supported, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}\label{classseal_1_1_serialization_a149541ee25e950987acab28096447e51} 
+\index{seal::Serialization@{seal::Serialization}!Save@{Save}}
+\index{Save@{Save}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Save (\begin{DoxyParamCaption}\item[{std\+::function$<$ void(std\+::ostream \&)$>$}]{save\+\_\+members,  }\item[{std\+::streamoff}]{raw\+\_\+size,  }\item[{std\+::ostream \&}]{stream,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode,  }\item[{bool}]{clear\+\_\+buffers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Evaluates save\+\_\+members and compresses the output according to the given compr\+\_\+mode\+\_\+type. The resulting data is written to stream and is prepended by the given compr\+\_\+mode\+\_\+type and the total size of the data to facilitate deserialization. In typical use-\/cases save\+\_\+members would be a function that serializes the member variables of an object to the given stream.
+
+For any given compression mode, raw\+\_\+size must be the exact right size (in bytes) of what save\+\_\+members writes to a stream in the uncompressed mode plus the size of \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}. Otherwise the behavior of Save is unspecified.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em save\+\_\+members} & A function taking an std\+::ostream reference as an argument, possibly writing some number of bytes into it \\
+\hline
+\mbox{\texttt{ in}}  & {\em raw\+\_\+size} & The exact uncompressed output size of save\+\_\+members plus the size of \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+\mbox{\texttt{ out}}  & {\em stream} & The stream to write to \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\mbox{\texttt{ in}}  & {\em clear\+\_\+buffers} & Whether internal buffers should be cleared \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if save\+\_\+members is invalid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if raw\+\_\+size is smaller than \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} size \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, if compression mode is not supported, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_a21ad58749c7c3d35adbebd706dbf563a}\label{classseal_1_1_serialization_a21ad58749c7c3d35adbebd706dbf563a} 
+\index{seal::Serialization@{seal::Serialization}!SaveHeader@{SaveHeader}}
+\index{SaveHeader@{SaveHeader}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{SaveHeader()}{SaveHeader()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Save\+Header (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&}]{header,  }\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Saves a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} to a given memory location. The output is in binary format and is not human-\/readable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if out is null or if size is too small to contain a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_serialization_a23d51cd989e20bb0d09c617df7a96ce3}\label{classseal_1_1_serialization_a23d51cd989e20bb0d09c617df7a96ce3} 
+\index{seal::Serialization@{seal::Serialization}!SaveHeader@{SaveHeader}}
+\index{SaveHeader@{SaveHeader}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{SaveHeader()}{SaveHeader()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static std\+::streamoff seal\+::\+Serialization\+::\+Save\+Header (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}} \&}]{header,  }\item[{std\+::ostream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Saves a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} to a given stream. The output is in binary format and not human-\/readable. The output stream must have the \"{}binary\"{} flag set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em header} & The \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} to save to the stream \\
+\hline
+\mbox{\texttt{ out}}  & {\em stream} & The stream to save the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} to \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}\label{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631} 
+\index{seal::Serialization@{seal::Serialization}!compr\_mode\_default@{compr\_mode\_default}}
+\index{compr\_mode\_default@{compr\_mode\_default}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{compr\_mode\_default}{compr\_mode\_default}}
+{\footnotesize\ttfamily constexpr compr\+\_\+mode\+\_\+type seal\+::\+Serialization\+::compr\+\_\+mode\+\_\+default = compr\+\_\+mode\+\_\+type\+::none\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+The compression mode used by default; prefer Zstandard \Hypertarget{classseal_1_1_serialization_a75e597ca41d4edb5f3755e2563d18987}\label{classseal_1_1_serialization_a75e597ca41d4edb5f3755e2563d18987} 
+\index{seal::Serialization@{seal::Serialization}!seal\_header\_size@{seal\_header\_size}}
+\index{seal\_header\_size@{seal\_header\_size}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{seal\_header\_size}{seal\_header\_size}}
+{\footnotesize\ttfamily constexpr uint8\+\_\+t seal\+::\+Serialization\+::seal\+\_\+header\+\_\+size = 0x10\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+The size in bytes of the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader}. \Hypertarget{classseal_1_1_serialization_a83434c77002c5e0370051b72ded03a05}\label{classseal_1_1_serialization_a83434c77002c5e0370051b72ded03a05} 
+\index{seal::Serialization@{seal::Serialization}!seal\_magic@{seal\_magic}}
+\index{seal\_magic@{seal\_magic}!seal::Serialization@{seal::Serialization}}
+\doxysubsubsection{\texorpdfstring{seal\_magic}{seal\_magic}}
+{\footnotesize\ttfamily constexpr uint16\+\_\+t seal\+::\+Serialization\+::seal\+\_\+magic = 0x\+A15E\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+The magic value indicating a Microsoft SEAL header. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/serialization.\+h\item 
+seal/serialization.\+cpp\end{DoxyCompactItemize}

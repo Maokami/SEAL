@@ -1,0 +1,134 @@
+\doxysection{keygenerator.\+h}
+\hypertarget{keygenerator_8h_source}{}\label{keygenerator_8h_source}\index{seal/keygenerator.h@{seal/keygenerator.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/context.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/galoiskeys.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/publickey.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/relinkeys.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/secretkey.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}seal/serializable.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}seal/util/iterator.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <random>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}}
+\DoxyCodeLine{00031\ \ \ \ \ \{}
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_secret_key}{SecretKey}}\ \&\mbox{\hyperlink{classseal_1_1_key_generator_abe5959387396b30eac12f840a00167c9}{secret\_key}});}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_secret_key}{SecretKey}}\ \&\mbox{\hyperlink{classseal_1_1_key_generator_abe5959387396b30eac12f840a00167c9}{secret\_key}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_key_generator_adb648691b1525d6ae8672fe4fd995d97}{create\_public\_key}}(\mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ \&destination)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00069\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ generate\_pk(\textcolor{keyword}{false});}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<PublicKey>}}\ \mbox{\hyperlink{classseal_1_1_key_generator_a18af85a29809e4bc6aceb9b8f5ef6eee}{create\_public\_key}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00083\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ generate\_pk(\textcolor{keyword}{true});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_key_generator_a290b17b3c57cf38b0b9b4b88e9de9be9}{create\_relin\_keys}}(\mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \&destination)}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ \mbox{\hyperlink{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8}{create\_relin\_keys}}(1,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<RelinKeys>}}\ \mbox{\hyperlink{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8}{create\_relin\_keys}}()}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8}{create\_relin\_keys}}(1,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_key_generator_a18a07675f41a896ebe06b887ad0a8ddb}{create\_galois\_keys}}(\textcolor{keyword}{const}\ std::vector<std::uint32\_t>\ \&galois\_elts,\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&destination)}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ destination\ =\ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(galois\_elts,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00149\ }
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<GaloisKeys>}}\ \mbox{\hyperlink{classseal_1_1_key_generator_a0378537547083a95b53c7822911cfd89}{create\_galois\_keys}}(\textcolor{keyword}{const}\ std::vector<std::uint32\_t>\ \&galois\_elts)}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(galois\_elts,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ }
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_key_generator_ad38c9850fc70741799c945deca773499}{create\_galois\_keys}}(\textcolor{keyword}{const}\ std::vector<int>\ \&steps,\ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&destination)}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>qualifiers().using\_batching)}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}encryption\ parameters\ do\ not\ support\ batching"{}});}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>galois\_tool()-\/>get\_elts\_from\_steps(steps),\ destination);}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<GaloisKeys>}}\ \mbox{\hyperlink{classseal_1_1_key_generator_afeac514be5087ee9a3d936e6de6f5773}{create\_galois\_keys}}(\textcolor{keyword}{const}\ std::vector<int>\ \&steps)}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>qualifiers().using\_batching)}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::logic\_error(\textcolor{stringliteral}{"{}encryption\ parameters\ do\ not\ support\ batching"{}});}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>galois\_tool()-\/>get\_elts\_from\_steps(steps));}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00241\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classseal_1_1_key_generator_aa156a9f6bfb8ebf9490428ca5c0de81c}{create\_galois\_keys}}(\mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \&destination)}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>galois\_tool()-\/>get\_elts\_all(),\ destination);}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_serializable}{Serializable<GaloisKeys>}}\ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}()}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(context\_.\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\_context\_data}}()-\/>galois\_tool()-\/>get\_elts\_all());}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00292\ }
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \textcolor{keyword}{struct\ }KeyGeneratorPrivateHelper;}
+\DoxyCodeLine{00297\ }
+\DoxyCodeLine{00298\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}\ \&copy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00300\ }
+\DoxyCodeLine{00301\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}\ \&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00302\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}(\mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}\ \&\&source)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00304\ }
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}\ \&operator=(\mbox{\hyperlink{classseal_1_1_key_generator}{KeyGenerator}}\ \&\&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00307\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ compute\_secret\_key\_array(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{SEALContext::ContextData}}\ \&context\_data,\ std::size\_t\ max\_power);}
+\DoxyCodeLine{00308\ }
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_sk(\textcolor{keywordtype}{bool}\ is\_initialized\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00317\ }
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_public_key}{PublicKey}}\ generate\_pk(\textcolor{keywordtype}{bool}\ save\_seed)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00322\ }
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_kswitch\_keys(}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_const_poly_iter}{util::ConstPolyIter}}\ new\_keys,\ std::size\_t\ num\_keys,\ \mbox{\hyperlink{classseal_1_1_k_switch_keys}{KSwitchKeys}}\ \&destination,\ \textcolor{keywordtype}{bool}\ save\_seed\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00328\ }
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ generate\_one\_kswitch\_key(}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_const_r_n_s_iter}{util::ConstRNSIter}}\ new\_key,\ std::vector<PublicKey>\ \&destination,\ \textcolor{keywordtype}{bool}\ save\_seed\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00334\ }
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_relin_keys}{RelinKeys}}\ \mbox{\hyperlink{classseal_1_1_key_generator_ae856a44a71033aa0e2dfdd0f2a6e23d8}{create\_relin\_keys}}(std::size\_t\ count,\ \textcolor{keywordtype}{bool}\ save\_seed);}
+\DoxyCodeLine{00343\ }
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_galois_keys}{GaloisKeys}}\ \mbox{\hyperlink{classseal_1_1_key_generator_ad7e08d7080937598007af08b797cd83a}{create\_galois\_keys}}(\textcolor{keyword}{const}\ std::vector<std::uint32\_t>\ \&galois\_elts,\ \textcolor{keywordtype}{bool}\ save\_seed);}
+\DoxyCodeLine{00364\ }
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ use\ a\ fresh\ memory\ pool\ with\ \`{}clear\_on\_destruction'\ enabled.}}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\_\ =\ MemoryManager::GetPool(mm\_prof\_opt::mm\_force\_new,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00368\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ context\_;}
+\DoxyCodeLine{00369\ }
+\DoxyCodeLine{00370\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_secret_key}{SecretKey}}\ secret\_key\_;}
+\DoxyCodeLine{00371\ }
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ std::size\_t\ secret\_key\_array\_size\_\ =\ 0;}
+\DoxyCodeLine{00373\ }
+\DoxyCodeLine{00374\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util::Pointer<std::uint64\_t>}}\ secret\_key\_array\_;}
+\DoxyCodeLine{00375\ }
+\DoxyCodeLine{00376\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classseal_1_1util_1_1_reader_writer_locker}{util::ReaderWriterLocker}}\ secret\_key\_array\_locker\_;}
+\DoxyCodeLine{00377\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ sk\_generated\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00379\ \ \ \ \ \};}
+\DoxyCodeLine{00380\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

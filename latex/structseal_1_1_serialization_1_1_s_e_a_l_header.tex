@@ -1,0 +1,49 @@
+\doxysection{seal\+::Serialization\+::SEALHeader Struct Reference}
+\hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header}{}\label{structseal_1_1_serialization_1_1_s_e_a_l_header}\index{seal::Serialization::SEALHeader@{seal::Serialization::SEALHeader}}
+
+
+{\ttfamily \#include $<$serialization.\+h$>$}
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_ae49ffe3b12f648c1c6bbb7c36074e4e6}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_ae49ffe3b12f648c1c6bbb7c36074e4e6} 
+std\+::uint16\+\_\+t {\bfseries magic} = \mbox{\hyperlink{classseal_1_1_serialization_a83434c77002c5e0370051b72ded03a05}{seal\+\_\+magic}}
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_afbcee251bf5b609a411a05cb83c1dd20}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_afbcee251bf5b609a411a05cb83c1dd20} 
+std\+::uint8\+\_\+t {\bfseries header\+\_\+size} = \mbox{\hyperlink{classseal_1_1_serialization_a75e597ca41d4edb5f3755e2563d18987}{seal\+\_\+header\+\_\+size}}
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_ac80431b1788580f34c17732b54b4bc56}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_ac80431b1788580f34c17732b54b4bc56} 
+std\+::uint8\+\_\+t {\bfseries version\+\_\+major} = static\+\_\+cast$<$std\+::uint8\+\_\+t$>$(SEAL\+\_\+\+VERSION\+\_\+\+MAJOR)
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_aa02db5c2bfa0ee462bcde41f7bc2c07a}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_aa02db5c2bfa0ee462bcde41f7bc2c07a} 
+std\+::uint8\+\_\+t {\bfseries version\+\_\+minor} = static\+\_\+cast$<$std\+::uint8\+\_\+t$>$(SEAL\+\_\+\+VERSION\+\_\+\+MINOR)
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_a6b0d7498b97d4fb1ff79ab7b8b074f77}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_a6b0d7498b97d4fb1ff79ab7b8b074f77} 
+compr\+\_\+mode\+\_\+type {\bfseries compr\+\_\+mode} = compr\+\_\+mode\+\_\+type\+::none
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_a4677fcb5ba5dc107292e8d218bc359fe}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_a4677fcb5ba5dc107292e8d218bc359fe} 
+std\+::uint16\+\_\+t {\bfseries reserved} = 0
+\item 
+\Hypertarget{structseal_1_1_serialization_1_1_s_e_a_l_header_ae10b4d4a59aab0fbed0077aebe158c25}\label{structseal_1_1_serialization_1_1_s_e_a_l_header_ae10b4d4a59aab0fbed0077aebe158c25} 
+std\+::uint64\+\_\+t {\bfseries size} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Struct to contain metadata for serialization comprising the following fields\+:
+
+
+\begin{DoxyEnumerate}
+\item a magic number identifying this is a \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} struct (2 bytes)
+\item size in bytes of the \doxylink{structseal_1_1_serialization_1_1_s_e_a_l_header}{SEALHeader} struct (1 byte)
+\item Microsoft SEAL\textquotesingle{}s major version number (1 byte)
+\item Microsoft SEAL\textquotesingle{}s minor version number (1 byte)
+\item a compr\+\_\+mode\+\_\+type indicating whether data after the header is compressed (1 byte)
+\item reserved for future use and data alignment (2 bytes)
+\item the size in bytes of the entire serialized object, including the header (8 bytes) 
+\end{DoxyEnumerate}
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/serialization.\+h\end{DoxyCompactItemize}

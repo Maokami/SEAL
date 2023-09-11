@@ -1,0 +1,32 @@
+\doxysection{seal\+::util\+::Multiply\+UInt\+Mod\+Operand Struct Reference}
+\hypertarget{structseal_1_1util_1_1_multiply_u_int_mod_operand}{}\label{structseal_1_1util_1_1_multiply_u_int_mod_operand}\index{seal::util::MultiplyUIntModOperand@{seal::util::MultiplyUIntModOperand}}
+
+
+{\ttfamily \#include $<$uintarithsmallmod.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structseal_1_1util_1_1_multiply_u_int_mod_operand_a23afb408dab90169b78c2ce6c0381aed}\label{structseal_1_1util_1_1_multiply_u_int_mod_operand_a23afb408dab90169b78c2ce6c0381aed} 
+void {\bfseries set\+\_\+quotient} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&modulus)
+\item 
+\Hypertarget{structseal_1_1util_1_1_multiply_u_int_mod_operand_aa4eedbb00132290d18c89aa86e71d352}\label{structseal_1_1util_1_1_multiply_u_int_mod_operand_aa4eedbb00132290d18c89aa86e71d352} 
+void {\bfseries set} (std\+::uint64\+\_\+t new\+\_\+operand, const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&modulus)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{structseal_1_1util_1_1_multiply_u_int_mod_operand_adffc8fe266f20bc6a5980a9f21092668}\label{structseal_1_1util_1_1_multiply_u_int_mod_operand_adffc8fe266f20bc6a5980a9f21092668} 
+std\+::uint64\+\_\+t {\bfseries operand}
+\item 
+\Hypertarget{structseal_1_1util_1_1_multiply_u_int_mod_operand_a3d216326e060e757e0169cc9d0be7c1f}\label{structseal_1_1util_1_1_multiply_u_int_mod_operand_a3d216326e060e757e0169cc9d0be7c1f} 
+std\+::uint64\+\_\+t {\bfseries quotient}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This struct contains a operand and a precomputed quotient\+: (operand \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<} 64) / modulus, for a specific modulus. When passed to multiply\+\_\+uint\+\_\+mod, a faster variant of Barrett reduction will be performed. Operand must be less than modulus. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/uintarithsmallmod.\+h\end{DoxyCompactItemize}

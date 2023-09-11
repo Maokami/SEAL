@@ -1,0 +1,32 @@
+\doxysection{seal\+::util\+::Hash\+Function Class Reference}
+\hypertarget{classseal_1_1util_1_1_hash_function}{}\label{classseal_1_1util_1_1_hash_function}\index{seal::util::HashFunction@{seal::util::HashFunction}}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_hash_function_ad751cbd01e5b64f15aab5025a664221d}\label{classseal_1_1util_1_1_hash_function_ad751cbd01e5b64f15aab5025a664221d} 
+using {\bfseries hash\+\_\+block\+\_\+type} = std\+::array$<$ std\+::uint64\+\_\+t, hash\+\_\+block\+\_\+uint64\+\_\+count $>$
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_hash_function_a14bc95f5551bfbfc03512e832e9b479d}\label{classseal_1_1util_1_1_hash_function_a14bc95f5551bfbfc03512e832e9b479d} 
+static void {\bfseries hash} (const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}input, std\+::size\+\_\+t uint64\+\_\+count, hash\+\_\+block\+\_\+type \&destination)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_hash_function_a11c4fdbfb2286a3cadbb7d94f837215e}\label{classseal_1_1util_1_1_hash_function_a11c4fdbfb2286a3cadbb7d94f837215e} 
+static constexpr std\+::size\+\_\+t {\bfseries hash\+\_\+block\+\_\+uint64\+\_\+count} = 4
+\item 
+\Hypertarget{classseal_1_1util_1_1_hash_function_a0d494a72d3768ccf13aceb906b031991}\label{classseal_1_1util_1_1_hash_function_a0d494a72d3768ccf13aceb906b031991} 
+static constexpr std\+::size\+\_\+t {\bfseries hash\+\_\+block\+\_\+byte\+\_\+count} = hash\+\_\+block\+\_\+uint64\+\_\+count \texorpdfstring{$\ast$}{*} bytes\+\_\+per\+\_\+uint64
+\item 
+\Hypertarget{classseal_1_1util_1_1_hash_function_a2cd9bdeaa750bfd1daa221a816f0d14c}\label{classseal_1_1util_1_1_hash_function_a2cd9bdeaa750bfd1daa221a816f0d14c} 
+static constexpr hash\+\_\+block\+\_\+type {\bfseries hash\+\_\+zero\+\_\+block} \{ \{ 0, 0, 0, 0 \} \}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/hash.\+h\item 
+seal/util/hash.\+cpp\end{DoxyCompactItemize}

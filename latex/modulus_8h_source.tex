@@ -1,0 +1,264 @@
+\doxysection{modulus.\+h}
+\hypertarget{modulus_8h_source}{}\label{modulus_8h_source}\index{seal/modulus.h@{seal/modulus.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/serialization.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/version.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/util/hestdparms.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/util/uintcore.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/util/ztools.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <cstddef>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00019\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}}
+\DoxyCodeLine{00034\ \ \ \ \ \{}
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus_aed7893154e19b206a47d784cd40b9887}{Modulus}}(std::uint64\_t\ \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}}\ =\ 0)}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ set\_value(\mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}});}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus_aa0ca727055592e1c9cf0104e4cc7773d}{Modulus}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&copy)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus_a52bc31d9f686768e4905ee9f87acbd0e}{Modulus}}(\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&\&source)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&\mbox{\hyperlink{classseal_1_1_modulus_a23153e42c2a0e62d057e85bf6916f219}{operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&assign)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&\mbox{\hyperlink{classseal_1_1_modulus_a51060adea6c31dbc9902d0429e3af967}{operator=}}(\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&\&assign)\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&\mbox{\hyperlink{classseal_1_1_modulus_ab40b9ce10aa7ce4fad75c5baa1250c8a}{operator=}}(std::uint64\_t\ \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}})}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ set\_value(\mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}});}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classseal_1_1_modulus_a5a467b7633b30189b7b8994c12ba3972}{bit\_count}}()\ const\ noexcept}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ bit\_count\_;}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::size\_t\ \mbox{\hyperlink{classseal_1_1_modulus_a7676349ec6d697a4dfb82af916c67a2a}{uint64\_count}}()\ const\ noexcept}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ uint64\_count\_;}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ uint64\_t\ *\mbox{\hyperlink{classseal_1_1_modulus_a7818c2aa63d1d7c7b853d9c9e76754a4}{data}}()\ const\ noexcept}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \&value\_;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::uint64\_t\ \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}}()\ const\ noexcept}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_;}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keyword}{auto}\ \&\mbox{\hyperlink{classseal_1_1_modulus_a7c1c8023d88d53522b6150e008409f58}{const\_ratio}}()\ const\ noexcept}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ const\_ratio\_;}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00129\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_a3faef1c7f6d097add8629816985b71cc}{is\_zero}}()\ const\ noexcept}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ ==\ 0;}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_ac7b7a062c4f36748166c8ab9d352d0ef}{is\_prime}}()\ const\ noexcept}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_prime\_;}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_a070fabdff75ac4eec26c7a964054836c}{operator==}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ ==\ compare.value\_;}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ }
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_a1e32d0eb7322fe325f14a904d1c3a90e}{operator==}}(std::uint64\_t\ compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ ==\ compare;}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_ac2a5eea68be508e4644abea67d7ebcaa}{operator!=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classseal_1_1_modulus_a070fabdff75ac4eec26c7a964054836c}{operator==}}(compare);}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ }
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_a0a7119e55a1426abf79805f972ba4372}{operator!=}}(std::uint64\_t\ compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ !\mbox{\hyperlink{classseal_1_1_modulus_a070fabdff75ac4eec26c7a964054836c}{operator==}}(compare);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_a12cfa2e51363fcfc30b344467b7fa81f}{operator<}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ <\ compare.value\_;}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00195\ }
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_ab97f2741069062a34956973a34794702}{operator<}}(std::uint64\_t\ compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ <\ compare;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_abd59972c8b29420eaf73e3fb50e84094}{operator<=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ <=\ compare.value\_;}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ }
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_ad87605733754b63fb11a4a7317b04730}{operator<=}}(std::uint64\_t\ compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ <=\ compare;}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00225\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_abac1812270213b596f6ebfd0385fe67c}{operator>}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ >\ compare.value\_;}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00235\ }
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_ae28239efa3e069c793523ed3bcc6d4dc}{operator>}}(std::uint64\_t\ compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ >\ compare;}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_ad2d45b61fc8b528ec39ea3e552aa092c}{operator>=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ >=\ compare.value\_;}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00255\ }
+\DoxyCodeLine{00261\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classseal_1_1_modulus_a43b0e488f86cf0863449fbabddc1c73b}{operator>=}}(std::uint64\_t\ compare)\ \textcolor{keyword}{const}\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ value\_\ >=\ compare;}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00265\ }
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_modulus_a3d7f4a9d22c7b43dfd3c7f73fdd9023c}{save\_size}}(}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00276\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ members\_size\ =\ \mbox{\hyperlink{classseal_1_1_serialization_afb29aea04524cddb78600a977d13688a}{Serialization::ComprSizeEstimate}}(util::add\_safe(\textcolor{keyword}{sizeof}(value\_)),\ compr\_mode);}
+\DoxyCodeLine{00278\ }
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::safe\_cast<std::streamoff>(util::add\_safe(\textcolor{keyword}{sizeof}(\mbox{\hyperlink{structseal_1_1_serialization_1_1_s_e_a_l_header}{Serialization::SEALHeader}}),\ members\_size));}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00281\ }
+\DoxyCodeLine{00293\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_modulus_ad7c337479a9965df01f4dd7bb57e8750}{save}}(}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ std::ostream\ \&stream,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00295\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Serialization::Save}}(}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&Modulus::save\_members,\ \textcolor{keyword}{this},\ \_1),\ \mbox{\hyperlink{classseal_1_1_modulus_a3d7f4a9d22c7b43dfd3c7f73fdd9023c}{save\_size}}(compr\_mode\_type::none),\ stream,\ compr\_mode,}
+\DoxyCodeLine{00299\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false});}
+\DoxyCodeLine{00300\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00301\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_modulus_a48e9508412aaee30b15f00b61e87803d}{load}}(std::istream\ \&stream)}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Serialization::Load}}(std::bind(\&Modulus::load\_members,\ \textcolor{keyword}{this},\ \_1,\ \_2),\ stream,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00314\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00315\ }
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_modulus_a7c60e00ef8807d3725fdc60d7fe7a244}{save}}(}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ seal\_byte\ *out,\ std::size\_t\ size,\ compr\_mode\_type\ compr\_mode\ =\ \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization::compr\_mode\_default}})\textcolor{keyword}{\ const}}
+\DoxyCodeLine{00331\ \textcolor{keyword}{\ \ \ \ \ \ \ \ }\{}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_a149541ee25e950987acab28096447e51}{Serialization::Save}}(}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::bind(\&Modulus::save\_members,\ \textcolor{keyword}{this},\ \_1),\ \mbox{\hyperlink{classseal_1_1_modulus_a3d7f4a9d22c7b43dfd3c7f73fdd9023c}{save\_size}}(compr\_mode\_type::none),\ out,\ size,\ compr\_mode,}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{false});}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ std::streamoff\ \mbox{\hyperlink{classseal_1_1_modulus_a0b5d37c75a95c0d00dd27804cebca509}{load}}(\textcolor{keyword}{const}\ seal\_byte\ *in,\ std::size\_t\ size)}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{using\ namespace\ }std::placeholders;}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_serialization_ae651422767b8212a9558d6ceff537b0f}{Serialization::Load}}(std::bind(\&Modulus::load\_members,\ \textcolor{keyword}{this},\ \_1,\ \_2),\ in,\ size,\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00355\ }
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ std::uint64\_t\ \mbox{\hyperlink{classseal_1_1_modulus_aed40b3e8d6231192d45a6e4a9bcc071e}{reduce}}(std::uint64\_t\ \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}})\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00363\ }
+\DoxyCodeLine{00364\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ set\_value(std::uint64\_t\ \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}});}
+\DoxyCodeLine{00366\ }
+\DoxyCodeLine{00367\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ save\_members(std::ostream\ \&stream)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00368\ }
+\DoxyCodeLine{00369\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ load\_members(std::istream\ \&stream,\ \mbox{\hyperlink{structseal_1_1_s_e_a_l_version}{SEALVersion}}\ version);}
+\DoxyCodeLine{00370\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ std::uint64\_t\ value\_\ =\ 0;}
+\DoxyCodeLine{00372\ }
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ std::array<std::uint64\_t,\ 3>\ const\_ratio\_\{\ \{\ 0,\ 0,\ 0\ \}\ \};}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00375\ \ \ \ \ \ \ \ \ std::size\_t\ uint64\_count\_\ =\ 0;}
+\DoxyCodeLine{00376\ }
+\DoxyCodeLine{00377\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ bit\_count\_\ =\ 0;}
+\DoxyCodeLine{00378\ }
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ is\_prime\_\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00380\ \ \ \ \ \};}
+\DoxyCodeLine{00381\ }
+\DoxyCodeLine{00390\ \ \ \ \ \textcolor{keyword}{enum\ class}\ sec\_level\_type\ :\ \textcolor{keywordtype}{int}}
+\DoxyCodeLine{00391\ \ \ \ \ \{}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ none\ =\ 0,}
+\DoxyCodeLine{00396\ }
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ tc128\ =\ 128,}
+\DoxyCodeLine{00401\ }
+\DoxyCodeLine{00405\ \ \ \ \ \ \ \ \ tc192\ =\ 192,}
+\DoxyCodeLine{00406\ }
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ tc256\ =\ 256}
+\DoxyCodeLine{00411\ \ \ \ \ \};}
+\DoxyCodeLine{00412\ }
+\DoxyCodeLine{00424\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_coeff_modulus}{CoeffModulus}}}
+\DoxyCodeLine{00425\ \ \ \ \ \{}
+\DoxyCodeLine{00426\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_coeff_modulus}{CoeffModulus}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00428\ }
+\DoxyCodeLine{00439\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a2ab3dc829530711628fb8041ebbe143f}{MaxBitCount}}(}
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ poly\_modulus\_degree,\ sec\_level\_type\ sec\_level\ =\ sec\_level\_type::tc128)\ \textcolor{keyword}{noexcept}}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (sec\_level)}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sec\_level\_type::tc128:}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::seal\_he\_std\_parms\_128\_tc(poly\_modulus\_degree);}
+\DoxyCodeLine{00446\ }
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sec\_level\_type::tc192:}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::seal\_he\_std\_parms\_192\_tc(poly\_modulus\_degree);}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sec\_level\_type::tc256:}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ util::seal\_he\_std\_parms\_256\_tc(poly\_modulus\_degree);}
+\DoxyCodeLine{00452\ }
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ sec\_level\_type::none:}
+\DoxyCodeLine{00454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (std::numeric\_limits<int>::max)();}
+\DoxyCodeLine{00455\ }
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00460\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ std::vector<Modulus>\ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a6f120db2858c87d7dd670a72dc9aaccc}{BFVDefault}}(}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ poly\_modulus\_degree,\ sec\_level\_type\ sec\_level\ =\ sec\_level\_type::tc128);}
+\DoxyCodeLine{00480\ }
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ std::vector<Modulus>\ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a79140507d9efa53cd518ca4c6f77d933}{Create}}(std::size\_t\ poly\_modulus\_degree,\ std::vector<int>\ bit\_sizes);}
+\DoxyCodeLine{00498\ }
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ std::vector<Modulus>\ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a2fb20ada00c1e313ca0b416fcd1e7bb3}{Create}}(}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ poly\_modulus\_degree,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \&plain\_modulus,\ std::vector<int>\ bit\_sizes);}
+\DoxyCodeLine{00518\ \ \ \ \ \};}
+\DoxyCodeLine{00519\ }
+\DoxyCodeLine{00523\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_plain_modulus}{PlainModulus}}}
+\DoxyCodeLine{00524\ \ \ \ \ \{}
+\DoxyCodeLine{00525\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_plain_modulus}{PlainModulus}}()\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00527\ }
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}}\ \mbox{\hyperlink{classseal_1_1_plain_modulus_a79fb08c88ce67d7b48d0c569ce871a83}{Batching}}(std::size\_t\ poly\_modulus\_degree,\ \textcolor{keywordtype}{int}\ bit\_size)}
+\DoxyCodeLine{00541\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a79140507d9efa53cd518ca4c6f77d933}{CoeffModulus::Create}}(poly\_modulus\_degree,\ \{\ bit\_size\ \})[0];}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00544\ }
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{static}\ \textcolor{keyword}{inline}\ std::vector<Modulus>\ \mbox{\hyperlink{classseal_1_1_plain_modulus_a081d4260f1e7551fa5d84c2d93765249}{Batching}}(}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ std::size\_t\ poly\_modulus\_degree,\ std::vector<int>\ bit\_sizes)}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a79140507d9efa53cd518ca4c6f77d933}{CoeffModulus::Create}}(poly\_modulus\_degree,\ bit\_sizes);}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00564\ \ \ \ \ \};}
+\DoxyCodeLine{00565\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

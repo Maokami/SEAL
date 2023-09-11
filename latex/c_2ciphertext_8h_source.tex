@@ -1,0 +1,90 @@
+\doxysection{ciphertext.\+h}
+\hypertarget{c_2ciphertext_8h_source}{}\label{c_2ciphertext_8h_source}\index{seal/c/ciphertext.h@{seal/c/ciphertext.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ Ciphertext\_Create1(\textcolor{keywordtype}{void}\ *pool,\ \textcolor{keywordtype}{void}\ **cipher);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ Ciphertext\_Create2(\textcolor{keywordtype}{void}\ *copy,\ \textcolor{keywordtype}{void}\ **cipher);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ Ciphertext\_Create3(\textcolor{keywordtype}{void}\ *context,\ \textcolor{keywordtype}{void}\ *pool,\ \textcolor{keywordtype}{void}\ **cipher);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ Ciphertext\_Create4(\textcolor{keywordtype}{void}\ *context,\ uint64\_t\ *parms\_id,\ \textcolor{keywordtype}{void}\ *pool,\ \textcolor{keywordtype}{void}\ **cipher);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ Ciphertext\_Create5(\textcolor{keywordtype}{void}\ *context,\ uint64\_t\ *parms\_id,\ uint64\_t\ capacity,\ \textcolor{keywordtype}{void}\ *pool,\ \textcolor{keywordtype}{void}\ **ciphertext);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ Ciphertext\_Reserve1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint64\_t\ *parms\_id,\ uint64\_t\ size\_capacity);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ Ciphertext\_Reserve2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint64\_t\ size\_capacity);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ Ciphertext\_Reserve3(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ size\_capacity);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ Ciphertext\_Set(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *assign);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ Ciphertext\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ SEAL\_C\_FUNC\ Ciphertext\_Size(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *size);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ SEAL\_C\_FUNC\ Ciphertext\_SizeCapacity(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *size\_capacity);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ SEAL\_C\_FUNC\ Ciphertext\_PolyModulusDegree(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *poly\_modulus\_degree);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ SEAL\_C\_FUNC\ Ciphertext\_CoeffModulusSize(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *coeff\_modulus\_size);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ SEAL\_C\_FUNC\ Ciphertext\_ParmsId(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *parms\_id);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ SEAL\_C\_FUNC\ Ciphertext\_SetParmsId(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *parms\_id);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ SEAL\_C\_FUNC\ Ciphertext\_Resize1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint64\_t\ *parms\_id,\ uint64\_t\ size);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ SEAL\_C\_FUNC\ Ciphertext\_Resize2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint64\_t\ size);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ SEAL\_C\_FUNC\ Ciphertext\_Resize3(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ size);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ SEAL\_C\_FUNC\ Ciphertext\_Resize4(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ size,\ uint64\_t\ polyModulusDegree,\ uint64\_t\ coeffModCount);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ SEAL\_C\_FUNC\ Ciphertext\_GetDataAt1(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ index,\ uint64\_t\ *data);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ SEAL\_C\_FUNC\ Ciphertext\_GetDataAt2(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ poly\_index,\ uint64\_t\ coeff\_index,\ uint64\_t\ *data);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ SEAL\_C\_FUNC\ Ciphertext\_SetDataAt(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ index,\ uint64\_t\ value);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ SEAL\_C\_FUNC\ Ciphertext\_IsNTTForm(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *is\_ntt\_form);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ SEAL\_C\_FUNC\ Ciphertext\_SetIsNTTForm(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ is\_ntt\_form);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ SEAL\_C\_FUNC\ Ciphertext\_Scale(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{double}\ *scale);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ SEAL\_C\_FUNC\ Ciphertext\_SetScale(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{double}\ scale);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ SEAL\_C\_FUNC\ Ciphertext\_CorrectionFactor(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *correction\_factor);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ SEAL\_C\_FUNC\ Ciphertext\_SetCorrectionFactor(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ correction\_factor);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ SEAL\_C\_FUNC\ Ciphertext\_Release(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ SEAL\_C\_FUNC\ Ciphertext\_IsTransparent(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *result);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ SEAL\_C\_FUNC\ Ciphertext\_Pool(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **pool);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ SEAL\_C\_FUNC\ Ciphertext\_SaveSize(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ compr\_mode,\ int64\_t\ *result);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ SEAL\_C\_FUNC\ Ciphertext\_Save(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ *outptr,\ uint64\_t\ size,\ uint8\_t\ compr\_mode,\ int64\_t\ *out\_bytes);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ SEAL\_C\_FUNC\ Ciphertext\_UnsafeLoad(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint8\_t\ *inptr,\ uint64\_t\ size,\ int64\_t\ *in\_bytes);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ SEAL\_C\_FUNC\ Ciphertext\_Load(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint8\_t\ *inptr,\ uint64\_t\ size,\ int64\_t\ *in\_bytes);}
+
+\end{DoxyCode}

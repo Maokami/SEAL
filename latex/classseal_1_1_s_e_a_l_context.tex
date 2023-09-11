@@ -1,0 +1,214 @@
+\doxysection{seal\+::SEALContext Class Reference}
+\hypertarget{classseal_1_1_s_e_a_l_context}{}\label{classseal_1_1_s_e_a_l_context}\index{seal::SEALContext@{seal::SEALContext}}
+
+
+{\ttfamily \#include $<$context.\+h$>$}
+
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a69bfc699a72921da02d96bf80080d504}{SEALContext}} (const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&parms, bool expand\+\_\+mod\+\_\+chain=true, sec\+\_\+level\+\_\+type sec\+\_\+level=sec\+\_\+level\+\_\+type\+::tc128)
+\item 
+\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a516ed93ae0970c7f7b20825bb66fc0fd}{SEALContext}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&copy)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_s_e_a_l_context_ae752d2acb085726ac7c357dba45c7d37}{SEALContext}} (\mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&\&source)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_ac9206c0cdda72c566323f4bdc7ea44ed}{operator=}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a3b530571377f13f8a9208fd1551ae21a}{operator=}} (\mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&\&assign)=default
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a177197adcfad21b54c7b11fda845d42c}{get\+\_\+context\+\_\+data}} (parms\+\_\+id\+\_\+type parms\+\_\+id) const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\+\_\+context\+\_\+data}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a87b32c236c134f844624b40cf9ba32e5}{first\+\_\+context\+\_\+data}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a50e20dcbc3d1a007aa801785e4c7a33b}{last\+\_\+context\+\_\+data}} () const
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a1b893ae46ab85c285256e6c376258989}{parameters\+\_\+set}} () const
+\item 
+SEAL\+\_\+\+NODISCARD const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_aa805b88dd3d95c407a237336d230b7b2}{parameter\+\_\+error\+\_\+name}} () const
+\item 
+SEAL\+\_\+\+NODISCARD const char \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a7d78c76fa099d944d7117e7fcd0e11f2}{parameter\+\_\+error\+\_\+message}} () const
+\item 
+SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a7cc16cad24e212b1a46cb9216e0356b8}{key\+\_\+parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a292e9ef4bca3931ce0eda85a6c434eb4}{first\+\_\+parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a4983bfe19cf8a9edb09490e640f44515}{last\+\_\+parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_a1570a786c1f67480275703101d25db18}{using\+\_\+keyswitching}} () const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Performs sanity checks (validation) and pre-\/computations for a given set of encryption parameters. While the \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} class is intended to be a light-\/weight class to store the encryption parameters, the \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} class is a heavy-\/weight class that is constructed from a given set of encryption parameters. It validates the parameters for correctness, evaluates their properties, and performs and stores the results of several costly pre-\/computations.
+
+After the user has set at least the poly\+\_\+modulus, coeff\+\_\+modulus, and plain\+\_\+modulus parameters in a given \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} instance, the parameters can be validated for correctness and functionality by constructing an instance of \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}. The constructor of \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} does all of its work automatically, and concludes by constructing and storing an instance of the \doxylink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers} class, with its flags set according to the properties of the given parameters. If the created instance of \doxylink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers} has the parameters\+\_\+set flag set to true, the given parameter set has been deemed valid and is ready to be used. If the parameters were for some reason not appropriately set, the parameters\+\_\+set flag will be false, and a new \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} will have to be created after the parameters are corrected.
+
+By default, \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} creates a chain of \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{SEALContext\+::\+Context\+Data} instances. The first one in the chain corresponds to special encryption parameters that are reserved to be used by the various key classes (\doxylink{classseal_1_1_secret_key}{Secret\+Key}, \doxylink{classseal_1_1_public_key}{Public\+Key}, etc.). These are the exact same encryption parameters that are created by the user and passed to th constructor of \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}. The functions \doxylink{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}{key\+\_\+context\+\_\+data()} and \doxylink{classseal_1_1_s_e_a_l_context_a7cc16cad24e212b1a46cb9216e0356b8}{key\+\_\+parms\+\_\+id()} return the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} and the parms\+\_\+id corresponding to these special parameters. The rest of the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} instances in the chain correspond to encryption parameters that are derived from the first encryption parameters by always removing the last one of the moduli in the coeff\+\_\+modulus, until the resulting parameters are no longer valid, e.\+g., there are no more primes left. These derived encryption parameters are used by ciphertexts and plaintexts and their respective \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} can be accessed through the get\+\_\+context\+\_\+data(parms\+\_\+id\+\_\+type) function. The functions \doxylink{classseal_1_1_s_e_a_l_context_a87b32c236c134f844624b40cf9ba32e5}{first\+\_\+context\+\_\+data()} and \doxylink{classseal_1_1_s_e_a_l_context_a50e20dcbc3d1a007aa801785e4c7a33b}{last\+\_\+context\+\_\+data()} return the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} corresponding to the first and the last set of parameters in the \"{}data\"{} part of the chain, i.\+e., the second and the last element in the full chain. The chain itself is a doubly linked list, and is referred to as the modulus switching chain.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for more details on the parameters. 
+
+\doxylink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers} for more details on the qualifiers. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_s_e_a_l_context_a69bfc699a72921da02d96bf80080d504}\label{classseal_1_1_s_e_a_l_context_a69bfc699a72921da02d96bf80080d504} 
+\index{seal::SEALContext@{seal::SEALContext}!SEALContext@{SEALContext}}
+\index{SEALContext@{SEALContext}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{SEALContext()}{SEALContext()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily seal\+::\+SEALContext\+::\+SEALContext (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}} \&}]{parms,  }\item[{bool}]{expand\+\_\+mod\+\_\+chain = {\ttfamily true},  }\item[{sec\+\_\+level\+\_\+type}]{sec\+\_\+level = {\ttfamily sec\+\_\+level\+\_\+type\+:\+:tc128} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates an instance of \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} and performs several pre-\/computations on the given \doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parms} & The encryption parameters \\
+\hline
+\mbox{\texttt{ in}}  & {\em expand\+\_\+mod\+\_\+chain} & Determines whether the modulus switching chain should be created \\
+\hline
+\mbox{\texttt{ in}}  & {\em sec\+\_\+level} & Determines whether a specific security level should be enforced according to Homomorphic\+Encryption.\+org security standard \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_s_e_a_l_context_a516ed93ae0970c7f7b20825bb66fc0fd}\label{classseal_1_1_s_e_a_l_context_a516ed93ae0970c7f7b20825bb66fc0fd} 
+\index{seal::SEALContext@{seal::SEALContext}!SEALContext@{SEALContext}}
+\index{SEALContext@{SEALContext}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{SEALContext()}{SEALContext()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily seal\+::\+SEALContext\+::\+SEALContext (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} by copying a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_s_e_a_l_context_ae752d2acb085726ac7c357dba45c7d37}\label{classseal_1_1_s_e_a_l_context_ae752d2acb085726ac7c357dba45c7d37} 
+\index{seal::SEALContext@{seal::SEALContext}!SEALContext@{SEALContext}}
+\index{SEALContext@{SEALContext}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{SEALContext()}{SEALContext()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily seal\+::\+SEALContext\+::\+SEALContext (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} by moving a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} to move from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_s_e_a_l_context_a87b32c236c134f844624b40cf9ba32e5}\label{classseal_1_1_s_e_a_l_context_a87b32c236c134f844624b40cf9ba32e5} 
+\index{seal::SEALContext@{seal::SEALContext}!first\_context\_data@{first\_context\_data}}
+\index{first\_context\_data@{first\_context\_data}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{first\_context\_data()}{first\_context\_data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ seal\+::\+SEALContext\+::first\+\_\+context\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} corresponding to the first encryption parameters that are used for data. \Hypertarget{classseal_1_1_s_e_a_l_context_a292e9ef4bca3931ce0eda85a6c434eb4}\label{classseal_1_1_s_e_a_l_context_a292e9ef4bca3931ce0eda85a6c434eb4} 
+\index{seal::SEALContext@{seal::SEALContext}!first\_parms\_id@{first\_parms\_id}}
+\index{first\_parms\_id@{first\_parms\_id}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{first\_parms\_id()}{first\_parms\_id()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& seal\+::\+SEALContext\+::first\+\_\+parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a parms\+\_\+id\+\_\+type corresponding to the first encryption parameters that are used for data. \Hypertarget{classseal_1_1_s_e_a_l_context_a177197adcfad21b54c7b11fda845d42c}\label{classseal_1_1_s_e_a_l_context_a177197adcfad21b54c7b11fda845d42c} 
+\index{seal::SEALContext@{seal::SEALContext}!get\_context\_data@{get\_context\_data}}
+\index{get\_context\_data@{get\_context\_data}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{get\_context\_data()}{get\_context\_data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ seal\+::\+SEALContext\+::get\+\_\+context\+\_\+data (\begin{DoxyParamCaption}\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} corresponding to encryption parameters with a given parms\+\_\+id. If parameters with the given parms\+\_\+id are not found then the function returns nullptr.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id of the encryption parameters \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814}\label{classseal_1_1_s_e_a_l_context_a0ad47117c6c215c73e29ec74c1b43814} 
+\index{seal::SEALContext@{seal::SEALContext}!key\_context\_data@{key\_context\_data}}
+\index{key\_context\_data@{key\_context\_data}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{key\_context\_data()}{key\_context\_data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ seal\+::\+SEALContext\+::key\+\_\+context\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} corresponding to encryption parameters that are used for keys. \Hypertarget{classseal_1_1_s_e_a_l_context_a7cc16cad24e212b1a46cb9216e0356b8}\label{classseal_1_1_s_e_a_l_context_a7cc16cad24e212b1a46cb9216e0356b8} 
+\index{seal::SEALContext@{seal::SEALContext}!key\_parms\_id@{key\_parms\_id}}
+\index{key\_parms\_id@{key\_parms\_id}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{key\_parms\_id()}{key\_parms\_id()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& seal\+::\+SEALContext\+::key\+\_\+parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a parms\+\_\+id\+\_\+type corresponding to the set of encryption parameters that are used for keys. \Hypertarget{classseal_1_1_s_e_a_l_context_a50e20dcbc3d1a007aa801785e4c7a33b}\label{classseal_1_1_s_e_a_l_context_a50e20dcbc3d1a007aa801785e4c7a33b} 
+\index{seal::SEALContext@{seal::SEALContext}!last\_context\_data@{last\_context\_data}}
+\index{last\_context\_data@{last\_context\_data}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{last\_context\_data()}{last\_context\_data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::shared\+\_\+ptr$<$ const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data}} $>$ seal\+::\+SEALContext\+::last\+\_\+context\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the \doxylink{classseal_1_1_s_e_a_l_context_1_1_context_data}{Context\+Data} corresponding to the last encryption parameters that are used for data. \Hypertarget{classseal_1_1_s_e_a_l_context_a4983bfe19cf8a9edb09490e640f44515}\label{classseal_1_1_s_e_a_l_context_a4983bfe19cf8a9edb09490e640f44515} 
+\index{seal::SEALContext@{seal::SEALContext}!last\_parms\_id@{last\_parms\_id}}
+\index{last\_parms\_id@{last\_parms\_id}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{last\_parms\_id()}{last\_parms\_id()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& seal\+::\+SEALContext\+::last\+\_\+parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a parms\+\_\+id\+\_\+type corresponding to the last encryption parameters that are used for data. \Hypertarget{classseal_1_1_s_e_a_l_context_ac9206c0cdda72c566323f4bdc7ea44ed}\label{classseal_1_1_s_e_a_l_context_ac9206c0cdda72c566323f4bdc7ea44ed} 
+\index{seal::SEALContext@{seal::SEALContext}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \& seal\+::\+SEALContext\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copies a given \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_s_e_a_l_context_a3b530571377f13f8a9208fd1551ae21a}\label{classseal_1_1_s_e_a_l_context_a3b530571377f13f8a9208fd1551ae21a} 
+\index{seal::SEALContext@{seal::SEALContext}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \& seal\+::\+SEALContext\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Moves a given \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_s_e_a_l_context_a7d78c76fa099d944d7117e7fcd0e11f2}\label{classseal_1_1_s_e_a_l_context_a7d78c76fa099d944d7117e7fcd0e11f2} 
+\index{seal::SEALContext@{seal::SEALContext}!parameter\_error\_message@{parameter\_error\_message}}
+\index{parameter\_error\_message@{parameter\_error\_message}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{parameter\_error\_message()}{parameter\_error\_message()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const char \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::parameter\+\_\+error\+\_\+message (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a comprehensive message that interprets encryption parameters\textquotesingle{} error. \Hypertarget{classseal_1_1_s_e_a_l_context_aa805b88dd3d95c407a237336d230b7b2}\label{classseal_1_1_s_e_a_l_context_aa805b88dd3d95c407a237336d230b7b2} 
+\index{seal::SEALContext@{seal::SEALContext}!parameter\_error\_name@{parameter\_error\_name}}
+\index{parameter\_error\_name@{parameter\_error\_name}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{parameter\_error\_name()}{parameter\_error\_name()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const char \texorpdfstring{$\ast$}{*} seal\+::\+SEALContext\+::parameter\+\_\+error\+\_\+name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the name of encryption parameters\textquotesingle{} error. \Hypertarget{classseal_1_1_s_e_a_l_context_a1b893ae46ab85c285256e6c376258989}\label{classseal_1_1_s_e_a_l_context_a1b893ae46ab85c285256e6c376258989} 
+\index{seal::SEALContext@{seal::SEALContext}!parameters\_set@{parameters\_set}}
+\index{parameters\_set@{parameters\_set}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{parameters\_set()}{parameters\_set()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+SEALContext\+::parameters\+\_\+set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether the first\+\_\+context\+\_\+data\textquotesingle{}s encryption parameters are valid. \Hypertarget{classseal_1_1_s_e_a_l_context_a1570a786c1f67480275703101d25db18}\label{classseal_1_1_s_e_a_l_context_a1570a786c1f67480275703101d25db18} 
+\index{seal::SEALContext@{seal::SEALContext}!using\_keyswitching@{using\_keyswitching}}
+\index{using\_keyswitching@{using\_keyswitching}!seal::SEALContext@{seal::SEALContext}}
+\doxysubsubsection{\texorpdfstring{using\_keyswitching()}{using\_keyswitching()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+SEALContext\+::using\+\_\+keyswitching (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns whether the coefficient modulus supports keyswitching. In practice, support for keyswitching is required by \doxylink{classseal_1_1_evaluator_ad326c409fe3c8cf7c741de44f6980941}{Evaluator\+::relinearize}, \doxylink{classseal_1_1_evaluator_a9099cf7e670952bf33d4d27806624c4b}{Evaluator\+::apply\+\_\+galois}, and all rotation and conjugation operations. For keyswitching to be available, the coefficient modulus parameter must consist of at least two prime number factors. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/context.\+h\item 
+seal/context.\+cpp\end{DoxyCompactItemize}

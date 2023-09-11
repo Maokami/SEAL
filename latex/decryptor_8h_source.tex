@@ -1,0 +1,104 @@
+\doxysection{decryptor.\+h}
+\hypertarget{decryptor_8h_source}{}\label{decryptor_8h_source}\index{seal/decryptor.h@{seal/decryptor.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/ciphertext.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/context.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/encryptionparams.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/memorymanager.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/modulus.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/plaintext.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}seal/randomgen.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/secretkey.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ "{}seal/util/iterator.h"{}}}
+\DoxyCodeLine{00016\ \textcolor{preprocessor}{\#include\ "{}seal/util/locks.h"{}}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#include\ "{}seal/util/ntt.h"{}}}
+\DoxyCodeLine{00018\ \textcolor{preprocessor}{\#include\ "{}seal/util/rns.h"{}}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00021\ \{}
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}}
+\DoxyCodeLine{00051\ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ \&context,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_secret_key}{SecretKey}}\ \&secret\_key);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00065\ \textcolor{comment}{\ \ \ \ \ \ \ \ Decrypts\ a\ Ciphertext\ and\ stores\ the\ result\ in\ the\ destination\ parameter.}}
+\DoxyCodeLine{00066\ \textcolor{comment}{}}
+\DoxyCodeLine{00067\ \textcolor{comment}{\ \ \ \ \ \ \ \ @param[in]\ encrypted\ The\ ciphertext\ to\ decrypt}}
+\DoxyCodeLine{00068\ \textcolor{comment}{\ \ \ \ \ \ \ \ @param[out]\ destination\ The\ plaintext\ to\ overwrite\ with\ the\ decrypted}}
+\DoxyCodeLine{00069\ \textcolor{comment}{\ \ \ \ \ \ \ \ ciphertext}}
+\DoxyCodeLine{00070\ \textcolor{comment}{\ \ \ \ \ \ \ \ @throws\ std::invalid\_argument\ if\ encrypted\ is\ not\ valid\ for\ the\ encryption}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ parameters}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ @throws\ std::invalid\_argument\ if\ encrypted\ is\ not\ in\ the\ default\ NTT\ form}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ decrypt(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00077\ \textcolor{comment}{\ \ \ \ \ \ \ \ Computes\ the\ invariant\ noise\ budget\ (in\ bits)\ of\ a\ ciphertext.\ The}}
+\DoxyCodeLine{00078\ \textcolor{comment}{\ \ \ \ \ \ \ \ invariant\ noise\ budget\ measures\ the\ amount\ of\ room\ there\ is\ for\ the\ noise}}
+\DoxyCodeLine{00079\ \textcolor{comment}{\ \ \ \ \ \ \ \ to\ grow\ while\ ensuring\ correct\ decryptions.\ This\ function\ works\ only\ with}}
+\DoxyCodeLine{00080\ \textcolor{comment}{\ \ \ \ \ \ \ \ the\ BFV\ scheme.}}
+\DoxyCodeLine{00081\ \textcolor{comment}{}}
+\DoxyCodeLine{00082\ \textcolor{comment}{\ \ \ \ \ \ \ \ @par\ Invariant\ Noise\ Budget}}
+\DoxyCodeLine{00083\ \textcolor{comment}{\ \ \ \ \ \ \ \ The\ invariant\ noise\ polynomial\ of\ a\ ciphertext\ is\ a\ rational\ coefficient}}
+\DoxyCodeLine{00084\ \textcolor{comment}{\ \ \ \ \ \ \ \ polynomial,\ such\ that\ a\ ciphertext\ decrypts\ correctly\ as\ long\ as\ the}}
+\DoxyCodeLine{00085\ \textcolor{comment}{\ \ \ \ \ \ \ \ coefficients\ of\ the\ invariant\ noise\ polynomial\ are\ of\ absolute\ value\ less}}
+\DoxyCodeLine{00086\ \textcolor{comment}{\ \ \ \ \ \ \ \ than\ 1/2.\ Thus,\ we\ call\ the\ infinity-\/norm\ of\ the\ invariant\ noise\ polynomial}}
+\DoxyCodeLine{00087\ \textcolor{comment}{\ \ \ \ \ \ \ \ the\ invariant\ noise,\ and\ for\ correct\ decryption\ require\ it\ to\ be\ less\ than}}
+\DoxyCodeLine{00088\ \textcolor{comment}{\ \ \ \ \ \ \ \ 1/2.\ If\ v\ denotes\ the\ invariant\ noise,\ we\ define\ the\ invariant\ noise\ budget}}
+\DoxyCodeLine{00089\ \textcolor{comment}{\ \ \ \ \ \ \ \ as\ -\/log2(2v).\ Thus,\ the\ invariant\ noise\ budget\ starts\ from\ some\ initial}}
+\DoxyCodeLine{00090\ \textcolor{comment}{\ \ \ \ \ \ \ \ value,\ which\ depends\ on\ the\ encryption\ parameters,\ and\ decreases\ when}}
+\DoxyCodeLine{00091\ \textcolor{comment}{\ \ \ \ \ \ \ \ computations\ are\ performed.\ When\ the\ budget\ reaches\ zero,\ the\ ciphertext}}
+\DoxyCodeLine{00092\ \textcolor{comment}{\ \ \ \ \ \ \ \ becomes\ too\ noisy\ to\ decrypt\ correctly.}}
+\DoxyCodeLine{00093\ \textcolor{comment}{}}
+\DoxyCodeLine{00094\ \textcolor{comment}{\ \ \ \ \ \ \ \ @param[in]\ encrypted\ The\ ciphertext}}
+\DoxyCodeLine{00095\ \textcolor{comment}{\ \ \ \ \ \ \ \ @throws\ std::logic\_error\ if\ the\ scheme\ is\ not\ BFV/BGV}}
+\DoxyCodeLine{00096\ \textcolor{comment}{\ \ \ \ \ \ \ \ @throws\ std::invalid\_argument\ if\ encrypted\ is\ not\ valid\ for\ the\ encryption}}
+\DoxyCodeLine{00097\ \textcolor{comment}{\ \ \ \ \ \ \ \ parameters}}
+\DoxyCodeLine{00098\ \textcolor{comment}{\ \ \ \ \ \ \ \ @throws\ std::invalid\_argument\ if\ encrypted\ is\ in\ NTT\ form}}
+\DoxyCodeLine{00099\ \textcolor{comment}{\ \ \ \ \ \ \ \ */}}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{int}\ invariant\_noise\_budget(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted);}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bfv\_decrypt(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool);}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ ckks\_decrypt(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool);}
+\DoxyCodeLine{00106\ }
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ bgv\_decrypt(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}}\ \&destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}\ \&copy)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00110\ }
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}(\mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}\ \&\&source)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}\ \&operator=(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}\ \&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}\ \&operator=(\mbox{\hyperlink{classseal_1_1_decryptor}{Decryptor}}\ \&\&assign)\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ compute\_secret\_key\_array(std::size\_t\ max\_power);}
+\DoxyCodeLine{00118\ }
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Compute\ c\_0\ +\ c\_1\ *s\ +\ ...\ +\ c\_\{count-\/1\}\ *\ s\string^\{count-\/1\}\ mod\ q.}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Store\ result\ in\ destination\ in\ RNS\ form.}}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ destination\ has\ the\ size\ of\ an\ RNS\ polynomial.}}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ dot\_product\_ct\_sk\_array(\textcolor{keyword}{const}\ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}}\ \&encrypted,\ \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_iter}{util::RNSIter}}\ destination,\ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool);}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ We\ use\ a\ fresh\ memory\ pool\ with\ \`{}clear\_on\_destruction'\ enabled.}}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{MemoryPoolHandle}}\ pool\_\ =\ MemoryManager::GetPool(mm\_prof\_opt::mm\_force\_new,\ \textcolor{keyword}{true});}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}}\ context\_;}
+\DoxyCodeLine{00128\ }
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ std::size\_t\ secret\_key\_array\_size\_\ =\ 0;}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{util::Pointer<std::uint64\_t>}}\ secret\_key\_array\_;}
+\DoxyCodeLine{00132\ }
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keyword}{mutable}\ \mbox{\hyperlink{classseal_1_1util_1_1_reader_writer_locker}{util::ReaderWriterLocker}}\ secret\_key\_array\_locker\_;}
+\DoxyCodeLine{00134\ \ \ \ \ \};}
+\DoxyCodeLine{00135\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

@@ -1,0 +1,103 @@
+\doxysection{valcheck.\+h}
+\hypertarget{valcheck_8h_source}{}\label{valcheck_8h_source}\index{seal/valcheck.h@{seal/valcheck.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/context.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00010\ \{}
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{class\ }Plaintext;}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{class\ }Ciphertext;}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{class\ }SecretKey;}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{class\ }PublicKey;}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{class\ }KSwitchKeys;}
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keyword}{class\ }RelinKeys;}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{class\ }GaloisKeys;}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00031\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Plaintext\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context,\ \textcolor{keywordtype}{bool}\ allow\_pure\_key\_levels\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00046\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Ciphertext\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context,\ \textcolor{keywordtype}{bool}\ allow\_pure\_key\_levels\ =\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00059\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(\textcolor{keyword}{const}\ SecretKey\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00071\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(\textcolor{keyword}{const}\ PublicKey\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00083\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(\textcolor{keyword}{const}\ KSwitchKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00095\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(\textcolor{keyword}{const}\ RelinKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00107\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_metadata\_valid\_for(\textcolor{keyword}{const}\ GaloisKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00108\ }
+\DoxyCodeLine{00118\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ Plaintext\ \&in);}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00129\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ Ciphertext\ \&in);}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00140\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ SecretKey\ \&in);}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00151\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ PublicKey\ \&in);}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00162\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ KSwitchKeys\ \&in);}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00173\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ RelinKeys\ \&in);}
+\DoxyCodeLine{00174\ }
+\DoxyCodeLine{00184\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_buffer\_valid(\textcolor{keyword}{const}\ GaloisKeys\ \&in);}
+\DoxyCodeLine{00185\ }
+\DoxyCodeLine{00196\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ Plaintext\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00197\ }
+\DoxyCodeLine{00208\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ Ciphertext\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00209\ }
+\DoxyCodeLine{00220\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ SecretKey\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00232\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ PublicKey\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00233\ }
+\DoxyCodeLine{00244\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ KSwitchKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00245\ }
+\DoxyCodeLine{00256\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ RelinKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00257\ }
+\DoxyCodeLine{00268\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keywordtype}{bool}\ is\_data\_valid\_for(\textcolor{keyword}{const}\ GaloisKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context);}
+\DoxyCodeLine{00269\ }
+\DoxyCodeLine{00280\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ Plaintext\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00281\ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00283\ \ \ \ \ \}}
+\DoxyCodeLine{00284\ }
+\DoxyCodeLine{00295\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ Ciphertext\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00296\ \ \ \ \ \{}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00298\ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00310\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ SecretKey\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00311\ \ \ \ \ \{}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00313\ \ \ \ \ \}}
+\DoxyCodeLine{00314\ }
+\DoxyCodeLine{00325\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ PublicKey\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00326\ \ \ \ \ \{}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00328\ \ \ \ \ \}}
+\DoxyCodeLine{00329\ }
+\DoxyCodeLine{00340\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ KSwitchKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00341\ \ \ \ \ \{}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00343\ \ \ \ \ \}}
+\DoxyCodeLine{00344\ }
+\DoxyCodeLine{00355\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ RelinKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00356\ \ \ \ \ \{}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00358\ \ \ \ \ \}}
+\DoxyCodeLine{00359\ }
+\DoxyCodeLine{00370\ \ \ \ \ SEAL\_NODISCARD\ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{bool}\ is\_valid\_for(\textcolor{keyword}{const}\ GaloisKeys\ \&in,\ \textcolor{keyword}{const}\ SEALContext\ \&context)}
+\DoxyCodeLine{00371\ \ \ \ \ \{}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ is\_buffer\_valid(in)\ \&\&\ is\_data\_valid\_for(in,\ context);}
+\DoxyCodeLine{00373\ \ \ \ \ \}}
+\DoxyCodeLine{00374\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

@@ -1,0 +1,338 @@
+\doxysection{seal\+::CKKSEncoder Class Reference}
+\hypertarget{classseal_1_1_c_k_k_s_encoder}{}\label{classseal_1_1_c_k_k_s_encoder}\index{seal::CKKSEncoder@{seal::CKKSEncoder}}
+
+
+{\ttfamily \#include $<$ckks.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a49f5e2ea8c212ed45d73f0fe41baf81e}{CKKSEncoder}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context)
+\item 
+{\footnotesize template$<$typename T , typename  = std\+::enable\+\_\+if\+\_\+t$<$                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, double$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, std\+::complex$<$double$>$$>$\+::value$>$$>$ }\\void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a71758c23292bee1f5056c87f02443c30}{encode}} (const std\+::vector$<$ T $>$ \&values, parms\+\_\+id\+\_\+type parms\+\_\+id, double scale, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+{\footnotesize template$<$typename T , typename  = std\+::enable\+\_\+if\+\_\+t$<$                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, double$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, std\+::complex$<$double$>$$>$\+::value$>$$>$ }\\void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_ae94782e19c22991b95e640067cf4e646}{encode}} (const std\+::vector$<$ T $>$ \&values, double scale, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a24b555818b36dcb44fa58217d764a871}{encode}} (double value, parms\+\_\+id\+\_\+type parms\+\_\+id, double scale, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a980de83750fca2c983c6bca1b43657c6}{encode}} (double value, double scale, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a64ff06c41def8626ed6d17a76a27add1}{encode}} (std\+::complex$<$ double $>$ value, parms\+\_\+id\+\_\+type parms\+\_\+id, double scale, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_aaa61623d599b26770ad7fdea92aa3cfe}{encode}} (std\+::complex$<$ double $>$ value, double scale, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a560dd9d10a58fed04ac259e3e22c56fc}{encode}} (std\+::int64\+\_\+t value, parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a047ea623797b251386ae9fe0c6220491}{encode}} (std\+::int64\+\_\+t value, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination) const
+\item 
+{\footnotesize template$<$typename T , typename  = std\+::enable\+\_\+if\+\_\+t$<$                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, double$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, std\+::complex$<$double$>$$>$\+::value$>$$>$ }\\void \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a8f43d6391f41d65b22cf68677442785e}{decode}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, std\+::vector$<$ T $>$ \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_c_k_k_s_encoder_a324bf43b23f2869bad124a891ae67871}{slot\+\_\+count}} () const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functionality for encoding vectors of complex or real numbers into plaintext polynomials to be encrypted and computed on using the CKKS scheme. If the polynomial modulus degree is N, then \doxylink{classseal_1_1_c_k_k_s_encoder}{CKKSEncoder} converts vectors of N/2 complex numbers into plaintext elements. Homomorphic operations performed on such encrypted vectors are applied coefficient (slot-\/)wise, enabling powerful SIMD functionality for computations that are vectorizable. This functionality is often called \"{}batching\"{} in the homomorphic encryption literature.
+
+\begin{DoxyParagraph}{Mathematical Background}
+Mathematically speaking, if the polynomial modulus is X\texorpdfstring{$^\wedge$}{\string^}\+N+1, N is a power of two, the \doxylink{classseal_1_1_c_k_k_s_encoder}{CKKSEncoder} implements an approximation of the canonical embedding of the ring of integers Z\mbox{[}X\mbox{]}/(X\texorpdfstring{$^\wedge$}{\string^}\+N+1) into C\texorpdfstring{$^\wedge$}{\string^}(N/2), where C denotes the complex numbers. The Galois group of the extension is (Z/2\+NZ)\texorpdfstring{$\ast$}{*} \texorpdfstring{$\sim$}{\string~}= Z/2Z x Z/(N/2) whose action on the primitive roots of unity modulo coeff\+\_\+modulus is easy to describe. Since the batching slots correspond 1-\/to-\/1 to the primitive roots of unity, applying Galois automorphisms on the plaintext acts by permuting the slots. By applying generators of the two cyclic subgroups of the Galois group, we can effectively enable cyclic rotations and complex conjugations of the encrypted complex vectors. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a49f5e2ea8c212ed45d73f0fe41baf81e}\label{classseal_1_1_c_k_k_s_encoder_a49f5e2ea8c212ed45d73f0fe41baf81e} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!CKKSEncoder@{CKKSEncoder}}
+\index{CKKSEncoder@{CKKSEncoder}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{CKKSEncoder()}{CKKSEncoder()}}
+{\footnotesize\ttfamily seal\+::\+CKKSEncoder\+::\+CKKSEncoder (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context }\end{DoxyParamCaption})}
+
+Creates a \doxylink{classseal_1_1_c_k_k_s_encoder}{CKKSEncoder} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if scheme is not scheme\+\_\+type\+::\+CKKS \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a8f43d6391f41d65b22cf68677442785e}\label{classseal_1_1_c_k_k_s_encoder_a8f43d6391f41d65b22cf68677442785e} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!decode@{decode}}
+\index{decode@{decode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily template$<$typename T , typename  = std\+::enable\+\_\+if\+\_\+t$<$                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, double$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, std\+::complex$<$double$>$$>$\+::value$>$$>$ \\
+void seal\+::\+CKKSEncoder\+::decode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{std\+::vector$<$ T $>$ \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Decodes a plaintext polynomial into double-\/precision floating-\/point real or complex numbers. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Vector value type (double or std\+::complex$<$double$>$) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to decode \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The vector to be overwritten with the values in the slots \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not in NTT form or is invalid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_ae94782e19c22991b95e640067cf4e646}\label{classseal_1_1_c_k_k_s_encoder_ae94782e19c22991b95e640067cf4e646} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/8]}}
+{\footnotesize\ttfamily template$<$typename T , typename  = std\+::enable\+\_\+if\+\_\+t$<$                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, double$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, std\+::complex$<$double$>$$>$\+::value$>$$>$ \\
+void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{values,  }\item[{double}]{scale,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes a vector of double-\/precision floating-\/point real or complex numbers into a plaintext polynomial. Append zeros if vector size is less than N/2. The encryption parameters used are the top level parameters for the given context. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Vector value type (double or std\+::complex$<$double$>$) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em values} & The vector of double-\/precision floating-\/point numbers (of type T) to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & Scaling parameter defining encoding precision \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if values has invalid size \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if scale is not strictly positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encoding is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a71758c23292bee1f5056c87f02443c30}\label{classseal_1_1_c_k_k_s_encoder_a71758c23292bee1f5056c87f02443c30} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/8]}}
+{\footnotesize\ttfamily template$<$typename T , typename  = std\+::enable\+\_\+if\+\_\+t$<$                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, double$>$\+::value \texorpdfstring{$\vert$}{|}\texorpdfstring{$\vert$}{|}                            std\+::is\+\_\+same$<$std\+::remove\+\_\+cv\+\_\+t$<$\+T$>$, std\+::complex$<$double$>$$>$\+::value$>$$>$ \\
+void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{values,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{double}]{scale,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes a vector of double-\/precision floating-\/point real or complex numbers into a plaintext polynomial. Append zeros if vector size is less than N/2. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Vector value type (double or std\+::complex$<$double$>$) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em values} & The vector of double-\/precision floating-\/point numbers (of type T) to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & parms\+\_\+id determining the encryption parameters to be used by the result plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & Scaling parameter defining encoding precision \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if values has invalid size \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if scale is not strictly positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encoding is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a980de83750fca2c983c6bca1b43657c6}\label{classseal_1_1_c_k_k_s_encoder_a980de83750fca2c983c6bca1b43657c6} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [3/8]}}
+{\footnotesize\ttfamily void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{double}]{scale,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes a double-\/precision floating-\/point real number into a plaintext polynomial. The number repeats for N/2 times to fill all slots. The encryption parameters used are the top level parameters for the given context. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The double-\/precision floating-\/point number to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & Scaling parameter defining encoding precision \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if scale is not strictly positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encoding is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a24b555818b36dcb44fa58217d764a871}\label{classseal_1_1_c_k_k_s_encoder_a24b555818b36dcb44fa58217d764a871} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [4/8]}}
+{\footnotesize\ttfamily void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{double}]{value,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{double}]{scale,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes a double-\/precision floating-\/point real number into a plaintext polynomial. The number repeats for N/2 times to fill all slots. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The double-\/precision floating-\/point number to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & parms\+\_\+id determining the encryption parameters to be used by the result plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & Scaling parameter defining encoding precision \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if scale is not strictly positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encoding is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_aaa61623d599b26770ad7fdea92aa3cfe}\label{classseal_1_1_c_k_k_s_encoder_aaa61623d599b26770ad7fdea92aa3cfe} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [5/8]}}
+{\footnotesize\ttfamily void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{value,  }\item[{double}]{scale,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes a double-\/precision complex number into a plaintext polynomial. Append zeros to fill all slots. The encryption parameters used are the top level parameters for the given context. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The double-\/precision complex number to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & Scaling parameter defining encoding precision \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if scale is not strictly positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encoding is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a64ff06c41def8626ed6d17a76a27add1}\label{classseal_1_1_c_k_k_s_encoder_a64ff06c41def8626ed6d17a76a27add1} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [6/8]}}
+{\footnotesize\ttfamily void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::complex$<$ double $>$}]{value,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{double}]{scale,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes a double-\/precision complex number into a plaintext polynomial. Append zeros to fill all slots. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The double-\/precision complex number to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & parms\+\_\+id determining the encryption parameters to be used by the result plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em scale} & Scaling parameter defining encoding precision \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if scale is not strictly positive \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if encoding is too large for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a560dd9d10a58fed04ac259e3e22c56fc}\label{classseal_1_1_c_k_k_s_encoder_a560dd9d10a58fed04ac259e3e22c56fc} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [7/8]}}
+{\footnotesize\ttfamily void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::int64\+\_\+t}]{value,  }\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes an integer number into a plaintext polynomial without any scaling. The number repeats for N/2 times to fill all slots. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The integer number to encode \\
+\hline
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & parms\+\_\+id determining the encryption parameters to be used by the result plaintext \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a047ea623797b251386ae9fe0c6220491}\label{classseal_1_1_c_k_k_s_encoder_a047ea623797b251386ae9fe0c6220491} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [8/8]}}
+{\footnotesize\ttfamily void seal\+::\+CKKSEncoder\+::encode (\begin{DoxyParamCaption}\item[{std\+::int64\+\_\+t}]{value,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encodes an integer number into a plaintext polynomial without any scaling. The number repeats for N/2 times to fill all slots. The encryption parameters used are the top level parameters for the given context.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The integer number to encode \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_c_k_k_s_encoder_a324bf43b23f2869bad124a891ae67871}\label{classseal_1_1_c_k_k_s_encoder_a324bf43b23f2869bad124a891ae67871} 
+\index{seal::CKKSEncoder@{seal::CKKSEncoder}!slot\_count@{slot\_count}}
+\index{slot\_count@{slot\_count}!seal::CKKSEncoder@{seal::CKKSEncoder}}
+\doxysubsubsection{\texorpdfstring{slot\_count()}{slot\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+CKKSEncoder\+::slot\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the number of complex numbers encoded. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/ckks.\+h\item 
+seal/ckks.\+cpp\end{DoxyCompactItemize}

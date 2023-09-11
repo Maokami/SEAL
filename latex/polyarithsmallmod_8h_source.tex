@@ -1,0 +1,769 @@
+\doxysection{polyarithsmallmod.\+h}
+\hypertarget{polyarithsmallmod_8h_source}{}\label{polyarithsmallmod_8h_source}\index{seal/util/polyarithsmallmod.h@{seal/util/polyarithsmallmod.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}seal/modulus.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}seal/util/common.h"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}seal/util/defines.h"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}seal/util/iterator.h"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}seal/util/pointer.h"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ "{}seal/util/polycore.h"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#include\ "{}seal/util/uintarithsmallmod.h"{}}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <cstdint>}}
+\DoxyCodeLine{00015\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{namespace\ }seal}
+\DoxyCodeLine{00018\ \{}
+\DoxyCodeLine{00019\ \ \ \ \ \textcolor{keyword}{namespace\ }util}
+\DoxyCodeLine{00020\ \ \ \ \ \{}
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ modulo\_poly\_coeffs(ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,\ CoeffIter\ result);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ modulo\_poly\_coeffs(}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ ConstModulusIter\ modulus,\ RNSIter\ result)}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ modulo\_poly\_coeffs(get<0>(I),\ poly\_modulus\_degree,\ get<1>(I),\ get<2>(I));}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ modulo\_poly\_coeffs(}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ modulo\_poly\_coeffs(get<0>(I),\ coeff\_modulus\_size,\ modulus,\ get<1>(I));}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negate\_poly\_coeffmod(}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,\ CoeffIter\ result)}
+\DoxyCodeLine{00079\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_count\ >\ 0)}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (modulus.is\_zero())}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_count\ >\ 0)}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ uint64\_t\ modulus\_value\ =\ modulus.value();}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ result),\ coeff\_count,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\ =\ get<0>(I);}
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (coeff\ >=\ modulus\_value)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::out\_of\_range(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00102\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::int64\_t\ non\_zero\ =\ (coeff\ !=\ 0);}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get<1>(I)\ =\ (modulus\_value\ -\/\ coeff)\ \&\ \textcolor{keyword}{static\_cast<}std::uint64\_t\textcolor{keyword}{>}(-\/non\_zero);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negate\_poly\_coeffmod(}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ ConstModulusIter\ modulus,\ RNSIter\ result)}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00111\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00128\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negate\_poly\_coeffmod(get<0>(I),\ poly\_modulus\_degree,\ get<1>(I),\ get<2>(I));}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negate\_poly\_coeffmod(}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00138\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00140\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00152\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00154\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00155\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00157\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negate\_poly\_coeffmod(get<0>(I),\ coeff\_modulus\_size,\ modulus,\ get<1>(I));}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00161\ }
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ add\_poly\_coeffmod(}
+\DoxyCodeLine{00163\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ operand1,\ ConstCoeffIter\ operand2,\ std::size\_t\ coeff\_count,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00164\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result);}
+\DoxyCodeLine{00165\ }
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ add\_poly\_coeffmod(}
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ operand1,\ ConstRNSIter\ operand2,\ std::size\_t\ coeff\_modulus\_size,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00168\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00170\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand1\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand1"{}});}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand2\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand2"{}});}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (operand1.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree()\ ||}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand2.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00192\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00193\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand1,\ operand2,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\_poly\_coeffmod(get<0>(I),\ get<1>(I),\ poly\_modulus\_degree,\ get<2>(I),\ get<3>(I));}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00198\ }
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ add\_poly\_coeffmod(}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ operand1,\ ConstPolyIter\ operand2,\ std::size\_t\ size,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00202\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand1\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand1"{}});}
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand2\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand2"{}});}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (operand1.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size()\ ||}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand2.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand1,\ operand2,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\_poly\_coeffmod(get<0>(I),\ get<1>(I),\ coeff\_modulus\_size,\ modulus,\ get<2>(I));}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00230\ }
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sub\_poly\_coeffmod(}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ operand1,\ ConstCoeffIter\ operand2,\ std::size\_t\ coeff\_count,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result);}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ sub\_poly\_coeffmod(}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ operand1,\ ConstRNSIter\ operand2,\ std::size\_t\ coeff\_modulus\_size,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00239\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand1\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand1"{}});}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand2\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand2"{}});}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00255\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00256\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (operand1.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree()\ ||}
+\DoxyCodeLine{00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand2.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00258\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00260\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00261\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00262\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00263\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand1,\ operand2,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00264\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_poly\_coeffmod(get<0>(I),\ get<1>(I),\ poly\_modulus\_degree,\ get<2>(I),\ get<3>(I));}
+\DoxyCodeLine{00265\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00266\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00267\ }
+\DoxyCodeLine{00268\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ sub\_poly\_coeffmod(}
+\DoxyCodeLine{00269\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ operand1,\ ConstPolyIter\ operand2,\ std::size\_t\ size,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00270\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00271\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00272\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand1\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00273\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand1"{}});}
+\DoxyCodeLine{00275\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand2\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00277\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand2"{}});}
+\DoxyCodeLine{00279\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00280\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00281\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00283\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00284\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00285\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00286\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00287\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (operand1.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size()\ ||}
+\DoxyCodeLine{00289\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand2.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00290\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00291\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00292\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00293\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00295\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand1,\ operand2,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_poly\_coeffmod(get<0>(I),\ get<1>(I),\ coeff\_modulus\_size,\ modulus,\ get<2>(I));}
+\DoxyCodeLine{00297\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00298\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00299\ }
+\DoxyCodeLine{00303\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ add\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00304\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ std::uint64\_t\ scalar,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00305\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result);}
+\DoxyCodeLine{00306\ }
+\DoxyCodeLine{00310\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ add\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00311\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ std::uint64\_t\ scalar,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00312\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00313\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00314\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00315\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00316\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00318\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00319\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00320\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00321\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00322\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00323\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00324\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00326\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00327\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00328\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00330\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00331\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00332\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00333\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\_poly\_scalar\_coeffmod(get<0>(I),\ poly\_modulus\_degree,\ scalar,\ get<1>(I),\ get<2>(I));}
+\DoxyCodeLine{00335\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00336\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00337\ }
+\DoxyCodeLine{00341\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ add\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00342\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ std::uint64\_t\ scalar,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00343\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00344\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00345\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00346\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00348\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00350\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00352\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00353\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00354\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00356\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00357\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00358\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00359\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00360\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00361\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00362\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00363\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ add\_poly\_scalar\_coeffmod(get<0>(I),\ coeff\_modulus\_size,\ scalar,\ modulus,\ get<1>(I));}
+\DoxyCodeLine{00365\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00366\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00367\ }
+\DoxyCodeLine{00371\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ sub\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00372\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ std::uint64\_t\ scalar,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00373\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result);}
+\DoxyCodeLine{00374\ }
+\DoxyCodeLine{00378\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ sub\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00379\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ std::uint64\_t\ scalar,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00380\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00381\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00382\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00383\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00384\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00386\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00387\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00388\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00390\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00391\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00392\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00394\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00395\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00396\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00398\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00399\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00400\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00401\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_poly\_scalar\_coeffmod(get<0>(I),\ poly\_modulus\_degree,\ scalar,\ get<1>(I),\ get<2>(I));}
+\DoxyCodeLine{00403\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00404\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00405\ }
+\DoxyCodeLine{00409\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ sub\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00410\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ std::uint64\_t\ scalar,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00411\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00412\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00413\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00414\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00416\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00417\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00418\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00420\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00421\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00422\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00424\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00425\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00426\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00428\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00429\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00430\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00431\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00432\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sub\_poly\_scalar\_coeffmod(get<0>(I),\ coeff\_modulus\_size,\ scalar,\ modulus,\ get<1>(I));}
+\DoxyCodeLine{00433\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00434\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00435\ }
+\DoxyCodeLine{00436\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ multiply\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00437\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ MultiplyUIntModOperand\ scalar,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00438\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result);}
+\DoxyCodeLine{00439\ }
+\DoxyCodeLine{00440\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ multiply\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00441\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ std::uint64\_t\ scalar,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00442\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result)}
+\DoxyCodeLine{00443\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00444\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Scalar\ must\ be\ first\ reduced\ modulo\ modulus}}
+\DoxyCodeLine{00445\ \ \ \ \ \ \ \ \ \ \ \ \ MultiplyUIntModOperand\ temp\_scalar;}
+\DoxyCodeLine{00446\ \ \ \ \ \ \ \ \ \ \ \ \ temp\_scalar.set(barrett\_reduce\_64(scalar,\ modulus),\ modulus);}
+\DoxyCodeLine{00447\ \ \ \ \ \ \ \ \ \ \ \ \ multiply\_poly\_scalar\_coeffmod(poly,\ coeff\_count,\ temp\_scalar,\ modulus,\ result);}
+\DoxyCodeLine{00448\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00449\ }
+\DoxyCodeLine{00450\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ multiply\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00451\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ std::uint64\_t\ scalar,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00452\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00453\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00454\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00455\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00456\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00457\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00458\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00459\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00460\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00461\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00462\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00463\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00464\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00465\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00466\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00467\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00468\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00469\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00470\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00471\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00472\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00473\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00474\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ multiply\_poly\_scalar\_coeffmod(get<0>(I),\ poly\_modulus\_degree,\ scalar,\ get<1>(I),\ get<2>(I));}
+\DoxyCodeLine{00475\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00476\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00477\ }
+\DoxyCodeLine{00478\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ multiply\_poly\_scalar\_coeffmod(}
+\DoxyCodeLine{00479\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ std::uint64\_t\ scalar,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00480\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00481\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00482\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00483\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00484\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00485\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00486\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00487\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00488\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00489\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00490\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00491\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00492\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00493\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00494\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00495\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00496\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00497\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00498\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00500\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00501\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ multiply\_poly\_scalar\_coeffmod(get<0>(I),\ coeff\_modulus\_size,\ scalar,\ modulus,\ get<1>(I));}
+\DoxyCodeLine{00502\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00503\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00504\ }
+\DoxyCodeLine{00505\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ dyadic\_product\_coeffmod(}
+\DoxyCodeLine{00506\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ operand1,\ ConstCoeffIter\ operand2,\ std::size\_t\ coeff\_count,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,}
+\DoxyCodeLine{00507\ \ \ \ \ \ \ \ \ \ \ \ \ CoeffIter\ result);}
+\DoxyCodeLine{00508\ }
+\DoxyCodeLine{00509\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ dyadic\_product\_coeffmod(}
+\DoxyCodeLine{00510\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ operand1,\ ConstRNSIter\ operand2,\ std::size\_t\ coeff\_modulus\_size,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00511\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00512\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00513\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00514\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand1\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00515\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00516\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand1"{}});}
+\DoxyCodeLine{00517\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00518\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand2\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00519\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00520\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand2"{}});}
+\DoxyCodeLine{00521\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00522\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00523\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00524\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00525\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00526\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00527\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00528\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00529\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00530\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (operand1.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree()\ ||}
+\DoxyCodeLine{00531\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand2.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00532\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00533\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00534\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00535\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00536\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00537\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand1,\ operand2,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00538\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dyadic\_product\_coeffmod(get<0>(I),\ get<1>(I),\ poly\_modulus\_degree,\ get<2>(I),\ get<3>(I));}
+\DoxyCodeLine{00539\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00540\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00541\ }
+\DoxyCodeLine{00542\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ dyadic\_product\_coeffmod(}
+\DoxyCodeLine{00543\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ operand1,\ ConstPolyIter\ operand2,\ std::size\_t\ size,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00544\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00545\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00546\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand1\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00547\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00548\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand1"{}});}
+\DoxyCodeLine{00549\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00550\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!operand2\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00551\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00552\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}operand2"{}});}
+\DoxyCodeLine{00553\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00554\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00555\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00556\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00557\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00558\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00559\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00560\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00561\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00562\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (operand1.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size()\ ||}
+\DoxyCodeLine{00563\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ operand2.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00564\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00565\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00566\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00567\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00568\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00569\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(operand1,\ operand2,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00570\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dyadic\_product\_coeffmod(get<0>(I),\ get<1>(I),\ coeff\_modulus\_size,\ modulus,\ get<2>(I));}
+\DoxyCodeLine{00571\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00572\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00573\ }
+\DoxyCodeLine{00574\ \ \ \ \ \ \ \ \ std::uint64\_t\ poly\_infty\_norm\_coeffmod(ConstCoeffIter\ operand,\ std::size\_t\ coeff\_count,\ \textcolor{keyword}{const}\ Modulus\ \&modulus);}
+\DoxyCodeLine{00575\ }
+\DoxyCodeLine{00576\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ negacyclic\_shift\_poly\_coeffmod(}
+\DoxyCodeLine{00577\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ std::size\_t\ shift,\ \textcolor{keyword}{const}\ Modulus\ \&modulus,\ CoeffIter\ result);}
+\DoxyCodeLine{00578\ }
+\DoxyCodeLine{00579\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_shift\_poly\_coeffmod(}
+\DoxyCodeLine{00580\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ std::size\_t\ shift,\ ConstModulusIter\ modulus,}
+\DoxyCodeLine{00581\ \ \ \ \ \ \ \ \ \ \ \ \ RNSIter\ result)}
+\DoxyCodeLine{00582\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00583\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00584\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00585\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00586\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00587\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00588\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00589\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00590\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00591\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00592\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00593\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00594\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00595\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00596\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00597\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00598\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00599\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00600\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00601\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00602\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00603\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_shift\_poly\_coeffmod(get<0>(I),\ poly\_modulus\_degree,\ shift,\ get<1>(I),\ get<2>(I));}
+\DoxyCodeLine{00604\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00605\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00606\ }
+\DoxyCodeLine{00607\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_shift\_poly\_coeffmod(}
+\DoxyCodeLine{00608\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ std::size\_t\ shift,\ ConstModulusIter\ modulus,\ PolyIter\ result)}
+\DoxyCodeLine{00609\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00610\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00611\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00612\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00613\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00614\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00615\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00616\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00617\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00618\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00619\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00620\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00621\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00622\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00623\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00624\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00625\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00626\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00627\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00628\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00629\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00630\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_shift\_poly\_coeffmod(get<0>(I),\ coeff\_modulus\_size,\ shift,\ modulus,\ get<1>(I));}
+\DoxyCodeLine{00631\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00632\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00633\ }
+\DoxyCodeLine{00634\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00635\ \ \ \ \ \ \ \ \ \ \ \ \ ConstCoeffIter\ poly,\ std::size\_t\ coeff\_count,\ std::uint64\_t\ mono\_coeff,\ std::size\_t\ mono\_exponent,}
+\DoxyCodeLine{00636\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ Modulus\ \&modulus,\ CoeffIter\ result,\ MemoryPool\ \&pool)}
+\DoxyCodeLine{00637\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00638\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00639\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_count\ >\ 0)}
+\DoxyCodeLine{00640\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00641\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00642\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00643\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (modulus.is\_zero())}
+\DoxyCodeLine{00644\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00645\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00646\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00647\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_count\ >\ 0)}
+\DoxyCodeLine{00648\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00649\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00650\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00651\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00652\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ALLOCATE\_GET\_COEFF\_ITER(temp,\ coeff\_count,\ pool);}
+\DoxyCodeLine{00653\ \ \ \ \ \ \ \ \ \ \ \ \ multiply\_poly\_scalar\_coeffmod(poly,\ coeff\_count,\ mono\_coeff,\ modulus,\ temp);}
+\DoxyCodeLine{00654\ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_shift\_poly\_coeffmod(temp,\ coeff\_count,\ mono\_exponent,\ modulus,\ result);}
+\DoxyCodeLine{00655\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00656\ }
+\DoxyCodeLine{00657\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00658\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ std::uint64\_t\ mono\_coeff,\ std::size\_t\ mono\_exponent,}
+\DoxyCodeLine{00659\ \ \ \ \ \ \ \ \ \ \ \ \ ConstModulusIter\ modulus,\ RNSIter\ result,\ MemoryPool\ \&pool)}
+\DoxyCodeLine{00660\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00661\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00662\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00663\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00664\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00665\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00666\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00667\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00668\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00669\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00670\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00671\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00672\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00673\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00674\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00675\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00676\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00677\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00678\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00679\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00680\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00681\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00682\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get<0>(I),\ poly\_modulus\_degree,\ mono\_coeff,\ mono\_exponent,\ get<1>(I),\ get<2>(I),\ pool);}
+\DoxyCodeLine{00683\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00684\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00685\ }
+\DoxyCodeLine{00686\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00687\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ std::uint64\_t\ mono\_coeff,\ std::size\_t\ mono\_exponent,}
+\DoxyCodeLine{00688\ \ \ \ \ \ \ \ \ \ \ \ \ ConstModulusIter\ modulus,\ PolyIter\ result,\ MemoryPool\ \&pool)}
+\DoxyCodeLine{00689\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00690\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00691\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00692\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00693\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00694\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00695\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00696\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00697\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00698\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00699\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00700\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00701\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00702\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00703\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00704\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00705\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00706\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00707\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00708\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00709\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00710\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00711\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get<0>(I),\ coeff\_modulus\_size,\ mono\_coeff,\ mono\_exponent,\ modulus,\ get<1>(I),\ pool);}
+\DoxyCodeLine{00712\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00713\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00714\ }
+\DoxyCodeLine{00715\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00716\ \ \ \ \ \ \ \ \ \ \ \ \ ConstRNSIter\ poly,\ std::size\_t\ coeff\_modulus\_size,\ ConstCoeffIter\ mono\_coeff,\ std::size\_t\ mono\_exponent,}
+\DoxyCodeLine{00717\ \ \ \ \ \ \ \ \ \ \ \ \ ConstModulusIter\ modulus,\ RNSIter\ result,\ MemoryPool\ \&pool)}
+\DoxyCodeLine{00718\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00719\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00720\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00721\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00722\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly"{}});}
+\DoxyCodeLine{00723\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00724\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mono\_coeff\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00725\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00726\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}mono\_coeff"{}});}
+\DoxyCodeLine{00727\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00728\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00729\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00730\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00731\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00732\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ coeff\_modulus\_size\ >\ 0)}
+\DoxyCodeLine{00733\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00734\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00735\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00736\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly.poly\_modulus\_degree()\ !=\ result.poly\_modulus\_degree())}
+\DoxyCodeLine{00737\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00738\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00739\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00740\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00741\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ poly\_modulus\_degree\ =\ result.poly\_modulus\_degree();}
+\DoxyCodeLine{00742\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly,\ mono\_coeff,\ modulus,\ result),\ coeff\_modulus\_size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00743\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00744\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get<0>(I),\ poly\_modulus\_degree,\ get<1>(I),\ mono\_exponent,\ get<2>(I),\ get<3>(I),\ pool);}
+\DoxyCodeLine{00745\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00746\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00747\ }
+\DoxyCodeLine{00748\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keywordtype}{void}\ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00749\ \ \ \ \ \ \ \ \ \ \ \ \ ConstPolyIter\ poly\_array,\ std::size\_t\ size,\ ConstCoeffIter\ mono\_coeff,\ std::size\_t\ mono\_exponent,}
+\DoxyCodeLine{00750\ \ \ \ \ \ \ \ \ \ \ \ \ ConstModulusIter\ modulus,\ PolyIter\ result,\ MemoryPool\ \&pool)}
+\DoxyCodeLine{00751\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00752\ \textcolor{preprocessor}{\#ifdef\ SEAL\_DEBUG}}
+\DoxyCodeLine{00753\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!poly\_array\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00754\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00755\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}poly\_array"{}});}
+\DoxyCodeLine{00756\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00757\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!mono\_coeff\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00758\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00759\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}mono\_coeff"{}});}
+\DoxyCodeLine{00760\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00761\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00762\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00763\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}result"{}});}
+\DoxyCodeLine{00764\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00765\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!modulus\ \&\&\ size\ >\ 0)}
+\DoxyCodeLine{00766\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00767\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}modulus"{}});}
+\DoxyCodeLine{00768\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00769\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (poly\_array.coeff\_modulus\_size()\ !=\ result.coeff\_modulus\_size())}
+\DoxyCodeLine{00770\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00771\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}incompatible\ iterators"{}});}
+\DoxyCodeLine{00772\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00773\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00774\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ coeff\_modulus\_size\ =\ result.coeff\_modulus\_size();}
+\DoxyCodeLine{00775\ \ \ \ \ \ \ \ \ \ \ \ \ SEAL\_ITERATE(iter(poly\_array,\ result),\ size,\ [\&](\textcolor{keyword}{auto}\ I)\ \{}
+\DoxyCodeLine{00776\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ negacyclic\_multiply\_poly\_mono\_coeffmod(}
+\DoxyCodeLine{00777\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ get<0>(I),\ coeff\_modulus\_size,\ mono\_coeff,\ mono\_exponent,\ modulus,\ get<1>(I),\ pool);}
+\DoxyCodeLine{00778\ \ \ \ \ \ \ \ \ \ \ \ \ \});}
+\DoxyCodeLine{00779\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00780\ \ \ \ \ \}\ \textcolor{comment}{//\ namespace\ util}}
+\DoxyCodeLine{00781\ \}\ \textcolor{comment}{//\ namespace\ seal}}
+
+\end{DoxyCode}

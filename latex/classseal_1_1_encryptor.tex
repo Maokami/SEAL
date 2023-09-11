@@ -1,0 +1,492 @@
+\doxysection{seal\+::Encryptor Class Reference}
+\hypertarget{classseal_1_1_encryptor}{}\label{classseal_1_1_encryptor}\index{seal::Encryptor@{seal::Encryptor}}
+
+
+{\ttfamily \#include $<$encryptor.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_encryptor_a2e2ad859897b919711c2cb7e5179bca9}{Encryptor}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&public\+\_\+key)
+\item 
+\mbox{\hyperlink{classseal_1_1_encryptor_a6fea8a29d0e292a1192633a2c9f39cd3}{Encryptor}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&secret\+\_\+key)
+\item 
+\mbox{\hyperlink{classseal_1_1_encryptor_a822d23ec26a69f2c8d1cb884e1495693}{Encryptor}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&public\+\_\+key, const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&secret\+\_\+key)
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_ac1a321529b5a0e99445c45602e7172c9}{set\+\_\+public\+\_\+key}} (const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&public\+\_\+key)
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_ae564f5ae2d9f7e794c8b0ca16d6821fe}{set\+\_\+secret\+\_\+key}} (const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&secret\+\_\+key)
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_afc0ea5df717474085feabb3a03f6b896}{encrypt}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \mbox{\hyperlink{classseal_1_1_encryptor_ae5c3dd69276e89ea39c4349218a5600d}{encrypt}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_afd8ae994ef38ee0c469f29f8c297d866}{encrypt\+\_\+zero}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \mbox{\hyperlink{classseal_1_1_encryptor_a32ba7f3da998a88df9822b1b63c8b700}{encrypt\+\_\+zero}} (parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_a3ea22b3c8c0d4ab0df87dec9d5db205a}{encrypt\+\_\+zero}} (parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \mbox{\hyperlink{classseal_1_1_encryptor_a25f32e3746d1ddb1b273f93a4e42dd05}{encrypt\+\_\+zero}} (\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_aa7993a1a752278f438b9a21dbb75d158}{encrypt\+\_\+symmetric}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \mbox{\hyperlink{classseal_1_1_encryptor_a1f45547223346e3d3149f37d5f7e36a2}{encrypt\+\_\+symmetric}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_afd77f4149f9b64cbc8d62b765a00fcac}{encrypt\+\_\+zero\+\_\+symmetric}} (parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \mbox{\hyperlink{classseal_1_1_encryptor_a62cd7149857b9ba1f731ef15b16c5f0a}{encrypt\+\_\+zero\+\_\+symmetric}} (parms\+\_\+id\+\_\+type parms\+\_\+id, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_encryptor_a1311f08d3552dbbb1cc5346e214ca89c}{encrypt\+\_\+zero\+\_\+symmetric}} (\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ \mbox{\hyperlink{classseal_1_1_encryptor_aabc0b4f7d000a30247f8bff56235d6ed}{encrypt\+\_\+zero\+\_\+symmetric}} (\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Encrypts \doxylink{classseal_1_1_plaintext}{Plaintext} objects into \doxylink{classseal_1_1_ciphertext}{Ciphertext} objects. Constructing an \doxylink{classseal_1_1_encryptor}{Encryptor} requires a \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} with valid encryption parameters, the public key and/or the secret key. If an Encrytor is given a secret key, it supports symmetric-\/key encryption. If an \doxylink{classseal_1_1_encryptor}{Encryptor} is given a public key, it supports asymmetric-\/key encryption.
+
+\begin{DoxyParagraph}{Overloads}
+For the encrypt function we provide two overloads concerning the memory pool used in allocations needed during the operation. In one overload the global memory pool is used for this purpose, and in another overload the user can supply a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to to be used instead. This is to allow one single \doxylink{classseal_1_1_encryptor}{Encryptor} to be used concurrently by several threads without running into thread contention in allocations taking place during operations. For example, one can share one single \doxylink{classseal_1_1_encryptor}{Encryptor} across any number of threads, but in each thread call the encrypt function by giving it a thread-\/local \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} to use. It is important for a developer to understand how this works to avoid unnecessary performance bottlenecks.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{NTT form}
+When using the BFV/\+BGV scheme (scheme\+\_\+type\+::bfv/bgv), all plaintext and ciphertexts should remain by default in the usual coefficient representation, i.\+e. not in NTT form. When using the CKKS scheme (scheme\+\_\+type\+::ckks), all plaintexts and ciphertexts should remain by default in NTT form. We call these scheme-\/specific NTT states the \"{}default NTT form\"{}. Decryption requires the input ciphertexts to be in the default NTT form, and will throw an exception if this is not the case. 
+\end{DoxyParagraph}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_encryptor_a2e2ad859897b919711c2cb7e5179bca9}\label{classseal_1_1_encryptor_a2e2ad859897b919711c2cb7e5179bca9} 
+\index{seal::Encryptor@{seal::Encryptor}!Encryptor@{Encryptor}}
+\index{Encryptor@{Encryptor}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{Encryptor()}{Encryptor()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily seal\+::\+Encryptor\+::\+Encryptor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&}]{public\+\_\+key }\end{DoxyParamCaption})}
+
+Creates an \doxylink{classseal_1_1_encryptor}{Encryptor} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} and public key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em public\+\_\+key} & The public key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if public\+\_\+key is not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a6fea8a29d0e292a1192633a2c9f39cd3}\label{classseal_1_1_encryptor_a6fea8a29d0e292a1192633a2c9f39cd3} 
+\index{seal::Encryptor@{seal::Encryptor}!Encryptor@{Encryptor}}
+\index{Encryptor@{Encryptor}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{Encryptor()}{Encryptor()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily seal\+::\+Encryptor\+::\+Encryptor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&}]{secret\+\_\+key }\end{DoxyParamCaption})}
+
+Creates an \doxylink{classseal_1_1_encryptor}{Encryptor} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} and secret key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em secret\+\_\+key} & The secret key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if secret\+\_\+key is not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a822d23ec26a69f2c8d1cb884e1495693}\label{classseal_1_1_encryptor_a822d23ec26a69f2c8d1cb884e1495693} 
+\index{seal::Encryptor@{seal::Encryptor}!Encryptor@{Encryptor}}
+\index{Encryptor@{Encryptor}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{Encryptor()}{Encryptor()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily seal\+::\+Encryptor\+::\+Encryptor (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&}]{public\+\_\+key,  }\item[{const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&}]{secret\+\_\+key }\end{DoxyParamCaption})}
+
+Creates an \doxylink{classseal_1_1_encryptor}{Encryptor} instance initialized with the specified \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}, secret key, and public key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em public\+\_\+key} & The public key \\
+\hline
+\mbox{\texttt{ in}}  & {\em secret\+\_\+key} & The secret key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if public\+\_\+key or secret\+\_\+key is not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_encryptor_afc0ea5df717474085feabb3a03f6b896}\label{classseal_1_1_encryptor_afc0ea5df717474085feabb3a03f6b896} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::encrypt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a plaintext with the public key and stores the result in destination.
+
+The encryption parameters for the resulting ciphertext correspond to\+: 1) in BFV/\+BGV, the highest (data) level in the modulus switching chain, 2) in CKKS, the encryption parameters of the plaintext. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to encrypt \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the encrypted plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a public key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not in default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_ae5c3dd69276e89ea39c4349218a5600d}\label{classseal_1_1_encryptor_ae5c3dd69276e89ea39c4349218a5600d} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ seal\+::\+Encryptor\+::encrypt (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a plaintext with the public key and returns the ciphertext as a serializable object.
+
+The encryption parameters for the resulting ciphertext correspond to\+: 1) in BFV/\+BGV, the highest (data) level in the modulus switching chain, 2) in CKKS, the encryption parameters of the plaintext. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to encrypt \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a public key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not in default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_aa7993a1a752278f438b9a21dbb75d158}\label{classseal_1_1_encryptor_aa7993a1a752278f438b9a21dbb75d158} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_symmetric@{encrypt\_symmetric}}
+\index{encrypt\_symmetric@{encrypt\_symmetric}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_symmetric()}{encrypt\_symmetric()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::encrypt\+\_\+symmetric (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a plaintext with the secret key and stores the result in destination.
+
+The encryption parameters for the resulting ciphertext correspond to\+: 1) in BFV/\+BGV, the highest (data) level in the modulus switching chain, 2) in CKKS, the encryption parameters of the plaintext. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to encrypt \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the encrypted plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a secret key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not in default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a1f45547223346e3d3149f37d5f7e36a2}\label{classseal_1_1_encryptor_a1f45547223346e3d3149f37d5f7e36a2} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_symmetric@{encrypt\_symmetric}}
+\index{encrypt\_symmetric@{encrypt\_symmetric}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_symmetric()}{encrypt\_symmetric()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ seal\+::\+Encryptor\+::encrypt\+\_\+symmetric (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a plaintext with the secret key and returns the ciphertext as a serializable object.
+
+Half of the ciphertext data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+The encryption parameters for the resulting ciphertext correspond to\+: 1) in BFV/\+BGV, the highest (data) level in the modulus switching chain, 2) in CKKS, the encryption parameters of the plaintext. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext to encrypt \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a secret key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is not in default NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_afd8ae994ef38ee0c469f29f8c297d866}\label{classseal_1_1_encryptor_afd8ae994ef38ee0c469f29f8c297d866} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero@{encrypt\_zero}}
+\index{encrypt\_zero@{encrypt\_zero}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero()}{encrypt\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::encrypt\+\_\+zero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the public key and stores the result in destination.
+
+The encryption parameters for the resulting ciphertext correspond to the highest (data) level in the modulus switching chain. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the encrypted plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a public key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a25f32e3746d1ddb1b273f93a4e42dd05}\label{classseal_1_1_encryptor_a25f32e3746d1ddb1b273f93a4e42dd05} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero@{encrypt\_zero}}
+\index{encrypt\_zero@{encrypt\_zero}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero()}{encrypt\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ seal\+::\+Encryptor\+::encrypt\+\_\+zero (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the public key and returns the ciphertext as a serializable object.
+
+The encryption parameters for the resulting ciphertext correspond to the highest (data) level in the modulus switching chain. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a public key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a3ea22b3c8c0d4ab0df87dec9d5db205a}\label{classseal_1_1_encryptor_a3ea22b3c8c0d4ab0df87dec9d5db205a} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero@{encrypt\_zero}}
+\index{encrypt\_zero@{encrypt\_zero}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero()}{encrypt\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::encrypt\+\_\+zero (\begin{DoxyParamCaption}\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the public key and stores the result in destination.
+
+The encryption parameters for the resulting ciphertext correspond to the given parms\+\_\+id. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id for the resulting ciphertext \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the encrypted plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a public key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a32ba7f3da998a88df9822b1b63c8b700}\label{classseal_1_1_encryptor_a32ba7f3da998a88df9822b1b63c8b700} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero@{encrypt\_zero}}
+\index{encrypt\_zero@{encrypt\_zero}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero()}{encrypt\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ seal\+::\+Encryptor\+::encrypt\+\_\+zero (\begin{DoxyParamCaption}\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the public key and returns the ciphertext as a serializable object.
+
+The encryption parameters for the resulting ciphertext correspond to the given parms\+\_\+id. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id for the resulting ciphertext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a public key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a1311f08d3552dbbb1cc5346e214ca89c}\label{classseal_1_1_encryptor_a1311f08d3552dbbb1cc5346e214ca89c} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}}
+\index{encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero\_symmetric()}{encrypt\_zero\_symmetric()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::encrypt\+\_\+zero\+\_\+symmetric (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the secret key and stores the result in destination.
+
+The encryption parameters for the resulting ciphertext correspond to the highest (data) level in the modulus switching chain. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the encrypted plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a secret key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_aabc0b4f7d000a30247f8bff56235d6ed}\label{classseal_1_1_encryptor_aabc0b4f7d000a30247f8bff56235d6ed} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}}
+\index{encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero\_symmetric()}{encrypt\_zero\_symmetric()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ seal\+::\+Encryptor\+::encrypt\+\_\+zero\+\_\+symmetric (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the secret key and returns the ciphertext as a serializable object.
+
+Half of the ciphertext data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+The encryption parameters for the resulting ciphertext correspond to the highest (data) level in the modulus switching chain. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a secret key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_afd77f4149f9b64cbc8d62b765a00fcac}\label{classseal_1_1_encryptor_afd77f4149f9b64cbc8d62b765a00fcac} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}}
+\index{encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero\_symmetric()}{encrypt\_zero\_symmetric()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::encrypt\+\_\+zero\+\_\+symmetric (\begin{DoxyParamCaption}\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the secret key and stores the result in destination.
+
+The encryption parameters for the resulting ciphertext correspond to the given parms\+\_\+id. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id for the resulting ciphertext \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The ciphertext to overwrite with the encrypted plaintext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a secret key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_a62cd7149857b9ba1f731ef15b16c5f0a}\label{classseal_1_1_encryptor_a62cd7149857b9ba1f731ef15b16c5f0a} 
+\index{seal::Encryptor@{seal::Encryptor}!encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}}
+\index{encrypt\_zero\_symmetric@{encrypt\_zero\_symmetric}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{encrypt\_zero\_symmetric()}{encrypt\_zero\_symmetric()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_serializable}{Serializable}}$<$ \mbox{\hyperlink{classseal_1_1_ciphertext}{Ciphertext}} $>$ seal\+::\+Encryptor\+::encrypt\+\_\+zero\+\_\+symmetric (\begin{DoxyParamCaption}\item[{parms\+\_\+id\+\_\+type}]{parms\+\_\+id,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Encrypts a zero plaintext with the secret key and returns the ciphertext as a serializable object.
+
+Half of the ciphertext data is pseudo-\/randomly generated from a seed to reduce the object size. The resulting serializable object cannot be used directly and is meant to be serialized for the size reduction to have an impact.
+
+The encryption parameters for the resulting ciphertext correspond to the given parms\+\_\+id. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em parms\+\_\+id} & The parms\+\_\+id for the resulting ciphertext \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if a secret key is not set \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if parms\+\_\+id is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_ac1a321529b5a0e99445c45602e7172c9}\label{classseal_1_1_encryptor_ac1a321529b5a0e99445c45602e7172c9} 
+\index{seal::Encryptor@{seal::Encryptor}!set\_public\_key@{set\_public\_key}}
+\index{set\_public\_key@{set\_public\_key}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{set\_public\_key()}{set\_public\_key()}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::set\+\_\+public\+\_\+key (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_public_key}{Public\+Key}} \&}]{public\+\_\+key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Give a new instance of public key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em public\+\_\+key} & The public key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if public\+\_\+key is not valid \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_encryptor_ae564f5ae2d9f7e794c8b0ca16d6821fe}\label{classseal_1_1_encryptor_ae564f5ae2d9f7e794c8b0ca16d6821fe} 
+\index{seal::Encryptor@{seal::Encryptor}!set\_secret\_key@{set\_secret\_key}}
+\index{set\_secret\_key@{set\_secret\_key}!seal::Encryptor@{seal::Encryptor}}
+\doxysubsubsection{\texorpdfstring{set\_secret\_key()}{set\_secret\_key()}}
+{\footnotesize\ttfamily void seal\+::\+Encryptor\+::set\+\_\+secret\+\_\+key (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_secret_key}{Secret\+Key}} \&}]{secret\+\_\+key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Give a new instance of secret key.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em secret\+\_\+key} & The secret key \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if secret\+\_\+key is not valid \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/encryptor.\+h\item 
+seal/encryptor.\+cpp\end{DoxyCompactItemize}

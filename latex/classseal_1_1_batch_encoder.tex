@@ -1,0 +1,173 @@
+\doxysection{seal\+::Batch\+Encoder Class Reference}
+\hypertarget{classseal_1_1_batch_encoder}{}\label{classseal_1_1_batch_encoder}\index{seal::BatchEncoder@{seal::BatchEncoder}}
+
+
+{\ttfamily \#include $<$batchencoder.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_batch_encoder_ac23a0c59c183f6347746f472c8354452}{Batch\+Encoder}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context)
+\item 
+void \mbox{\hyperlink{classseal_1_1_batch_encoder_a541e7c0d2f3d79d9cb49dc989e4aa85f}{encode}} (const std\+::vector$<$ std\+::uint64\+\_\+t $>$ \&values, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_batch_encoder_a560d178d06530f154263308155bdc574}{encode}} (const std\+::vector$<$ std\+::int64\+\_\+t $>$ \&values, \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&destination) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_batch_encoder_aa152fb878d0f5e465f57a0658040898a}{decode}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, std\+::vector$<$ std\+::uint64\+\_\+t $>$ \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+void \mbox{\hyperlink{classseal_1_1_batch_encoder_aa66e76ecca6cf32c48ace3d38df4189c}{decode}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&plain, std\+::vector$<$ std\+::int64\+\_\+t $>$ \&destination, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()) const
+\item 
+SEAL\+\_\+\+NODISCARD auto \mbox{\hyperlink{classseal_1_1_batch_encoder_aa94607373c39f0d3f6dccec9b8c31d02}{slot\+\_\+count}} () const noexcept
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Provides functionality for CRT batching. If the polynomial modulus degree is N, and the plaintext modulus is a prime number T such that T is congruent to 1 modulo 2N, then \doxylink{classseal_1_1_batch_encoder}{Batch\+Encoder} allows the plaintext elements to be viewed as 2-\/by-\/(N/2) matrices of integers modulo T. Homomorphic operations performed on such encrypted matrices are applied coefficient (slot) wise, enabling powerful SIMD functionality for computations that are vectorizable. This functionality is often called \"{}batching\"{} in the homomorphic encryption literature.
+
+\begin{DoxyParagraph}{Mathematical Background}
+Mathematically speaking, if the polynomial modulus is X\texorpdfstring{$^\wedge$}{\string^}\+N+1, N is a power of two, and plain\+\_\+modulus is a prime number T such that 2N divides T-\/1, then integers modulo T contain a primitive 2N-\/th root of unity and the polynomial X\texorpdfstring{$^\wedge$}{\string^}\+N+1 splits into n distinct linear factors as X\texorpdfstring{$^\wedge$}{\string^}\+N+1 = (X-\/a\+\_\+1)\texorpdfstring{$\ast$}{*}...\texorpdfstring{$\ast$}{*}(X-\/a\+\_\+N) mod T, where the constants a\+\_\+1, ..., a\+\_\+N are all the distinct primitive 2N-\/th roots of unity in integers modulo T. The Chinese Remainder Theorem (CRT) states that the plaintext space Z\+\_\+T\mbox{[}X\mbox{]}/(X\texorpdfstring{$^\wedge$}{\string^}\+N+1) in this case is isomorphic (as an algebra) to the N-\/fold direct product of fields Z\+\_\+T. The isomorphism is easy to compute explicitly in both directions, which is what this class does. Furthermore, the Galois group of the extension is (Z/2\+NZ)\texorpdfstring{$\ast$}{*} \texorpdfstring{$\sim$}{\string~}= Z/2Z x Z/(N/2)Z whose action on the primitive roots of unity is easy to describe. Since the batching slots correspond 1-\/to-\/1 to the primitive roots of unity, applying Galois automorphisms on the plaintext act by permuting the slots. By applying generators of the two cyclic subgroups of the Galois group, we can effectively view the plaintext as a 2-\/by-\/(N/2) matrix, and enable cyclic row rotations, and column rotations (row swaps).
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Valid Parameters}
+Whether batching can be used depends on whether the plaintext modulus has been chosen appropriately. Thus, to construct a \doxylink{classseal_1_1_batch_encoder}{Batch\+Encoder} the user must provide an instance of \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} such that its associated \doxylink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers} object has the flags parameters\+\_\+set and enable\+\_\+batching set to true.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for more information about encryption parameters. 
+
+\doxylink{classseal_1_1_encryption_parameter_qualifiers}{Encryption\+Parameter\+Qualifiers} for more information about parameter qualifiers. 
+
+\doxylink{classseal_1_1_evaluator}{Evaluator} for rotating rows and columns of encrypted matrices. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_batch_encoder_ac23a0c59c183f6347746f472c8354452}\label{classseal_1_1_batch_encoder_ac23a0c59c183f6347746f472c8354452} 
+\index{seal::BatchEncoder@{seal::BatchEncoder}!BatchEncoder@{BatchEncoder}}
+\index{BatchEncoder@{BatchEncoder}!seal::BatchEncoder@{seal::BatchEncoder}}
+\doxysubsubsection{\texorpdfstring{BatchEncoder()}{BatchEncoder()}}
+{\footnotesize\ttfamily seal\+::\+Batch\+Encoder\+::\+Batch\+Encoder (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context }\end{DoxyParamCaption})}
+
+Creates a \doxylink{classseal_1_1_batch_encoder}{Batch\+Encoder}. It is necessary that the encryption parameters given through the \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} object support batching.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid for batching \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if scheme is not scheme\+\_\+type\+::bfv \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_batch_encoder_aa66e76ecca6cf32c48ace3d38df4189c}\label{classseal_1_1_batch_encoder_aa66e76ecca6cf32c48ace3d38df4189c} 
+\index{seal::BatchEncoder@{seal::BatchEncoder}!decode@{decode}}
+\index{decode@{decode}!seal::BatchEncoder@{seal::BatchEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Batch\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{std\+::vector$<$ std\+::int64\+\_\+t $>$ \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Inverse of encode. This function \"{}unbatches\"{} a given plaintext into a matrix of integers modulo the plaintext modulus, and stores the result in the destination parameter. The input plaintext must have degrees less than the polynomial modulus, and coefficients less than the plaintext modulus, i.\+e. it must be a valid plaintext for the encryption parameters. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext polynomial to unbatch \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The matrix to be overwritten with the values in the slots \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_batch_encoder_aa152fb878d0f5e465f57a0658040898a}\label{classseal_1_1_batch_encoder_aa152fb878d0f5e465f57a0658040898a} 
+\index{seal::BatchEncoder@{seal::BatchEncoder}!decode@{decode}}
+\index{decode@{decode}!seal::BatchEncoder@{seal::BatchEncoder}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Batch\+Encoder\+::decode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{plain,  }\item[{std\+::vector$<$ std\+::uint64\+\_\+t $>$ \&}]{destination,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption}) const}
+
+Inverse of encode. This function \"{}unbatches\"{} a given plaintext into a matrix of integers modulo the plaintext modulus, and stores the result in the destination parameter. The input plaintext must have degrees less than the polynomial modulus, and coefficients less than the plaintext modulus, i.\+e. it must be a valid plaintext for the encryption parameters. Dynamic memory allocations in the process are allocated from the memory pool pointed to by the given \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em plain} & The plaintext polynomial to unbatch \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The matrix to be overwritten with the values in the slots \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if plain is not valid for the encryption parameters \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if plain is in NTT form \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_batch_encoder_a560d178d06530f154263308155bdc574}\label{classseal_1_1_batch_encoder_a560d178d06530f154263308155bdc574} 
+\index{seal::BatchEncoder@{seal::BatchEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::BatchEncoder@{seal::BatchEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void seal\+::\+Batch\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::int64\+\_\+t $>$ \&}]{values,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination }\end{DoxyParamCaption}) const}
+
+Creates a plaintext from a given matrix. This function \"{}batches\"{} a given matrix of integers modulo the plaintext modulus into a plaintext element, and stores the result in the destination parameter. The input vector must have size at most equal to the degree of the polynomial modulus. The first half of the elements represent the first row of the matrix, and the second half represent the second row. The numbers in the matrix can be at most equal to the plaintext modulus for it to represent a valid plaintext.
+
+If the destination plaintext overlaps the input values in memory, the behavior of this function is undefined.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em values} & The matrix of integers modulo plaintext modulus to batch \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if values is too large \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_batch_encoder_a541e7c0d2f3d79d9cb49dc989e4aa85f}\label{classseal_1_1_batch_encoder_a541e7c0d2f3d79d9cb49dc989e4aa85f} 
+\index{seal::BatchEncoder@{seal::BatchEncoder}!encode@{encode}}
+\index{encode@{encode}!seal::BatchEncoder@{seal::BatchEncoder}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void seal\+::\+Batch\+Encoder\+::encode (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::uint64\+\_\+t $>$ \&}]{values,  }\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{destination }\end{DoxyParamCaption}) const}
+
+Creates a plaintext from a given matrix. This function \"{}batches\"{} a given matrix of integers modulo the plaintext modulus into a plaintext element, and stores the result in the destination parameter. The input vector must have size at most equal to the degree of the polynomial modulus. The first half of the elements represent the first row of the matrix, and the second half represent the second row. The numbers in the matrix can be at most equal to the plaintext modulus for it to represent a valid plaintext.
+
+If the destination plaintext overlaps the input values in memory, the behavior of this function is undefined.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em values} & The matrix of integers modulo plaintext modulus to batch \\
+\hline
+\mbox{\texttt{ out}}  & {\em destination} & The plaintext polynomial to overwrite with the result \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if values is too large \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_batch_encoder_aa94607373c39f0d3f6dccec9b8c31d02}\label{classseal_1_1_batch_encoder_aa94607373c39f0d3f6dccec9b8c31d02} 
+\index{seal::BatchEncoder@{seal::BatchEncoder}!slot\_count@{slot\_count}}
+\index{slot\_count@{slot\_count}!seal::BatchEncoder@{seal::BatchEncoder}}
+\doxysubsubsection{\texorpdfstring{slot\_count()}{slot\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto seal\+::\+Batch\+Encoder\+::slot\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the number of slots. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/batchencoder.\+h\item 
+seal/batchencoder.\+cpp\end{DoxyCompactItemize}

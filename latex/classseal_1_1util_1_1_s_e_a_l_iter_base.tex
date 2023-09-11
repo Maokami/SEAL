@@ -1,0 +1,129 @@
+\doxysection{seal\+::util\+::SEALIter\+Base Class Reference}
+\hypertarget{classseal_1_1util_1_1_s_e_a_l_iter_base}{}\label{classseal_1_1util_1_1_s_e_a_l_iter_base}\index{seal::util::SEALIterBase@{seal::util::SEALIterBase}}
+
+
+{\ttfamily \#include $<$iterator.\+h$>$}
+
+Inheritance diagram for seal\+::util\+::SEALIter\+Base\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=10.000000cm]{classseal_1_1util_1_1_s_e_a_l_iter_base}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyParagraph}{Poly\+Iter, RNSIter, and Coeff\+Iter}
+In this file we define a set of custom iterator classes (\"{}\+SEAL iterators\"{}) that are used throughout Microsoft SEAL for easier iteration over ciphertext polynomials, their RNS components, and the coefficients in the RNS components. All SEAL iterators satisfy the C++ Legacy\+Random\+Access\+Iterator requirements. SEAL iterators are ideal to use with the SEAL\+\_\+\+ITERATE macro, which expands to std\+::for\+\_\+each\+\_\+n in C++17 and to seal\+::util\+::seal\+\_\+for\+\_\+each\+\_\+n in C++14. All SEAL iterators derive from \doxylink{classseal_1_1util_1_1_s_e_a_l_iter_base}{SEALIter\+Base}.
+\end{DoxyParagraph}
+The most important SEAL iterator classes behave as illustrated by the following diagram\+:
+
++-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} \doxylink{classseal_1_1util_1_1_pointer}{Pointer} \& Size \texorpdfstring{$\vert$}{|} Construct +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} or \doxylink{classseal_1_1_ciphertext}{Ciphertext} \texorpdfstring{$\vert$}{|}-\/-\/-\/-\/-\/-\/-\/-\/-\/---\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|} (Const)\doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} \texorpdfstring{$\vert$}{|} Iterates over RNS polynomials in a ciphertext +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/---+ (coeff\+\_\+modulus\+\_\+size-\/many RNS components) \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Dereference \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} v +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ Construct +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} \doxylink{classseal_1_1util_1_1_pointer}{Pointer} \& Size \texorpdfstring{$\vert$}{|}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|} (Const)\doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter} \texorpdfstring{$\vert$}{|} Iterates over RNS components in an RNS polynomial +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/---+-\/-\/-\/-\/-\/---+ (poly\+\_\+modulus\+\_\+degree-\/many coefficients) \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Dereference \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} v +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ Construct +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} \doxylink{classseal_1_1util_1_1_pointer}{Pointer} \& Size \texorpdfstring{$\vert$}{|}-\/-\/-\/-\/-\/-\/-\/-\/-\/---\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|} (Const)Coeff\+Iter \texorpdfstring{$\vert$}{|} Iterates over coefficients (std\+::uint64\+\_\+t) in a single +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/---+ RNS polynomial component \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Dereference \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} v +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} (const) std\+::uint64\+\_\+t \& \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+
+
+\begin{DoxyParagraph}{Ptr\+Iter and Stride\+Iter}
+\doxylink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{Ptr\+Iter$<$\+T \texorpdfstring{$\ast$}{*}$>$} and \doxylink{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4}{Stride\+Iter$<$\+T \texorpdfstring{$\ast$}{*}$>$} are both templated SEAL iterators that wrap raw pointers. The difference between these two types is that advancing \doxylink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{Ptr\+Iter$<$\+T \texorpdfstring{$\ast$}{*}$>$} always advances the wrapped pointer by one, whereas the step size (stride) can be set to be anything for a \doxylink{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4}{Stride\+Iter$<$\+T \texorpdfstring{$\ast$}{*}$>$}. Coeff\+Iter is a typedef of \doxylink{classseal_1_1util_1_1_ptr_iter}{Ptr\+Iter$<$std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}$>$} and and \doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter} is almost the same as Stride\+Iter$<$std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}$>$, but still a different type.
+\end{DoxyParagraph}
++-\/-\/-\/-\/-\/-\/-\/---+ Construct +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} My\+Type \texorpdfstring{$\ast$}{*} \texorpdfstring{$\vert$}{|}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|} Ptr\+Iter$<$\+My\+Type \texorpdfstring{$\ast$}{*}$>$ \texorpdfstring{$\vert$}{|} Simple wrapper for raw pointers +-\/-\/-\/-\/-\/-\/-\/---+ +-\/---+-\/-\/-\/-\/-\/-\/-\/---+---+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Dereference \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Ptr\+Iter$<$\+My\+Type \texorpdfstring{$\ast$}{*}$>$\+::ptr() \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} or implicit conversion \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} v v +-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} My\+Type \& \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} My\+Type \texorpdfstring{$\ast$}{*} \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/---+
+
++-\/-\/-\/-\/-\/-\/-\/---+ Construct +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} My\+Type \texorpdfstring{$\ast$}{*} \texorpdfstring{$\vert$}{|}-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---\texorpdfstring{$>$}{>}\texorpdfstring{$\vert$}{|} Stride\+Iter$<$\+My\+Type \texorpdfstring{$\ast$}{*}$>$ \texorpdfstring{$\vert$}{|} Simple wrapper for raw pointers with custom stride size +-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/---+-\/-\/-\/-\/-\/-\/-\/---+-\/-\/---+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Dereference \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Stride\+Iter$<$\+My\+Type \texorpdfstring{$\ast$}{*}$>$\+::ptr() \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} or implicit conversion \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} v v +-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} My\+Type \& \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} My\+Type \texorpdfstring{$\ast$}{*} \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/---+
+
+\begin{DoxyParagraph}{Iter\+Tuple}
+An extremely useful template class is the (variadic) Iter\+Tuple$<$...$>$ that allows multiple SEAL iterators to be zipped together. An \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} is itself a SEAL iterator and nested \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} types are used commonly in the library. Dereferencing an \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} always yields an std\+::tuple, with each \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} element dereferenced. Since an \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} can be constructed from an std\+::tuple holding the respective single-\/parameter constructor arguments for each iterator, the dereferenced std\+::tuple can often be directly passed on to functions expecting an \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple}.
+\end{DoxyParagraph}
+The individual components of an \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} can be accessed with the seal\+::util\+::get$<$i$>$(...) functions. The behavior of \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} is summarized in the following diagram\+: \begin{DoxyVerb} +-----------------------------------------+
+ | IterTuple<PolyIter, RNSIter, CoeffIter> |
+ +--------------------+--------------------+
+                      |
+                      |
+                      | Dereference
+                      |
+                      |
+                      v
+\end{DoxyVerb}
+ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} std\+::tuple$<$\+RNSIter, Coeff\+Iter, std\+::uint64\+\_\+t \&$>$\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|} +-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+---+ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} std\+::get$<$0$>$ \texorpdfstring{$\vert$}{|} std\+::get$<$1$>$ \texorpdfstring{$\vert$}{|} std\+::get$<$2$>$ \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} v v v +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ \texorpdfstring{$\vert$}{|} \doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} Coeff\+Iter \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} std\+::uint64\+\_\+t \& \texorpdfstring{$\vert$}{|} +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+ +-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/---+
+
+Sometimes we have to use multiple nested iterator tuples. In this case accessing the nested iterators can be tedious with nested get$<$...$>$ calls. Consider the following, where encrypted1 and encrypted2 are Ciphertexts and destination is either a \doxylink{classseal_1_1_ciphertext}{Ciphertext} or a \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter}\+:
+
+Iter\+Tuple$<$\+Poly\+Iter, Poly\+Iter$>$ I(encrypted1, encrypted2); Iter\+Tuple$<$decltype(\+I), Poly\+Iter$>$ J(\+I, destination); auto encrypted1\+\_\+iter = get$<$0$>$(get$<$0$>$(\+J)); auto encrypted2\+\_\+iter = get$<$1$>$(get$<$0$>$(\+J));
+
+An easier way is to use another form of get$<$...$>$ that accepts multiple indices and accesses the structure in a nested manner. For example, in the above we could also write\+:
+
+auto encrypted1\+\_\+iter = get$<$0, 0$>$(\+J)); auto encrypted2\+\_\+iter = get$<$0, 1$>$(\+J));
+
+Note that the innermost tuple index appears first in the list, i.\+e. the order is reversed from what appears in a nested get$<$...$>$ call. The reason for this reversal is that, when deducing what the iterators are, one first examines at the innermost scope, and last the outermost scope, corresponding now to the order of the indices. We have also provided similar functions for nested std\+::tuple objects, which is necessary when accessing the dereferencing of a nested \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple}.
+
+\begin{DoxyParagraph}{Typedefs for common Ptr\+Iter types}
+It is very common to use the types Ptr\+Iter$<$\+Modulus \texorpdfstring{$\ast$}{*}$>$ and Ptr\+Iter$<$\+NTTTables \texorpdfstring{$\ast$}{*}$>$. To simplify the notation, we have set up typedefs for these\+: Modulus\+Iter and NTTTables\+Iter. There are also constant versions Const\+Modulus\+Iter and Const\+NTTTables\+Iter, wrapping pointers to constant \doxylink{classseal_1_1_modulus}{Modulus} and \doxylink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables} instead.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Creating SEAL iterators}
+Iterators are easiest to create using the variadic iter function that, when given one or more arguments that can naturally be converted to SEAL iterators, outputs an appropriate iterator, or iterator tuple. Consider again the code snippet above, and how confusing the template parameters can become to write. Instead, we can simply write\+:
+\end{DoxyParagraph}
+auto I = iter(encrypted1, encrypted2); auto J = iter(\+I, destination); auto encrypted1\+\_\+iter = get$<$0, 0$>$(\+J)); auto encrypted2\+\_\+iter = get$<$0, 1$>$(\+J));
+
+There are three ways to create Iter\+Tuples from the iter function. The first way is by passing an \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} as input, in which case iter outputs a copy of it; there should be no reason to do this. The second way is by passing a variadic set of constructor arguments; iter will output an \doxylink{classseal_1_1util_1_1_iter_tuple}{Iter\+Tuple} consisting of SEAL iterators that are compatible with the given constructor arguments. The third way is by passing a std\+::tuple consisting of a variadic set of constructor arguments; the behavior is as in the second way.
+
+\begin{DoxyParagraph}{Reversing direction with Reverse\+Iter}
+In addition to the iterator types described above, we provide Reverse\+Iter$<$\+SEALIter$>$ that reverses the direction of iteration. Reverse\+Iter$<$\+SEALIter$>$ dereferences to the same type as SEALIter\+: for example, dereferencing Reverse\+Iter$<$\+RNSIter$>$ results in Coeff\+Iter, not Reverse\+Iter$<$\+Coeff\+Iter$>$.
+\end{DoxyParagraph}
+It is easy to create a \doxylink{classseal_1_1util_1_1_reverse_iter}{Reverse\+Iter} from a given SEAL iterator using the function reverse\+\_\+iter. For example, reverse\+\_\+iter(encrypted) will return a Reverse\+Iter$<$\+Poly\+Iter$>$ if encrypted is either a \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter}, or a \doxylink{classseal_1_1_ciphertext}{Ciphertext}. When passed multiple arguments, reverse\+\_\+iter returns an appropriate Reverse\+Iter$<$\+Iter\+Tuple$<$...$>$$>$. For example, reverse\+\_\+iter(encrypted1, encrypted2) returns Reverse\+Iter$<$\+Iter\+Tuple$<$\+Poly\+Iter, Poly\+Iter$>$$>$ if encrypted1 and encrypted2 are \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} or \doxylink{classseal_1_1_ciphertext}{Ciphertext} objects.
+
+\begin{DoxyParagraph}{SEAL\+\_\+\+ITERATE}
+SEAL iterators are made to be used with the SEAL\+\_\+\+ITERATE macro to iterate over a certain number of steps, and for each step call a given lambda function. In C++17 SEAL\+\_\+\+ITERATE expands to std\+::for\+\_\+each\+\_\+n, and in C++14 it expands to seal\+::util\+::seal\+\_\+for\+\_\+each\+\_\+n -- a custom implementation. For example, the following snippet appears in Evaluator\+::bfv\+\_\+multiply\+:
+\end{DoxyParagraph}
+SEAL\+\_\+\+ITERATE(     iter(encrypted1, encrypted1\+\_\+q, encrypted1\+\_\+\+Bsk),     encrypted1\+\_\+size,     behz\+\_\+extend\+\_\+base\+\_\+convert\+\_\+to\+\_\+ntt);
+
+Here an Iter\+Tuple$<$\+Poly\+Iter, Poly\+Iter, Poly\+Iter$>$ is created with the iter function; the argument types are \doxylink{classseal_1_1_ciphertext}{Ciphertext} (encrypted1), \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} (encrypted1\+\_\+q), and \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} (encrypted1\+\_\+\+Bsk). The iterator is advanced encrypted1\+\_\+size times, and each time the lambda function behz\+\_\+extend\+\_\+base\+\_\+convert\+\_\+to\+\_\+ntt is called with the iterator tuple dereferenced. The lambda function starts as follows\+:
+
+auto behz\+\_\+extend\+\_\+base\+\_\+convert\+\_\+to\+\_\+ntt = \mbox{[}\&\mbox{]}(auto I) \{ set\+\_\+poly(get$<$0$>$(\+I), coeff\+\_\+count, base\+\_\+q\+\_\+size, get$<$1$>$(\+I)); ntt\+\_\+negacyclic\+\_\+harvey\+\_\+lazy(get$<$1$>$(\+I), base\+\_\+q\+\_\+size, base\+\_\+q\+\_\+ntt\+\_\+tables); ... \});
+
+Here the parameter I is of type Iter\+Tuple$<$\+RNSIter, RNSIter, RNSIter$>$. Inside the lambda function we first copy the RNS polynomial from get$<$0$>$(\+I) (encrypted1) to get$<$1$>$(\+I) (encrypted1\+\_\+q) and transform it to NTT form. We use an overload of ntt\+\_\+negacyclic\+\_\+harvey\+\_\+lazy that takes an \doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}, size of the RNS base, and Const\+NTTTables\+Iter as arguments and converts each RNS component separately. Looking at \doxylink{ntt_8h_source}{seal/util/ntt.\+h} we see that the function ntt\+\_\+negacyclic\+\_\+harvey\+\_\+lazy is again implemented using SEAL\+\_\+\+ITERATE. Specifically, it contains the following\+:
+
+SEAL\+\_\+\+ITERATE(iter(operand, tables), coeff\+\_\+modulus\+\_\+size, \mbox{[}\&\mbox{]}(auto I) \{ ntt\+\_\+negacyclic\+\_\+harvey\+\_\+lazy(get$<$0$>$(\+I), get$<$1$>$(\+I)); \});
+
+Here iter outputs an Iter\+Tuple$<$\+RNSIter, Const\+NTTTables\+Iter$>$. In this case the lambda function to be called is defined inline. The argument I takes values Iter\+Tuple$<$\+Coeff\+Iter, const NTTTables \texorpdfstring{$\ast$}{*}$>$, and for each step the Coeff\+Iter overload of ntt\+\_\+negacyclic\+\_\+harvey\+\_\+lazy is called, with a reference to a matching \doxylink{classseal_1_1util_1_1_n_t_t_tables}{NTTTables} object.
+
+\begin{DoxyParagraph}{Coding conventions}
+There are two important coding conventions in the above code snippets that are to be observed\+: \begin{DoxyVerb}1. Use I, J, K, ... for the lambda function parameters representing SEAL iterators. This is compact and
+   makes it very clear that the objects in question are SEAL iterators since such variable names should not
+   be used in SEAL in any other context.
+2. Lambda functions passed to SEAL_ITERATE should almost always (see 3.) take a parameter of type auto. This
+   will produce simple looking code that performs well with the expected outcome.
+3. The only exception to 2. is when SEAL_ITERATE operates on a single PtrIter<T *>: dereferencing returns a
+   T &, which may be important to forward by reference to the lambda function. For an example of this, see
+   seal::util::ntt_negacyclic_harvey in seal/util/ntt.h, where the lambda function parameter is auto &.
+
+   Note: IterTuple<PolyIter, CoeffIter> will dereference to std::tuple<RNSIter, std::uint64_t &>, which can
+   safely be passed by value to the lambda function. Hence, a parameter of type auto in the lambda function
+   will most likely work as expected.
+
+   Note: Another approach that would always behave correctly is by using a forwarding reference auto && as
+   the lambda function parameter. However, we feel that this unnecessarily complicates the code for a minor
+   benefit.
+\end{DoxyVerb}
+ 
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Iterator overloads of common functions}
+Some functions have overloads that directly take either Coeff\+Iter, \doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}, or \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} inputs, and apply the operation in question to the entire structure as indicated by the iterator. For example, the function seal\+::util\+::negate\+\_\+poly\+\_\+coeffmod can negate a single RNS component modulo a given \doxylink{classseal_1_1_modulus}{Modulus} (Coeff\+Iter overload), an entire RNS polynomial modulo an array of matching \doxylink{classseal_1_1_modulus}{Modulus} elements (\doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter} overload), or an array of RNS polynomials (\doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} overload).
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Indexing with Seq\+Iter}
+Sometimes inside SEAL\+\_\+\+ITERATE lambda functions it is convenient to know the index of the iteration. This can be done using a Seq\+Iter$<$\+T$>$ iterator. The template parameter is an arithmetic type for the index counter.
+\end{DoxyParagraph}
+The easiest way to create \doxylink{classseal_1_1util_1_1_seq_iter}{Seq\+Iter} objects is using the seq\+\_\+iter function. For example, seq\+\_\+iter(0) returns a Seq\+Iter$<$int$>$ object with initial value 0. Alternatively, the iter function will detect arithmetic types passed to it and create \doxylink{classseal_1_1util_1_1_seq_iter}{Seq\+Iter} objects from them. For example, calling iter(0) is equivalent to calling seq\+\_\+iter(0), and this works also for multi-\/argument calls to iter. Dereferencing a \doxylink{classseal_1_1util_1_1_seq_iter}{Seq\+Iter} object returns the current value. For opposite direction indexing, simply wrap a \doxylink{classseal_1_1util_1_1_seq_iter}{Seq\+Iter} into a \doxylink{classseal_1_1util_1_1_reverse_iter}{Reverse\+Iter}, or call reverse\+\_\+iter directly with the start index.
+
+\begin{DoxyParagraph}{Note on allocations}
+In the future we hope to use the parallel version of std\+::for\+\_\+each\+\_\+n, introduced in C++17. For this to work, be mindful of how you use heap allocations in the lambda functions. Specifically, in heavy lambda functions it is probably a good idea to call seal\+::util\+::allocate inside the lambda function for any allocations needed, rather than using allocations captured from outside the lambda function.
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Iterators to temporary allocations}
+In many cases one may want to allocate a temporary buffer and create an iterator pointing to it. However, care must be taken to use the correct size parameters now both for the allocation, as well as for setting up the iterator. For this reason, we provide a few helpful macros that set up the \doxylink{classseal_1_1util_1_1_pointer}{Pointer} and only expose the iterator to the function. For example, instead of writing the following error-\/prone code\+:
+\end{DoxyParagraph}
+auto temp\+\_\+alloc(allocate\+\_\+poly\+\_\+array(count, poly\+\_\+modulus\+\_\+degree, coeff\+\_\+modulus\+\_\+size, pool)); \doxylink{classseal_1_1util_1_1_poly_iter}{Poly\+Iter} temp(temp\+\_\+alloc.\+get(), poly\+\_\+modulus\+\_\+degree, coeff\+\_\+modulus\+\_\+size);
+
+we can simply write\+:
+
+SEAL\+\_\+\+ALLOCATE\+\_\+\+GET\+\_\+\+POLY\+\_\+\+ITER(temp, count, poly\+\_\+modulus\+\_\+degree, coeff\+\_\+modulus\+\_\+size, pool);
+
+However, the latter does not expose the name of the allocation itself. There are similar macros for allocating buffers and setting up \doxylink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{Ptr\+Iter$<$\+T \texorpdfstring{$\ast$}{*}$>$}, \doxylink{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4}{Stride\+Iter$<$\+T \texorpdfstring{$\ast$}{*}$>$}, \doxylink{classseal_1_1util_1_1_r_n_s_iter}{RNSIter}, and Coeff\+Iter objects as well. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/iterator.\+h\end{DoxyCompactItemize}

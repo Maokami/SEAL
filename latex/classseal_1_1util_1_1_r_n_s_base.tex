@@ -1,0 +1,83 @@
+\doxysection{seal\+::util\+::RNSBase Class Reference}
+\hypertarget{classseal_1_1util_1_1_r_n_s_base}{}\label{classseal_1_1util_1_1_r_n_s_base}\index{seal::util::RNSBase@{seal::util::RNSBase}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_ae5c504312ff8bac41e23b5a381c3edf6}\label{classseal_1_1util_1_1_r_n_s_base_ae5c504312ff8bac41e23b5a381c3edf6} 
+{\bfseries RNSBase} (const std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \&rnsbase, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool)
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_af784915e80f6fc3270e5866761ecfe6d}\label{classseal_1_1util_1_1_r_n_s_base_af784915e80f6fc3270e5866761ecfe6d} 
+{\bfseries RNSBase} (\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&\&source)=default
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_abe75e48990fdf5b5d98b6026441b1b42}\label{classseal_1_1util_1_1_r_n_s_base_abe75e48990fdf5b5d98b6026441b1b42} 
+{\bfseries RNSBase} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&copy, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool)
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_af2cd9beba77cbb8207a77c9be58044cc}\label{classseal_1_1util_1_1_r_n_s_base_af2cd9beba77cbb8207a77c9be58044cc} 
+{\bfseries RNSBase} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&copy)
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a94b04fa6bfdf3d298ef8ea1c669a3869}\label{classseal_1_1util_1_1_r_n_s_base_a94b04fa6bfdf3d298ef8ea1c669a3869} 
+\mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \& {\bfseries operator=} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&assign)=delete
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_aafb40adf6ebe4bd789d654d0d5229125}\label{classseal_1_1util_1_1_r_n_s_base_aafb40adf6ebe4bd789d654d0d5229125} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& {\bfseries operator\mbox{[}$\,$\mbox{]}} (std\+::size\+\_\+t index) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a4ccc863e1caf6acb5d52c2e702699c28}\label{classseal_1_1util_1_1_r_n_s_base_a4ccc863e1caf6acb5d52c2e702699c28} 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t {\bfseries size} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a359c61544cd138ba833e48fdaf06ad77}\label{classseal_1_1util_1_1_r_n_s_base_a359c61544cd138ba833e48fdaf06ad77} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries contains} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&value) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a750ab31673cd0436734b9c793331d336}\label{classseal_1_1util_1_1_r_n_s_base_a750ab31673cd0436734b9c793331d336} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries is\+\_\+subbase\+\_\+of} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&superbase) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a76dcd49adb0693e46230c4743dab6719}\label{classseal_1_1util_1_1_r_n_s_base_a76dcd49adb0693e46230c4743dab6719} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries is\+\_\+superbase\+\_\+of} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&subbase) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_af5d107f7d0471c1c0d17d969b671d726}\label{classseal_1_1util_1_1_r_n_s_base_af5d107f7d0471c1c0d17d969b671d726} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries is\+\_\+proper\+\_\+subbase\+\_\+of} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&superbase) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a54eed7169cd3eeb4fdc9875ff3a5f242}\label{classseal_1_1util_1_1_r_n_s_base_a54eed7169cd3eeb4fdc9875ff3a5f242} 
+SEAL\+\_\+\+NODISCARD bool {\bfseries is\+\_\+proper\+\_\+superbase\+\_\+of} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&subbase) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_ac12f9a55f41ac4a451587b90bf66038a}\label{classseal_1_1util_1_1_r_n_s_base_ac12f9a55f41ac4a451587b90bf66038a} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} {\bfseries extend} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&value) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_acbc6ed55172afa5331f6c6869d482201}\label{classseal_1_1util_1_1_r_n_s_base_acbc6ed55172afa5331f6c6869d482201} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} {\bfseries extend} (const \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} \&other) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a1d3eb795754e370e5b372279ed3fa10e}\label{classseal_1_1util_1_1_r_n_s_base_a1d3eb795754e370e5b372279ed3fa10e} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} {\bfseries drop} () const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a855bd07b5f1b18f217f22600a95cbfd2}\label{classseal_1_1util_1_1_r_n_s_base_a855bd07b5f1b18f217f22600a95cbfd2} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_r_n_s_base}{RNSBase}} {\bfseries drop} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&value) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_af9b4116792d433d51076b3b1c729138e}\label{classseal_1_1util_1_1_r_n_s_base_af9b4116792d433d51076b3b1c729138e} 
+void {\bfseries decompose} (std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}value, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a35f1aee0565f35ffb0dcf79ac193d535}\label{classseal_1_1util_1_1_r_n_s_base_a35f1aee0565f35ffb0dcf79ac193d535} 
+void {\bfseries decompose\+\_\+array} (std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}value, std\+::size\+\_\+t count, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a4063fe996416824a1515615ff1de86fe}\label{classseal_1_1util_1_1_r_n_s_base_a4063fe996416824a1515615ff1de86fe} 
+void {\bfseries compose} (std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}value, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a9e4ef7cd4eb8992db15f666a65391f5e}\label{classseal_1_1util_1_1_r_n_s_base_a9e4ef7cd4eb8992db15f666a65391f5e} 
+void {\bfseries compose\+\_\+array} (std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*}value, std\+::size\+\_\+t count, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} pool) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_afcaf3083d7279f2354d5fd2fa37b3bb4}\label{classseal_1_1util_1_1_r_n_s_base_afcaf3083d7279f2354d5fd2fa37b3bb4} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \texorpdfstring{$\ast$}{*} {\bfseries base} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a11b030f975c7d7084d961f0a76e21a83}\label{classseal_1_1util_1_1_r_n_s_base_a11b030f975c7d7084d961f0a76e21a83} 
+SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries base\+\_\+prod} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_a26ad19abd232d1155d0d7403736aff1e}\label{classseal_1_1util_1_1_r_n_s_base_a26ad19abd232d1155d0d7403736aff1e} 
+SEAL\+\_\+\+NODISCARD const std\+::uint64\+\_\+t \texorpdfstring{$\ast$}{*} {\bfseries punctured\+\_\+prod\+\_\+array} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_r_n_s_base_af2aed2e0340a724ebaec38ffce1d4b8f}\label{classseal_1_1util_1_1_r_n_s_base_af2aed2e0340a724ebaec38ffce1d4b8f} 
+SEAL\+\_\+\+NODISCARD const \mbox{\hyperlink{structseal_1_1util_1_1_multiply_u_int_mod_operand}{Multiply\+UInt\+Mod\+Operand}} \texorpdfstring{$\ast$}{*} {\bfseries inv\+\_\+punctured\+\_\+prod\+\_\+mod\+\_\+base\+\_\+array} () const noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/rns.\+h\item 
+seal/util/rns.\+cpp\end{DoxyCompactItemize}

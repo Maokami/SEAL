@@ -1,0 +1,72 @@
+\doxysection{seal\+::Plain\+Modulus Class Reference}
+\hypertarget{classseal_1_1_plain_modulus}{}\label{classseal_1_1_plain_modulus}\index{seal::PlainModulus@{seal::PlainModulus}}
+
+
+{\ttfamily \#include $<$modulus.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \mbox{\hyperlink{classseal_1_1_plain_modulus_a79fb08c88ce67d7b48d0c569ce871a83}{Batching}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, int bit\+\_\+size)
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \mbox{\hyperlink{classseal_1_1_plain_modulus_a081d4260f1e7551fa5d84c2d93765249}{Batching}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, std\+::vector$<$ int $>$ bit\+\_\+sizes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains static methods for creating a plaintext modulus easily. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_plain_modulus_a79fb08c88ce67d7b48d0c569ce871a83}\label{classseal_1_1_plain_modulus_a79fb08c88ce67d7b48d0c569ce871a83} 
+\index{seal::PlainModulus@{seal::PlainModulus}!Batching@{Batching}}
+\index{Batching@{Batching}!seal::PlainModulus@{seal::PlainModulus}}
+\doxysubsubsection{\texorpdfstring{Batching()}{Batching()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} seal\+::\+Plain\+Modulus\+::\+Batching (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{int}]{bit\+\_\+size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Creates a prime number \doxylink{classseal_1_1_modulus}{Modulus} for use as plain\+\_\+modulus encryption parameter that supports batching with a given poly\+\_\+modulus\+\_\+degree.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The value of the poly\+\_\+modulus\+\_\+degree encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em bit\+\_\+size} & The bit-\/length of the prime to be generated \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if poly\+\_\+modulus\+\_\+degree is not a power-\/of-\/two or is too large \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if bit\+\_\+size is out of bounds \\
+\hline
+{\em std\+::logic\+\_\+error} & if a suitable prime could not be found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plain_modulus_a081d4260f1e7551fa5d84c2d93765249}\label{classseal_1_1_plain_modulus_a081d4260f1e7551fa5d84c2d93765249} 
+\index{seal::PlainModulus@{seal::PlainModulus}!Batching@{Batching}}
+\index{Batching@{Batching}!seal::PlainModulus@{seal::PlainModulus}}
+\doxysubsubsection{\texorpdfstring{Batching()}{Batching()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ seal\+::\+Plain\+Modulus\+::\+Batching (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{std\+::vector$<$ int $>$}]{bit\+\_\+sizes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+Creates several prime number \doxylink{classseal_1_1_modulus}{Modulus} elements that can be used as plain\+\_\+modulus encryption parameters, each supporting batching with a given poly\+\_\+modulus\+\_\+degree.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The value of the poly\+\_\+modulus\+\_\+degree encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em bit\+\_\+sizes} & The bit-\/lengths of the primes to be generated \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if poly\+\_\+modulus\+\_\+degree is not a power-\/of-\/two or is too large \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if bit\+\_\+sizes is too large or if its elements are out of bounds \\
+\hline
+{\em std\+::logic\+\_\+error} & if not enough suitable primes could be found \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/modulus.\+h\end{DoxyCompactItemize}

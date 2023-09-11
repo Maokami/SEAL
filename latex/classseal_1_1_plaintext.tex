@@ -1,0 +1,841 @@
+\doxysection{seal\+::Plaintext Class Reference}
+\hypertarget{classseal_1_1_plaintext}{}\label{classseal_1_1_plaintext}\index{seal::Plaintext@{seal::Plaintext}}
+
+
+{\ttfamily \#include $<$plaintext.\+h$>$}
+
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_plaintext_a14d0072bb54ed8c9d5e8b6f1e34c7c2c}\label{classseal_1_1_plaintext_a14d0072bb54ed8c9d5e8b6f1e34c7c2c} 
+using {\bfseries pt\+\_\+coeff\+\_\+type} = std\+::uint64\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_ac720e0a1a370ff93b623be748b166956}{Plaintext}} (\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_afaf15f02984276a0cd18ff823931f3f8}{Plaintext}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_aef4d6b331be5b87ffbaae9326fe2db53}{coeff\+\_\+count}}, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_ab82e65730322ba4de3906940223cc59b}{Plaintext}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_ad07f5bf2f7590622a033244ab67161b7}{capacity}}, std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_aef4d6b331be5b87ffbaae9326fe2db53}{coeff\+\_\+count}}, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_a01a6815db36aff2d7366d089cf4b0e2b}{Plaintext}} (const std\+::string \&hex\+\_\+poly, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}{pool}}=\mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}())
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_a73d5a33b5f483f7036e77bdb5ecc3a0e}{Plaintext}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&copy)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_a44b8a8a17ceb6f40c0f3af31d312652e}{Plaintext}} (\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&\&source)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext_aa73f65284edf13cea0d1999f1ca535c1}{Plaintext}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&copy, \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}{pool}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_acb33767af974ef6d9996956ccf76b977}{reserve}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_ad07f5bf2f7590622a033244ab67161b7}{capacity}})
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_af9da5b93c14bbf3be8eef7276e8852f7}{shrink\+\_\+to\+\_\+fit}} ()
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_a29c2b6a99a59b09c21c77eee8075d3f8}{release}} () noexcept
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_af10c6e3e01730199d2cddfdca480e039}{resize}} (std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_aef4d6b331be5b87ffbaae9326fe2db53}{coeff\+\_\+count}})
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& \mbox{\hyperlink{classseal_1_1_plaintext_a32b8be6d4882f1d0933aecb7362f4828}{operator=}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& \mbox{\hyperlink{classseal_1_1_plaintext_a13ce7cc2bee62b8525f1d063e1605507}{operator=}} (\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&\&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& \mbox{\hyperlink{classseal_1_1_plaintext_a3f2830894c1f852b0955a7c637299aea}{operator=}} (const std\+::string \&hex\+\_\+poly)
+\item 
+\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& \mbox{\hyperlink{classseal_1_1_plaintext_affa58981ed6d6128f30e751c836cd779}{operator=}} (pt\+\_\+coeff\+\_\+type const\+\_\+coeff)
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_a2539b60c9a71d6e32dce953b62ecd0d1}{set\+\_\+zero}} (std\+::size\+\_\+t start\+\_\+coeff, std\+::size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_adb0b8c48042aa5b0a992f3008ea50d66}{set\+\_\+zero}} (std\+::size\+\_\+t start\+\_\+coeff)
+\item 
+void \mbox{\hyperlink{classseal_1_1_plaintext_adbe996fc6fc8a5296a7b242d260f7003}{set\+\_\+zero}} ()
+\item 
+SEAL\+\_\+\+NODISCARD const auto \& \mbox{\hyperlink{classseal_1_1_plaintext_a87a83dbf94a51977c45412eb0cc760eb}{dyn\+\_\+array}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_plaintext_a3cc008a7387da45f5035d12fbb67936c}{data}} ()
+\item 
+SEAL\+\_\+\+NODISCARD const pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_plaintext_a2717a53f84b96ddcfef454354ca8cd8a}{data}} () const
+\item 
+SEAL\+\_\+\+NODISCARD pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_plaintext_a8f89b3a748ad32983d8b3e41f97b4749}{data}} (std\+::size\+\_\+t coeff\+\_\+index)
+\item 
+SEAL\+\_\+\+NODISCARD const pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_plaintext_a6ccb98bb396ca910b144b340a966c52e}{data}} (std\+::size\+\_\+t coeff\+\_\+index) const
+\item 
+SEAL\+\_\+\+NODISCARD const pt\+\_\+coeff\+\_\+type \& \mbox{\hyperlink{classseal_1_1_plaintext_a6fea06a4e0d493a6f9813007b5c74743}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t coeff\+\_\+index) const
+\item 
+SEAL\+\_\+\+NODISCARD pt\+\_\+coeff\+\_\+type \& \mbox{\hyperlink{classseal_1_1_plaintext_ac49357382074eff559e0d43a48559f7d}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t coeff\+\_\+index)
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_plaintext_a1d192324435bc7e237756df3566fc1c3}{operator==}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&compare) const
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_plaintext_ab77c067cd07a16c7e29b97fc6d886e97}{operator!=}} (const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&compare) const
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_plaintext_aabb309fcc897361c1371da08952b2867}{is\+\_\+zero}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_ad07f5bf2f7590622a033244ab67161b7}{capacity}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_aef4d6b331be5b87ffbaae9326fe2db53}{coeff\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_aad488313cf7e15eb3be0327b3b896072}{significant\+\_\+coeff\+\_\+count}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_plaintext_a607f4416dd7c7acc58ccd277e9878376}{nonzero\+\_\+coeff\+\_\+count}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::string \mbox{\hyperlink{classseal_1_1_plaintext_ad6ea95954eca1900072165cf7328e651}{to\+\_\+string}} () const
+\item 
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_ac601de584be9f7d4d96543fcb47868a6}{save\+\_\+size}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_a4e5136783dde07fde0b4c76acc01422e}{save}} (std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_a4c6ded783346dda1fed68ecbd575cb76}{unsafe\+\_\+load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_a26893c6ce73355e3d69a869b8e5455bc}{load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_abb65a3de6a3d6d71e5c1c80919eea60f}{save}} (seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t size, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_ab0c306c36d377d91359b4041402a9fbe}{unsafe\+\_\+load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_plaintext_acc8c2c4a470fd028c9e78ccdd9942b98}{load}} (const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&context, const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size)
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_plaintext_a7cf0a51529161f3fcd7cdcdd45d9171a}{is\+\_\+ntt\+\_\+form}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_plaintext_af643a3b656727d350ed3206ea65adf40}{parms\+\_\+id}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& \mbox{\hyperlink{classseal_1_1_plaintext_a02c3e309fcfa4648a3df2539d69facd1}{parms\+\_\+id}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD double \& \mbox{\hyperlink{classseal_1_1_plaintext_a958fcd7c2bb3b1efc8bc8ccb1c6dc575}{scale}} () noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const double \& \mbox{\hyperlink{classseal_1_1_plaintext_a1a664bfea6515b3a3da420f431f451b6}{scale}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}{pool}} () const noexcept
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1_plaintext_a9300c9d218be169fff5b7542e4b41ea0}\label{classseal_1_1_plaintext_a9300c9d218be169fff5b7542e4b41ea0} 
+class {\bfseries Secret\+Key}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to store a plaintext element. The data for the plaintext is a polynomial with coefficients modulo the plaintext modulus. The degree of the plaintext polynomial must be one less than the degree of the polynomial modulus. The backing array always allocates one 64-\/bit word per each coefficient of the polynomial.
+
+\begin{DoxyParagraph}{Memory Management}
+The coefficient count of a plaintext refers to the number of word-\/size coefficients in the plaintext, whereas its capacity refers to the number of word-\/size coefficients that fit in the current memory allocation. In high-\/ performance applications unnecessary re-\/allocations should be avoided by reserving enough memory for the plaintext to begin with either by providing the desired capacity to the constructor as an extra argument, or by calling the reserve function at any time.
+\end{DoxyParagraph}
+When the scheme is scheme\+\_\+type\+::bfv each coefficient of a plaintext is a 64-\/bit word, but when the scheme is scheme\+\_\+type\+::ckks the plaintext is by default stored in an NTT transformed form with respect to each of the primes in the coefficient modulus. Thus, the size of the allocation that is needed is the size of the coefficient modulus (number of primes) times the degree of the polynomial modulus. In addition, a valid CKKS plaintext also store the parms\+\_\+id for the corresponding encryption parameters.
+
+\begin{DoxyParagraph}{Thread Safety}
+In general, reading from plaintext is thread-\/safe as long as no other thread is concurrently mutating it. This is due to the underlying data structure storing the plaintext not being thread-\/safe.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_ciphertext}{Ciphertext} for the class that stores ciphertexts. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_plaintext_ac720e0a1a370ff93b623be748b166956}\label{classseal_1_1_plaintext_ac720e0a1a370ff93b623be748b166956} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs an empty plaintext allocating no memory.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_afaf15f02984276a0cd18ff823931f3f8}\label{classseal_1_1_plaintext_afaf15f02984276a0cd18ff823931f3f8} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{coeff\+\_\+count,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructs a plaintext representing a constant polynomial 0. The coefficient count of the polynomial is set to the given value. The capacity is set to the same value.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+count} & The number of (zeroed) coefficients in the plaintext polynomial \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if coeff\+\_\+count is negative \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_ab82e65730322ba4de3906940223cc59b}\label{classseal_1_1_plaintext_ab82e65730322ba4de3906940223cc59b} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{capacity,  }\item[{std\+::size\+\_\+t}]{coeff\+\_\+count,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+Constructs a plaintext representing a constant polynomial 0. The coefficient count of the polynomial and the capacity are set to the given values.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em capacity} & The capacity \\
+\hline
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+count} & The number of (zeroed) coefficients in the plaintext polynomial \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if capacity is less than coeff\+\_\+count \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if coeff\+\_\+count is negative \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a01a6815db36aff2d7366d089cf4b0e2b}\label{classseal_1_1_plaintext_a01a6815db36aff2d7366d089cf4b0e2b} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{hex\+\_\+poly,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool = {\ttfamily \mbox{\hyperlink{classseal_1_1_memory_manager_afc62ce21ea02922446f3d15229b78fa5}{Memory\+Manager\+::\+Get\+Pool}}()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructs a plaintext from a given hexadecimal string describing the plaintext polynomial.
+
+The string description of the polynomial must adhere to the format returned by \doxylink{classseal_1_1_plaintext_ad6ea95954eca1900072165cf7328e651}{to\+\_\+string()}, which is of the form \"{}7\+FFx\texorpdfstring{$^\wedge$}{\string^}3 + 1x\texorpdfstring{$^\wedge$}{\string^}1 + 3\"{} and summarized by the following rules\+:
+\begin{DoxyEnumerate}
+\item Terms are listed in order of strictly decreasing exponent
+\item Coefficient values are non-\/negative and in hexadecimal format (upper and lower case letters are both supported)
+\item Exponents are positive and in decimal format
+\item Zero coefficient terms (including the constant term) may be (but do not have to be) omitted
+\item Term with the exponent value of one must be exactly written as x\texorpdfstring{$^\wedge$}{\string^}1
+\item Term with the exponent value of zero (the constant term) must be written as just a hexadecimal number without exponent
+\item Terms must be separated by exactly $<$space$>$+$<$space$>$ and minus is not allowed
+\item Other than the +, no other terms should have whitespace
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hex\+\_\+poly} & The formatted polynomial string specifying the plaintext polynomial \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if hex\+\_\+poly does not adhere to the expected format \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a73d5a33b5f483f7036e77bdb5ecc3a0e}\label{classseal_1_1_plaintext_a73d5a33b5f483f7036e77bdb5ecc3a0e} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new plaintext by copying a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The plaintext to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_a44b8a8a17ceb6f40c0f3af31d312652e}\label{classseal_1_1_plaintext_a44b8a8a17ceb6f40c0f3af31d312652e} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new plaintext by moving a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The plaintext to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_aa73f65284edf13cea0d1999f1ca535c1}\label{classseal_1_1_plaintext_aa73f65284edf13cea0d1999f1ca535c1} 
+\index{seal::Plaintext@{seal::Plaintext}!Plaintext@{Plaintext}}
+\index{Plaintext@{Plaintext}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{Plaintext()}{Plaintext()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily seal\+::\+Plaintext\+::\+Plaintext (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{copy,  }\item[{\mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}}}]{pool }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a new plaintext by copying a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The plaintext to copy from \\
+\hline
+\mbox{\texttt{ in}}  & {\em pool} & The \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a valid memory pool \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if pool is uninitialized \\
+\hline
+\end{DoxyExceptions}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_plaintext_ad07f5bf2f7590622a033244ab67161b7}\label{classseal_1_1_plaintext_ad07f5bf2f7590622a033244ab67161b7} 
+\index{seal::Plaintext@{seal::Plaintext}!capacity@{capacity}}
+\index{capacity@{capacity}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{capacity()}{capacity()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Plaintext\+::capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the capacity of the current allocation. \Hypertarget{classseal_1_1_plaintext_aef4d6b331be5b87ffbaae9326fe2db53}\label{classseal_1_1_plaintext_aef4d6b331be5b87ffbaae9326fe2db53} 
+\index{seal::Plaintext@{seal::Plaintext}!coeff\_count@{coeff\_count}}
+\index{coeff\_count@{coeff\_count}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{coeff\_count()}{coeff\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Plaintext\+::coeff\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the coefficient count of the current plaintext polynomial. \Hypertarget{classseal_1_1_plaintext_a3cc008a7387da45f5035d12fbb67936c}\label{classseal_1_1_plaintext_a3cc008a7387da45f5035d12fbb67936c} 
+\index{seal::Plaintext@{seal::Plaintext}!data@{data}}
+\index{data@{data}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} seal\+::\+Plaintext\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to the beginning of the plaintext polynomial. \Hypertarget{classseal_1_1_plaintext_a2717a53f84b96ddcfef454354ca8cd8a}\label{classseal_1_1_plaintext_a2717a53f84b96ddcfef454354ca8cd8a} 
+\index{seal::Plaintext@{seal::Plaintext}!data@{data}}
+\index{data@{data}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} seal\+::\+Plaintext\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a const pointer to the beginning of the plaintext polynomial. \Hypertarget{classseal_1_1_plaintext_a8f89b3a748ad32983d8b3e41f97b4749}\label{classseal_1_1_plaintext_a8f89b3a748ad32983d8b3e41f97b4749} 
+\index{seal::Plaintext@{seal::Plaintext}!data@{data}}
+\index{data@{data}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} seal\+::\+Plaintext\+::data (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{coeff\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a pointer to a given coefficient of the plaintext polynomial.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+index} & The index of the coefficient in the plaintext polynomial \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if coeff\+\_\+index is not within \mbox{[}0, coeff\+\_\+count) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a6ccb98bb396ca910b144b340a966c52e}\label{classseal_1_1_plaintext_a6ccb98bb396ca910b144b340a966c52e} 
+\index{seal::Plaintext@{seal::Plaintext}!data@{data}}
+\index{data@{data}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const pt\+\_\+coeff\+\_\+type \texorpdfstring{$\ast$}{*} seal\+::\+Plaintext\+::data (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{coeff\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a const pointer to a given coefficient of the plaintext polynomial.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+index} & The index of the coefficient in the plaintext polynomial \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_a87a83dbf94a51977c45412eb0cc760eb}\label{classseal_1_1_plaintext_a87a83dbf94a51977c45412eb0cc760eb} 
+\index{seal::Plaintext@{seal::Plaintext}!dyn\_array@{dyn\_array}}
+\index{dyn\_array@{dyn\_array}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{dyn\_array()}{dyn\_array()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const auto \& seal\+::\+Plaintext\+::dyn\+\_\+array (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a reference to the backing \doxylink{classseal_1_1_dyn_array}{Dyn\+Array} object. \Hypertarget{classseal_1_1_plaintext_a7cf0a51529161f3fcd7cdcdd45d9171a}\label{classseal_1_1_plaintext_a7cf0a51529161f3fcd7cdcdd45d9171a} 
+\index{seal::Plaintext@{seal::Plaintext}!is\_ntt\_form@{is\_ntt\_form}}
+\index{is\_ntt\_form@{is\_ntt\_form}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{is\_ntt\_form()}{is\_ntt\_form()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Plaintext\+::is\+\_\+ntt\+\_\+form (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns whether the plaintext is in NTT form. \Hypertarget{classseal_1_1_plaintext_aabb309fcc897361c1371da08952b2867}\label{classseal_1_1_plaintext_aabb309fcc897361c1371da08952b2867} 
+\index{seal::Plaintext@{seal::Plaintext}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Plaintext\+::is\+\_\+zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether the current plaintext polynomial has all zero coefficients. \Hypertarget{classseal_1_1_plaintext_acc8c2c4a470fd028c9e78ccdd9942b98}\label{classseal_1_1_plaintext_acc8c2c4a470fd028c9e78ccdd9942b98} 
+\index{seal::Plaintext@{seal::Plaintext}!load@{load}}
+\index{load@{load}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Plaintext\+::load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a plaintext from an input stream overwriting the current plaintext. The loaded plaintext is verified to be valid for the given \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{classseal_1_1_public_key}{Public\+Key} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a26893c6ce73355e3d69a869b8e5455bc}\label{classseal_1_1_plaintext_a26893c6ce73355e3d69a869b8e5455bc} 
+\index{seal::Plaintext@{seal::Plaintext}!load@{load}}
+\index{load@{load}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Plaintext\+::load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{std\+::istream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a plaintext from an input stream overwriting the current plaintext. The loaded plaintext is verified to be valid for the given \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the plaintext from \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a607f4416dd7c7acc58ccd277e9878376}\label{classseal_1_1_plaintext_a607f4416dd7c7acc58ccd277e9878376} 
+\index{seal::Plaintext@{seal::Plaintext}!nonzero\_coeff\_count@{nonzero\_coeff\_count}}
+\index{nonzero\_coeff\_count@{nonzero\_coeff\_count}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{nonzero\_coeff\_count()}{nonzero\_coeff\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Plaintext\+::nonzero\+\_\+coeff\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the non-\/zero coefficient count of the current plaintext polynomial. \Hypertarget{classseal_1_1_plaintext_ab77c067cd07a16c7e29b97fc6d886e97}\label{classseal_1_1_plaintext_ab77c067cd07a16c7e29b97fc6d886e97} 
+\index{seal::Plaintext@{seal::Plaintext}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Plaintext\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether or not the plaintext has a different semantic value than a given plaintext. Leading zero coefficients are ignored by the comparison.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The plaintext to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_a32b8be6d4882f1d0933aecb7362f4828}\label{classseal_1_1_plaintext_a32b8be6d4882f1d0933aecb7362f4828} 
+\index{seal::Plaintext@{seal::Plaintext}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& seal\+::\+Plaintext\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copies a given plaintext to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The plaintext to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_a3f2830894c1f852b0955a7c637299aea}\label{classseal_1_1_plaintext_a3f2830894c1f852b0955a7c637299aea} 
+\index{seal::Plaintext@{seal::Plaintext}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& seal\+::\+Plaintext\+::operator= (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{hex\+\_\+poly }\end{DoxyParamCaption})}
+
+Sets the value of the current plaintext to the polynomial represented by the given hexadecimal string.
+
+The string description of the polynomial must adhere to the format returned by \doxylink{classseal_1_1_plaintext_ad6ea95954eca1900072165cf7328e651}{to\+\_\+string()}, which is of the form \"{}7\+FFx\texorpdfstring{$^\wedge$}{\string^}3 + 1x\texorpdfstring{$^\wedge$}{\string^}1 + 3\"{} and summarized by the following rules\+:
+\begin{DoxyEnumerate}
+\item Terms are listed in order of strictly decreasing exponent
+\item Coefficient values are non-\/negative and in hexadecimal format (upper and lower case letters are both supported)
+\item Exponents are positive and in decimal format
+\item Zero coefficient terms (including the constant term) may be (but do not have to be) omitted
+\item Term with the exponent value of one must be exactly written as x\texorpdfstring{$^\wedge$}{\string^}1
+\item Term with the exponent value of zero (the constant term) must be written as just a hexadecimal number without exponent
+\item Terms must be separated by exactly $<$space$>$+$<$space$>$ and minus is not allowed
+\item Other than the +, no other terms should have whitespace
+\end{DoxyEnumerate}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em hex\+\_\+poly} & The formatted polynomial string specifying the plaintext polynomial \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if hex\+\_\+poly does not adhere to the expected format \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if the coefficients of hex\+\_\+poly are too wide \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a13ce7cc2bee62b8525f1d063e1605507}\label{classseal_1_1_plaintext_a13ce7cc2bee62b8525f1d063e1605507} 
+\index{seal::Plaintext@{seal::Plaintext}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& seal\+::\+Plaintext\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Moves a given plaintext to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The plaintext to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_affa58981ed6d6128f30e751c836cd779}\label{classseal_1_1_plaintext_affa58981ed6d6128f30e751c836cd779} 
+\index{seal::Plaintext@{seal::Plaintext}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \& seal\+::\+Plaintext\+::operator= (\begin{DoxyParamCaption}\item[{pt\+\_\+coeff\+\_\+type}]{const\+\_\+coeff }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the value of the current plaintext to a given constant polynomial and sets the parms\+\_\+id to parms\+\_\+id\+\_\+zero, effectively marking the plaintext as not NTT transformed. The coefficient count is set to one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em const\+\_\+coeff} & The constant coefficient \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_a1d192324435bc7e237756df3566fc1c3}\label{classseal_1_1_plaintext_a1d192324435bc7e237756df3566fc1c3} 
+\index{seal::Plaintext@{seal::Plaintext}!operator==@{operator==}}
+\index{operator==@{operator==}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Plaintext\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_plaintext}{Plaintext}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns whether or not the plaintext has the same semantic value as a given plaintext. Leading zero coefficients are ignored by the comparison.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The plaintext to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_plaintext_ac49357382074eff559e0d43a48559f7d}\label{classseal_1_1_plaintext_ac49357382074eff559e0d43a48559f7d} 
+\index{seal::Plaintext@{seal::Plaintext}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD pt\+\_\+coeff\+\_\+type \& seal\+::\+Plaintext\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{coeff\+\_\+index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a reference to a given coefficient of the plaintext polynomial.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+index} & The index of the coefficient in the plaintext polynomial \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if coeff\+\_\+index is not within \mbox{[}0, coeff\+\_\+count) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a6fea06a4e0d493a6f9813007b5c74743}\label{classseal_1_1_plaintext_a6fea06a4e0d493a6f9813007b5c74743} 
+\index{seal::Plaintext@{seal::Plaintext}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const pt\+\_\+coeff\+\_\+type \& seal\+::\+Plaintext\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{coeff\+\_\+index }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a const reference to a given coefficient of the plaintext polynomial.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+index} & The index of the coefficient in the plaintext polynomial \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if coeff\+\_\+index is not within \mbox{[}0, coeff\+\_\+count) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a02c3e309fcfa4648a3df2539d69facd1}\label{classseal_1_1_plaintext_a02c3e309fcfa4648a3df2539d69facd1} 
+\index{seal::Plaintext@{seal::Plaintext}!parms\_id@{parms\_id}}
+\index{parms\_id@{parms\_id}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{parms\_id()}{parms\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const parms\+\_\+id\+\_\+type \& seal\+::\+Plaintext\+::parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const reference to parms\+\_\+id. The parms\+\_\+id must remain zero unless the plaintext polynomial is in NTT form.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for more information about \doxylink{classseal_1_1_plaintext_af643a3b656727d350ed3206ea65adf40}{parms\+\_\+id}. 
+\end{DoxySeeAlso}
+\Hypertarget{classseal_1_1_plaintext_af643a3b656727d350ed3206ea65adf40}\label{classseal_1_1_plaintext_af643a3b656727d350ed3206ea65adf40} 
+\index{seal::Plaintext@{seal::Plaintext}!parms\_id@{parms\_id}}
+\index{parms\_id@{parms\_id}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{parms\_id()}{parms\_id()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD parms\+\_\+id\+\_\+type \& seal\+::\+Plaintext\+::parms\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a reference to parms\+\_\+id. The parms\+\_\+id must remain zero unless the plaintext polynomial is in NTT form.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for more information about \doxylink{classseal_1_1_plaintext_af643a3b656727d350ed3206ea65adf40}{parms\+\_\+id}. 
+\end{DoxySeeAlso}
+\Hypertarget{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33}\label{classseal_1_1_plaintext_a00ebd136a670476537c5941e99a80e33} 
+\index{seal::Plaintext@{seal::Plaintext}!pool@{pool}}
+\index{pool@{pool}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{pool()}{pool()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+Plaintext\+::pool (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the currently used \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}. \Hypertarget{classseal_1_1_plaintext_a29c2b6a99a59b09c21c77eee8075d3f8}\label{classseal_1_1_plaintext_a29c2b6a99a59b09c21c77eee8075d3f8} 
+\index{seal::Plaintext@{seal::Plaintext}!release@{release}}
+\index{release@{release}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{release()}{release()}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Resets the plaintext. This function releases any memory allocated by the plaintext, returning it to the memory pool. \Hypertarget{classseal_1_1_plaintext_acb33767af974ef6d9996956ccf76b977}\label{classseal_1_1_plaintext_acb33767af974ef6d9996956ccf76b977} 
+\index{seal::Plaintext@{seal::Plaintext}!reserve@{reserve}}
+\index{reserve@{reserve}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{reserve()}{reserve()}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::reserve (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{capacity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Allocates enough memory to accommodate the backing array of a plaintext with given capacity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em capacity} & The capacity \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if capacity is negative \\
+\hline
+{\em std\+::logic\+\_\+error} & if the plaintext is NTT transformed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_af10c6e3e01730199d2cddfdca480e039}\label{classseal_1_1_plaintext_af10c6e3e01730199d2cddfdca480e039} 
+\index{seal::Plaintext@{seal::Plaintext}!resize@{resize}}
+\index{resize@{resize}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::resize (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{coeff\+\_\+count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Resizes the plaintext to have a given coefficient count. The plaintext is automatically reallocated if the new coefficient count does not fit in the current capacity.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em coeff\+\_\+count} & The number of coefficients in the plaintext polynomial \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if coeff\+\_\+count is negative \\
+\hline
+{\em std\+::logic\+\_\+error} & if the plaintext is NTT transformed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_abb65a3de6a3d6d71e5c1c80919eea60f}\label{classseal_1_1_plaintext_abb65a3de6a3d6d71e5c1c80919eea60f} 
+\index{seal::Plaintext@{seal::Plaintext}!save@{save}}
+\index{save@{save}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Plaintext\+::save (\begin{DoxyParamCaption}\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the plaintext to a given memory location. The output is in binary format and not human-\/readable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write the plaintext to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if out is null or if size is too small to contain a SEALHeader, or if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a4e5136783dde07fde0b4c76acc01422e}\label{classseal_1_1_plaintext_a4e5136783dde07fde0b4c76acc01422e} 
+\index{seal::Plaintext@{seal::Plaintext}!save@{save}}
+\index{save@{save}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Plaintext\+::save (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the plaintext to an output stream. The output is in binary format and not human-\/readable. The output stream must have the \"{}binary\"{} flag set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em stream} & The stream to save the plaintext to \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_ac601de584be9f7d4d96543fcb47868a6}\label{classseal_1_1_plaintext_ac601de584be9f7d4d96543fcb47868a6} 
+\index{seal::Plaintext@{seal::Plaintext}!save\_size@{save\_size}}
+\index{save\_size@{save\_size}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{save\_size()}{save\_size()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::streamoff seal\+::\+Plaintext\+::save\+\_\+size (\begin{DoxyParamCaption}\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an upper bound on the size of the plaintext, as if it was written to an output stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the size does not fit in the return type \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a1a664bfea6515b3a3da420f431f451b6}\label{classseal_1_1_plaintext_a1a664bfea6515b3a3da420f431f451b6} 
+\index{seal::Plaintext@{seal::Plaintext}!scale@{scale}}
+\index{scale@{scale}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const double \& seal\+::\+Plaintext\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a constant reference to the scale. This is only needed when using the CKKS encryption scheme. \Hypertarget{classseal_1_1_plaintext_a958fcd7c2bb3b1efc8bc8ccb1c6dc575}\label{classseal_1_1_plaintext_a958fcd7c2bb3b1efc8bc8ccb1c6dc575} 
+\index{seal::Plaintext@{seal::Plaintext}!scale@{scale}}
+\index{scale@{scale}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{scale()}{scale()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD double \& seal\+::\+Plaintext\+::scale (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a reference to the scale. This is only needed when using the CKKS encryption scheme. The user should have little or no reason to ever change the scale by hand. \Hypertarget{classseal_1_1_plaintext_adbe996fc6fc8a5296a7b242d260f7003}\label{classseal_1_1_plaintext_adbe996fc6fc8a5296a7b242d260f7003} 
+\index{seal::Plaintext@{seal::Plaintext}!set\_zero@{set\_zero}}
+\index{set\_zero@{set\_zero}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{set\_zero()}{set\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::set\+\_\+zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the plaintext polynomial to zero. \Hypertarget{classseal_1_1_plaintext_adb0b8c48042aa5b0a992f3008ea50d66}\label{classseal_1_1_plaintext_adb0b8c48042aa5b0a992f3008ea50d66} 
+\index{seal::Plaintext@{seal::Plaintext}!set\_zero@{set\_zero}}
+\index{set\_zero@{set\_zero}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{set\_zero()}{set\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::set\+\_\+zero (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{start\+\_\+coeff }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the plaintext polynomial coefficients to zero starting at a given index.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em start\+\_\+coeff} & The index of the first coefficient to set to zero \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if start\+\_\+coeff is not within \mbox{[}0, coeff\+\_\+count) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a2539b60c9a71d6e32dce953b62ecd0d1}\label{classseal_1_1_plaintext_a2539b60c9a71d6e32dce953b62ecd0d1} 
+\index{seal::Plaintext@{seal::Plaintext}!set\_zero@{set\_zero}}
+\index{set\_zero@{set\_zero}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{set\_zero()}{set\_zero()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::set\+\_\+zero (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{start\+\_\+coeff,  }\item[{std\+::size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets a given range of coefficients of a plaintext polynomial to zero; does nothing if length is zero.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em start\+\_\+coeff} & The index of the first coefficient to set to zero \\
+\hline
+\mbox{\texttt{ in}}  & {\em length} & The number of coefficients to set to zero \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::out\+\_\+of\+\_\+range} & if start\+\_\+coeff + length -\/ 1 is not within \mbox{[}0, coeff\+\_\+count) \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_af9da5b93c14bbf3be8eef7276e8852f7}\label{classseal_1_1_plaintext_af9da5b93c14bbf3be8eef7276e8852f7} 
+\index{seal::Plaintext@{seal::Plaintext}!shrink\_to\_fit@{shrink\_to\_fit}}
+\index{shrink\_to\_fit@{shrink\_to\_fit}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{shrink\_to\_fit()}{shrink\_to\_fit()}}
+{\footnotesize\ttfamily void seal\+::\+Plaintext\+::shrink\+\_\+to\+\_\+fit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Allocates enough memory to accommodate the backing array of the current plaintext and copies it over to the new location. This function is meant to reduce the memory use of the plaintext to smallest possible and can be particularly important after modulus switching. \Hypertarget{classseal_1_1_plaintext_aad488313cf7e15eb3be0327b3b896072}\label{classseal_1_1_plaintext_aad488313cf7e15eb3be0327b3b896072} 
+\index{seal::Plaintext@{seal::Plaintext}!significant\_coeff\_count@{significant\_coeff\_count}}
+\index{significant\_coeff\_count@{significant\_coeff\_count}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{significant\_coeff\_count()}{significant\_coeff\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Plaintext\+::significant\+\_\+coeff\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns the significant coefficient count of the current plaintext polynomial. \Hypertarget{classseal_1_1_plaintext_ad6ea95954eca1900072165cf7328e651}\label{classseal_1_1_plaintext_ad6ea95954eca1900072165cf7328e651} 
+\index{seal::Plaintext@{seal::Plaintext}!to\_string@{to\_string}}
+\index{to\_string@{to\_string}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{to\_string()}{to\_string()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::string seal\+::\+Plaintext\+::to\+\_\+string (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns a human-\/readable string description of the plaintext polynomial.
+
+The returned string is of the form \"{}7\+FFx\texorpdfstring{$^\wedge$}{\string^}3 + 1x\texorpdfstring{$^\wedge$}{\string^}1 + 3\"{} with a format summarized by the following\+:
+\begin{DoxyEnumerate}
+\item Terms are listed in order of strictly decreasing exponent
+\item Coefficient values are non-\/negative and in hexadecimal format (hexadecimal letters are in upper-\/case)
+\item Exponents are positive and in decimal format
+\item Zero coefficient terms (including the constant term) are omitted unless the polynomial is exactly 0 (see rule 9)
+\item Term with the exponent value of one is written as x\texorpdfstring{$^\wedge$}{\string^}1
+\item Term with the exponent value of zero (the constant term) is written as just a hexadecimal number without x or exponent
+\item Terms are separated exactly by $<$space$>$+$<$space$>$
+\item Other than the +, no other terms have whitespace
+\item If the polynomial is exactly 0, the string \"{}0\"{} is returned
+\end{DoxyEnumerate}
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the plaintext is in NTT transformed form \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_ab0c306c36d377d91359b4041402a9fbe}\label{classseal_1_1_plaintext_ab0c306c36d377d91359b4041402a9fbe} 
+\index{seal::Plaintext@{seal::Plaintext}!unsafe\_load@{unsafe\_load}}
+\index{unsafe\_load@{unsafe\_load}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{unsafe\_load()}{unsafe\_load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Plaintext\+::unsafe\+\_\+load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a plaintext from a given memory location overwriting the current plaintext. No checking of the validity of the plaintext data against encryption parameters is performed. This function should not be used unless the plaintext comes from a fully trusted source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the plaintext from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_plaintext_a4c6ded783346dda1fed68ecbd575cb76}\label{classseal_1_1_plaintext_a4c6ded783346dda1fed68ecbd575cb76} 
+\index{seal::Plaintext@{seal::Plaintext}!unsafe\_load@{unsafe\_load}}
+\index{unsafe\_load@{unsafe\_load}!seal::Plaintext@{seal::Plaintext}}
+\doxysubsubsection{\texorpdfstring{unsafe\_load()}{unsafe\_load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Plaintext\+::unsafe\+\_\+load (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_s_e_a_l_context}{SEALContext}} \&}]{context,  }\item[{std\+::istream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a plaintext from an input stream overwriting the current plaintext. No checking of the validity of the plaintext data against encryption parameters is performed. This function should not be used unless the plaintext comes from a fully trusted source.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em context} & The \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} \\
+\hline
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the plaintext from \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the encryption parameters are not valid \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/plaintext.\+h\item 
+seal/plaintext.\+cpp\end{DoxyCompactItemize}

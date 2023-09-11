@@ -1,0 +1,121 @@
+\doxysection{seal\+::util\+::Stride\+Iter\texorpdfstring{$<$}{<} T \texorpdfstring{$\ast$}{*} \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4}{}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4}\index{seal::util::StrideIter$<$ T \texorpdfstring{$\ast$}{*} $>$@{seal::util::StrideIter$<$ T \texorpdfstring{$\ast$}{*} $>$}}
+Inheritance diagram for seal\+::util\+::Stride\+Iter\texorpdfstring{$<$}{<} T \texorpdfstring{$\ast$}{*} \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a98727f4ba157f3c7f06bb67d3cf4945a}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a98727f4ba157f3c7f06bb67d3cf4945a} 
+using {\bfseries self\+\_\+type} = \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a7ea5214570fbd862f78df251b6f488b7}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a7ea5214570fbd862f78df251b6f488b7} 
+using {\bfseries value\+\_\+type} = \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter}{Ptr\+Iter}}$<$ T \texorpdfstring{$\ast$}{*} $>$
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a2d421b35e0c669aa8a5caf76d7dc1428}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a2d421b35e0c669aa8a5caf76d7dc1428} 
+using {\bfseries pointer} = T \texorpdfstring{$\ast$}{*}
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_af596ae6b91854d9f4983a3ef2368fec9}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_af596ae6b91854d9f4983a3ef2368fec9} 
+using {\bfseries reference} = const \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{value\+\_\+type}} \&
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_aa259fcba555c46a6413d088b901a990f}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_aa259fcba555c46a6413d088b901a990f} 
+using {\bfseries iterator\+\_\+category} = std\+::random\+\_\+access\+\_\+iterator\+\_\+tag
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a5ba055ef5f7663fefd5841f63b9311ca}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a5ba055ef5f7663fefd5841f63b9311ca} 
+using {\bfseries difference\+\_\+type} = std\+::ptrdiff\+\_\+t
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a35e03563099980dffb2f8098b0bdc330}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a35e03563099980dffb2f8098b0bdc330} 
+{\footnotesize template$<$typename S $>$ }\\{\bfseries Stride\+Iter} (S \texorpdfstring{$\ast$}{*}ptr, std\+::size\+\_\+t stride) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a797ca004885f8c5de43fe99b8d30d962}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a797ca004885f8c5de43fe99b8d30d962} 
+{\footnotesize template$<$typename S $>$ }\\{\bfseries Stride\+Iter} (\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ copy) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a44c9270ab3059093a5f9eab336d80a99}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a44c9270ab3059093a5f9eab336d80a99} 
+{\footnotesize template$<$typename S $>$ }\\{\bfseries Stride\+Iter} (std\+::vector$<$ S $>$ \&arr, std\+::size\+\_\+t stride) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a12b51eff9c45dd8ca2ea4a3ec3c6ef5a}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a12b51eff9c45dd8ca2ea4a3ec3c6ef5a} 
+{\footnotesize template$<$typename S $>$ }\\{\bfseries Stride\+Iter} (const std\+::vector$<$ S $>$ \&arr, std\+::size\+\_\+t stride) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_aff1b50fe8376522477387288f5f26042}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_aff1b50fe8376522477387288f5f26042} 
+{\footnotesize template$<$typename S $>$ }\\{\bfseries Stride\+Iter} (const \mbox{\hyperlink{classseal_1_1util_1_1_pointer}{Pointer}}$<$ S $>$ \&arr, std\+::size\+\_\+t stride) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a86a59435761a953a8033dd32720281f5}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a86a59435761a953a8033dd32720281f5} 
+{\footnotesize template$<$typename S $>$ }\\\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} \& {\bfseries operator=} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&assign) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a46fa467f8ea7b884cdb5df77efd63341}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a46fa467f8ea7b884cdb5df77efd63341} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{reference}} {\bfseries operator\texorpdfstring{$\ast$}{*}} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a80f0603372801a90f3f6c639b7dd358b}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a80f0603372801a90f3f6c639b7dd358b} 
+{\footnotesize template$<$typename SizeT $>$ }\\SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{value\+\_\+type}} {\bfseries operator\mbox{[}$\,$\mbox{]}} (SizeT n) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a5427be55d363de57390149f3cdf1a579}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a5427be55d363de57390149f3cdf1a579} 
+\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} \& {\bfseries operator++} () noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ae358891749d0d91b14bd702c48c9316b}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ae358891749d0d91b14bd702c48c9316b} 
+\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} {\bfseries operator++} (int) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a500f43ccab3d2cc41d61a23f9bc8dd2f}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a500f43ccab3d2cc41d61a23f9bc8dd2f} 
+\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} \& {\bfseries operator-\/-\/} () noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ac780c03fe32c02b21e89fbd6e885c56d}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ac780c03fe32c02b21e89fbd6e885c56d} 
+\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} {\bfseries operator-\/-\/} (int) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a2c718b13dd8c97dcf8991da554feba32}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a2c718b13dd8c97dcf8991da554feba32} 
+{\footnotesize template$<$typename SizeT $>$ }\\\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} \& {\bfseries operator+=} (SizeT n) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a43a943df5a1622f3e911b1f67651a84e}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a43a943df5a1622f3e911b1f67651a84e} 
+{\footnotesize template$<$typename SizeT $>$ }\\SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} {\bfseries operator+} (SizeT n) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a7fd0a63a2aaf9be15214b5738a431358}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a7fd0a63a2aaf9be15214b5738a431358} 
+{\footnotesize template$<$typename SizeT $>$ }\\\mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} \& {\bfseries operator-\/=} (SizeT n) noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_adefce26372050d94a0178beb71177eb4}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_adefce26372050d94a0178beb71177eb4} 
+{\footnotesize template$<$typename SizeT $>$ }\\SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{self\+\_\+type}} {\bfseries operator-\/} (SizeT n) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad815d9f1b9fcb14ef2543885ef466f74}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad815d9f1b9fcb14ef2543885ef466f74} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD difference\+\_\+type {\bfseries operator-\/} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&b) const
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_acb6f081a45a3cd30301ff7c80a0b611c}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_acb6f081a45a3cd30301ff7c80a0b611c} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD bool {\bfseries operator==} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a8698e1f4e129cc3942f73b06375b5c54}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a8698e1f4e129cc3942f73b06375b5c54} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD bool {\bfseries operator!=} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad502e80dbd9c3c86f893e012ab2246c8}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad502e80dbd9c3c86f893e012ab2246c8} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD bool {\bfseries operator$<$} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a08ff1818d9c5a6882caedc42e487d915}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a08ff1818d9c5a6882caedc42e487d915} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD bool {\bfseries operator$>$} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ae3a9f04c7dc4d8ace42270d4efdb9e15}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ae3a9f04c7dc4d8ace42270d4efdb9e15} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD bool {\bfseries operator$<$=} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_aaecf26219c77c2773b29516e1e306a6b}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_aaecf26219c77c2773b29516e1e306a6b} 
+{\footnotesize template$<$typename S $>$ }\\SEAL\+\_\+\+NODISCARD bool {\bfseries operator$>$=} (const \mbox{\hyperlink{classseal_1_1util_1_1_stride_iter}{Stride\+Iter}}$<$ S \texorpdfstring{$\ast$}{*} $>$ \&compare) const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a714f614715eb577e658999039501dbee}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a714f614715eb577e658999039501dbee} 
+SEAL\+\_\+\+NODISCARD {\bfseries operator bool} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a1f55dfdece03072d9039cbb0f629490c}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_a1f55dfdece03072d9039cbb0f629490c} 
+SEAL\+\_\+\+NODISCARD \mbox{\hyperlink{classseal_1_1util_1_1_ptr_iter_3_01_t_01_5_01_4}{reference}} {\bfseries operator-\/$>$} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad996a6d857bd45c181a6ffe1fd088e55}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad996a6d857bd45c181a6ffe1fd088e55} 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t {\bfseries stride} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad084b9e08f29d9fd0303f770e3d11720}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_ad084b9e08f29d9fd0303f770e3d11720} 
+SEAL\+\_\+\+NODISCARD pointer {\bfseries ptr} () const noexcept
+\item 
+\Hypertarget{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_add396d065f750f0f11fed0e5e00c354c}\label{classseal_1_1util_1_1_stride_iter_3_01_t_01_5_01_4_add396d065f750f0f11fed0e5e00c354c} 
+SEAL\+\_\+\+NODISCARD {\bfseries operator pointer} () const noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/util/iterator.\+h\end{DoxyCompactItemize}

@@ -1,0 +1,512 @@
+\doxysection{seal\+::Modulus Class Reference}
+\hypertarget{classseal_1_1_modulus}{}\label{classseal_1_1_modulus}\index{seal::Modulus@{seal::Modulus}}
+
+
+{\ttfamily \#include $<$modulus.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_modulus_aed7893154e19b206a47d784cd40b9887}{Modulus}} (std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}}=0)
+\item 
+\mbox{\hyperlink{classseal_1_1_modulus_aa0ca727055592e1c9cf0104e4cc7773d}{Modulus}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&copy)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_modulus_a52bc31d9f686768e4905ee9f87acbd0e}{Modulus}} (\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&\&source)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& \mbox{\hyperlink{classseal_1_1_modulus_a23153e42c2a0e62d057e85bf6916f219}{operator=}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& \mbox{\hyperlink{classseal_1_1_modulus_a51060adea6c31dbc9902d0429e3af967}{operator=}} (\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&\&assign)=default
+\item 
+\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& \mbox{\hyperlink{classseal_1_1_modulus_ab40b9ce10aa7ce4fad75c5baa1250c8a}{operator=}} (std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}})
+\item 
+SEAL\+\_\+\+NODISCARD int \mbox{\hyperlink{classseal_1_1_modulus_a5a467b7633b30189b7b8994c12ba3972}{bit\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t \mbox{\hyperlink{classseal_1_1_modulus_a7676349ec6d697a4dfb82af916c67a2a}{uint64\+\_\+count}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD const uint64\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classseal_1_1_modulus_a7818c2aa63d1d7c7b853d9c9e76754a4}{data}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD auto \& \mbox{\hyperlink{classseal_1_1_modulus_a7c1c8023d88d53522b6150e008409f58}{const\+\_\+ratio}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_a3faef1c7f6d097add8629816985b71cc}{is\+\_\+zero}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_ac7b7a062c4f36748166c8ab9d352d0ef}{is\+\_\+prime}} () const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_a070fabdff75ac4eec26c7a964054836c}{operator==}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_a1e32d0eb7322fe325f14a904d1c3a90e}{operator==}} (std\+::uint64\+\_\+t compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_ac2a5eea68be508e4644abea67d7ebcaa}{operator!=}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_a0a7119e55a1426abf79805f972ba4372}{operator!=}} (std\+::uint64\+\_\+t compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_a12cfa2e51363fcfc30b344467b7fa81f}{operator$<$}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_ab97f2741069062a34956973a34794702}{operator$<$}} (std\+::uint64\+\_\+t compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_abd59972c8b29420eaf73e3fb50e84094}{operator$<$=}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_ad87605733754b63fb11a4a7317b04730}{operator$<$=}} (std\+::uint64\+\_\+t compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_abac1812270213b596f6ebfd0385fe67c}{operator$>$}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_ae28239efa3e069c793523ed3bcc6d4dc}{operator$>$}} (std\+::uint64\+\_\+t compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_ad2d45b61fc8b528ec39ea3e552aa092c}{operator$>$=}} (const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD bool \mbox{\hyperlink{classseal_1_1_modulus_a43b0e488f86cf0863449fbabddc1c73b}{operator$>$=}} (std\+::uint64\+\_\+t compare) const noexcept
+\item 
+SEAL\+\_\+\+NODISCARD std\+::streamoff \mbox{\hyperlink{classseal_1_1_modulus_a3d7f4a9d22c7b43dfd3c7f73fdd9023c}{save\+\_\+size}} (compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_modulus_ad7c337479a9965df01f4dd7bb57e8750}{save}} (std\+::ostream \&stream, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_modulus_a48e9508412aaee30b15f00b61e87803d}{load}} (std\+::istream \&stream)
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_modulus_a7c60e00ef8807d3725fdc60d7fe7a244}{save}} (seal\+\_\+byte \texorpdfstring{$\ast$}{*}out, std\+::size\+\_\+t size, compr\+\_\+mode\+\_\+type compr\+\_\+mode=\mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}) const
+\item 
+std\+::streamoff \mbox{\hyperlink{classseal_1_1_modulus_a0b5d37c75a95c0d00dd27804cebca509}{load}} (const seal\+\_\+byte \texorpdfstring{$\ast$}{*}in, std\+::size\+\_\+t size)
+\item 
+SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_modulus_aed40b3e8d6231192d45a6e4a9bcc071e}{reduce}} (std\+::uint64\+\_\+t \mbox{\hyperlink{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}{value}}) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represent an integer modulus of up to 61 bits. An instance of the \doxylink{classseal_1_1_modulus}{Modulus} class represents a non-\/negative integer modulus up to 61 bits. In particular, the encryption parameter plain\+\_\+modulus, and the primes in coeff\+\_\+modulus, are represented by instances of \doxylink{classseal_1_1_modulus}{Modulus}. The purpose of this class is to perform and store the pre-\/computation required by Barrett reduction.
+
+\begin{DoxyParagraph}{Thread Safety}
+In general, reading from \doxylink{classseal_1_1_modulus}{Modulus} is thread-\/safe as long as no other thread is concurrently mutating it.
+\end{DoxyParagraph}
+\begin{DoxySeeAlso}{See also}
+\doxylink{classseal_1_1_encryption_parameters}{Encryption\+Parameters} for a description of the encryption parameters. 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_modulus_aed7893154e19b206a47d784cd40b9887}\label{classseal_1_1_modulus_aed7893154e19b206a47d784cd40b9887} 
+\index{seal::Modulus@{seal::Modulus}!Modulus@{Modulus}}
+\index{Modulus@{Modulus}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{Modulus()}{Modulus()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily seal\+::\+Modulus\+::\+Modulus (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{value = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Creates a \doxylink{classseal_1_1_modulus}{Modulus} instance. The value of the \doxylink{classseal_1_1_modulus}{Modulus} is set to the given value, or to zero by default.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The integer modulus \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if value is 1 or more than 61 bits \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_aa0ca727055592e1c9cf0104e4cc7773d}\label{classseal_1_1_modulus_aa0ca727055592e1c9cf0104e4cc7773d} 
+\index{seal::Modulus@{seal::Modulus}!Modulus@{Modulus}}
+\index{Modulus@{Modulus}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{Modulus()}{Modulus()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily seal\+::\+Modulus\+::\+Modulus (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{copy }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_modulus}{Modulus} by copying a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em copy} & The \doxylink{classseal_1_1_modulus}{Modulus} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a52bc31d9f686768e4905ee9f87acbd0e}\label{classseal_1_1_modulus_a52bc31d9f686768e4905ee9f87acbd0e} 
+\index{seal::Modulus@{seal::Modulus}!Modulus@{Modulus}}
+\index{Modulus@{Modulus}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{Modulus()}{Modulus()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily seal\+::\+Modulus\+::\+Modulus (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&\&}]{source }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_modulus}{Modulus} by copying a given one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em source} & The \doxylink{classseal_1_1_modulus}{Modulus} to move from \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_modulus_a5a467b7633b30189b7b8994c12ba3972}\label{classseal_1_1_modulus_a5a467b7633b30189b7b8994c12ba3972} 
+\index{seal::Modulus@{seal::Modulus}!bit\_count@{bit\_count}}
+\index{bit\_count@{bit\_count}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{bit\_count()}{bit\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD int seal\+::\+Modulus\+::bit\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the significant bit count of the value of the current \doxylink{classseal_1_1_modulus}{Modulus}. \Hypertarget{classseal_1_1_modulus_a7c1c8023d88d53522b6150e008409f58}\label{classseal_1_1_modulus_a7c1c8023d88d53522b6150e008409f58} 
+\index{seal::Modulus@{seal::Modulus}!const\_ratio@{const\_ratio}}
+\index{const\_ratio@{const\_ratio}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{const\_ratio()}{const\_ratio()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD auto \& seal\+::\+Modulus\+::const\+\_\+ratio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the Barrett ratio computed for the value of the current \doxylink{classseal_1_1_modulus}{Modulus}. The first two components of the Barrett ratio are the floor of 2\texorpdfstring{$^\wedge$}{\string^}128/value, and the third component is the remainder. \Hypertarget{classseal_1_1_modulus_a7818c2aa63d1d7c7b853d9c9e76754a4}\label{classseal_1_1_modulus_a7818c2aa63d1d7c7b853d9c9e76754a4} 
+\index{seal::Modulus@{seal::Modulus}!data@{data}}
+\index{data@{data}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{data()}{data()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD const uint64\+\_\+t \texorpdfstring{$\ast$}{*} seal\+::\+Modulus\+::data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns a const pointer to the value of the current \doxylink{classseal_1_1_modulus}{Modulus}. \Hypertarget{classseal_1_1_modulus_ac7b7a062c4f36748166c8ab9d352d0ef}\label{classseal_1_1_modulus_ac7b7a062c4f36748166c8ab9d352d0ef} 
+\index{seal::Modulus@{seal::Modulus}!is\_prime@{is\_prime}}
+\index{is\_prime@{is\_prime}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{is\_prime()}{is\_prime()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::is\+\_\+prime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns whether the value of the current \doxylink{classseal_1_1_modulus}{Modulus} is a prime number. \Hypertarget{classseal_1_1_modulus_a3faef1c7f6d097add8629816985b71cc}\label{classseal_1_1_modulus_a3faef1c7f6d097add8629816985b71cc} 
+\index{seal::Modulus@{seal::Modulus}!is\_zero@{is\_zero}}
+\index{is\_zero@{is\_zero}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{is\_zero()}{is\_zero()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::is\+\_\+zero (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns whether the value of the current \doxylink{classseal_1_1_modulus}{Modulus} is zero. \Hypertarget{classseal_1_1_modulus_a0b5d37c75a95c0d00dd27804cebca509}\label{classseal_1_1_modulus_a0b5d37c75a95c0d00dd27804cebca509} 
+\index{seal::Modulus@{seal::Modulus}!load@{load}}
+\index{load@{load}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Modulus\+::load (\begin{DoxyParamCaption}\item[{const seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{in,  }\item[{std\+::size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_modulus}{Modulus} from a given memory location overwriting the current \doxylink{classseal_1_1_modulus}{Modulus}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in} & The memory location to load the \doxylink{classseal_1_1_modulus}{Modulus} from \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if in is null or if size is too small to contain a SEALHeader \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_a48e9508412aaee30b15f00b61e87803d}\label{classseal_1_1_modulus_a48e9508412aaee30b15f00b61e87803d} 
+\index{seal::Modulus@{seal::Modulus}!load@{load}}
+\index{load@{load}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Modulus\+::load (\begin{DoxyParamCaption}\item[{std\+::istream \&}]{stream }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Loads a \doxylink{classseal_1_1_modulus}{Modulus} from an input stream overwriting the current \doxylink{classseal_1_1_modulus}{Modulus}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em stream} & The stream to load the \doxylink{classseal_1_1_modulus}{Modulus} from \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the data cannot be loaded by this version of Microsoft SEAL, if the loaded data is invalid, or if decompression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_ac2a5eea68be508e4644abea67d7ebcaa}\label{classseal_1_1_modulus_ac2a5eea68be508e4644abea67d7ebcaa} 
+\index{seal::Modulus@{seal::Modulus}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator!= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares two \doxylink{classseal_1_1_modulus}{Modulus} instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The \doxylink{classseal_1_1_modulus}{Modulus} to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a0a7119e55a1426abf79805f972ba4372}\label{classseal_1_1_modulus_a0a7119e55a1426abf79805f972ba4372} 
+\index{seal::Modulus@{seal::Modulus}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator!= (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a \doxylink{classseal_1_1_modulus}{Modulus} value to an unsigned integer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The unsigned integer to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a12cfa2e51363fcfc30b344467b7fa81f}\label{classseal_1_1_modulus_a12cfa2e51363fcfc30b344467b7fa81f} 
+\index{seal::Modulus@{seal::Modulus}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$<$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares two \doxylink{classseal_1_1_modulus}{Modulus} instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The \doxylink{classseal_1_1_modulus}{Modulus} to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_ab97f2741069062a34956973a34794702}\label{classseal_1_1_modulus_ab97f2741069062a34956973a34794702} 
+\index{seal::Modulus@{seal::Modulus}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$<$()}{operator<()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$<$ (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a \doxylink{classseal_1_1_modulus}{Modulus} value to an unsigned integer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The unsigned integer to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_abd59972c8b29420eaf73e3fb50e84094}\label{classseal_1_1_modulus_abd59972c8b29420eaf73e3fb50e84094} 
+\index{seal::Modulus@{seal::Modulus}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$<$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares two \doxylink{classseal_1_1_modulus}{Modulus} instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The \doxylink{classseal_1_1_modulus}{Modulus} to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_ad87605733754b63fb11a4a7317b04730}\label{classseal_1_1_modulus_ad87605733754b63fb11a4a7317b04730} 
+\index{seal::Modulus@{seal::Modulus}!operator$<$=@{operator$<$=}}
+\index{operator$<$=@{operator$<$=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$<$=()}{operator<=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$<$= (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a \doxylink{classseal_1_1_modulus}{Modulus} value to an unsigned integer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The unsigned integer to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a23153e42c2a0e62d057e85bf6916f219}\label{classseal_1_1_modulus_a23153e42c2a0e62d057e85bf6916f219} 
+\index{seal::Modulus@{seal::Modulus}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& seal\+::\+Modulus\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Copies a given \doxylink{classseal_1_1_modulus}{Modulus} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_modulus}{Modulus} to copy from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a51060adea6c31dbc9902d0429e3af967}\label{classseal_1_1_modulus_a51060adea6c31dbc9902d0429e3af967} 
+\index{seal::Modulus@{seal::Modulus}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& seal\+::\+Modulus\+::operator= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&\&}]{assign }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Moves a given \doxylink{classseal_1_1_modulus}{Modulus} to the current one.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em assign} & The \doxylink{classseal_1_1_modulus}{Modulus} to move from \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_ab40b9ce10aa7ce4fad75c5baa1250c8a}\label{classseal_1_1_modulus_ab40b9ce10aa7ce4fad75c5baa1250c8a} 
+\index{seal::Modulus@{seal::Modulus}!operator=@{operator=}}
+\index{operator=@{operator=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \& seal\+::\+Modulus\+::operator= (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Sets the value of the \doxylink{classseal_1_1_modulus}{Modulus}.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The new integer modulus \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if value is 1 or more than 61 bits \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_a070fabdff75ac4eec26c7a964054836c}\label{classseal_1_1_modulus_a070fabdff75ac4eec26c7a964054836c} 
+\index{seal::Modulus@{seal::Modulus}!operator==@{operator==}}
+\index{operator==@{operator==}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator== (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares two \doxylink{classseal_1_1_modulus}{Modulus} instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The \doxylink{classseal_1_1_modulus}{Modulus} to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a1e32d0eb7322fe325f14a904d1c3a90e}\label{classseal_1_1_modulus_a1e32d0eb7322fe325f14a904d1c3a90e} 
+\index{seal::Modulus@{seal::Modulus}!operator==@{operator==}}
+\index{operator==@{operator==}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator== (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a \doxylink{classseal_1_1_modulus}{Modulus} value to an unsigned integer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The unsigned integer to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_abac1812270213b596f6ebfd0385fe67c}\label{classseal_1_1_modulus_abac1812270213b596f6ebfd0385fe67c} 
+\index{seal::Modulus@{seal::Modulus}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$>$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares two \doxylink{classseal_1_1_modulus}{Modulus} instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The \doxylink{classseal_1_1_modulus}{Modulus} to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_ae28239efa3e069c793523ed3bcc6d4dc}\label{classseal_1_1_modulus_ae28239efa3e069c793523ed3bcc6d4dc} 
+\index{seal::Modulus@{seal::Modulus}!operator$>$@{operator$>$}}
+\index{operator$>$@{operator$>$}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$>$()}{operator>()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$>$ (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a \doxylink{classseal_1_1_modulus}{Modulus} value to an unsigned integer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The unsigned integer to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_ad2d45b61fc8b528ec39ea3e552aa092c}\label{classseal_1_1_modulus_ad2d45b61fc8b528ec39ea3e552aa092c} 
+\index{seal::Modulus@{seal::Modulus}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$>$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares two \doxylink{classseal_1_1_modulus}{Modulus} instances.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The \doxylink{classseal_1_1_modulus}{Modulus} to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_a43b0e488f86cf0863449fbabddc1c73b}\label{classseal_1_1_modulus_a43b0e488f86cf0863449fbabddc1c73b} 
+\index{seal::Modulus@{seal::Modulus}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{operator$>$=()}{operator>=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD bool seal\+::\+Modulus\+::operator$>$= (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{compare }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Compares a \doxylink{classseal_1_1_modulus}{Modulus} value to an unsigned integer.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compare} & The unsigned integer to compare against \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classseal_1_1_modulus_aed40b3e8d6231192d45a6e4a9bcc071e}\label{classseal_1_1_modulus_aed40b3e8d6231192d45a6e4a9bcc071e} 
+\index{seal::Modulus@{seal::Modulus}!reduce@{reduce}}
+\index{reduce@{reduce}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{reduce()}{reduce()}}
+{\footnotesize\ttfamily uint64\+\_\+t seal\+::\+Modulus\+::reduce (\begin{DoxyParamCaption}\item[{std\+::uint64\+\_\+t}]{value }\end{DoxyParamCaption}) const}
+
+Reduces a given unsigned integer modulo this modulus.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em value} & The unsigned integer to reduce \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::logic\+\_\+error} & if the \doxylink{classseal_1_1_modulus}{Modulus} is zero \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_a7c60e00ef8807d3725fdc60d7fe7a244}\label{classseal_1_1_modulus_a7c60e00ef8807d3725fdc60d7fe7a244} 
+\index{seal::Modulus@{seal::Modulus}!save@{save}}
+\index{save@{save}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Modulus\+::save (\begin{DoxyParamCaption}\item[{seal\+\_\+byte \texorpdfstring{$\ast$}{*}}]{out,  }\item[{std\+::size\+\_\+t}]{size,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the \doxylink{classseal_1_1_modulus}{Modulus} to a given memory location. The output is in binary format and not human-\/readable.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em out} & The memory location to write the \doxylink{classseal_1_1_modulus}{Modulus} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em size} & The number of bytes available in the given memory location \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if out is null or if size is too small to contain a SEALHeader, or if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_ad7c337479a9965df01f4dd7bb57e8750}\label{classseal_1_1_modulus_ad7c337479a9965df01f4dd7bb57e8750} 
+\index{seal::Modulus@{seal::Modulus}!save@{save}}
+\index{save@{save}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::streamoff seal\+::\+Modulus\+::save (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{stream,  }\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Saves the \doxylink{classseal_1_1_modulus}{Modulus} to an output stream. The output is in binary format and not human-\/readable. The output stream must have the \"{}binary\"{} flag set.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em stream} & The stream to save the \doxylink{classseal_1_1_modulus}{Modulus} to \\
+\hline
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The desired compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the data to be saved is invalid, or if compression failed \\
+\hline
+{\em std\+::runtime\+\_\+error} & if I/O operations failed \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_a3d7f4a9d22c7b43dfd3c7f73fdd9023c}\label{classseal_1_1_modulus_a3d7f4a9d22c7b43dfd3c7f73fdd9023c} 
+\index{seal::Modulus@{seal::Modulus}!save\_size@{save\_size}}
+\index{save\_size@{save\_size}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{save\_size()}{save\_size()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::streamoff seal\+::\+Modulus\+::save\+\_\+size (\begin{DoxyParamCaption}\item[{compr\+\_\+mode\+\_\+type}]{compr\+\_\+mode = {\ttfamily \mbox{\hyperlink{classseal_1_1_serialization_ac61148d45a46cf52709cbf4ddd8d2631}{Serialization\+::compr\+\_\+mode\+\_\+default}}} }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+Returns an upper bound on the size of the \doxylink{classseal_1_1_modulus}{Modulus}, as if it was written to an output stream.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em compr\+\_\+mode} & The compression mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if the compression mode is not supported \\
+\hline
+{\em std\+::logic\+\_\+error} & if the size does not fit in the return type \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_modulus_a7676349ec6d697a4dfb82af916c67a2a}\label{classseal_1_1_modulus_a7676349ec6d697a4dfb82af916c67a2a} 
+\index{seal::Modulus@{seal::Modulus}!uint64\_count@{uint64\_count}}
+\index{uint64\_count@{uint64\_count}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{uint64\_count()}{uint64\_count()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::size\+\_\+t seal\+::\+Modulus\+::uint64\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the size (in 64-\/bit words) of the value of the current \doxylink{classseal_1_1_modulus}{Modulus}. \Hypertarget{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5}\label{classseal_1_1_modulus_a895b63642548423c0a4a03f75b0cdea5} 
+\index{seal::Modulus@{seal::Modulus}!value@{value}}
+\index{value@{value}!seal::Modulus@{seal::Modulus}}
+\doxysubsubsection{\texorpdfstring{value()}{value()}}
+{\footnotesize\ttfamily SEAL\+\_\+\+NODISCARD std\+::uint64\+\_\+t seal\+::\+Modulus\+::value (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [noexcept]}}
+
+Returns the value of the current \doxylink{classseal_1_1_modulus}{Modulus}. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/modulus.\+h\item 
+seal/modulus.\+cpp\end{DoxyCompactItemize}

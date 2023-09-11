@@ -1,0 +1,92 @@
+\doxysection{plaintext.\+h}
+\hypertarget{c_2plaintext_8h_source}{}\label{c_2plaintext_8h_source}\index{seal/c/plaintext.h@{seal/c/plaintext.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00007\ \textcolor{comment}{//}}
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ This\ API\ is\ provided\ as\ a\ simple\ interface\ for\ Microsoft\ SEAL\ library}}
+\DoxyCodeLine{00009\ \textcolor{comment}{//\ that\ can\ be\ PInvoked\ by\ .Net\ code.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{//}}
+\DoxyCodeLine{00012\ \textcolor{comment}{}}
+\DoxyCodeLine{00013\ \textcolor{preprocessor}{\#include\ "{}seal/c/defines.h"{}}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ <stdint.h>}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ SEAL\_C\_FUNC\ Plaintext\_Create1(\textcolor{keywordtype}{void}\ *memoryPoolHandle,\ \textcolor{keywordtype}{void}\ **plaintext);}
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00018\ SEAL\_C\_FUNC\ Plaintext\_Create2(uint64\_t\ coeffCount,\ \textcolor{keywordtype}{void}\ *memoryPoolHandle,\ \textcolor{keywordtype}{void}\ **plaintext);}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ SEAL\_C\_FUNC\ Plaintext\_Create3(uint64\_t\ capacity,\ uint64\_t\ coeffCount,\ \textcolor{keywordtype}{void}\ *memoryPoolHandle,\ \textcolor{keywordtype}{void}\ **plaintext);}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ SEAL\_C\_FUNC\ Plaintext\_Create4(\textcolor{keywordtype}{char}\ *hex\_poly,\ \textcolor{keywordtype}{void}\ *memoryPoolHandle,\ \textcolor{keywordtype}{void}\ **plaintext);}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ SEAL\_C\_FUNC\ Plaintext\_Create5(\textcolor{keywordtype}{void}\ *copy,\ \textcolor{keywordtype}{void}\ **plaintext);}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ SEAL\_C\_FUNC\ Plaintext\_Set1(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *assign);}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ SEAL\_C\_FUNC\ Plaintext\_Set2(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{char}\ *hex\_poly);}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ SEAL\_C\_FUNC\ Plaintext\_Set3(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ const\_coeff);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ SEAL\_C\_FUNC\ Plaintext\_Set4(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ count,\ uint64\_t\ *coeffs);}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ SEAL\_C\_FUNC\ Plaintext\_Destroy(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ SEAL\_C\_FUNC\ Plaintext\_CoeffCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *coeff\_count);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ SEAL\_C\_FUNC\ Plaintext\_CoeffAt(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ index,\ uint64\_t\ *coeff);}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ SEAL\_C\_FUNC\ Plaintext\_SetCoeffAt(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ index,\ uint64\_t\ value);}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ SEAL\_C\_FUNC\ Plaintext\_ToString(\textcolor{keywordtype}{void}\ *thispt,\ \textcolor{keywordtype}{char}\ *outstr,\ uint64\_t\ *length);}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ SEAL\_C\_FUNC\ Plaintext\_IsNTTForm(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *is\_ntt\_form);}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ SEAL\_C\_FUNC\ Plaintext\_IsZero(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{bool}\ *is\_zero);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ SEAL\_C\_FUNC\ Plaintext\_SetZero1(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ SEAL\_C\_FUNC\ Plaintext\_SetZero2(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ start\_coeff);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ SEAL\_C\_FUNC\ Plaintext\_SetZero3(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ start\_coeff,\ uint64\_t\ length);}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ SEAL\_C\_FUNC\ Plaintext\_GetParmsId(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *parms\_id);}
+\DoxyCodeLine{00055\ }
+\DoxyCodeLine{00056\ SEAL\_C\_FUNC\ Plaintext\_SetParmsId(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *parms\_id);}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ SEAL\_C\_FUNC\ Plaintext\_Reserve(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ capacity);}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ SEAL\_C\_FUNC\ Plaintext\_Resize(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ coeff\_count);}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ SEAL\_C\_FUNC\ Plaintext\_ShrinkToFit(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ SEAL\_C\_FUNC\ Plaintext\_Release(\textcolor{keywordtype}{void}\ *thisptr);}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ SEAL\_C\_FUNC\ Plaintext\_Capacity(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *capacity);}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ SEAL\_C\_FUNC\ Plaintext\_SignificantCoeffCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *significant\_coeff\_count);}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ SEAL\_C\_FUNC\ Plaintext\_NonZeroCoeffCount(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ *nonzero\_coeff\_count);}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00072\ SEAL\_C\_FUNC\ Plaintext\_Scale(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{double}\ *scale);}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ SEAL\_C\_FUNC\ Plaintext\_SetScale(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{double}\ scale);}
+\DoxyCodeLine{00075\ }
+\DoxyCodeLine{00076\ SEAL\_C\_FUNC\ Plaintext\_Equals(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *other,\ \textcolor{keywordtype}{bool}\ *result);}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ SEAL\_C\_FUNC\ Plaintext\_SwapData(\textcolor{keywordtype}{void}\ *thisptr,\ uint64\_t\ count,\ uint64\_t\ *new\_data);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ SEAL\_C\_FUNC\ Plaintext\_Pool(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ **pool);}
+\DoxyCodeLine{00081\ }
+\DoxyCodeLine{00082\ SEAL\_C\_FUNC\ Plaintext\_SaveSize(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ compr\_mode,\ int64\_t\ *result);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ SEAL\_C\_FUNC\ Plaintext\_Save(\textcolor{keywordtype}{void}\ *thisptr,\ uint8\_t\ *outptr,\ uint64\_t\ size,\ uint8\_t\ compr\_mode,\ int64\_t\ *out\_bytes);}
+\DoxyCodeLine{00085\ }
+\DoxyCodeLine{00086\ SEAL\_C\_FUNC\ Plaintext\_UnsafeLoad(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint8\_t\ *inptr,\ uint64\_t\ size,\ int64\_t\ *in\_bytes);}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ SEAL\_C\_FUNC\ Plaintext\_Load(\textcolor{keywordtype}{void}\ *thisptr,\ \textcolor{keywordtype}{void}\ *context,\ uint8\_t\ *inptr,\ uint64\_t\ size,\ int64\_t\ *in\_bytes);}
+
+\end{DoxyCode}

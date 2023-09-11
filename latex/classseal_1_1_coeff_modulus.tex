@@ -1,0 +1,122 @@
+\doxysection{seal\+::Coeff\+Modulus Class Reference}
+\hypertarget{classseal_1_1_coeff_modulus}{}\label{classseal_1_1_coeff_modulus}\index{seal::CoeffModulus@{seal::CoeffModulus}}
+
+
+{\ttfamily \#include $<$modulus.\+h$>$}
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static SEAL\+\_\+\+NODISCARD constexpr int \mbox{\hyperlink{classseal_1_1_coeff_modulus_a2ab3dc829530711628fb8041ebbe143f}{Max\+Bit\+Count}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, sec\+\_\+level\+\_\+type sec\+\_\+level=sec\+\_\+level\+\_\+type\+::tc128) noexcept
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a6f120db2858c87d7dd670a72dc9aaccc}{BFVDefault}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, sec\+\_\+level\+\_\+type sec\+\_\+level=sec\+\_\+level\+\_\+type\+::tc128)
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a79140507d9efa53cd518ca4c6f77d933}{Create}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, std\+::vector$<$ int $>$ bit\+\_\+sizes)
+\item 
+static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ \mbox{\hyperlink{classseal_1_1_coeff_modulus_a2fb20ada00c1e313ca0b416fcd1e7bb3}{Create}} (std\+::size\+\_\+t poly\+\_\+modulus\+\_\+degree, const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&plain\+\_\+modulus, std\+::vector$<$ int $>$ bit\+\_\+sizes)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class contains static methods for creating a coefficient modulus easily. Note that while these functions take a sec\+\_\+level\+\_\+type argument, all security guarantees are lost if the output is used with encryption parameters with a mismatching value for the poly\+\_\+modulus\+\_\+degree.
+
+The default value sec\+\_\+level\+\_\+type\+::tc128 provides a very high level of security and is the default security level enforced by Microsoft SEAL when constructing a \doxylink{classseal_1_1_s_e_a_l_context}{SEALContext} object. Normal users should not have to specify the security level explicitly anywhere. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_coeff_modulus_a6f120db2858c87d7dd670a72dc9aaccc}\label{classseal_1_1_coeff_modulus_a6f120db2858c87d7dd670a72dc9aaccc} 
+\index{seal::CoeffModulus@{seal::CoeffModulus}!BFVDefault@{BFVDefault}}
+\index{BFVDefault@{BFVDefault}!seal::CoeffModulus@{seal::CoeffModulus}}
+\doxysubsubsection{\texorpdfstring{BFVDefault()}{BFVDefault()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ seal\+::\+Coeff\+Modulus\+::\+BFVDefault (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{sec\+\_\+level\+\_\+type}]{sec\+\_\+level = {\ttfamily sec\+\_\+level\+\_\+type\+:\+:tc128} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a default coefficient modulus for the BFV scheme that guarantees a given security level when using a given poly\+\_\+modulus\+\_\+degree, according to the Homomorphic\+Encryption.\+org security standard. Note that all security guarantees are lost if the output is used with encryption parameters with a mismatching value for the poly\+\_\+modulus\+\_\+degree.
+
+The coefficient modulus returned by this function will not perform well if used with the CKKS scheme.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The value of the poly\+\_\+modulus\+\_\+degree encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em sec\+\_\+level} & The desired standard security level \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if poly\+\_\+modulus\+\_\+degree is not a power-\/of-\/two or is too large \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if sec\+\_\+level is sec\+\_\+level\+\_\+type\+::none \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_coeff_modulus_a2fb20ada00c1e313ca0b416fcd1e7bb3}\label{classseal_1_1_coeff_modulus_a2fb20ada00c1e313ca0b416fcd1e7bb3} 
+\index{seal::CoeffModulus@{seal::CoeffModulus}!Create@{Create}}
+\index{Create@{Create}!seal::CoeffModulus@{seal::CoeffModulus}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ seal\+::\+Coeff\+Modulus\+::\+Create (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{const \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} \&}]{plain\+\_\+modulus,  }\item[{std\+::vector$<$ int $>$}]{bit\+\_\+sizes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a custom coefficient modulus suitable for use with the specified poly\+\_\+modulus\+\_\+degree. The return value will be a vector consisting of \doxylink{classseal_1_1_modulus}{Modulus} elements representing distinct prime numbers such that\+: 1) have bit-\/lengths as given in the bit\+\_\+sizes parameter (at most 60 bits) and 2) are congruent to 1 modulo LCM(2\texorpdfstring{$\ast$}{*}poly\+\_\+modulus\+\_\+degree, plain\+\_\+modulus).
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The value of the poly\+\_\+modulus\+\_\+degree encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em plain\+\_\+modulus} & The value of the plain\+\_\+modulus encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em bit\+\_\+sizes} & The bit-\/lengths of the primes to be generated \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if poly\+\_\+modulus\+\_\+degree is not a power-\/of-\/two or is too large \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if bit\+\_\+sizes is too large or if its elements are out of bounds \\
+\hline
+{\em std\+::logic\+\_\+error} & if LCM(2\texorpdfstring{$\ast$}{*}poly\+\_\+modulus\+\_\+degree, plain\+\_\+modulus) is more than 64-\/bit \\
+\hline
+{\em std\+::logic\+\_\+error} & if not enough suitable primes could be found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_coeff_modulus_a79140507d9efa53cd518ca4c6f77d933}\label{classseal_1_1_coeff_modulus_a79140507d9efa53cd518ca4c6f77d933} 
+\index{seal::CoeffModulus@{seal::CoeffModulus}!Create@{Create}}
+\index{Create@{Create}!seal::CoeffModulus@{seal::CoeffModulus}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD std\+::vector$<$ \mbox{\hyperlink{classseal_1_1_modulus}{Modulus}} $>$ seal\+::\+Coeff\+Modulus\+::\+Create (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{std\+::vector$<$ int $>$}]{bit\+\_\+sizes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+Returns a custom coefficient modulus suitable for use with the specified poly\+\_\+modulus\+\_\+degree. The return value will be a vector consisting of \doxylink{classseal_1_1_modulus}{Modulus} elements representing distinct prime numbers such that\+: 1) have bit-\/lengths as given in the bit\+\_\+sizes parameter (at most 60 bits) and 2) are congruent to 1 modulo 2\texorpdfstring{$\ast$}{*}poly\+\_\+modulus\+\_\+degree.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The value of the poly\+\_\+modulus\+\_\+degree encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em bit\+\_\+sizes} & The bit-\/lengths of the primes to be generated \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if poly\+\_\+modulus\+\_\+degree is not a power-\/of-\/two or is too large \\
+\hline
+{\em std\+::invalid\+\_\+argument} & if bit\+\_\+sizes is too large or if its elements are out of bounds \\
+\hline
+{\em std\+::logic\+\_\+error} & if not enough suitable primes could be found \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{classseal_1_1_coeff_modulus_a2ab3dc829530711628fb8041ebbe143f}\label{classseal_1_1_coeff_modulus_a2ab3dc829530711628fb8041ebbe143f} 
+\index{seal::CoeffModulus@{seal::CoeffModulus}!MaxBitCount@{MaxBitCount}}
+\index{MaxBitCount@{MaxBitCount}!seal::CoeffModulus@{seal::CoeffModulus}}
+\doxysubsubsection{\texorpdfstring{MaxBitCount()}{MaxBitCount()}}
+{\footnotesize\ttfamily static SEAL\+\_\+\+NODISCARD constexpr int seal\+::\+Coeff\+Modulus\+::\+Max\+Bit\+Count (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{poly\+\_\+modulus\+\_\+degree,  }\item[{sec\+\_\+level\+\_\+type}]{sec\+\_\+level = {\ttfamily sec\+\_\+level\+\_\+type\+:\+:tc128} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [constexpr]}, {\ttfamily [noexcept]}}
+
+Returns the largest bit-\/length of the coefficient modulus, i.\+e., bit-\/length of the product of the primes in the coefficient modulus, that guarantees a given security level when using a given poly\+\_\+modulus\+\_\+degree, according to the Homomorphic\+Encryption.\+org security standard.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em poly\+\_\+modulus\+\_\+degree} & The value of the poly\+\_\+modulus\+\_\+degree encryption parameter \\
+\hline
+\mbox{\texttt{ in}}  & {\em sec\+\_\+level} & The desired standard security level \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+seal/modulus.\+h\item 
+seal/modulus.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,103 @@
+\doxysection{msvc.\+h}
+\hypertarget{msvc_8h_source}{}\label{msvc_8h_source}\index{seal/util/msvc.h@{seal/util/msvc.h}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{comment}{//\ Copyright\ (c)\ Microsoft\ Corporation.\ All\ rights\ reserved.}}
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Licensed\ under\ the\ MIT\ license.}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#if\ SEAL\_COMPILER\ ==\ SEAL\_COMPILER\_MSVC}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ Require\ Visual\ Studio\ 2017\ version\ 15.3\ or\ newer}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#if\ (\_MSC\_VER\ <\ 1911)}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#error\ "{}Microsoft\ Visual\ Studio\ 2017\ version\ 15.3\ or\ newer\ required"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{comment}{//\ Read\ in\ config.h}}
+\DoxyCodeLine{00014\ \textcolor{preprocessor}{\#include\ "{}seal/util/config.h"{}}}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \textcolor{comment}{//\ In\ Visual\ Studio\ redefine\ std::byte\ (seal\_byte)}}
+\DoxyCodeLine{00017\ \textcolor{preprocessor}{\#undef\ SEAL\_USE\_STD\_BYTE}}
+\DoxyCodeLine{00018\ }
+\DoxyCodeLine{00019\ \textcolor{comment}{//\ In\ Visual\ Studio\ for\ now\ we\ disable\ the\ use\ of\ std::shared\_mutex}}
+\DoxyCodeLine{00020\ \textcolor{preprocessor}{\#undef\ SEAL\_USE\_SHARED\_MUTEX}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{comment}{//\ Are\ we\ compiling\ with\ C++17\ or\ newer}}
+\DoxyCodeLine{00023\ \textcolor{preprocessor}{\#if\ (\_MSVC\_LANG\ >=\ 201703L)}}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \textcolor{comment}{//\ Use\ \`{}if\ constexpr'}}
+\DoxyCodeLine{00026\ \textcolor{preprocessor}{\#define\ SEAL\_USE\_IF\_CONSTEXPR}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \textcolor{comment}{//\ Use\ [[maybe\_unused]]}}
+\DoxyCodeLine{00029\ \textcolor{preprocessor}{\#define\ SEAL\_USE\_MAYBE\_UNUSED}}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \textcolor{comment}{//\ Use\ [[nodiscard]]}}
+\DoxyCodeLine{00032\ \textcolor{preprocessor}{\#define\ SEAL\_USE\_NODISCARD}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_IF\_CONSTEXPR}}
+\DoxyCodeLine{00037\ \textcolor{preprocessor}{\#pragma\ message("{}Disabling\ \`{}if\ constexpr`\ based\ on\ \_MSVC\_LANG\ value\ "{}}\ SEAL\_STRINGIZE(\ \(\backslash\)}
+\DoxyCodeLine{00038\ \ \ \ \ \_MSVC\_LANG)\ "{}:\ undefining\ SEAL\_USE\_IF\_CONSTEXPR"{})}
+\DoxyCodeLine{00039\ \textcolor{preprocessor}{\#undef\ SEAL\_USE\_IF\_CONSTEXPR}}
+\DoxyCodeLine{00040\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00042\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_MAYBE\_UNUSED}}
+\DoxyCodeLine{00043\ \textcolor{preprocessor}{\#pragma\ message("{}Disabling\ \`{}[[maybe\_unused]]`\ based\ on\ \_MSVC\_LANG\ value\ "{}}\ SEAL\_STRINGIZE(\ \(\backslash\)}
+\DoxyCodeLine{00044\ \ \ \ \ \_MSVC\_LANG)\ "{}:\ undefining\ SEAL\_USE\_MAYBE\_UNUSED"{})}
+\DoxyCodeLine{00045\ \textcolor{preprocessor}{\#undef\ SEAL\_USE\_MAYBE\_UNUSED}}
+\DoxyCodeLine{00046\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_NODISCARD}}
+\DoxyCodeLine{00049\ \textcolor{preprocessor}{\#pragma\ message("{}Disabling\ \`{}[[nodiscard]]`\ based\ on\ \_MSVC\_LANG\ value\ "{}}\ SEAL\_STRINGIZE(\ \(\backslash\)}
+\DoxyCodeLine{00050\ \ \ \ \ \_MSVC\_LANG)\ "{}:\ undefining\ SEAL\_USE\_NODISCARD"{})}
+\DoxyCodeLine{00051\ \textcolor{preprocessor}{\#undef\ SEAL\_USE\_NODISCARD}}
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00053\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_ALIGNED\_ALLOC}}
+\DoxyCodeLine{00056\ \textcolor{preprocessor}{\#define\ SEAL\_MALLOC(size)\ static\_cast<seal\_byte\ *>(\_aligned\_malloc((size),\ 64))}}
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#define\ SEAL\_FREE(ptr)\ \_aligned\_free(ptr)}}
+\DoxyCodeLine{00058\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{comment}{//\ X64}}
+\DoxyCodeLine{00061\ \textcolor{preprocessor}{\#ifdef\ \_M\_X64}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_INTRIN}}
+\DoxyCodeLine{00064\ \textcolor{preprocessor}{\#include\ <intrin.h>}}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_UMUL128}}
+\DoxyCodeLine{00067\ \textcolor{preprocessor}{\#pragma\ intrinsic(\_umul128)}}
+\DoxyCodeLine{00068\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_UINT64\_HW64(operand1,\ operand2,\ hw64)\ \_umul128(operand1,\ operand2,\ hw64);}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \textcolor{preprocessor}{\#define\ SEAL\_MULTIPLY\_UINT64(operand1,\ operand2,\ result128)\ result128[0]\ =\ \_umul128(operand1,\ operand2,\ result128\ +\ 1);}}
+\DoxyCodeLine{00071\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00073\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_BITSCANREVERSE64}}
+\DoxyCodeLine{00074\ \textcolor{preprocessor}{\#pragma\ intrinsic(\_BitScanReverse64)}}
+\DoxyCodeLine{00075\ \textcolor{preprocessor}{\#define\ SEAL\_MSB\_INDEX\_UINT64(result,\ value)\ \_BitScanReverse64(result,\ value)}}
+\DoxyCodeLine{00076\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00077\ }
+\DoxyCodeLine{00078\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_ADDCARRY\_U64}}
+\DoxyCodeLine{00079\ \textcolor{preprocessor}{\#pragma\ intrinsic(\_addcarry\_u64)}}
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#define\ SEAL\_ADD\_CARRY\_UINT64(operand1,\ operand2,\ carry,\ result)\ \_addcarry\_u64(carry,\ operand1,\ operand2,\ result)}}
+\DoxyCodeLine{00081\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00082\ }
+\DoxyCodeLine{00083\ \textcolor{preprocessor}{\#ifdef\ SEAL\_USE\_\_SUBBORROW\_U64}}
+\DoxyCodeLine{00084\ \textcolor{preprocessor}{\#pragma\ intrinsic(\_subborrow\_u64)}}
+\DoxyCodeLine{00085\ \textcolor{preprocessor}{\#define\ SEAL\_SUB\_BORROW\_UINT64(operand1,\ operand2,\ borrow,\ result)\ \_subborrow\_u64(borrow,\ operand1,\ operand2,\ result)}}
+\DoxyCodeLine{00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{00089\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{00090\ \textcolor{preprocessor}{\#undef\ SEAL\_USE\_INTRIN}}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00092\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\_M\_X64}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \textcolor{comment}{//\ Force\ inline}}
+\DoxyCodeLine{00095\ \textcolor{preprocessor}{\#define\ SEAL\_FORCE\_INLINE\ \_\_forceinline}}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00097\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

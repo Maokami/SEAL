@@ -1,0 +1,57 @@
+\doxysection{seal\+::MMProf Class Reference}
+\hypertarget{classseal_1_1_m_m_prof}{}\label{classseal_1_1_m_m_prof}\index{seal::MMProf@{seal::MMProf}}
+
+
+{\ttfamily \#include $<$memorymanager.\+h$>$}
+
+Inheritance diagram for seal\+::MMProf\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.686747cm]{classseal_1_1_m_m_prof}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8}{MMProf}} ()=default
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4}{\texorpdfstring{$\sim$}{\string~}\+MMProf}} () noexcept
+\item 
+virtual \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} \mbox{\hyperlink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{get\+\_\+pool}} (mm\+\_\+prof\+\_\+opt\+\_\+t)=0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \doxylink{classseal_1_1_m_m_prof}{MMProf} is a pure virtual class that every profile for the \doxylink{classseal_1_1_memory_manager}{Memory\+Manager} should inherit from. The only functionality this class implements is the \doxylink{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}{get\+\_\+pool(mm\+\_\+prof\+\_\+opt\+\_\+t)} function that returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a pool selected by internal logic optionally using the input parameter of type mm\+\_\+prof\+\_\+opt\+\_\+t. The returned \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} must point to a valid memory pool. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8}\label{classseal_1_1_m_m_prof_ac40d4d58135b2afe718a27f8003e35b8} 
+\index{seal::MMProf@{seal::MMProf}!MMProf@{MMProf}}
+\index{MMProf@{MMProf}!seal::MMProf@{seal::MMProf}}
+\doxysubsubsection{\texorpdfstring{MMProf()}{MMProf()}}
+{\footnotesize\ttfamily seal\+::\+MMProf\+::\+MMProf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+Creates a new \doxylink{classseal_1_1_m_m_prof}{MMProf}. \Hypertarget{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4}\label{classseal_1_1_m_m_prof_aee305994863fce7d43609651dad0d1b4} 
+\index{seal::MMProf@{seal::MMProf}!````~MMProf@{\texorpdfstring{$\sim$}{\string~}MMProf}}
+\index{````~MMProf@{\texorpdfstring{$\sim$}{\string~}MMProf}!seal::MMProf@{seal::MMProf}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}MMProf()}{\string~MMProf()}}
+{\footnotesize\ttfamily virtual seal\+::\+MMProf\+::\texorpdfstring{$\sim$}{\string~}\+MMProf (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}, {\ttfamily [noexcept]}}
+
+Destroys the \doxylink{classseal_1_1_m_m_prof}{MMProf}. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604}\label{classseal_1_1_m_m_prof_afb1c4d83f66c5575dfdfc80b367f0604} 
+\index{seal::MMProf@{seal::MMProf}!get\_pool@{get\_pool}}
+\index{get\_pool@{get\_pool}!seal::MMProf@{seal::MMProf}}
+\doxysubsubsection{\texorpdfstring{get\_pool()}{get\_pool()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle}} seal\+::\+MMProf\+::get\+\_\+pool (\begin{DoxyParamCaption}\item[{mm\+\_\+prof\+\_\+opt\+\_\+t}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Returns a \doxylink{classseal_1_1_memory_pool_handle}{Memory\+Pool\+Handle} pointing to a pool selected by internal logic in a derived class and by the mm\+\_\+prof\+\_\+opt\+\_\+t input parameter. 
+
+Implemented in \mbox{\hyperlink{classseal_1_1_m_m_prof_global_a1fc4fdba8e34e8e00a89111627a24451}{seal\+::\+MMProf\+Global}}, \mbox{\hyperlink{classseal_1_1_m_m_prof_new_a6440ac25db64bb5827652b641d286c00}{seal\+::\+MMProf\+New}}, \mbox{\hyperlink{classseal_1_1_m_m_prof_fixed_adb07f45b45b08daf691f4307bb903660}{seal\+::\+MMProf\+Fixed}}, and \mbox{\hyperlink{classseal_1_1_m_m_prof_thread_local_afbd738081f247f35c78438bc77afe184}{seal\+::\+MMProf\+Thread\+Local}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+seal/memorymanager.\+h\end{DoxyCompactItemize}
